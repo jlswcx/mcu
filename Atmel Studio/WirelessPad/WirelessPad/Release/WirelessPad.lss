@@ -1,0 +1,1518 @@
+
+WirelessPad.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000028  00800100  00000cdc  00000d70  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000cdc  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000007  00800128  00800128  00000d98  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000d98  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000dc8  2**2
+                  CONTENTS, READONLY
+  5 .debug_info   000005f4  00000000  00000000  00000e08  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000005a2  00000000  00000000  000013fc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000133  00000000  00000000  0000199e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    00000208  00000000  00000000  00001ad1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	33 c0       	rjmp	.+102    	; 0x68 <__ctors_end>
+   2:	00 00       	nop
+   4:	4c c0       	rjmp	.+152    	; 0x9e <__bad_interrupt>
+   6:	00 00       	nop
+   8:	4a c0       	rjmp	.+148    	; 0x9e <__bad_interrupt>
+   a:	00 00       	nop
+   c:	48 c0       	rjmp	.+144    	; 0x9e <__bad_interrupt>
+   e:	00 00       	nop
+  10:	7d c5       	rjmp	.+2810   	; 0xb0c <__vector_4>
+  12:	00 00       	nop
+  14:	44 c0       	rjmp	.+136    	; 0x9e <__bad_interrupt>
+  16:	00 00       	nop
+  18:	42 c0       	rjmp	.+132    	; 0x9e <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	40 c0       	rjmp	.+128    	; 0x9e <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	3e c0       	rjmp	.+124    	; 0x9e <__bad_interrupt>
+  22:	00 00       	nop
+  24:	3c c0       	rjmp	.+120    	; 0x9e <__bad_interrupt>
+  26:	00 00       	nop
+  28:	3a c0       	rjmp	.+116    	; 0x9e <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	38 c0       	rjmp	.+112    	; 0x9e <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	36 c0       	rjmp	.+108    	; 0x9e <__bad_interrupt>
+  32:	00 00       	nop
+  34:	34 c0       	rjmp	.+104    	; 0x9e <__bad_interrupt>
+  36:	00 00       	nop
+  38:	32 c0       	rjmp	.+100    	; 0x9e <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	30 c0       	rjmp	.+96     	; 0x9e <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	a7 c5       	rjmp	.+2894   	; 0xb90 <__vector_16>
+  42:	00 00       	nop
+  44:	2c c0       	rjmp	.+88     	; 0x9e <__bad_interrupt>
+  46:	00 00       	nop
+  48:	2a c0       	rjmp	.+84     	; 0x9e <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	28 c0       	rjmp	.+80     	; 0x9e <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	26 c0       	rjmp	.+76     	; 0x9e <__bad_interrupt>
+  52:	00 00       	nop
+  54:	a7 c5       	rjmp	.+2894   	; 0xba4 <__vector_21>
+  56:	00 00       	nop
+  58:	22 c0       	rjmp	.+68     	; 0x9e <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	20 c0       	rjmp	.+64     	; 0x9e <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	1e c0       	rjmp	.+60     	; 0x9e <__bad_interrupt>
+  62:	00 00       	nop
+  64:	1c c0       	rjmp	.+56     	; 0x9e <__bad_interrupt>
+	...
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d4 e0       	ldi	r29, 0x04	; 4
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	ec ed       	ldi	r30, 0xDC	; 220
+  7c:	fc e0       	ldi	r31, 0x0C	; 12
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a8 32       	cpi	r26, 0x28	; 40
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	21 e0       	ldi	r18, 0x01	; 1
+  8c:	a8 e2       	ldi	r26, 0x28	; 40
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	af 32       	cpi	r26, 0x2F	; 47
+  96:	b2 07       	cpc	r27, r18
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	d2 d5       	rcall	.+2980   	; 0xc40 <main>
+  9c:	1d c6       	rjmp	.+3130   	; 0xcd8 <_exit>
+
+0000009e <__bad_interrupt>:
+  9e:	b0 cf       	rjmp	.-160    	; 0x0 <__vectors>
+
+000000a0 <ISD_Port_Init>:
+  a0:	e0 91 08 01 	lds	r30, 0x0108	; 0x800108 <DDRBbit>
+  a4:	f0 91 09 01 	lds	r31, 0x0109	; 0x800109 <DDRBbit+0x1>
+  a8:	80 81       	ld	r24, Z
+  aa:	81 60       	ori	r24, 0x01	; 1
+  ac:	80 83       	st	Z, r24
+  ae:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+  b2:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+  b6:	80 81       	ld	r24, Z
+  b8:	81 60       	ori	r24, 0x01	; 1
+  ba:	80 83       	st	Z, r24
+  bc:	e0 91 08 01 	lds	r30, 0x0108	; 0x800108 <DDRBbit>
+  c0:	f0 91 09 01 	lds	r31, 0x0109	; 0x800109 <DDRBbit+0x1>
+  c4:	80 81       	ld	r24, Z
+  c6:	88 60       	ori	r24, 0x08	; 8
+  c8:	80 83       	st	Z, r24
+  ca:	e0 91 08 01 	lds	r30, 0x0108	; 0x800108 <DDRBbit>
+  ce:	f0 91 09 01 	lds	r31, 0x0109	; 0x800109 <DDRBbit+0x1>
+  d2:	80 81       	ld	r24, Z
+  d4:	8f 7e       	andi	r24, 0xEF	; 239
+  d6:	80 83       	st	Z, r24
+  d8:	e0 91 08 01 	lds	r30, 0x0108	; 0x800108 <DDRBbit>
+  dc:	f0 91 09 01 	lds	r31, 0x0109	; 0x800109 <DDRBbit+0x1>
+  e0:	80 81       	ld	r24, Z
+  e2:	80 62       	ori	r24, 0x20	; 32
+  e4:	80 83       	st	Z, r24
+  e6:	e0 91 08 01 	lds	r30, 0x0108	; 0x800108 <DDRBbit>
+  ea:	f0 91 09 01 	lds	r31, 0x0109	; 0x800109 <DDRBbit+0x1>
+  ee:	80 81       	ld	r24, Z
+  f0:	84 60       	ori	r24, 0x04	; 4
+  f2:	80 83       	st	Z, r24
+  f4:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+  f8:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+  fc:	80 81       	ld	r24, Z
+  fe:	84 60       	ori	r24, 0x04	; 4
+ 100:	80 83       	st	Z, r24
+ 102:	08 95       	ret
+
+00000104 <ISD_SPI_Init>:
+ 104:	e0 91 02 01 	lds	r30, 0x0102	; 0x800102 <SPCRbit>
+ 108:	f0 91 03 01 	lds	r31, 0x0103	; 0x800103 <SPCRbit+0x1>
+ 10c:	80 81       	ld	r24, Z
+ 10e:	8f 77       	andi	r24, 0x7F	; 127
+ 110:	80 83       	st	Z, r24
+ 112:	e0 91 02 01 	lds	r30, 0x0102	; 0x800102 <SPCRbit>
+ 116:	f0 91 03 01 	lds	r31, 0x0103	; 0x800103 <SPCRbit+0x1>
+ 11a:	80 81       	ld	r24, Z
+ 11c:	80 64       	ori	r24, 0x40	; 64
+ 11e:	80 83       	st	Z, r24
+ 120:	e0 91 02 01 	lds	r30, 0x0102	; 0x800102 <SPCRbit>
+ 124:	f0 91 03 01 	lds	r31, 0x0103	; 0x800103 <SPCRbit+0x1>
+ 128:	80 81       	ld	r24, Z
+ 12a:	80 62       	ori	r24, 0x20	; 32
+ 12c:	80 83       	st	Z, r24
+ 12e:	e0 91 02 01 	lds	r30, 0x0102	; 0x800102 <SPCRbit>
+ 132:	f0 91 03 01 	lds	r31, 0x0103	; 0x800103 <SPCRbit+0x1>
+ 136:	80 81       	ld	r24, Z
+ 138:	80 61       	ori	r24, 0x10	; 16
+ 13a:	80 83       	st	Z, r24
+ 13c:	e0 91 02 01 	lds	r30, 0x0102	; 0x800102 <SPCRbit>
+ 140:	f0 91 03 01 	lds	r31, 0x0103	; 0x800103 <SPCRbit+0x1>
+ 144:	80 81       	ld	r24, Z
+ 146:	88 60       	ori	r24, 0x08	; 8
+ 148:	80 83       	st	Z, r24
+ 14a:	e0 91 02 01 	lds	r30, 0x0102	; 0x800102 <SPCRbit>
+ 14e:	f0 91 03 01 	lds	r31, 0x0103	; 0x800103 <SPCRbit+0x1>
+ 152:	80 81       	ld	r24, Z
+ 154:	8b 7f       	andi	r24, 0xFB	; 251
+ 156:	80 83       	st	Z, r24
+ 158:	1d bc       	out	0x2d, r1	; 45
+ 15a:	08 95       	ret
+
+0000015c <ISD_SendData>:
+ 15c:	8e bd       	out	0x2e, r24	; 46
+ 15e:	e0 91 00 01 	lds	r30, 0x0100	; 0x800100 <SPSRbit>
+ 162:	f0 91 01 01 	lds	r31, 0x0101	; 0x800101 <SPSRbit+0x1>
+ 166:	80 81       	ld	r24, Z
+ 168:	87 ff       	sbrs	r24, 7
+ 16a:	fd cf       	rjmp	.-6      	; 0x166 <ISD_SendData+0xa>
+ 16c:	8e b5       	in	r24, 0x2e	; 46
+ 16e:	1d bc       	out	0x2d, r1	; 45
+ 170:	8e b5       	in	r24, 0x2e	; 46
+ 172:	08 95       	ret
+
+00000174 <ISD_Stop>:
+ 174:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 178:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 17c:	80 81       	ld	r24, Z
+ 17e:	8b 7f       	andi	r24, 0xFB	; 251
+ 180:	80 83       	st	Z, r24
+ 182:	82 e1       	ldi	r24, 0x12	; 18
+ 184:	eb df       	rcall	.-42     	; 0x15c <ISD_SendData>
+ 186:	80 e0       	ldi	r24, 0x00	; 0
+ 188:	e9 df       	rcall	.-46     	; 0x15c <ISD_SendData>
+ 18a:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 18e:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 192:	80 81       	ld	r24, Z
+ 194:	84 60       	ori	r24, 0x04	; 4
+ 196:	80 83       	st	Z, r24
+ 198:	08 95       	ret
+
+0000019a <ISD_Rest>:
+ 19a:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 19e:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 1a2:	80 81       	ld	r24, Z
+ 1a4:	8b 7f       	andi	r24, 0xFB	; 251
+ 1a6:	80 83       	st	Z, r24
+ 1a8:	83 e1       	ldi	r24, 0x13	; 19
+ 1aa:	d8 df       	rcall	.-80     	; 0x15c <ISD_SendData>
+ 1ac:	80 e0       	ldi	r24, 0x00	; 0
+ 1ae:	d6 df       	rcall	.-84     	; 0x15c <ISD_SendData>
+ 1b0:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 1b4:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 1b8:	80 81       	ld	r24, Z
+ 1ba:	84 60       	ori	r24, 0x04	; 4
+ 1bc:	80 83       	st	Z, r24
+ 1be:	08 95       	ret
+
+000001c0 <ISD_Rd_Status>:
+ 1c0:	cf 93       	push	r28
+ 1c2:	df 93       	push	r29
+ 1c4:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 1c8:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 1cc:	80 81       	ld	r24, Z
+ 1ce:	8b 7f       	andi	r24, 0xFB	; 251
+ 1d0:	80 83       	st	Z, r24
+ 1d2:	85 e1       	ldi	r24, 0x15	; 21
+ 1d4:	c3 df       	rcall	.-122    	; 0x15c <ISD_SendData>
+ 1d6:	80 e0       	ldi	r24, 0x00	; 0
+ 1d8:	c1 df       	rcall	.-126    	; 0x15c <ISD_SendData>
+ 1da:	80 e0       	ldi	r24, 0x00	; 0
+ 1dc:	bf df       	rcall	.-130    	; 0x15c <ISD_SendData>
+ 1de:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 1e2:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 1e6:	80 81       	ld	r24, Z
+ 1e8:	84 60       	ori	r24, 0x04	; 4
+ 1ea:	80 83       	st	Z, r24
+ 1ec:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 1f0:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 1f4:	80 81       	ld	r24, Z
+ 1f6:	8b 7f       	andi	r24, 0xFB	; 251
+ 1f8:	80 83       	st	Z, r24
+ 1fa:	85 e1       	ldi	r24, 0x15	; 21
+ 1fc:	af df       	rcall	.-162    	; 0x15c <ISD_SendData>
+ 1fe:	c8 e2       	ldi	r28, 0x28	; 40
+ 200:	d1 e0       	ldi	r29, 0x01	; 1
+ 202:	88 83       	st	Y, r24
+ 204:	80 e0       	ldi	r24, 0x00	; 0
+ 206:	aa df       	rcall	.-172    	; 0x15c <ISD_SendData>
+ 208:	89 83       	std	Y+1, r24	; 0x01
+ 20a:	80 e0       	ldi	r24, 0x00	; 0
+ 20c:	a7 df       	rcall	.-178    	; 0x15c <ISD_SendData>
+ 20e:	8a 83       	std	Y+2, r24	; 0x02
+ 210:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 214:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 218:	80 81       	ld	r24, Z
+ 21a:	84 60       	ori	r24, 0x04	; 4
+ 21c:	80 83       	st	Z, r24
+ 21e:	df 91       	pop	r29
+ 220:	cf 91       	pop	r28
+ 222:	08 95       	ret
+
+00000224 <ISD_Pu>:
+ 224:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 228:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 22c:	80 81       	ld	r24, Z
+ 22e:	8b 7f       	andi	r24, 0xFB	; 251
+ 230:	80 83       	st	Z, r24
+ 232:	81 e1       	ldi	r24, 0x11	; 17
+ 234:	93 df       	rcall	.-218    	; 0x15c <ISD_SendData>
+ 236:	80 e0       	ldi	r24, 0x00	; 0
+ 238:	91 df       	rcall	.-222    	; 0x15c <ISD_SendData>
+ 23a:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 23e:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 242:	80 81       	ld	r24, Z
+ 244:	84 60       	ori	r24, 0x04	; 4
+ 246:	80 83       	st	Z, r24
+ 248:	bb df       	rcall	.-138    	; 0x1c0 <ISD_Rd_Status>
+ 24a:	80 91 28 01 	lds	r24, 0x0128	; 0x800128 <__data_end>
+ 24e:	86 95       	lsr	r24
+ 250:	81 70       	andi	r24, 0x01	; 1
+ 252:	08 95       	ret
+
+00000254 <ISD_Init>:
+ 254:	25 df       	rcall	.-438    	; 0xa0 <ISD_Port_Init>
+ 256:	56 df       	rcall	.-340    	; 0x104 <ISD_SPI_Init>
+ 258:	e5 cf       	rjmp	.-54     	; 0x224 <ISD_Pu>
+
+0000025a <ISD_Rd_RecPtr>:
+ 25a:	cf 93       	push	r28
+ 25c:	df 93       	push	r29
+ 25e:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 262:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 266:	80 81       	ld	r24, Z
+ 268:	8b 7f       	andi	r24, 0xFB	; 251
+ 26a:	80 83       	st	Z, r24
+ 26c:	88 e1       	ldi	r24, 0x18	; 24
+ 26e:	76 df       	rcall	.-276    	; 0x15c <ISD_SendData>
+ 270:	80 e0       	ldi	r24, 0x00	; 0
+ 272:	74 df       	rcall	.-280    	; 0x15c <ISD_SendData>
+ 274:	80 e0       	ldi	r24, 0x00	; 0
+ 276:	72 df       	rcall	.-284    	; 0x15c <ISD_SendData>
+ 278:	80 e0       	ldi	r24, 0x00	; 0
+ 27a:	70 df       	rcall	.-288    	; 0x15c <ISD_SendData>
+ 27c:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 280:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 284:	80 81       	ld	r24, Z
+ 286:	84 60       	ori	r24, 0x04	; 4
+ 288:	80 83       	st	Z, r24
+ 28a:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 28e:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 292:	80 81       	ld	r24, Z
+ 294:	8b 7f       	andi	r24, 0xFB	; 251
+ 296:	80 83       	st	Z, r24
+ 298:	88 e1       	ldi	r24, 0x18	; 24
+ 29a:	60 df       	rcall	.-320    	; 0x15c <ISD_SendData>
+ 29c:	c8 e2       	ldi	r28, 0x28	; 40
+ 29e:	d1 e0       	ldi	r29, 0x01	; 1
+ 2a0:	88 83       	st	Y, r24
+ 2a2:	80 e0       	ldi	r24, 0x00	; 0
+ 2a4:	5b df       	rcall	.-330    	; 0x15c <ISD_SendData>
+ 2a6:	89 83       	std	Y+1, r24	; 0x01
+ 2a8:	80 e0       	ldi	r24, 0x00	; 0
+ 2aa:	58 df       	rcall	.-336    	; 0x15c <ISD_SendData>
+ 2ac:	8a 83       	std	Y+2, r24	; 0x02
+ 2ae:	80 e0       	ldi	r24, 0x00	; 0
+ 2b0:	55 df       	rcall	.-342    	; 0x15c <ISD_SendData>
+ 2b2:	8b 83       	std	Y+3, r24	; 0x03
+ 2b4:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 2b8:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 2bc:	80 81       	ld	r24, Z
+ 2be:	84 60       	ori	r24, 0x04	; 4
+ 2c0:	80 83       	st	Z, r24
+ 2c2:	df 91       	pop	r29
+ 2c4:	cf 91       	pop	r28
+ 2c6:	08 95       	ret
+
+000002c8 <ISD_Play>:
+ 2c8:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 2cc:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 2d0:	80 81       	ld	r24, Z
+ 2d2:	8b 7f       	andi	r24, 0xFB	; 251
+ 2d4:	80 83       	st	Z, r24
+ 2d6:	80 e5       	ldi	r24, 0x50	; 80
+ 2d8:	41 df       	rcall	.-382    	; 0x15c <ISD_SendData>
+ 2da:	80 e0       	ldi	r24, 0x00	; 0
+ 2dc:	3f df       	rcall	.-386    	; 0x15c <ISD_SendData>
+ 2de:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 2e2:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 2e6:	80 81       	ld	r24, Z
+ 2e8:	84 60       	ori	r24, 0x04	; 4
+ 2ea:	80 83       	st	Z, r24
+ 2ec:	08 95       	ret
+
+000002ee <ISD_rec>:
+ 2ee:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 2f2:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 2f6:	80 81       	ld	r24, Z
+ 2f8:	8b 7f       	andi	r24, 0xFB	; 251
+ 2fa:	80 83       	st	Z, r24
+ 2fc:	81 e4       	ldi	r24, 0x41	; 65
+ 2fe:	2e df       	rcall	.-420    	; 0x15c <ISD_SendData>
+ 300:	80 e0       	ldi	r24, 0x00	; 0
+ 302:	2c df       	rcall	.-424    	; 0x15c <ISD_SendData>
+ 304:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 308:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 30c:	80 81       	ld	r24, Z
+ 30e:	84 60       	ori	r24, 0x04	; 4
+ 310:	80 83       	st	Z, r24
+ 312:	08 95       	ret
+
+00000314 <ISD_Fwd>:
+ 314:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 318:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 31c:	80 81       	ld	r24, Z
+ 31e:	8b 7f       	andi	r24, 0xFB	; 251
+ 320:	80 83       	st	Z, r24
+ 322:	88 e4       	ldi	r24, 0x48	; 72
+ 324:	1b df       	rcall	.-458    	; 0x15c <ISD_SendData>
+ 326:	80 e0       	ldi	r24, 0x00	; 0
+ 328:	19 df       	rcall	.-462    	; 0x15c <ISD_SendData>
+ 32a:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 32e:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 332:	80 81       	ld	r24, Z
+ 334:	84 60       	ori	r24, 0x04	; 4
+ 336:	80 83       	st	Z, r24
+ 338:	08 95       	ret
+
+0000033a <ISD_set_rec>:
+ 33a:	0f 93       	push	r16
+ 33c:	1f 93       	push	r17
+ 33e:	cf 93       	push	r28
+ 340:	df 93       	push	r29
+ 342:	08 2f       	mov	r16, r24
+ 344:	16 2f       	mov	r17, r22
+ 346:	d4 2f       	mov	r29, r20
+ 348:	c2 2f       	mov	r28, r18
+ 34a:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 34e:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 352:	80 81       	ld	r24, Z
+ 354:	8b 7f       	andi	r24, 0xFB	; 251
+ 356:	80 83       	st	Z, r24
+ 358:	81 e8       	ldi	r24, 0x81	; 129
+ 35a:	00 df       	rcall	.-512    	; 0x15c <ISD_SendData>
+ 35c:	80 e0       	ldi	r24, 0x00	; 0
+ 35e:	fe de       	rcall	.-516    	; 0x15c <ISD_SendData>
+ 360:	80 2f       	mov	r24, r16
+ 362:	fc de       	rcall	.-520    	; 0x15c <ISD_SendData>
+ 364:	81 2f       	mov	r24, r17
+ 366:	fa de       	rcall	.-524    	; 0x15c <ISD_SendData>
+ 368:	8d 2f       	mov	r24, r29
+ 36a:	f8 de       	rcall	.-528    	; 0x15c <ISD_SendData>
+ 36c:	8c 2f       	mov	r24, r28
+ 36e:	f6 de       	rcall	.-532    	; 0x15c <ISD_SendData>
+ 370:	80 e0       	ldi	r24, 0x00	; 0
+ 372:	f4 de       	rcall	.-536    	; 0x15c <ISD_SendData>
+ 374:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 378:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 37c:	80 81       	ld	r24, Z
+ 37e:	84 60       	ori	r24, 0x04	; 4
+ 380:	80 83       	st	Z, r24
+ 382:	df 91       	pop	r29
+ 384:	cf 91       	pop	r28
+ 386:	1f 91       	pop	r17
+ 388:	0f 91       	pop	r16
+ 38a:	08 95       	ret
+
+0000038c <LED_Init>:
+ 38c:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <DDRDbit>
+ 390:	f0 91 05 01 	lds	r31, 0x0105	; 0x800105 <DDRDbit+0x1>
+ 394:	80 81       	ld	r24, Z
+ 396:	87 7f       	andi	r24, 0xF7	; 247
+ 398:	80 83       	st	Z, r24
+ 39a:	e0 91 08 01 	lds	r30, 0x0108	; 0x800108 <DDRBbit>
+ 39e:	f0 91 09 01 	lds	r31, 0x0109	; 0x800109 <DDRBbit+0x1>
+ 3a2:	80 81       	ld	r24, Z
+ 3a4:	8f 7b       	andi	r24, 0xBF	; 191
+ 3a6:	80 83       	st	Z, r24
+ 3a8:	e0 91 08 01 	lds	r30, 0x0108	; 0x800108 <DDRBbit>
+ 3ac:	f0 91 09 01 	lds	r31, 0x0109	; 0x800109 <DDRBbit+0x1>
+ 3b0:	80 81       	ld	r24, Z
+ 3b2:	8f 77       	andi	r24, 0x7F	; 127
+ 3b4:	80 83       	st	Z, r24
+ 3b6:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <DDRDbit>
+ 3ba:	f0 91 05 01 	lds	r31, 0x0105	; 0x800105 <DDRDbit+0x1>
+ 3be:	80 81       	ld	r24, Z
+ 3c0:	8f 7d       	andi	r24, 0xDF	; 223
+ 3c2:	80 83       	st	Z, r24
+ 3c4:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <DDRDbit>
+ 3c8:	f0 91 05 01 	lds	r31, 0x0105	; 0x800105 <DDRDbit+0x1>
+ 3cc:	80 81       	ld	r24, Z
+ 3ce:	8f 7b       	andi	r24, 0xBF	; 191
+ 3d0:	80 83       	st	Z, r24
+ 3d2:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 3d6:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 3da:	80 81       	ld	r24, Z
+ 3dc:	8f 7b       	andi	r24, 0xBF	; 191
+ 3de:	80 83       	st	Z, r24
+ 3e0:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 3e4:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 3e8:	80 81       	ld	r24, Z
+ 3ea:	8f 77       	andi	r24, 0x7F	; 127
+ 3ec:	80 83       	st	Z, r24
+ 3ee:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 3f2:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 3f6:	80 81       	ld	r24, Z
+ 3f8:	8f 7d       	andi	r24, 0xDF	; 223
+ 3fa:	80 83       	st	Z, r24
+ 3fc:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 400:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 404:	80 81       	ld	r24, Z
+ 406:	8f 7b       	andi	r24, 0xBF	; 191
+ 408:	80 83       	st	Z, r24
+ 40a:	08 95       	ret
+
+0000040c <LED_Chair>:
+ 40c:	e0 91 08 01 	lds	r30, 0x0108	; 0x800108 <DDRBbit>
+ 410:	f0 91 09 01 	lds	r31, 0x0109	; 0x800109 <DDRBbit+0x1>
+ 414:	88 23       	and	r24, r24
+ 416:	b1 f0       	breq	.+44     	; 0x444 <LED_Chair+0x38>
+ 418:	80 81       	ld	r24, Z
+ 41a:	80 64       	ori	r24, 0x40	; 64
+ 41c:	80 83       	st	Z, r24
+ 41e:	e0 91 08 01 	lds	r30, 0x0108	; 0x800108 <DDRBbit>
+ 422:	f0 91 09 01 	lds	r31, 0x0109	; 0x800109 <DDRBbit+0x1>
+ 426:	80 81       	ld	r24, Z
+ 428:	80 68       	ori	r24, 0x80	; 128
+ 42a:	80 83       	st	Z, r24
+ 42c:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 430:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 434:	80 81       	ld	r24, Z
+ 436:	80 64       	ori	r24, 0x40	; 64
+ 438:	80 83       	st	Z, r24
+ 43a:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 43e:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 442:	07 c0       	rjmp	.+14     	; 0x452 <LED_Chair+0x46>
+ 444:	80 81       	ld	r24, Z
+ 446:	8f 7b       	andi	r24, 0xBF	; 191
+ 448:	80 83       	st	Z, r24
+ 44a:	e0 91 08 01 	lds	r30, 0x0108	; 0x800108 <DDRBbit>
+ 44e:	f0 91 09 01 	lds	r31, 0x0109	; 0x800109 <DDRBbit+0x1>
+ 452:	80 81       	ld	r24, Z
+ 454:	8f 77       	andi	r24, 0x7F	; 127
+ 456:	80 83       	st	Z, r24
+ 458:	08 95       	ret
+
+0000045a <LED_Red>:
+ 45a:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 45e:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 462:	81 30       	cpi	r24, 0x01	; 1
+ 464:	51 f4       	brne	.+20     	; 0x47a <LED_Red+0x20>
+ 466:	80 81       	ld	r24, Z
+ 468:	80 64       	ori	r24, 0x40	; 64
+ 46a:	80 83       	st	Z, r24
+ 46c:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 470:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 474:	80 81       	ld	r24, Z
+ 476:	8f 7d       	andi	r24, 0xDF	; 223
+ 478:	09 c0       	rjmp	.+18     	; 0x48c <LED_Red+0x32>
+ 47a:	80 81       	ld	r24, Z
+ 47c:	8f 7b       	andi	r24, 0xBF	; 191
+ 47e:	80 83       	st	Z, r24
+ 480:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 484:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 488:	80 81       	ld	r24, Z
+ 48a:	80 62       	ori	r24, 0x20	; 32
+ 48c:	80 83       	st	Z, r24
+ 48e:	08 95       	ret
+
+00000490 <LED_Green>:
+ 490:	e0 91 08 01 	lds	r30, 0x0108	; 0x800108 <DDRBbit>
+ 494:	f0 91 09 01 	lds	r31, 0x0109	; 0x800109 <DDRBbit+0x1>
+ 498:	81 30       	cpi	r24, 0x01	; 1
+ 49a:	c1 f4       	brne	.+48     	; 0x4cc <LED_Green+0x3c>
+ 49c:	80 81       	ld	r24, Z
+ 49e:	80 64       	ori	r24, 0x40	; 64
+ 4a0:	80 83       	st	Z, r24
+ 4a2:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <DDRDbit>
+ 4a6:	f0 91 05 01 	lds	r31, 0x0105	; 0x800105 <DDRDbit+0x1>
+ 4aa:	80 81       	ld	r24, Z
+ 4ac:	80 62       	ori	r24, 0x20	; 32
+ 4ae:	80 83       	st	Z, r24
+ 4b0:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 4b4:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 4b8:	80 81       	ld	r24, Z
+ 4ba:	8f 7b       	andi	r24, 0xBF	; 191
+ 4bc:	80 83       	st	Z, r24
+ 4be:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 4c2:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 4c6:	80 81       	ld	r24, Z
+ 4c8:	80 62       	ori	r24, 0x20	; 32
+ 4ca:	17 c0       	rjmp	.+46     	; 0x4fa <LED_Green+0x6a>
+ 4cc:	80 81       	ld	r24, Z
+ 4ce:	8f 7b       	andi	r24, 0xBF	; 191
+ 4d0:	80 83       	st	Z, r24
+ 4d2:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <DDRDbit>
+ 4d6:	f0 91 05 01 	lds	r31, 0x0105	; 0x800105 <DDRDbit+0x1>
+ 4da:	80 81       	ld	r24, Z
+ 4dc:	8f 7d       	andi	r24, 0xDF	; 223
+ 4de:	80 83       	st	Z, r24
+ 4e0:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 4e4:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 4e8:	80 81       	ld	r24, Z
+ 4ea:	8f 7b       	andi	r24, 0xBF	; 191
+ 4ec:	80 83       	st	Z, r24
+ 4ee:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 4f2:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 4f6:	80 81       	ld	r24, Z
+ 4f8:	8f 7d       	andi	r24, 0xDF	; 223
+ 4fa:	80 83       	st	Z, r24
+ 4fc:	08 95       	ret
+
+000004fe <LED_Control>:
+ 4fe:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 502:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 506:	88 23       	and	r24, r24
+ 508:	19 f0       	breq	.+6      	; 0x510 <__stack+0x11>
+ 50a:	80 81       	ld	r24, Z
+ 50c:	88 60       	ori	r24, 0x08	; 8
+ 50e:	02 c0       	rjmp	.+4      	; 0x514 <__stack+0x15>
+ 510:	80 81       	ld	r24, Z
+ 512:	87 7f       	andi	r24, 0xF7	; 247
+ 514:	80 83       	st	Z, r24
+ 516:	08 95       	ret
+
+00000518 <LED_All>:
+ 518:	88 23       	and	r24, r24
+ 51a:	09 f4       	brne	.+2      	; 0x51e <LED_All+0x6>
+ 51c:	81 c0       	rjmp	.+258    	; 0x620 <LED_All+0x108>
+ 51e:	e0 91 08 01 	lds	r30, 0x0108	; 0x800108 <DDRBbit>
+ 522:	f0 91 09 01 	lds	r31, 0x0109	; 0x800109 <DDRBbit+0x1>
+ 526:	80 81       	ld	r24, Z
+ 528:	80 64       	ori	r24, 0x40	; 64
+ 52a:	80 83       	st	Z, r24
+ 52c:	e0 91 08 01 	lds	r30, 0x0108	; 0x800108 <DDRBbit>
+ 530:	f0 91 09 01 	lds	r31, 0x0109	; 0x800109 <DDRBbit+0x1>
+ 534:	80 81       	ld	r24, Z
+ 536:	80 68       	ori	r24, 0x80	; 128
+ 538:	80 83       	st	Z, r24
+ 53a:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <DDRDbit>
+ 53e:	f0 91 05 01 	lds	r31, 0x0105	; 0x800105 <DDRDbit+0x1>
+ 542:	80 81       	ld	r24, Z
+ 544:	80 62       	ori	r24, 0x20	; 32
+ 546:	80 83       	st	Z, r24
+ 548:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <DDRDbit>
+ 54c:	f0 91 05 01 	lds	r31, 0x0105	; 0x800105 <DDRDbit+0x1>
+ 550:	80 81       	ld	r24, Z
+ 552:	80 64       	ori	r24, 0x40	; 64
+ 554:	80 83       	st	Z, r24
+ 556:	8a ef       	ldi	r24, 0xFA	; 250
+ 558:	90 e0       	ldi	r25, 0x00	; 0
+ 55a:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 55e:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 562:	20 81       	ld	r18, Z
+ 564:	20 64       	ori	r18, 0x40	; 64
+ 566:	20 83       	st	Z, r18
+ 568:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 56c:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 570:	20 81       	ld	r18, Z
+ 572:	2f 77       	andi	r18, 0x7F	; 127
+ 574:	20 83       	st	Z, r18
+ 576:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 57a:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 57e:	20 81       	ld	r18, Z
+ 580:	2f 7d       	andi	r18, 0xDF	; 223
+ 582:	20 83       	st	Z, r18
+ 584:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 588:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 58c:	20 81       	ld	r18, Z
+ 58e:	2f 7b       	andi	r18, 0xBF	; 191
+ 590:	20 83       	st	Z, r18
+ 592:	e1 ee       	ldi	r30, 0xE1	; 225
+ 594:	f4 e0       	ldi	r31, 0x04	; 4
+ 596:	31 97       	sbiw	r30, 0x01	; 1
+ 598:	f1 f7       	brne	.-4      	; 0x596 <LED_All+0x7e>
+ 59a:	00 c0       	rjmp	.+0      	; 0x59c <LED_All+0x84>
+ 59c:	00 00       	nop
+ 59e:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 5a2:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 5a6:	20 81       	ld	r18, Z
+ 5a8:	2f 7b       	andi	r18, 0xBF	; 191
+ 5aa:	20 83       	st	Z, r18
+ 5ac:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 5b0:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 5b4:	20 81       	ld	r18, Z
+ 5b6:	20 68       	ori	r18, 0x80	; 128
+ 5b8:	20 83       	st	Z, r18
+ 5ba:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 5be:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 5c2:	20 81       	ld	r18, Z
+ 5c4:	20 62       	ori	r18, 0x20	; 32
+ 5c6:	20 83       	st	Z, r18
+ 5c8:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 5cc:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 5d0:	20 81       	ld	r18, Z
+ 5d2:	20 64       	ori	r18, 0x40	; 64
+ 5d4:	20 83       	st	Z, r18
+ 5d6:	e1 ee       	ldi	r30, 0xE1	; 225
+ 5d8:	f4 e0       	ldi	r31, 0x04	; 4
+ 5da:	31 97       	sbiw	r30, 0x01	; 1
+ 5dc:	f1 f7       	brne	.-4      	; 0x5da <LED_All+0xc2>
+ 5de:	00 c0       	rjmp	.+0      	; 0x5e0 <LED_All+0xc8>
+ 5e0:	00 00       	nop
+ 5e2:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 5e6:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 5ea:	20 81       	ld	r18, Z
+ 5ec:	2f 7b       	andi	r18, 0xBF	; 191
+ 5ee:	20 83       	st	Z, r18
+ 5f0:	e0 91 0e 01 	lds	r30, 0x010E	; 0x80010e <PORTBbit>
+ 5f4:	f0 91 0f 01 	lds	r31, 0x010F	; 0x80010f <PORTBbit+0x1>
+ 5f8:	20 81       	ld	r18, Z
+ 5fa:	20 68       	ori	r18, 0x80	; 128
+ 5fc:	20 83       	st	Z, r18
+ 5fe:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 602:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 606:	20 81       	ld	r18, Z
+ 608:	2f 7d       	andi	r18, 0xDF	; 223
+ 60a:	20 83       	st	Z, r18
+ 60c:	e1 ee       	ldi	r30, 0xE1	; 225
+ 60e:	f4 e0       	ldi	r31, 0x04	; 4
+ 610:	31 97       	sbiw	r30, 0x01	; 1
+ 612:	f1 f7       	brne	.-4      	; 0x610 <LED_All+0xf8>
+ 614:	00 c0       	rjmp	.+0      	; 0x616 <LED_All+0xfe>
+ 616:	00 00       	nop
+ 618:	01 97       	sbiw	r24, 0x01	; 1
+ 61a:	09 f0       	breq	.+2      	; 0x61e <LED_All+0x106>
+ 61c:	9e cf       	rjmp	.-196    	; 0x55a <LED_All+0x42>
+ 61e:	08 95       	ret
+ 620:	b5 ce       	rjmp	.-662    	; 0x38c <LED_Init>
+
+00000622 <NRF_Port_Init>:
+ 622:	e0 91 08 01 	lds	r30, 0x0108	; 0x800108 <DDRBbit>
+ 626:	f0 91 09 01 	lds	r31, 0x0109	; 0x800109 <DDRBbit+0x1>
+ 62a:	80 81       	ld	r24, Z
+ 62c:	88 60       	ori	r24, 0x08	; 8
+ 62e:	80 83       	st	Z, r24
+ 630:	e0 91 08 01 	lds	r30, 0x0108	; 0x800108 <DDRBbit>
+ 634:	f0 91 09 01 	lds	r31, 0x0109	; 0x800109 <DDRBbit+0x1>
+ 638:	80 81       	ld	r24, Z
+ 63a:	8f 7e       	andi	r24, 0xEF	; 239
+ 63c:	80 83       	st	Z, r24
+ 63e:	e0 91 08 01 	lds	r30, 0x0108	; 0x800108 <DDRBbit>
+ 642:	f0 91 09 01 	lds	r31, 0x0109	; 0x800109 <DDRBbit+0x1>
+ 646:	80 81       	ld	r24, Z
+ 648:	80 62       	ori	r24, 0x20	; 32
+ 64a:	80 83       	st	Z, r24
+ 64c:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <DDRDbit>
+ 650:	f0 91 05 01 	lds	r31, 0x0105	; 0x800105 <DDRDbit+0x1>
+ 654:	80 81       	ld	r24, Z
+ 656:	80 68       	ori	r24, 0x80	; 128
+ 658:	80 83       	st	Z, r24
+ 65a:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 65e:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 662:	80 81       	ld	r24, Z
+ 664:	80 68       	ori	r24, 0x80	; 128
+ 666:	80 83       	st	Z, r24
+ 668:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <DDRDbit>
+ 66c:	f0 91 05 01 	lds	r31, 0x0105	; 0x800105 <DDRDbit+0x1>
+ 670:	80 81       	ld	r24, Z
+ 672:	84 60       	ori	r24, 0x04	; 4
+ 674:	80 83       	st	Z, r24
+ 676:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 67a:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 67e:	80 81       	ld	r24, Z
+ 680:	84 60       	ori	r24, 0x04	; 4
+ 682:	80 83       	st	Z, r24
+ 684:	e0 91 06 01 	lds	r30, 0x0106	; 0x800106 <DDRCbit>
+ 688:	f0 91 07 01 	lds	r31, 0x0107	; 0x800107 <DDRCbit+0x1>
+ 68c:	80 81       	ld	r24, Z
+ 68e:	80 61       	ori	r24, 0x10	; 16
+ 690:	80 83       	st	Z, r24
+ 692:	e0 91 0c 01 	lds	r30, 0x010C	; 0x80010c <PORTCbit>
+ 696:	f0 91 0d 01 	lds	r31, 0x010D	; 0x80010d <PORTCbit+0x1>
+ 69a:	80 81       	ld	r24, Z
+ 69c:	8f 7e       	andi	r24, 0xEF	; 239
+ 69e:	80 83       	st	Z, r24
+ 6a0:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <DDRDbit>
+ 6a4:	f0 91 05 01 	lds	r31, 0x0105	; 0x800105 <DDRDbit+0x1>
+ 6a8:	80 81       	ld	r24, Z
+ 6aa:	80 61       	ori	r24, 0x10	; 16
+ 6ac:	80 83       	st	Z, r24
+ 6ae:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 6b2:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 6b6:	80 81       	ld	r24, Z
+ 6b8:	8f 7e       	andi	r24, 0xEF	; 239
+ 6ba:	80 83       	st	Z, r24
+ 6bc:	08 95       	ret
+
+000006be <NRF_SPI_Init>:
+ 6be:	e0 91 02 01 	lds	r30, 0x0102	; 0x800102 <SPCRbit>
+ 6c2:	f0 91 03 01 	lds	r31, 0x0103	; 0x800103 <SPCRbit+0x1>
+ 6c6:	80 81       	ld	r24, Z
+ 6c8:	8f 77       	andi	r24, 0x7F	; 127
+ 6ca:	80 83       	st	Z, r24
+ 6cc:	e0 91 02 01 	lds	r30, 0x0102	; 0x800102 <SPCRbit>
+ 6d0:	f0 91 03 01 	lds	r31, 0x0103	; 0x800103 <SPCRbit+0x1>
+ 6d4:	80 81       	ld	r24, Z
+ 6d6:	80 64       	ori	r24, 0x40	; 64
+ 6d8:	80 83       	st	Z, r24
+ 6da:	e0 91 02 01 	lds	r30, 0x0102	; 0x800102 <SPCRbit>
+ 6de:	f0 91 03 01 	lds	r31, 0x0103	; 0x800103 <SPCRbit+0x1>
+ 6e2:	80 81       	ld	r24, Z
+ 6e4:	8f 7d       	andi	r24, 0xDF	; 223
+ 6e6:	80 83       	st	Z, r24
+ 6e8:	e0 91 02 01 	lds	r30, 0x0102	; 0x800102 <SPCRbit>
+ 6ec:	f0 91 03 01 	lds	r31, 0x0103	; 0x800103 <SPCRbit+0x1>
+ 6f0:	80 81       	ld	r24, Z
+ 6f2:	80 61       	ori	r24, 0x10	; 16
+ 6f4:	80 83       	st	Z, r24
+ 6f6:	e0 91 02 01 	lds	r30, 0x0102	; 0x800102 <SPCRbit>
+ 6fa:	f0 91 03 01 	lds	r31, 0x0103	; 0x800103 <SPCRbit+0x1>
+ 6fe:	80 81       	ld	r24, Z
+ 700:	87 7f       	andi	r24, 0xF7	; 247
+ 702:	80 83       	st	Z, r24
+ 704:	e0 91 02 01 	lds	r30, 0x0102	; 0x800102 <SPCRbit>
+ 708:	f0 91 03 01 	lds	r31, 0x0103	; 0x800103 <SPCRbit+0x1>
+ 70c:	80 81       	ld	r24, Z
+ 70e:	8b 7f       	andi	r24, 0xFB	; 251
+ 710:	80 83       	st	Z, r24
+ 712:	1d bc       	out	0x2d, r1	; 45
+ 714:	08 95       	ret
+
+00000716 <NRF_SPI_RW>:
+ 716:	8e bd       	out	0x2e, r24	; 46
+ 718:	e0 91 00 01 	lds	r30, 0x0100	; 0x800100 <SPSRbit>
+ 71c:	f0 91 01 01 	lds	r31, 0x0101	; 0x800101 <SPSRbit+0x1>
+ 720:	80 81       	ld	r24, Z
+ 722:	87 ff       	sbrs	r24, 7
+ 724:	fd cf       	rjmp	.-6      	; 0x720 <NRF_SPI_RW+0xa>
+ 726:	8e b5       	in	r24, 0x2e	; 46
+ 728:	1d bc       	out	0x2d, r1	; 45
+ 72a:	08 95       	ret
+
+0000072c <NRF_Read_Reg>:
+ 72c:	cf 93       	push	r28
+ 72e:	c8 2f       	mov	r28, r24
+ 730:	86 2f       	mov	r24, r22
+ 732:	c1 30       	cpi	r28, 0x01	; 1
+ 734:	39 f4       	brne	.+14     	; 0x744 <NRF_Read_Reg+0x18>
+ 736:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 73a:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 73e:	90 81       	ld	r25, Z
+ 740:	9f 77       	andi	r25, 0x7F	; 127
+ 742:	08 c0       	rjmp	.+16     	; 0x754 <NRF_Read_Reg+0x28>
+ 744:	c2 30       	cpi	r28, 0x02	; 2
+ 746:	39 f4       	brne	.+14     	; 0x756 <NRF_Read_Reg+0x2a>
+ 748:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 74c:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 750:	90 81       	ld	r25, Z
+ 752:	9b 7f       	andi	r25, 0xFB	; 251
+ 754:	90 83       	st	Z, r25
+ 756:	df df       	rcall	.-66     	; 0x716 <NRF_SPI_RW>
+ 758:	8f ef       	ldi	r24, 0xFF	; 255
+ 75a:	dd df       	rcall	.-70     	; 0x716 <NRF_SPI_RW>
+ 75c:	c1 30       	cpi	r28, 0x01	; 1
+ 75e:	39 f4       	brne	.+14     	; 0x76e <NRF_Read_Reg+0x42>
+ 760:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 764:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 768:	90 81       	ld	r25, Z
+ 76a:	90 68       	ori	r25, 0x80	; 128
+ 76c:	08 c0       	rjmp	.+16     	; 0x77e <NRF_Read_Reg+0x52>
+ 76e:	c2 30       	cpi	r28, 0x02	; 2
+ 770:	39 f4       	brne	.+14     	; 0x780 <NRF_Read_Reg+0x54>
+ 772:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 776:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 77a:	90 81       	ld	r25, Z
+ 77c:	94 60       	ori	r25, 0x04	; 4
+ 77e:	90 83       	st	Z, r25
+ 780:	cf 91       	pop	r28
+ 782:	08 95       	ret
+
+00000784 <NRF_Write_Reg>:
+ 784:	1f 93       	push	r17
+ 786:	cf 93       	push	r28
+ 788:	df 93       	push	r29
+ 78a:	c8 2f       	mov	r28, r24
+ 78c:	86 2f       	mov	r24, r22
+ 78e:	14 2f       	mov	r17, r20
+ 790:	c1 30       	cpi	r28, 0x01	; 1
+ 792:	39 f4       	brne	.+14     	; 0x7a2 <NRF_Write_Reg+0x1e>
+ 794:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 798:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 79c:	90 81       	ld	r25, Z
+ 79e:	9f 77       	andi	r25, 0x7F	; 127
+ 7a0:	08 c0       	rjmp	.+16     	; 0x7b2 <NRF_Write_Reg+0x2e>
+ 7a2:	c2 30       	cpi	r28, 0x02	; 2
+ 7a4:	39 f4       	brne	.+14     	; 0x7b4 <NRF_Write_Reg+0x30>
+ 7a6:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 7aa:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 7ae:	90 81       	ld	r25, Z
+ 7b0:	9b 7f       	andi	r25, 0xFB	; 251
+ 7b2:	90 83       	st	Z, r25
+ 7b4:	b0 df       	rcall	.-160    	; 0x716 <NRF_SPI_RW>
+ 7b6:	d8 2f       	mov	r29, r24
+ 7b8:	81 2f       	mov	r24, r17
+ 7ba:	ad df       	rcall	.-166    	; 0x716 <NRF_SPI_RW>
+ 7bc:	c1 30       	cpi	r28, 0x01	; 1
+ 7be:	39 f4       	brne	.+14     	; 0x7ce <NRF_Write_Reg+0x4a>
+ 7c0:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 7c4:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 7c8:	80 81       	ld	r24, Z
+ 7ca:	80 68       	ori	r24, 0x80	; 128
+ 7cc:	08 c0       	rjmp	.+16     	; 0x7de <NRF_Write_Reg+0x5a>
+ 7ce:	c2 30       	cpi	r28, 0x02	; 2
+ 7d0:	39 f4       	brne	.+14     	; 0x7e0 <NRF_Write_Reg+0x5c>
+ 7d2:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 7d6:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 7da:	80 81       	ld	r24, Z
+ 7dc:	84 60       	ori	r24, 0x04	; 4
+ 7de:	80 83       	st	Z, r24
+ 7e0:	8d 2f       	mov	r24, r29
+ 7e2:	df 91       	pop	r29
+ 7e4:	cf 91       	pop	r28
+ 7e6:	1f 91       	pop	r17
+ 7e8:	08 95       	ret
+
+000007ea <NRF_Read_Buf>:
+ 7ea:	df 92       	push	r13
+ 7ec:	ef 92       	push	r14
+ 7ee:	ff 92       	push	r15
+ 7f0:	0f 93       	push	r16
+ 7f2:	1f 93       	push	r17
+ 7f4:	cf 93       	push	r28
+ 7f6:	df 93       	push	r29
+ 7f8:	18 2f       	mov	r17, r24
+ 7fa:	86 2f       	mov	r24, r22
+ 7fc:	d4 2e       	mov	r13, r20
+ 7fe:	e5 2e       	mov	r14, r21
+ 800:	f2 2e       	mov	r15, r18
+ 802:	11 30       	cpi	r17, 0x01	; 1
+ 804:	39 f4       	brne	.+14     	; 0x814 <NRF_Read_Buf+0x2a>
+ 806:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 80a:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 80e:	90 81       	ld	r25, Z
+ 810:	9f 77       	andi	r25, 0x7F	; 127
+ 812:	08 c0       	rjmp	.+16     	; 0x824 <NRF_Read_Buf+0x3a>
+ 814:	12 30       	cpi	r17, 0x02	; 2
+ 816:	39 f4       	brne	.+14     	; 0x826 <NRF_Read_Buf+0x3c>
+ 818:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 81c:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 820:	90 81       	ld	r25, Z
+ 822:	9b 7f       	andi	r25, 0xFB	; 251
+ 824:	90 83       	st	Z, r25
+ 826:	77 df       	rcall	.-274    	; 0x716 <NRF_SPI_RW>
+ 828:	08 2f       	mov	r16, r24
+ 82a:	cd 2d       	mov	r28, r13
+ 82c:	de 2d       	mov	r29, r14
+ 82e:	ce 01       	movw	r24, r28
+ 830:	8f 0d       	add	r24, r15
+ 832:	91 1d       	adc	r25, r1
+ 834:	7c 01       	movw	r14, r24
+ 836:	ce 15       	cp	r28, r14
+ 838:	df 05       	cpc	r29, r15
+ 83a:	21 f0       	breq	.+8      	; 0x844 <NRF_Read_Buf+0x5a>
+ 83c:	8f ef       	ldi	r24, 0xFF	; 255
+ 83e:	6b df       	rcall	.-298    	; 0x716 <NRF_SPI_RW>
+ 840:	89 93       	st	Y+, r24
+ 842:	f9 cf       	rjmp	.-14     	; 0x836 <NRF_Read_Buf+0x4c>
+ 844:	11 30       	cpi	r17, 0x01	; 1
+ 846:	39 f4       	brne	.+14     	; 0x856 <NRF_Read_Buf+0x6c>
+ 848:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 84c:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 850:	80 81       	ld	r24, Z
+ 852:	80 68       	ori	r24, 0x80	; 128
+ 854:	08 c0       	rjmp	.+16     	; 0x866 <NRF_Read_Buf+0x7c>
+ 856:	12 30       	cpi	r17, 0x02	; 2
+ 858:	39 f4       	brne	.+14     	; 0x868 <NRF_Read_Buf+0x7e>
+ 85a:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 85e:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 862:	80 81       	ld	r24, Z
+ 864:	84 60       	ori	r24, 0x04	; 4
+ 866:	80 83       	st	Z, r24
+ 868:	80 2f       	mov	r24, r16
+ 86a:	df 91       	pop	r29
+ 86c:	cf 91       	pop	r28
+ 86e:	1f 91       	pop	r17
+ 870:	0f 91       	pop	r16
+ 872:	ff 90       	pop	r15
+ 874:	ef 90       	pop	r14
+ 876:	df 90       	pop	r13
+ 878:	08 95       	ret
+
+0000087a <NRF_Write_Buf>:
+ 87a:	df 92       	push	r13
+ 87c:	ef 92       	push	r14
+ 87e:	ff 92       	push	r15
+ 880:	0f 93       	push	r16
+ 882:	1f 93       	push	r17
+ 884:	cf 93       	push	r28
+ 886:	df 93       	push	r29
+ 888:	18 2f       	mov	r17, r24
+ 88a:	86 2f       	mov	r24, r22
+ 88c:	d4 2e       	mov	r13, r20
+ 88e:	e5 2e       	mov	r14, r21
+ 890:	f2 2e       	mov	r15, r18
+ 892:	11 30       	cpi	r17, 0x01	; 1
+ 894:	39 f4       	brne	.+14     	; 0x8a4 <NRF_Write_Buf+0x2a>
+ 896:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 89a:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 89e:	90 81       	ld	r25, Z
+ 8a0:	9f 77       	andi	r25, 0x7F	; 127
+ 8a2:	08 c0       	rjmp	.+16     	; 0x8b4 <NRF_Write_Buf+0x3a>
+ 8a4:	12 30       	cpi	r17, 0x02	; 2
+ 8a6:	39 f4       	brne	.+14     	; 0x8b6 <NRF_Write_Buf+0x3c>
+ 8a8:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 8ac:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 8b0:	90 81       	ld	r25, Z
+ 8b2:	9b 7f       	andi	r25, 0xFB	; 251
+ 8b4:	90 83       	st	Z, r25
+ 8b6:	2f df       	rcall	.-418    	; 0x716 <NRF_SPI_RW>
+ 8b8:	08 2f       	mov	r16, r24
+ 8ba:	cd 2d       	mov	r28, r13
+ 8bc:	de 2d       	mov	r29, r14
+ 8be:	ce 01       	movw	r24, r28
+ 8c0:	8f 0d       	add	r24, r15
+ 8c2:	91 1d       	adc	r25, r1
+ 8c4:	7c 01       	movw	r14, r24
+ 8c6:	ce 15       	cp	r28, r14
+ 8c8:	df 05       	cpc	r29, r15
+ 8ca:	19 f0       	breq	.+6      	; 0x8d2 <NRF_Write_Buf+0x58>
+ 8cc:	89 91       	ld	r24, Y+
+ 8ce:	23 df       	rcall	.-442    	; 0x716 <NRF_SPI_RW>
+ 8d0:	fa cf       	rjmp	.-12     	; 0x8c6 <NRF_Write_Buf+0x4c>
+ 8d2:	11 30       	cpi	r17, 0x01	; 1
+ 8d4:	39 f4       	brne	.+14     	; 0x8e4 <NRF_Write_Buf+0x6a>
+ 8d6:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 8da:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 8de:	80 81       	ld	r24, Z
+ 8e0:	80 68       	ori	r24, 0x80	; 128
+ 8e2:	08 c0       	rjmp	.+16     	; 0x8f4 <NRF_Write_Buf+0x7a>
+ 8e4:	12 30       	cpi	r17, 0x02	; 2
+ 8e6:	39 f4       	brne	.+14     	; 0x8f6 <NRF_Write_Buf+0x7c>
+ 8e8:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 8ec:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 8f0:	80 81       	ld	r24, Z
+ 8f2:	84 60       	ori	r24, 0x04	; 4
+ 8f4:	80 83       	st	Z, r24
+ 8f6:	80 2f       	mov	r24, r16
+ 8f8:	df 91       	pop	r29
+ 8fa:	cf 91       	pop	r28
+ 8fc:	1f 91       	pop	r17
+ 8fe:	0f 91       	pop	r16
+ 900:	ff 90       	pop	r15
+ 902:	ef 90       	pop	r14
+ 904:	df 90       	pop	r13
+ 906:	08 95       	ret
+
+00000908 <NRF_Check>:
+ 908:	ff 92       	push	r15
+ 90a:	0f 93       	push	r16
+ 90c:	1f 93       	push	r17
+ 90e:	cf 93       	push	r28
+ 910:	df 93       	push	r29
+ 912:	00 d0       	rcall	.+0      	; 0x914 <NRF_Check+0xc>
+ 914:	00 d0       	rcall	.+0      	; 0x916 <NRF_Check+0xe>
+ 916:	1f 92       	push	r1
+ 918:	cd b7       	in	r28, 0x3d	; 61
+ 91a:	de b7       	in	r29, 0x3e	; 62
+ 91c:	f8 2e       	mov	r15, r24
+ 91e:	8e 01       	movw	r16, r28
+ 920:	0f 5f       	subi	r16, 0xFF	; 255
+ 922:	1f 4f       	sbci	r17, 0xFF	; 255
+ 924:	85 e0       	ldi	r24, 0x05	; 5
+ 926:	f8 01       	movw	r30, r16
+ 928:	11 92       	st	Z+, r1
+ 92a:	8a 95       	dec	r24
+ 92c:	e9 f7       	brne	.-6      	; 0x928 <NRF_Check+0x20>
+ 92e:	25 e0       	ldi	r18, 0x05	; 5
+ 930:	43 e2       	ldi	r20, 0x23	; 35
+ 932:	51 e0       	ldi	r21, 0x01	; 1
+ 934:	60 e3       	ldi	r22, 0x30	; 48
+ 936:	8f 2d       	mov	r24, r15
+ 938:	a0 df       	rcall	.-192    	; 0x87a <NRF_Write_Buf>
+ 93a:	25 e0       	ldi	r18, 0x05	; 5
+ 93c:	a8 01       	movw	r20, r16
+ 93e:	60 e1       	ldi	r22, 0x10	; 16
+ 940:	8f 2d       	mov	r24, r15
+ 942:	53 df       	rcall	.-346    	; 0x7ea <NRF_Read_Buf>
+ 944:	f1 e0       	ldi	r31, 0x01	; 1
+ 946:	ff 12       	cpse	r15, r31
+ 948:	0d c0       	rjmp	.+26     	; 0x964 <NRF_Check+0x5c>
+ 94a:	f8 01       	movw	r30, r16
+ 94c:	a3 e2       	ldi	r26, 0x23	; 35
+ 94e:	b1 e0       	ldi	r27, 0x01	; 1
+ 950:	ce 01       	movw	r24, r28
+ 952:	06 96       	adiw	r24, 0x06	; 6
+ 954:	31 91       	ld	r19, Z+
+ 956:	2d 91       	ld	r18, X+
+ 958:	32 13       	cpse	r19, r18
+ 95a:	15 c0       	rjmp	.+42     	; 0x986 <NRF_Check+0x7e>
+ 95c:	e8 17       	cp	r30, r24
+ 95e:	f9 07       	cpc	r31, r25
+ 960:	c9 f7       	brne	.-14     	; 0x954 <NRF_Check+0x4c>
+ 962:	0f c0       	rjmp	.+30     	; 0x982 <NRF_Check+0x7a>
+ 964:	82 e0       	ldi	r24, 0x02	; 2
+ 966:	f8 12       	cpse	r15, r24
+ 968:	0e c0       	rjmp	.+28     	; 0x986 <NRF_Check+0x7e>
+ 96a:	f8 01       	movw	r30, r16
+ 96c:	ae e1       	ldi	r26, 0x1E	; 30
+ 96e:	b1 e0       	ldi	r27, 0x01	; 1
+ 970:	ce 01       	movw	r24, r28
+ 972:	06 96       	adiw	r24, 0x06	; 6
+ 974:	31 91       	ld	r19, Z+
+ 976:	2d 91       	ld	r18, X+
+ 978:	32 13       	cpse	r19, r18
+ 97a:	05 c0       	rjmp	.+10     	; 0x986 <NRF_Check+0x7e>
+ 97c:	e8 17       	cp	r30, r24
+ 97e:	f9 07       	cpc	r31, r25
+ 980:	c9 f7       	brne	.-14     	; 0x974 <NRF_Check+0x6c>
+ 982:	80 e0       	ldi	r24, 0x00	; 0
+ 984:	01 c0       	rjmp	.+2      	; 0x988 <NRF_Check+0x80>
+ 986:	81 e0       	ldi	r24, 0x01	; 1
+ 988:	0f 90       	pop	r0
+ 98a:	0f 90       	pop	r0
+ 98c:	0f 90       	pop	r0
+ 98e:	0f 90       	pop	r0
+ 990:	0f 90       	pop	r0
+ 992:	df 91       	pop	r29
+ 994:	cf 91       	pop	r28
+ 996:	1f 91       	pop	r17
+ 998:	0f 91       	pop	r16
+ 99a:	ff 90       	pop	r15
+ 99c:	08 95       	ret
+
+0000099e <NRF_RX_Mode>:
+ 99e:	cf 93       	push	r28
+ 9a0:	c8 2f       	mov	r28, r24
+ 9a2:	81 30       	cpi	r24, 0x01	; 1
+ 9a4:	29 f4       	brne	.+10     	; 0x9b0 <NRF_RX_Mode+0x12>
+ 9a6:	e0 91 0c 01 	lds	r30, 0x010C	; 0x80010c <PORTCbit>
+ 9aa:	f0 91 0d 01 	lds	r31, 0x010D	; 0x80010d <PORTCbit+0x1>
+ 9ae:	06 c0       	rjmp	.+12     	; 0x9bc <NRF_RX_Mode+0x1e>
+ 9b0:	82 30       	cpi	r24, 0x02	; 2
+ 9b2:	39 f4       	brne	.+14     	; 0x9c2 <NRF_RX_Mode+0x24>
+ 9b4:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ 9b8:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ 9bc:	80 81       	ld	r24, Z
+ 9be:	8f 7e       	andi	r24, 0xEF	; 239
+ 9c0:	80 83       	st	Z, r24
+ 9c2:	25 e0       	ldi	r18, 0x05	; 5
+ 9c4:	49 e1       	ldi	r20, 0x19	; 25
+ 9c6:	51 e0       	ldi	r21, 0x01	; 1
+ 9c8:	6a e2       	ldi	r22, 0x2A	; 42
+ 9ca:	8c 2f       	mov	r24, r28
+ 9cc:	56 df       	rcall	.-340    	; 0x87a <NRF_Write_Buf>
+ 9ce:	25 e0       	ldi	r18, 0x05	; 5
+ 9d0:	44 e1       	ldi	r20, 0x14	; 20
+ 9d2:	51 e0       	ldi	r21, 0x01	; 1
+ 9d4:	6b e2       	ldi	r22, 0x2B	; 43
+ 9d6:	8c 2f       	mov	r24, r28
+ 9d8:	50 df       	rcall	.-352    	; 0x87a <NRF_Write_Buf>
+ 9da:	21 e0       	ldi	r18, 0x01	; 1
+ 9dc:	43 e1       	ldi	r20, 0x13	; 19
+ 9de:	51 e0       	ldi	r21, 0x01	; 1
+ 9e0:	6c e2       	ldi	r22, 0x2C	; 44
+ 9e2:	8c 2f       	mov	r24, r28
+ 9e4:	4a df       	rcall	.-364    	; 0x87a <NRF_Write_Buf>
+ 9e6:	21 e0       	ldi	r18, 0x01	; 1
+ 9e8:	42 e1       	ldi	r20, 0x12	; 18
+ 9ea:	51 e0       	ldi	r21, 0x01	; 1
+ 9ec:	6d e2       	ldi	r22, 0x2D	; 45
+ 9ee:	8c 2f       	mov	r24, r28
+ 9f0:	44 df       	rcall	.-376    	; 0x87a <NRF_Write_Buf>
+ 9f2:	21 e0       	ldi	r18, 0x01	; 1
+ 9f4:	41 e1       	ldi	r20, 0x11	; 17
+ 9f6:	51 e0       	ldi	r21, 0x01	; 1
+ 9f8:	6e e2       	ldi	r22, 0x2E	; 46
+ 9fa:	8c 2f       	mov	r24, r28
+ 9fc:	3e df       	rcall	.-388    	; 0x87a <NRF_Write_Buf>
+ 9fe:	21 e0       	ldi	r18, 0x01	; 1
+ a00:	40 e1       	ldi	r20, 0x10	; 16
+ a02:	51 e0       	ldi	r21, 0x01	; 1
+ a04:	6f e2       	ldi	r22, 0x2F	; 47
+ a06:	8c 2f       	mov	r24, r28
+ a08:	38 df       	rcall	.-400    	; 0x87a <NRF_Write_Buf>
+ a0a:	4f e3       	ldi	r20, 0x3F	; 63
+ a0c:	61 e2       	ldi	r22, 0x21	; 33
+ a0e:	8c 2f       	mov	r24, r28
+ a10:	b9 de       	rcall	.-654    	; 0x784 <NRF_Write_Reg>
+ a12:	4f e3       	ldi	r20, 0x3F	; 63
+ a14:	62 e2       	ldi	r22, 0x22	; 34
+ a16:	8c 2f       	mov	r24, r28
+ a18:	b5 de       	rcall	.-662    	; 0x784 <NRF_Write_Reg>
+ a1a:	48 e2       	ldi	r20, 0x28	; 40
+ a1c:	65 e2       	ldi	r22, 0x25	; 37
+ a1e:	8c 2f       	mov	r24, r28
+ a20:	b1 de       	rcall	.-670    	; 0x784 <NRF_Write_Reg>
+ a22:	42 e0       	ldi	r20, 0x02	; 2
+ a24:	61 e3       	ldi	r22, 0x31	; 49
+ a26:	8c 2f       	mov	r24, r28
+ a28:	ad de       	rcall	.-678    	; 0x784 <NRF_Write_Reg>
+ a2a:	42 e0       	ldi	r20, 0x02	; 2
+ a2c:	62 e3       	ldi	r22, 0x32	; 50
+ a2e:	8c 2f       	mov	r24, r28
+ a30:	a9 de       	rcall	.-686    	; 0x784 <NRF_Write_Reg>
+ a32:	42 e0       	ldi	r20, 0x02	; 2
+ a34:	63 e3       	ldi	r22, 0x33	; 51
+ a36:	8c 2f       	mov	r24, r28
+ a38:	a5 de       	rcall	.-694    	; 0x784 <NRF_Write_Reg>
+ a3a:	42 e0       	ldi	r20, 0x02	; 2
+ a3c:	64 e3       	ldi	r22, 0x34	; 52
+ a3e:	8c 2f       	mov	r24, r28
+ a40:	a1 de       	rcall	.-702    	; 0x784 <NRF_Write_Reg>
+ a42:	42 e0       	ldi	r20, 0x02	; 2
+ a44:	65 e3       	ldi	r22, 0x35	; 53
+ a46:	8c 2f       	mov	r24, r28
+ a48:	9d de       	rcall	.-710    	; 0x784 <NRF_Write_Reg>
+ a4a:	42 e0       	ldi	r20, 0x02	; 2
+ a4c:	66 e3       	ldi	r22, 0x36	; 54
+ a4e:	8c 2f       	mov	r24, r28
+ a50:	99 de       	rcall	.-718    	; 0x784 <NRF_Write_Reg>
+ a52:	4f e0       	ldi	r20, 0x0F	; 15
+ a54:	66 e2       	ldi	r22, 0x26	; 38
+ a56:	8c 2f       	mov	r24, r28
+ a58:	95 de       	rcall	.-726    	; 0x784 <NRF_Write_Reg>
+ a5a:	4f e0       	ldi	r20, 0x0F	; 15
+ a5c:	60 e2       	ldi	r22, 0x20	; 32
+ a5e:	8c 2f       	mov	r24, r28
+ a60:	91 de       	rcall	.-734    	; 0x784 <NRF_Write_Reg>
+ a62:	c1 30       	cpi	r28, 0x01	; 1
+ a64:	29 f4       	brne	.+10     	; 0xa70 <NRF_RX_Mode+0xd2>
+ a66:	e0 91 0c 01 	lds	r30, 0x010C	; 0x80010c <PORTCbit>
+ a6a:	f0 91 0d 01 	lds	r31, 0x010D	; 0x80010d <PORTCbit+0x1>
+ a6e:	06 c0       	rjmp	.+12     	; 0xa7c <NRF_RX_Mode+0xde>
+ a70:	c2 30       	cpi	r28, 0x02	; 2
+ a72:	39 f4       	brne	.+14     	; 0xa82 <NRF_RX_Mode+0xe4>
+ a74:	e0 91 0a 01 	lds	r30, 0x010A	; 0x80010a <PORTDbit>
+ a78:	f0 91 0b 01 	lds	r31, 0x010B	; 0x80010b <PORTDbit+0x1>
+ a7c:	80 81       	ld	r24, Z
+ a7e:	80 61       	ori	r24, 0x10	; 16
+ a80:	80 83       	st	Z, r24
+ a82:	82 e3       	ldi	r24, 0x32	; 50
+ a84:	8a 95       	dec	r24
+ a86:	f1 f7       	brne	.-4      	; 0xa84 <NRF_RX_Mode+0xe6>
+ a88:	cf 91       	pop	r28
+ a8a:	08 95       	ret
+
+00000a8c <NRF_Get_Status>:
+ a8c:	67 e0       	ldi	r22, 0x07	; 7
+ a8e:	4e ce       	rjmp	.-868    	; 0x72c <NRF_Read_Reg>
+
+00000a90 <NRF_Get_Current_Pipenum>:
+ a90:	fd df       	rcall	.-6      	; 0xa8c <NRF_Get_Status>
+ a92:	8e 70       	andi	r24, 0x0E	; 14
+ a94:	86 95       	lsr	r24
+ a96:	08 95       	ret
+
+00000a98 <NRF_Read_RX_Pload>:
+ a98:	0f 93       	push	r16
+ a9a:	1f 93       	push	r17
+ a9c:	cf 93       	push	r28
+ a9e:	df 93       	push	r29
+ aa0:	c8 2f       	mov	r28, r24
+ aa2:	8b 01       	movw	r16, r22
+ aa4:	f5 df       	rcall	.-22     	; 0xa90 <NRF_Get_Current_Pipenum>
+ aa6:	d8 2f       	mov	r29, r24
+ aa8:	61 e1       	ldi	r22, 0x11	; 17
+ aaa:	68 0f       	add	r22, r24
+ aac:	8c 2f       	mov	r24, r28
+ aae:	3e de       	rcall	.-900    	; 0x72c <NRF_Read_Reg>
+ ab0:	28 2f       	mov	r18, r24
+ ab2:	a8 01       	movw	r20, r16
+ ab4:	61 e6       	ldi	r22, 0x61	; 97
+ ab6:	8c 2f       	mov	r24, r28
+ ab8:	98 de       	rcall	.-720    	; 0x7ea <NRF_Read_Buf>
+ aba:	8d 2f       	mov	r24, r29
+ abc:	df 91       	pop	r29
+ abe:	cf 91       	pop	r28
+ ac0:	1f 91       	pop	r17
+ ac2:	0f 91       	pop	r16
+ ac4:	08 95       	ret
+
+00000ac6 <NRF_Flush_RX>:
+ ac6:	40 e0       	ldi	r20, 0x00	; 0
+ ac8:	62 ee       	ldi	r22, 0xE2	; 226
+ aca:	5c ce       	rjmp	.-840    	; 0x784 <NRF_Write_Reg>
+
+00000acc <NRF_RxPacket>:
+ acc:	0f 93       	push	r16
+ ace:	1f 93       	push	r17
+ ad0:	cf 93       	push	r28
+ ad2:	df 93       	push	r29
+ ad4:	d8 2f       	mov	r29, r24
+ ad6:	8b 01       	movw	r16, r22
+ ad8:	fb 01       	movw	r30, r22
+ ada:	11 82       	std	Z+1, r1	; 0x01
+ adc:	10 82       	st	Z, r1
+ ade:	d6 df       	rcall	.-84     	; 0xa8c <NRF_Get_Status>
+ ae0:	86 ff       	sbrs	r24, 6
+ ae2:	0d c0       	rjmp	.+26     	; 0xafe <NRF_RxPacket+0x32>
+ ae4:	b8 01       	movw	r22, r16
+ ae6:	8d 2f       	mov	r24, r29
+ ae8:	d7 df       	rcall	.-82     	; 0xa98 <NRF_Read_RX_Pload>
+ aea:	c8 2f       	mov	r28, r24
+ aec:	4f ef       	ldi	r20, 0xFF	; 255
+ aee:	67 e2       	ldi	r22, 0x27	; 39
+ af0:	8d 2f       	mov	r24, r29
+ af2:	48 de       	rcall	.-880    	; 0x784 <NRF_Write_Reg>
+ af4:	8d 2f       	mov	r24, r29
+ af6:	e7 df       	rcall	.-50     	; 0xac6 <NRF_Flush_RX>
+ af8:	81 e0       	ldi	r24, 0x01	; 1
+ afa:	8c 0f       	add	r24, r28
+ afc:	01 c0       	rjmp	.+2      	; 0xb00 <NRF_RxPacket+0x34>
+ afe:	80 e0       	ldi	r24, 0x00	; 0
+ b00:	df 91       	pop	r29
+ b02:	cf 91       	pop	r28
+ b04:	1f 91       	pop	r17
+ b06:	0f 91       	pop	r16
+ b08:	08 95       	ret
+
+00000b0a <board_init>:
+ b0a:	08 95       	ret
+
+00000b0c <__vector_4>:
+ b0c:	1f 92       	push	r1
+ b0e:	0f 92       	push	r0
+ b10:	0f b6       	in	r0, 0x3f	; 63
+ b12:	0f 92       	push	r0
+ b14:	11 24       	eor	r1, r1
+ b16:	2f 93       	push	r18
+ b18:	3f 93       	push	r19
+ b1a:	4f 93       	push	r20
+ b1c:	5f 93       	push	r21
+ b1e:	6f 93       	push	r22
+ b20:	7f 93       	push	r23
+ b22:	8f 93       	push	r24
+ b24:	9f 93       	push	r25
+ b26:	af 93       	push	r26
+ b28:	bf 93       	push	r27
+ b2a:	ef 93       	push	r30
+ b2c:	ff 93       	push	r31
+ b2e:	e0 91 0c 01 	lds	r30, 0x010C	; 0x80010c <PORTCbit>
+ b32:	f0 91 0d 01 	lds	r31, 0x010D	; 0x80010d <PORTCbit+0x1>
+ b36:	80 81       	ld	r24, Z
+ b38:	83 ff       	sbrs	r24, 3
+ b3a:	0b c0       	rjmp	.+22     	; 0xb52 <__vector_4+0x46>
+ b3c:	8b db       	rcall	.-2282   	; 0x254 <ISD_Init>
+ b3e:	8d db       	rcall	.-2278   	; 0x25a <ISD_Rd_RecPtr>
+ b40:	2f ef       	ldi	r18, 0xFF	; 255
+ b42:	4f ef       	ldi	r20, 0xFF	; 255
+ b44:	60 91 2b 01 	lds	r22, 0x012B	; 0x80012b <__data_end+0x3>
+ b48:	80 91 2a 01 	lds	r24, 0x012A	; 0x80012a <__data_end+0x2>
+ b4c:	f6 db       	rcall	.-2068   	; 0x33a <ISD_set_rec>
+ b4e:	81 e0       	ldi	r24, 0x01	; 1
+ b50:	0d c0       	rjmp	.+26     	; 0xb6c <__vector_4+0x60>
+ b52:	80 81       	ld	r24, Z
+ b54:	80 ff       	sbrs	r24, 0
+ b56:	05 c0       	rjmp	.+10     	; 0xb62 <__vector_4+0x56>
+ b58:	7d db       	rcall	.-2310   	; 0x254 <ISD_Init>
+ b5a:	c9 db       	rcall	.-2158   	; 0x2ee <ISD_rec>
+ b5c:	81 e0       	ldi	r24, 0x01	; 1
+ b5e:	98 dc       	rcall	.-1744   	; 0x490 <LED_Green>
+ b60:	06 c0       	rjmp	.+12     	; 0xb6e <__vector_4+0x62>
+ b62:	78 db       	rcall	.-2320   	; 0x254 <ISD_Init>
+ b64:	07 db       	rcall	.-2546   	; 0x174 <ISD_Stop>
+ b66:	80 e0       	ldi	r24, 0x00	; 0
+ b68:	93 dc       	rcall	.-1754   	; 0x490 <LED_Green>
+ b6a:	80 e0       	ldi	r24, 0x00	; 0
+ b6c:	4f dc       	rcall	.-1890   	; 0x40c <LED_Chair>
+ b6e:	ff 91       	pop	r31
+ b70:	ef 91       	pop	r30
+ b72:	bf 91       	pop	r27
+ b74:	af 91       	pop	r26
+ b76:	9f 91       	pop	r25
+ b78:	8f 91       	pop	r24
+ b7a:	7f 91       	pop	r23
+ b7c:	6f 91       	pop	r22
+ b7e:	5f 91       	pop	r21
+ b80:	4f 91       	pop	r20
+ b82:	3f 91       	pop	r19
+ b84:	2f 91       	pop	r18
+ b86:	0f 90       	pop	r0
+ b88:	0f be       	out	0x3f, r0	; 63
+ b8a:	0f 90       	pop	r0
+ b8c:	1f 90       	pop	r1
+ b8e:	18 95       	reti
+
+00000b90 <__vector_16>:
+ b90:	1f 92       	push	r1
+ b92:	0f 92       	push	r0
+ b94:	0f b6       	in	r0, 0x3f	; 63
+ b96:	0f 92       	push	r0
+ b98:	11 24       	eor	r1, r1
+ b9a:	0f 90       	pop	r0
+ b9c:	0f be       	out	0x3f, r0	; 63
+ b9e:	0f 90       	pop	r0
+ ba0:	1f 90       	pop	r1
+ ba2:	18 95       	reti
+
+00000ba4 <__vector_21>:
+ ba4:	1f 92       	push	r1
+ ba6:	0f 92       	push	r0
+ ba8:	0f b6       	in	r0, 0x3f	; 63
+ baa:	0f 92       	push	r0
+ bac:	11 24       	eor	r1, r1
+ bae:	0f 90       	pop	r0
+ bb0:	0f be       	out	0x3f, r0	; 63
+ bb2:	0f 90       	pop	r0
+ bb4:	1f 90       	pop	r1
+ bb6:	18 95       	reti
+
+00000bb8 <Isd1700>:
+ bb8:	73 da       	rcall	.-2842   	; 0xa0 <ISD_Port_Init>
+ bba:	a4 da       	rcall	.-2744   	; 0x104 <ISD_SPI_Init>
+ bbc:	33 db       	rcall	.-2458   	; 0x224 <ISD_Pu>
+ bbe:	84 db       	rcall	.-2296   	; 0x2c8 <ISD_Play>
+ bc0:	a9 cb       	rjmp	.-2222   	; 0x314 <ISD_Fwd>
+
+00000bc2 <WirelessPad>:
+ bc2:	cf 93       	push	r28
+ bc4:	df 93       	push	r29
+ bc6:	00 d0       	rcall	.+0      	; 0xbc8 <WirelessPad+0x6>
+ bc8:	cd b7       	in	r28, 0x3d	; 61
+ bca:	de b7       	in	r29, 0x3e	; 62
+ bcc:	19 82       	std	Y+1, r1	; 0x01
+ bce:	1a 82       	std	Y+2, r1	; 0x02
+ bd0:	28 dd       	rcall	.-1456   	; 0x622 <NRF_Port_Init>
+ bd2:	75 dd       	rcall	.-1302   	; 0x6be <NRF_SPI_Init>
+ bd4:	81 e0       	ldi	r24, 0x01	; 1
+ bd6:	98 de       	rcall	.-720    	; 0x908 <NRF_Check>
+ bd8:	88 23       	and	r24, r24
+ bda:	89 f0       	breq	.+34     	; 0xbfe <WirelessPad+0x3c>
+ bdc:	81 e0       	ldi	r24, 0x01	; 1
+ bde:	3d dc       	rcall	.-1926   	; 0x45a <LED_Red>
+ be0:	87 ea       	ldi	r24, 0xA7	; 167
+ be2:	91 e6       	ldi	r25, 0x61	; 97
+ be4:	01 97       	sbiw	r24, 0x01	; 1
+ be6:	f1 f7       	brne	.-4      	; 0xbe4 <WirelessPad+0x22>
+ be8:	00 c0       	rjmp	.+0      	; 0xbea <WirelessPad+0x28>
+ bea:	00 00       	nop
+ bec:	80 e0       	ldi	r24, 0x00	; 0
+ bee:	35 dc       	rcall	.-1942   	; 0x45a <LED_Red>
+ bf0:	87 ea       	ldi	r24, 0xA7	; 167
+ bf2:	91 e6       	ldi	r25, 0x61	; 97
+ bf4:	01 97       	sbiw	r24, 0x01	; 1
+ bf6:	f1 f7       	brne	.-4      	; 0xbf4 <WirelessPad+0x32>
+ bf8:	00 c0       	rjmp	.+0      	; 0xbfa <WirelessPad+0x38>
+ bfa:	00 00       	nop
+ bfc:	ef cf       	rjmp	.-34     	; 0xbdc <WirelessPad+0x1a>
+ bfe:	81 e0       	ldi	r24, 0x01	; 1
+ c00:	ce de       	rcall	.-612    	; 0x99e <NRF_RX_Mode>
+ c02:	80 e0       	ldi	r24, 0x00	; 0
+ c04:	7c dc       	rcall	.-1800   	; 0x4fe <LED_Control>
+ c06:	10 e0       	ldi	r17, 0x00	; 0
+ c08:	5a dd       	rcall	.-1356   	; 0x6be <NRF_SPI_Init>
+ c0a:	be 01       	movw	r22, r28
+ c0c:	6f 5f       	subi	r22, 0xFF	; 255
+ c0e:	7f 4f       	sbci	r23, 0xFF	; 255
+ c10:	81 e0       	ldi	r24, 0x01	; 1
+ c12:	5c df       	rcall	.-328    	; 0xacc <NRF_RxPacket>
+ c14:	89 81       	ldd	r24, Y+1	; 0x01
+ c16:	82 30       	cpi	r24, 0x02	; 2
+ c18:	49 f4       	brne	.+18     	; 0xc2c <WirelessPad+0x6a>
+ c1a:	80 e0       	ldi	r24, 0x00	; 0
+ c1c:	70 dc       	rcall	.-1824   	; 0x4fe <LED_Control>
+ c1e:	11 23       	and	r17, r17
+ c20:	11 f0       	breq	.+4      	; 0xc26 <WirelessPad+0x64>
+ c22:	11 e0       	ldi	r17, 0x01	; 1
+ c24:	f1 cf       	rjmp	.-30     	; 0xc08 <WirelessPad+0x46>
+ c26:	c8 df       	rcall	.-112    	; 0xbb8 <Isd1700>
+ c28:	4a dd       	rcall	.-1388   	; 0x6be <NRF_SPI_Init>
+ c2a:	fb cf       	rjmp	.-10     	; 0xc22 <WirelessPad+0x60>
+ c2c:	83 30       	cpi	r24, 0x03	; 3
+ c2e:	29 f4       	brne	.+10     	; 0xc3a <WirelessPad+0x78>
+ c30:	81 e0       	ldi	r24, 0x01	; 1
+ c32:	65 dc       	rcall	.-1846   	; 0x4fe <LED_Control>
+ c34:	c1 df       	rcall	.-126    	; 0xbb8 <Isd1700>
+ c36:	43 dd       	rcall	.-1402   	; 0x6be <NRF_SPI_Init>
+ c38:	e6 cf       	rjmp	.-52     	; 0xc06 <WirelessPad+0x44>
+ c3a:	80 e0       	ldi	r24, 0x00	; 0
+ c3c:	60 dc       	rcall	.-1856   	; 0x4fe <LED_Control>
+ c3e:	e4 cf       	rjmp	.-56     	; 0xc08 <WirelessPad+0x46>
+
+00000c40 <main>:
+ c40:	64 df       	rcall	.-312    	; 0xb0a <board_init>
+ c42:	e0 91 0c 01 	lds	r30, 0x010C	; 0x80010c <PORTCbit>
+ c46:	f0 91 0d 01 	lds	r31, 0x010D	; 0x80010d <PORTCbit+0x1>
+ c4a:	80 81       	ld	r24, Z
+ c4c:	88 60       	ori	r24, 0x08	; 8
+ c4e:	80 83       	st	Z, r24
+ c50:	e0 91 0c 01 	lds	r30, 0x010C	; 0x80010c <PORTCbit>
+ c54:	f0 91 0d 01 	lds	r31, 0x010D	; 0x80010d <PORTCbit+0x1>
+ c58:	80 81       	ld	r24, Z
+ c5a:	84 60       	ori	r24, 0x04	; 4
+ c5c:	80 83       	st	Z, r24
+ c5e:	e0 91 0c 01 	lds	r30, 0x010C	; 0x80010c <PORTCbit>
+ c62:	f0 91 0d 01 	lds	r31, 0x010D	; 0x80010d <PORTCbit+0x1>
+ c66:	80 81       	ld	r24, Z
+ c68:	82 60       	ori	r24, 0x02	; 2
+ c6a:	80 83       	st	Z, r24
+ c6c:	e0 91 0c 01 	lds	r30, 0x010C	; 0x80010c <PORTCbit>
+ c70:	f0 91 0d 01 	lds	r31, 0x010D	; 0x80010d <PORTCbit+0x1>
+ c74:	80 81       	ld	r24, Z
+ c76:	81 60       	ori	r24, 0x01	; 1
+ c78:	80 83       	st	Z, r24
+ c7a:	e0 91 06 01 	lds	r30, 0x0106	; 0x800106 <DDRCbit>
+ c7e:	f0 91 07 01 	lds	r31, 0x0107	; 0x800107 <DDRCbit+0x1>
+ c82:	80 81       	ld	r24, Z
+ c84:	87 7f       	andi	r24, 0xF7	; 247
+ c86:	80 83       	st	Z, r24
+ c88:	e0 91 06 01 	lds	r30, 0x0106	; 0x800106 <DDRCbit>
+ c8c:	f0 91 07 01 	lds	r31, 0x0107	; 0x800107 <DDRCbit+0x1>
+ c90:	80 81       	ld	r24, Z
+ c92:	8b 7f       	andi	r24, 0xFB	; 251
+ c94:	80 83       	st	Z, r24
+ c96:	e0 91 06 01 	lds	r30, 0x0106	; 0x800106 <DDRCbit>
+ c9a:	f0 91 07 01 	lds	r31, 0x0107	; 0x800107 <DDRCbit+0x1>
+ c9e:	80 81       	ld	r24, Z
+ ca0:	8d 7f       	andi	r24, 0xFD	; 253
+ ca2:	80 83       	st	Z, r24
+ ca4:	e0 91 06 01 	lds	r30, 0x0106	; 0x800106 <DDRCbit>
+ ca8:	f0 91 07 01 	lds	r31, 0x0107	; 0x800107 <DDRCbit+0x1>
+ cac:	80 81       	ld	r24, Z
+ cae:	8e 7f       	andi	r24, 0xFE	; 254
+ cb0:	80 83       	st	Z, r24
+ cb2:	80 e8       	ldi	r24, 0x80	; 128
+ cb4:	8f bf       	out	0x3f, r24	; 63
+ cb6:	82 e0       	ldi	r24, 0x02	; 2
+ cb8:	80 93 68 00 	sts	0x0068, r24	; 0x800068 <__TEXT_REGION_LENGTH__+0x7e0068>
+ cbc:	8f e0       	ldi	r24, 0x0F	; 15
+ cbe:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
+ cc2:	64 db       	rcall	.-2360   	; 0x38c <LED_Init>
+ cc4:	ed d9       	rcall	.-3110   	; 0xa0 <ISD_Port_Init>
+ cc6:	1e da       	rcall	.-3012   	; 0x104 <ISD_SPI_Init>
+ cc8:	ad da       	rcall	.-2726   	; 0x224 <ISD_Pu>
+ cca:	67 da       	rcall	.-2866   	; 0x19a <ISD_Rest>
+ ccc:	fd da       	rcall	.-2566   	; 0x2c8 <ISD_Play>
+ cce:	81 e0       	ldi	r24, 0x01	; 1
+ cd0:	23 dc       	rcall	.-1978   	; 0x518 <LED_All>
+ cd2:	80 e0       	ldi	r24, 0x00	; 0
+ cd4:	21 dc       	rcall	.-1982   	; 0x518 <LED_All>
+ cd6:	75 df       	rcall	.-278    	; 0xbc2 <WirelessPad>
+
+00000cd8 <_exit>:
+ cd8:	f8 94       	cli
+
+00000cda <__stop_program>:
+ cda:	ff cf       	rjmp	.-2      	; 0xcda <__stop_program>

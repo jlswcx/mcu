@@ -1,0 +1,71 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F1823 ]
+[d frameptr 6 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"12 C:\Users\WANGE\Documents\GitHub\HC-SR501\HC-SR501.X\init.c
+[v _Pic_Init Pic_Init `(v  1 e 1 0 ]
+"18
+[v _FOSC_Init FOSC_Init `(v  1 e 1 0 ]
+"20
+[v _PORTA_Init PORTA_Init `(v  1 e 1 0 ]
+"27
+[v _PORTC_Init PORTC_Init `(v  1 e 1 0 ]
+"36 C:\Users\WANGE\Documents\GitHub\HC-SR501\HC-SR501.X\main.c
+[v _main main `(v  1 e 1 0 ]
+"429 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1823.h
+[v _PORTA PORTA `VEuc  1 e 1 @12 ]
+"684
+[v _PORTC PORTC `VEuc  1 e 1 @14 ]
+"1491
+[v _TRISA TRISA `VEuc  1 e 1 @140 ]
+"1541
+[v _TRISC TRISC `VEuc  1 e 1 @142 ]
+"1949
+[v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
+"2285
+[v _LATA LATA `VEuc  1 e 1 @268 ]
+"2330
+[v _LATC LATC `VEuc  1 e 1 @270 ]
+"3115
+[v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
+"3162
+[v _ANSELC ANSELC `VEuc  1 e 1 @398 ]
+"6475
+[v _RC2 RC2 `VEb  1 e 0 @114 ]
+"6478
+[v _RC3 RC3 `VEb  1 e 0 @115 ]
+"6841
+[v _TRISC2 TRISC2 `VEb  1 e 0 @1138 ]
+"36 C:\Users\WANGE\Documents\GitHub\HC-SR501\HC-SR501.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"53
+} 0
+"12 C:\Users\WANGE\Documents\GitHub\HC-SR501\HC-SR501.X\init.c
+[v _Pic_Init Pic_Init `(v  1 e 1 0 ]
+{
+"16
+} 0
+"27
+[v _PORTC_Init PORTC_Init `(v  1 e 1 0 ]
+{
+"32
+} 0
+"20
+[v _PORTA_Init PORTA_Init `(v  1 e 1 0 ]
+{
+"25
+} 0
+"18
+[v _FOSC_Init FOSC_Init `(v  1 e 1 0 ]
+{
+} 0

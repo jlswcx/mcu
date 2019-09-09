@@ -1,0 +1,3551 @@
+
+
+Microchip MPLAB XC8 Assembler V2.10 build 88905656 
+                                                                                               Sun Sep 08 23:21:45 2019
+
+Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
+     1                           	processor	16F1823
+     2                           	opt	pw 120
+     3                           	opt	flic
+     4                           	psect	idataBANK0,global,class=CODE,delta=2
+     5                           	psect	stringtext1,global,class=STRCODE,delta=2
+     6                           	psect	stringtext2,global,class=STRCODE,delta=2
+     7                           	psect	stringtext3,global,class=STRCODE,delta=2
+     8                           	psect	stringtext4,global,class=STRCODE,delta=2
+     9                           	psect	stringtext5,global,class=STRCODE,delta=2
+    10                           	psect	stringtext6,global,class=STRCODE,delta=2
+    11                           	psect	stringtext7,global,class=STRCODE,delta=2
+    12                           	psect	stringtext8,global,class=STRCODE,delta=2
+    13                           	psect	stringtext9,global,class=STRCODE,delta=2
+    14                           	psect	cinit,global,class=CODE,merge=1,delta=2
+    15                           	psect	bssCOMMON,global,class=COMMON,space=1,delta=1
+    16                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+    17                           	psect	dataBANK0,global,class=BANK0,space=1,delta=1
+    18                           	psect	inittext,global,class=CODE,delta=2
+    19                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+    20                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+    21                           	psect	maintext,global,class=CODE,merge=1,split=1,delta=2
+    22                           	psect	text1,local,class=CODE,merge=1,delta=2
+    23                           	psect	text2,local,class=CODE,merge=1,delta=2,group=2
+    24                           	psect	text3,local,class=CODE,merge=1,delta=2
+    25                           	psect	text4,local,class=CODE,merge=1,delta=2
+    26                           	psect	text5,local,class=CODE,merge=1,delta=2
+    27                           	psect	text6,local,class=CODE,merge=1,delta=2
+    28                           	psect	text7,local,class=CODE,merge=1,delta=2
+    29                           	psect	text8,local,class=CODE,merge=1,delta=2
+    30                           	psect	text9,local,class=CODE,merge=1,delta=2
+    31                           	psect	text10,local,class=CODE,merge=1,delta=2
+    32                           	psect	text11,local,class=CODE,merge=1,delta=2
+    33                           	psect	text12,local,class=CODE,merge=1,delta=2
+    34                           	psect	text13,local,class=CODE,merge=1,delta=2
+    35                           	psect	text14,local,class=CODE,merge=1,delta=2
+    36                           	psect	text15,local,class=CODE,merge=1,delta=2
+    37                           	psect	text16,local,class=CODE,merge=1,delta=2
+    38                           	psect	text17,local,class=CODE,merge=1,delta=2
+    39                           	psect	text18,local,class=CODE,merge=1,delta=2
+    40                           	psect	text19,local,class=CODE,merge=1,delta=2
+    41                           	psect	intentry,global,class=CODE,delta=2
+    42                           	dabs	1,0x7E,2
+    43  0000                     
+    44                           ; Version 2.10
+    45                           ; Generated 31/07/2019 GMT
+    46                           ; 
+    47                           ; Copyright © 2019, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    48                           ; All rights reserved.
+    49                           ; 
+    50                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    51                           ; 
+    52                           ; Redistribution and use in source and binary forms, with or without modification, are
+    53                           ; permitted provided that the following conditions are met:
+    54                           ; 
+    55                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    56                           ;        conditions and the following disclaimer.
+    57                           ; 
+    58                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    59                           ;        of conditions and the following disclaimer in the documentation and/or other
+    60                           ;        materials provided with the distribution.
+    61                           ; 
+    62                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    63                           ;        software without specific prior written permission.
+    64                           ; 
+    65                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    66                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    67                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    68                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    69                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    70                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    71                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    72                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    73                           ; 
+    74                           ; 
+    75                           ; Code-generator required, PIC16F1823 Definitions
+    76                           ; 
+    77                           ; SFR Addresses
+    78  0000                     	;# 
+    79  0001                     	;# 
+    80  0002                     	;# 
+    81  0003                     	;# 
+    82  0004                     	;# 
+    83  0005                     	;# 
+    84  0006                     	;# 
+    85  0007                     	;# 
+    86  0008                     	;# 
+    87  0009                     	;# 
+    88  000A                     	;# 
+    89  000B                     	;# 
+    90  000C                     	;# 
+    91  000E                     	;# 
+    92  0011                     	;# 
+    93  0012                     	;# 
+    94  0015                     	;# 
+    95  0016                     	;# 
+    96  0016                     	;# 
+    97  0017                     	;# 
+    98  0018                     	;# 
+    99  0019                     	;# 
+   100  001A                     	;# 
+   101  001B                     	;# 
+   102  001C                     	;# 
+   103  001E                     	;# 
+   104  001F                     	;# 
+   105  008C                     	;# 
+   106  008E                     	;# 
+   107  0091                     	;# 
+   108  0092                     	;# 
+   109  0095                     	;# 
+   110  0096                     	;# 
+   111  0097                     	;# 
+   112  0098                     	;# 
+   113  0099                     	;# 
+   114  009A                     	;# 
+   115  009B                     	;# 
+   116  009B                     	;# 
+   117  009C                     	;# 
+   118  009D                     	;# 
+   119  009E                     	;# 
+   120  010C                     	;# 
+   121  010E                     	;# 
+   122  0111                     	;# 
+   123  0112                     	;# 
+   124  0113                     	;# 
+   125  0114                     	;# 
+   126  0115                     	;# 
+   127  0116                     	;# 
+   128  0117                     	;# 
+   129  0118                     	;# 
+   130  0119                     	;# 
+   131  011A                     	;# 
+   132  011B                     	;# 
+   133  011D                     	;# 
+   134  011D                     	;# 
+   135  018C                     	;# 
+   136  018E                     	;# 
+   137  0191                     	;# 
+   138  0191                     	;# 
+   139  0192                     	;# 
+   140  0193                     	;# 
+   141  0193                     	;# 
+   142  0193                     	;# 
+   143  0194                     	;# 
+   144  0195                     	;# 
+   145  0196                     	;# 
+   146  0199                     	;# 
+   147  019A                     	;# 
+   148  019B                     	;# 
+   149  019B                     	;# 
+   150  019B                     	;# 
+   151  019B                     	;# 
+   152  019C                     	;# 
+   153  019C                     	;# 
+   154  019D                     	;# 
+   155  019E                     	;# 
+   156  019F                     	;# 
+   157  020C                     	;# 
+   158  020E                     	;# 
+   159  0211                     	;# 
+   160  0211                     	;# 
+   161  0212                     	;# 
+   162  0212                     	;# 
+   163  0213                     	;# 
+   164  0213                     	;# 
+   165  0214                     	;# 
+   166  0214                     	;# 
+   167  0215                     	;# 
+   168  0215                     	;# 
+   169  0215                     	;# 
+   170  0216                     	;# 
+   171  0216                     	;# 
+   172  0217                     	;# 
+   173  0217                     	;# 
+   174  0291                     	;# 
+   175  0291                     	;# 
+   176  0292                     	;# 
+   177  0293                     	;# 
+   178  0294                     	;# 
+   179  0295                     	;# 
+   180  0295                     	;# 
+   181  0296                     	;# 
+   182  0391                     	;# 
+   183  0392                     	;# 
+   184  0393                     	;# 
+   185  039A                     	;# 
+   186  039C                     	;# 
+   187  039D                     	;# 
+   188  039E                     	;# 
+   189  039F                     	;# 
+   190  0FE4                     	;# 
+   191  0FE5                     	;# 
+   192  0FE6                     	;# 
+   193  0FE7                     	;# 
+   194  0FE8                     	;# 
+   195  0FE9                     	;# 
+   196  0FEA                     	;# 
+   197  0FEB                     	;# 
+   198  0FED                     	;# 
+   199  0FEE                     	;# 
+   200  0FEF                     	;# 
+   201  0000                     	;# 
+   202  0001                     	;# 
+   203  0002                     	;# 
+   204  0003                     	;# 
+   205  0004                     	;# 
+   206  0005                     	;# 
+   207  0006                     	;# 
+   208  0007                     	;# 
+   209  0008                     	;# 
+   210  0009                     	;# 
+   211  000A                     	;# 
+   212  000B                     	;# 
+   213  000C                     	;# 
+   214  000E                     	;# 
+   215  0011                     	;# 
+   216  0012                     	;# 
+   217  0015                     	;# 
+   218  0016                     	;# 
+   219  0016                     	;# 
+   220  0017                     	;# 
+   221  0018                     	;# 
+   222  0019                     	;# 
+   223  001A                     	;# 
+   224  001B                     	;# 
+   225  001C                     	;# 
+   226  001E                     	;# 
+   227  001F                     	;# 
+   228  008C                     	;# 
+   229  008E                     	;# 
+   230  0091                     	;# 
+   231  0092                     	;# 
+   232  0095                     	;# 
+   233  0096                     	;# 
+   234  0097                     	;# 
+   235  0098                     	;# 
+   236  0099                     	;# 
+   237  009A                     	;# 
+   238  009B                     	;# 
+   239  009B                     	;# 
+   240  009C                     	;# 
+   241  009D                     	;# 
+   242  009E                     	;# 
+   243  010C                     	;# 
+   244  010E                     	;# 
+   245  0111                     	;# 
+   246  0112                     	;# 
+   247  0113                     	;# 
+   248  0114                     	;# 
+   249  0115                     	;# 
+   250  0116                     	;# 
+   251  0117                     	;# 
+   252  0118                     	;# 
+   253  0119                     	;# 
+   254  011A                     	;# 
+   255  011B                     	;# 
+   256  011D                     	;# 
+   257  011D                     	;# 
+   258  018C                     	;# 
+   259  018E                     	;# 
+   260  0191                     	;# 
+   261  0191                     	;# 
+   262  0192                     	;# 
+   263  0193                     	;# 
+   264  0193                     	;# 
+   265  0193                     	;# 
+   266  0194                     	;# 
+   267  0195                     	;# 
+   268  0196                     	;# 
+   269  0199                     	;# 
+   270  019A                     	;# 
+   271  019B                     	;# 
+   272  019B                     	;# 
+   273  019B                     	;# 
+   274  019B                     	;# 
+   275  019C                     	;# 
+   276  019C                     	;# 
+   277  019D                     	;# 
+   278  019E                     	;# 
+   279  019F                     	;# 
+   280  020C                     	;# 
+   281  020E                     	;# 
+   282  0211                     	;# 
+   283  0211                     	;# 
+   284  0212                     	;# 
+   285  0212                     	;# 
+   286  0213                     	;# 
+   287  0213                     	;# 
+   288  0214                     	;# 
+   289  0214                     	;# 
+   290  0215                     	;# 
+   291  0215                     	;# 
+   292  0215                     	;# 
+   293  0216                     	;# 
+   294  0216                     	;# 
+   295  0217                     	;# 
+   296  0217                     	;# 
+   297  0291                     	;# 
+   298  0291                     	;# 
+   299  0292                     	;# 
+   300  0293                     	;# 
+   301  0294                     	;# 
+   302  0295                     	;# 
+   303  0295                     	;# 
+   304  0296                     	;# 
+   305  0391                     	;# 
+   306  0392                     	;# 
+   307  0393                     	;# 
+   308  039A                     	;# 
+   309  039C                     	;# 
+   310  039D                     	;# 
+   311  039E                     	;# 
+   312  039F                     	;# 
+   313  0FE4                     	;# 
+   314  0FE5                     	;# 
+   315  0FE6                     	;# 
+   316  0FE7                     	;# 
+   317  0FE8                     	;# 
+   318  0FE9                     	;# 
+   319  0FEA                     	;# 
+   320  0FEB                     	;# 
+   321  0FED                     	;# 
+   322  0FEE                     	;# 
+   323  0FEF                     	;# 
+   324  0000                     	;# 
+   325  0001                     	;# 
+   326  0002                     	;# 
+   327  0003                     	;# 
+   328  0004                     	;# 
+   329  0005                     	;# 
+   330  0006                     	;# 
+   331  0007                     	;# 
+   332  0008                     	;# 
+   333  0009                     	;# 
+   334  000A                     	;# 
+   335  000B                     	;# 
+   336  000C                     	;# 
+   337  000E                     	;# 
+   338  0011                     	;# 
+   339  0012                     	;# 
+   340  0015                     	;# 
+   341  0016                     	;# 
+   342  0016                     	;# 
+   343  0017                     	;# 
+   344  0018                     	;# 
+   345  0019                     	;# 
+   346  001A                     	;# 
+   347  001B                     	;# 
+   348  001C                     	;# 
+   349  001E                     	;# 
+   350  001F                     	;# 
+   351  008C                     	;# 
+   352  008E                     	;# 
+   353  0091                     	;# 
+   354  0092                     	;# 
+   355  0095                     	;# 
+   356  0096                     	;# 
+   357  0097                     	;# 
+   358  0098                     	;# 
+   359  0099                     	;# 
+   360  009A                     	;# 
+   361  009B                     	;# 
+   362  009B                     	;# 
+   363  009C                     	;# 
+   364  009D                     	;# 
+   365  009E                     	;# 
+   366  010C                     	;# 
+   367  010E                     	;# 
+   368  0111                     	;# 
+   369  0112                     	;# 
+   370  0113                     	;# 
+   371  0114                     	;# 
+   372  0115                     	;# 
+   373  0116                     	;# 
+   374  0117                     	;# 
+   375  0118                     	;# 
+   376  0119                     	;# 
+   377  011A                     	;# 
+   378  011B                     	;# 
+   379  011D                     	;# 
+   380  011D                     	;# 
+   381  018C                     	;# 
+   382  018E                     	;# 
+   383  0191                     	;# 
+   384  0191                     	;# 
+   385  0192                     	;# 
+   386  0193                     	;# 
+   387  0193                     	;# 
+   388  0193                     	;# 
+   389  0194                     	;# 
+   390  0195                     	;# 
+   391  0196                     	;# 
+   392  0199                     	;# 
+   393  019A                     	;# 
+   394  019B                     	;# 
+   395  019B                     	;# 
+   396  019B                     	;# 
+   397  019B                     	;# 
+   398  019C                     	;# 
+   399  019C                     	;# 
+   400  019D                     	;# 
+   401  019E                     	;# 
+   402  019F                     	;# 
+   403  020C                     	;# 
+   404  020E                     	;# 
+   405  0211                     	;# 
+   406  0211                     	;# 
+   407  0212                     	;# 
+   408  0212                     	;# 
+   409  0213                     	;# 
+   410  0213                     	;# 
+   411  0214                     	;# 
+   412  0214                     	;# 
+   413  0215                     	;# 
+   414  0215                     	;# 
+   415  0215                     	;# 
+   416  0216                     	;# 
+   417  0216                     	;# 
+   418  0217                     	;# 
+   419  0217                     	;# 
+   420  0291                     	;# 
+   421  0291                     	;# 
+   422  0292                     	;# 
+   423  0293                     	;# 
+   424  0294                     	;# 
+   425  0295                     	;# 
+   426  0295                     	;# 
+   427  0296                     	;# 
+   428  0391                     	;# 
+   429  0392                     	;# 
+   430  0393                     	;# 
+   431  039A                     	;# 
+   432  039C                     	;# 
+   433  039D                     	;# 
+   434  039E                     	;# 
+   435  039F                     	;# 
+   436  0FE4                     	;# 
+   437  0FE5                     	;# 
+   438  0FE6                     	;# 
+   439  0FE7                     	;# 
+   440  0FE8                     	;# 
+   441  0FE9                     	;# 
+   442  0FEA                     	;# 
+   443  0FEB                     	;# 
+   444  0FED                     	;# 
+   445  0FEE                     	;# 
+   446  0FEF                     	;# 
+   447  0000                     	;# 
+   448  0001                     	;# 
+   449  0002                     	;# 
+   450  0003                     	;# 
+   451  0004                     	;# 
+   452  0005                     	;# 
+   453  0006                     	;# 
+   454  0007                     	;# 
+   455  0008                     	;# 
+   456  0009                     	;# 
+   457  000A                     	;# 
+   458  000B                     	;# 
+   459  000C                     	;# 
+   460  000E                     	;# 
+   461  0011                     	;# 
+   462  0012                     	;# 
+   463  0015                     	;# 
+   464  0016                     	;# 
+   465  0016                     	;# 
+   466  0017                     	;# 
+   467  0018                     	;# 
+   468  0019                     	;# 
+   469  001A                     	;# 
+   470  001B                     	;# 
+   471  001C                     	;# 
+   472  001E                     	;# 
+   473  001F                     	;# 
+   474  008C                     	;# 
+   475  008E                     	;# 
+   476  0091                     	;# 
+   477  0092                     	;# 
+   478  0095                     	;# 
+   479  0096                     	;# 
+   480  0097                     	;# 
+   481  0098                     	;# 
+   482  0099                     	;# 
+   483  009A                     	;# 
+   484  009B                     	;# 
+   485  009B                     	;# 
+   486  009C                     	;# 
+   487  009D                     	;# 
+   488  009E                     	;# 
+   489  010C                     	;# 
+   490  010E                     	;# 
+   491  0111                     	;# 
+   492  0112                     	;# 
+   493  0113                     	;# 
+   494  0114                     	;# 
+   495  0115                     	;# 
+   496  0116                     	;# 
+   497  0117                     	;# 
+   498  0118                     	;# 
+   499  0119                     	;# 
+   500  011A                     	;# 
+   501  011B                     	;# 
+   502  011D                     	;# 
+   503  011D                     	;# 
+   504  018C                     	;# 
+   505  018E                     	;# 
+   506  0191                     	;# 
+   507  0191                     	;# 
+   508  0192                     	;# 
+   509  0193                     	;# 
+   510  0193                     	;# 
+   511  0193                     	;# 
+   512  0194                     	;# 
+   513  0195                     	;# 
+   514  0196                     	;# 
+   515  0199                     	;# 
+   516  019A                     	;# 
+   517  019B                     	;# 
+   518  019B                     	;# 
+   519  019B                     	;# 
+   520  019B                     	;# 
+   521  019C                     	;# 
+   522  019C                     	;# 
+   523  019D                     	;# 
+   524  019E                     	;# 
+   525  019F                     	;# 
+   526  020C                     	;# 
+   527  020E                     	;# 
+   528  0211                     	;# 
+   529  0211                     	;# 
+   530  0212                     	;# 
+   531  0212                     	;# 
+   532  0213                     	;# 
+   533  0213                     	;# 
+   534  0214                     	;# 
+   535  0214                     	;# 
+   536  0215                     	;# 
+   537  0215                     	;# 
+   538  0215                     	;# 
+   539  0216                     	;# 
+   540  0216                     	;# 
+   541  0217                     	;# 
+   542  0217                     	;# 
+   543  0291                     	;# 
+   544  0291                     	;# 
+   545  0292                     	;# 
+   546  0293                     	;# 
+   547  0294                     	;# 
+   548  0295                     	;# 
+   549  0295                     	;# 
+   550  0296                     	;# 
+   551  0391                     	;# 
+   552  0392                     	;# 
+   553  0393                     	;# 
+   554  039A                     	;# 
+   555  039C                     	;# 
+   556  039D                     	;# 
+   557  039E                     	;# 
+   558  039F                     	;# 
+   559  0FE4                     	;# 
+   560  0FE5                     	;# 
+   561  0FE6                     	;# 
+   562  0FE7                     	;# 
+   563  0FE8                     	;# 
+   564  0FE9                     	;# 
+   565  0FEA                     	;# 
+   566  0FEB                     	;# 
+   567  0FED                     	;# 
+   568  0FEE                     	;# 
+   569  0FEF                     	;# 
+   570  0000                     	;# 
+   571  0001                     	;# 
+   572  0002                     	;# 
+   573  0003                     	;# 
+   574  0004                     	;# 
+   575  0005                     	;# 
+   576  0006                     	;# 
+   577  0007                     	;# 
+   578  0008                     	;# 
+   579  0009                     	;# 
+   580  000A                     	;# 
+   581  000B                     	;# 
+   582  000C                     	;# 
+   583  000E                     	;# 
+   584  0011                     	;# 
+   585  0012                     	;# 
+   586  0015                     	;# 
+   587  0016                     	;# 
+   588  0016                     	;# 
+   589  0017                     	;# 
+   590  0018                     	;# 
+   591  0019                     	;# 
+   592  001A                     	;# 
+   593  001B                     	;# 
+   594  001C                     	;# 
+   595  001E                     	;# 
+   596  001F                     	;# 
+   597  008C                     	;# 
+   598  008E                     	;# 
+   599  0091                     	;# 
+   600  0092                     	;# 
+   601  0095                     	;# 
+   602  0096                     	;# 
+   603  0097                     	;# 
+   604  0098                     	;# 
+   605  0099                     	;# 
+   606  009A                     	;# 
+   607  009B                     	;# 
+   608  009B                     	;# 
+   609  009C                     	;# 
+   610  009D                     	;# 
+   611  009E                     	;# 
+   612  010C                     	;# 
+   613  010E                     	;# 
+   614  0111                     	;# 
+   615  0112                     	;# 
+   616  0113                     	;# 
+   617  0114                     	;# 
+   618  0115                     	;# 
+   619  0116                     	;# 
+   620  0117                     	;# 
+   621  0118                     	;# 
+   622  0119                     	;# 
+   623  011A                     	;# 
+   624  011B                     	;# 
+   625  011D                     	;# 
+   626  011D                     	;# 
+   627  018C                     	;# 
+   628  018E                     	;# 
+   629  0191                     	;# 
+   630  0191                     	;# 
+   631  0192                     	;# 
+   632  0193                     	;# 
+   633  0193                     	;# 
+   634  0193                     	;# 
+   635  0194                     	;# 
+   636  0195                     	;# 
+   637  0196                     	;# 
+   638  0199                     	;# 
+   639  019A                     	;# 
+   640  019B                     	;# 
+   641  019B                     	;# 
+   642  019B                     	;# 
+   643  019B                     	;# 
+   644  019C                     	;# 
+   645  019C                     	;# 
+   646  019D                     	;# 
+   647  019E                     	;# 
+   648  019F                     	;# 
+   649  020C                     	;# 
+   650  020E                     	;# 
+   651  0211                     	;# 
+   652  0211                     	;# 
+   653  0212                     	;# 
+   654  0212                     	;# 
+   655  0213                     	;# 
+   656  0213                     	;# 
+   657  0214                     	;# 
+   658  0214                     	;# 
+   659  0215                     	;# 
+   660  0215                     	;# 
+   661  0215                     	;# 
+   662  0216                     	;# 
+   663  0216                     	;# 
+   664  0217                     	;# 
+   665  0217                     	;# 
+   666  0291                     	;# 
+   667  0291                     	;# 
+   668  0292                     	;# 
+   669  0293                     	;# 
+   670  0294                     	;# 
+   671  0295                     	;# 
+   672  0295                     	;# 
+   673  0296                     	;# 
+   674  0391                     	;# 
+   675  0392                     	;# 
+   676  0393                     	;# 
+   677  039A                     	;# 
+   678  039C                     	;# 
+   679  039D                     	;# 
+   680  039E                     	;# 
+   681  039F                     	;# 
+   682  0FE4                     	;# 
+   683  0FE5                     	;# 
+   684  0FE6                     	;# 
+   685  0FE7                     	;# 
+   686  0FE8                     	;# 
+   687  0FE9                     	;# 
+   688  0FEA                     	;# 
+   689  0FEB                     	;# 
+   690  0FED                     	;# 
+   691  0FEE                     	;# 
+   692  0FEF                     	;# 
+   693  0000                     	;# 
+   694  0001                     	;# 
+   695  0002                     	;# 
+   696  0003                     	;# 
+   697  0004                     	;# 
+   698  0005                     	;# 
+   699  0006                     	;# 
+   700  0007                     	;# 
+   701  0008                     	;# 
+   702  0009                     	;# 
+   703  000A                     	;# 
+   704  000B                     	;# 
+   705  000C                     	;# 
+   706  000E                     	;# 
+   707  0011                     	;# 
+   708  0012                     	;# 
+   709  0015                     	;# 
+   710  0016                     	;# 
+   711  0016                     	;# 
+   712  0017                     	;# 
+   713  0018                     	;# 
+   714  0019                     	;# 
+   715  001A                     	;# 
+   716  001B                     	;# 
+   717  001C                     	;# 
+   718  001E                     	;# 
+   719  001F                     	;# 
+   720  008C                     	;# 
+   721  008E                     	;# 
+   722  0091                     	;# 
+   723  0092                     	;# 
+   724  0095                     	;# 
+   725  0096                     	;# 
+   726  0097                     	;# 
+   727  0098                     	;# 
+   728  0099                     	;# 
+   729  009A                     	;# 
+   730  009B                     	;# 
+   731  009B                     	;# 
+   732  009C                     	;# 
+   733  009D                     	;# 
+   734  009E                     	;# 
+   735  010C                     	;# 
+   736  010E                     	;# 
+   737  0111                     	;# 
+   738  0112                     	;# 
+   739  0113                     	;# 
+   740  0114                     	;# 
+   741  0115                     	;# 
+   742  0116                     	;# 
+   743  0117                     	;# 
+   744  0118                     	;# 
+   745  0119                     	;# 
+   746  011A                     	;# 
+   747  011B                     	;# 
+   748  011D                     	;# 
+   749  011D                     	;# 
+   750  018C                     	;# 
+   751  018E                     	;# 
+   752  0191                     	;# 
+   753  0191                     	;# 
+   754  0192                     	;# 
+   755  0193                     	;# 
+   756  0193                     	;# 
+   757  0193                     	;# 
+   758  0194                     	;# 
+   759  0195                     	;# 
+   760  0196                     	;# 
+   761  0199                     	;# 
+   762  019A                     	;# 
+   763  019B                     	;# 
+   764  019B                     	;# 
+   765  019B                     	;# 
+   766  019B                     	;# 
+   767  019C                     	;# 
+   768  019C                     	;# 
+   769  019D                     	;# 
+   770  019E                     	;# 
+   771  019F                     	;# 
+   772  020C                     	;# 
+   773  020E                     	;# 
+   774  0211                     	;# 
+   775  0211                     	;# 
+   776  0212                     	;# 
+   777  0212                     	;# 
+   778  0213                     	;# 
+   779  0213                     	;# 
+   780  0214                     	;# 
+   781  0214                     	;# 
+   782  0215                     	;# 
+   783  0215                     	;# 
+   784  0215                     	;# 
+   785  0216                     	;# 
+   786  0216                     	;# 
+   787  0217                     	;# 
+   788  0217                     	;# 
+   789  0291                     	;# 
+   790  0291                     	;# 
+   791  0292                     	;# 
+   792  0293                     	;# 
+   793  0294                     	;# 
+   794  0295                     	;# 
+   795  0295                     	;# 
+   796  0296                     	;# 
+   797  0391                     	;# 
+   798  0392                     	;# 
+   799  0393                     	;# 
+   800  039A                     	;# 
+   801  039C                     	;# 
+   802  039D                     	;# 
+   803  039E                     	;# 
+   804  039F                     	;# 
+   805  0FE4                     	;# 
+   806  0FE5                     	;# 
+   807  0FE6                     	;# 
+   808  0FE7                     	;# 
+   809  0FE8                     	;# 
+   810  0FE9                     	;# 
+   811  0FEA                     	;# 
+   812  0FEB                     	;# 
+   813  0FED                     	;# 
+   814  0FEE                     	;# 
+   815  0FEF                     	;# 
+   816                           
+   817                           	psect	idataBANK0
+   818  014E                     __pidataBANK0:	
+   819                           
+   820                           ;initializer for NRF_Check@F2717
+   821  014E  34E1               	retlw	225
+   822  014F  34E2               	retlw	226
+   823  0150  34E3               	retlw	227
+   824  0151  34E4               	retlw	228
+   825  0152  3405               	retlw	5
+   826                           
+   827                           ;initializer for _TX_ADDRESS
+   828  0153  340F               	retlw	15
+   829  0154  340E               	retlw	14
+   830  0155  340D               	retlw	13
+   831  0156  340C               	retlw	12
+   832  0157  340B               	retlw	11
+   833                           
+   834                           ;initializer for _tx_addr
+   835  0158  340F               	retlw	15
+   836  0159  340E               	retlw	14
+   837  015A  340D               	retlw	13
+   838  015B  340C               	retlw	12
+   839  015C  340B               	retlw	11
+   840                           
+   841                           ;initializer for _RX_ADDRESS_P5
+   842  015D  340E               	retlw	14
+   843  015E  3410               	retlw	16
+   844  015F  3409               	retlw	9
+   845  0160  3408               	retlw	8
+   846  0161  3407               	retlw	7
+   847                           
+   848                           ;initializer for _RX_ADDRESS_P4
+   849  0162  340D               	retlw	13
+   850  0163  3410               	retlw	16
+   851  0164  3409               	retlw	9
+   852  0165  3408               	retlw	8
+   853  0166  3407               	retlw	7
+   854                           
+   855                           ;initializer for _RX_ADDRESS_P3
+   856  0167  340C               	retlw	12
+   857  0168  3410               	retlw	16
+   858  0169  3409               	retlw	9
+   859  016A  3408               	retlw	8
+   860  016B  3407               	retlw	7
+   861                           
+   862                           ;initializer for _RX_ADDRESS_P2
+   863  016C  340B               	retlw	11
+   864  016D  3410               	retlw	16
+   865  016E  3409               	retlw	9
+   866  016F  3408               	retlw	8
+   867  0170  3407               	retlw	7
+   868                           
+   869                           ;initializer for _RX_ADDRESS_P1
+   870  0171  340A               	retlw	10
+   871  0172  3410               	retlw	16
+   872  0173  3409               	retlw	9
+   873  0174  3408               	retlw	8
+   874  0175  3407               	retlw	7
+   875                           
+   876                           ;initializer for _RX_ADDRESS_P0
+   877  0176  340F               	retlw	15
+   878  0177  340E               	retlw	14
+   879  0178  340D               	retlw	13
+   880  0179  340C               	retlw	12
+   881  017A  340B               	retlw	11
+   882                           
+   883                           	psect	stringtext1
+   884  027D                     __pstringtext1:	
+   885  027D                     _pad_aux_off:	
+   886  027D  3403               	retlw	3
+   887  027E  3403               	retlw	3
+   888  027F                     __end_of_pad_aux_off:	
+   889                           
+   890                           	psect	stringtext2
+   891  027F                     __pstringtext2:	
+   892  027F                     _pad_aux_on:	
+   893  027F  3402               	retlw	2
+   894  0280  3402               	retlw	2
+   895  0281                     __end_of_pad_aux_on:	
+   896                           
+   897                           	psect	stringtext3
+   898  0281                     __pstringtext3:	
+   899  0281                     _tx_pad_bed:	
+   900  0281  3498               	retlw	152
+   901  0282  3458               	retlw	88
+   902  0283                     __end_of_tx_pad_bed:	
+   903                           
+   904                           	psect	stringtext4
+   905  0283                     __pstringtext4:	
+   906  0283                     _tx_pad_potty:	
+   907  0283  3488               	retlw	136
+   908  0284  3468               	retlw	104
+   909  0285                     __end_of_tx_pad_potty:	
+   910                           
+   911                           	psect	stringtext5
+   912  0285                     __pstringtext5:	
+   913  0285                     _tx_pad_nci:	
+   914  0285  3486               	retlw	134
+   915  0286  3466               	retlw	102
+   916  0287                     __end_of_tx_pad_nci:	
+   917                           
+   918                           	psect	stringtext6
+   919  0287                     __pstringtext6:	
+   920  0287                     _tx_pad_chair:	
+   921  0287  3468               	retlw	104
+   922  0288  3486               	retlw	134
+   923  0289                     __end_of_tx_pad_chair:	
+   924                           
+   925                           	psect	stringtext7
+   926  0289                     __pstringtext7:	
+   927  0289                     _tx_pad_aux:	
+   928  0289  3466               	retlw	102
+   929  028A  3488               	retlw	136
+   930  028B                     __end_of_tx_pad_aux:	
+   931                           
+   932                           	psect	stringtext8
+   933  028D                     __pstringtext8:	
+   934  028D                     _pad_mode:	
+   935  028D  3400               	retlw	0
+   936  028E                     __end_of_pad_mode:	
+   937                           
+   938                           	psect	stringtext9
+   939  028B                     __pstringtext9:	
+   940  028B                     _pad_aux_ok:	
+   941  028B  3401               	retlw	1
+   942  028C  3401               	retlw	1
+   943  028D                     __end_of_pad_aux_ok:	
+   944  000E                     _PORTC	set	14
+   945  000C                     _PORTA	set	12
+   946  005B                     _IOCIE	set	91
+   947  0058                     _IOCIF	set	88
+   948  0064                     _RA4	set	100
+   949  0073                     _RC3	set	115
+   950  0072                     _RC2	set	114
+   951  0070                     _RC0	set	112
+   952  0071                     _RC1	set	113
+   953  008B                     _SSP1IF	set	139
+   954  0065                     _RA5	set	101
+   955  0062                     _RA2	set	98
+   956  0060                     _RA0	set	96
+   957  0099                     _OSCCON	set	153
+   958  008E                     _TRISC	set	142
+   959  008C                     _TRISA	set	140
+   960  0473                     _TRISC3	set	1139
+   961  0465                     _TRISA5	set	1125
+   962  0464                     _TRISA4	set	1124
+   963  0460                     _TRISA0	set	1120
+   964  0462                     _TRISA2	set	1122
+   965  0470                     _TRISC0	set	1136
+   966  0472                     _TRISC2	set	1138
+   967  0471                     _TRISC1	set	1137
+   968  010E                     _LATC	set	270
+   969  010C                     _LATA	set	268
+   970  0191                     _EEADR	set	401
+   971  018E                     _ANSELC	set	398
+   972  018C                     _ANSELA	set	396
+   973  0196                     _EECON2	set	406
+   974  0193                     _EEDATA	set	403
+   975  0CA8                     _RD	set	3240
+   976  0CAA                     _WREN	set	3242
+   977  0CAF                     _EEPGD	set	3247
+   978  0CA9                     _WR	set	3241
+   979  0215                     _SSP1CON1	set	533
+   980  0211                     _SSP1BUF	set	529
+   981  0214                     _SSP1STATbits	set	532
+   982  0214                     _SSP1STAT	set	532
+   983  1C9C                     _IOCAF4	set	7324
+   984                           
+   985                           ; #config settings
+   986  0000                     
+   987                           	psect	cinit
+   988  0016                     start_initialization:	
+   989  0016                     __initialization:	
+   990                           
+   991                           ; Initialize objects allocated to BANK0
+   992  0016  304E               	movlw	low __pidataBANK0
+   993  0017  0084               	movwf	4
+   994  0018  3081               	movlw	(high __pidataBANK0)| (0+128)
+   995  0019  0085               	movwf	5
+   996  001A  3020               	movlw	low __pdataBANK0
+   997  001B  0086               	movwf	6
+   998  001C  3000               	movlw	high __pdataBANK0
+   999  001D  0087               	movwf	7
+  1000  001E  302D               	movlw	45
+  1001  001F  3182  226A  3180   	fcall	init_ram
+  1002                           
+  1003                           ; Clear objects allocated to COMMON
+  1004  0022  01FC               	clrf	__pbssCOMMON& (0+127)
+  1005  0023  01FD               	clrf	(__pbssCOMMON+1)& (0+127)
+  1006                           
+  1007                           ; Clear objects allocated to BANK0
+  1008  0024  01D8               	clrf	__pbssBANK0& (0+127)
+  1009  0025  01D9               	clrf	(__pbssBANK0+1)& (0+127)
+  1010  0026  01DA               	clrf	(__pbssBANK0+2)& (0+127)
+  1011  0027  01DB               	clrf	(__pbssBANK0+3)& (0+127)
+  1012  0028  01DC               	clrf	(__pbssBANK0+4)& (0+127)
+  1013  0029                     end_of_initialization:	
+  1014                           ;End of C runtime variable initialization code
+  1015                           
+  1016  0029                     __end_of__initialization:	
+  1017  0029  107E               	bcf	int$flags,0	;clear compiler interrupt flag (level 1)
+  1018  002A  0020               	movlb	0
+  1019  002B  2A1C               	ljmp	_main	;jump to C main() function
+  1020                           
+  1021                           	psect	bssCOMMON
+  1022  007C                     __pbssCOMMON:	
+  1023  007C                     _pad_aux_dat:	
+  1024  007C                     	ds	2
+  1025                           
+  1026                           	psect	bssBANK0
+  1027  0058                     __pbssBANK0:	
+  1028  0058                     NRF_Check@F2719:	
+  1029  0058                     	ds	5
+  1030                           
+  1031                           	psect	dataBANK0
+  1032  0020                     __pdataBANK0:	
+  1033  0020                     NRF_Check@F2717:	
+  1034  0020                     	ds	5
+  1035  0025                     _TX_ADDRESS:	
+  1036  0025                     	ds	5
+  1037  002A                     _tx_addr:	
+  1038  002A                     	ds	5
+  1039  002F                     _RX_ADDRESS_P5:	
+  1040  002F                     	ds	5
+  1041  0034                     _RX_ADDRESS_P4:	
+  1042  0034                     	ds	5
+  1043  0039                     _RX_ADDRESS_P3:	
+  1044  0039                     	ds	5
+  1045  003E                     _RX_ADDRESS_P2:	
+  1046  003E                     	ds	5
+  1047  0043                     _RX_ADDRESS_P1:	
+  1048  0043                     	ds	5
+  1049  0048                     _RX_ADDRESS_P0:	
+  1050  0048                     	ds	5
+  1051                           
+  1052                           	psect	inittext
+  1053  026A                     init_ram:	
+  1054  026A  00FE               	movwf	btemp
+  1055  026B                     initloop:	
+  1056  026B  0012               	moviw fsr0++
+  1057  026C  001E               	movwi fsr1++
+  1058  026D  0BFE               	decfsz	btemp,f
+  1059  026E  2A6B               	goto	initloop
+  1060  026F  3400               	retlw	0
+  1061                           
+  1062                           	psect	cstackCOMMON
+  1063  0070                     __pcstackCOMMON:	
+  1064  0070                     ?_NRF_Tx_CheckACK:	
+  1065  0070                     ?_PORTA_Init:	
+  1066                           ; 1 bytes @ 0x0
+  1067                           
+  1068  0070                     ??_PORTA_Init:	
+  1069                           ; 1 bytes @ 0x0
+  1070                           
+  1071  0070                     ?_PORTC_Init:	
+  1072                           ; 1 bytes @ 0x0
+  1073                           
+  1074  0070                     ??_PORTC_Init:	
+  1075                           ; 1 bytes @ 0x0
+  1076                           
+  1077  0070                     ?_WirelessPad:	
+  1078                           ; 1 bytes @ 0x0
+  1079                           
+  1080  0070                     ?_memcpy:	
+  1081                           ; 1 bytes @ 0x0
+  1082                           
+  1083  0070                     ?_NRF_Port_Init:	
+  1084                           ; 1 bytes @ 0x0
+  1085                           
+  1086  0070                     ??_NRF_Port_Init:	
+  1087                           ; 1 bytes @ 0x0
+  1088                           
+  1089  0070                     ?_NRF_On:	
+  1090                           ; 1 bytes @ 0x0
+  1091                           
+  1092  0070                     ??_NRF_On:	
+  1093                           ; 1 bytes @ 0x0
+  1094                           
+  1095  0070                     ?_NRF_SPI_Init:	
+  1096                           ; 1 bytes @ 0x0
+  1097                           
+  1098  0070                     ??_NRF_SPI_Init:	
+  1099                           ; 1 bytes @ 0x0
+  1100                           
+  1101  0070                     ?_NRF_SPI_RW:	
+  1102                           ; 1 bytes @ 0x0
+  1103                           
+  1104  0070                     ??_NRF_SPI_RW:	
+  1105                           ; 1 bytes @ 0x0
+  1106                           
+  1107  0070                     ?_NRF_Read_Reg:	
+  1108                           ; 1 bytes @ 0x0
+  1109                           
+  1110  0070                     ?_NRF_Check:	
+  1111                           ; 1 bytes @ 0x0
+  1112                           
+  1113  0070                     ?_PORT_Init:	
+  1114                           ; 1 bytes @ 0x0
+  1115                           
+  1116  0070                     ??_PORT_Init:	
+  1117                           ; 1 bytes @ 0x0
+  1118                           
+  1119  0070                     ?_LED_Init:	
+  1120                           ; 1 bytes @ 0x0
+  1121                           
+  1122  0070                     ??_LED_Init:	
+  1123                           ; 1 bytes @ 0x0
+  1124                           
+  1125  0070                     ?_Key_Init:	
+  1126                           ; 1 bytes @ 0x0
+  1127                           
+  1128  0070                     ??_Key_Init:	
+  1129                           ; 1 bytes @ 0x0
+  1130                           
+  1131  0070                     ?_ISR:	
+  1132                           ; 1 bytes @ 0x0
+  1133                           
+  1134  0070                     ??_ISR:	
+  1135                           ; 1 bytes @ 0x0
+  1136                           
+  1137  0070                     ?_main:	
+  1138                           ; 1 bytes @ 0x0
+  1139                           
+  1140  0070                     NRF_SPI_RW@dat:	
+  1141                           ; 1 bytes @ 0x0
+  1142                           
+  1143  0070                     memcpy@s1:	
+  1144                           ; 1 bytes @ 0x0
+  1145                           
+  1146                           
+  1147                           ; 2 bytes @ 0x0
+  1148  0070                     	ds	1
+  1149  0071                     ??_NRF_Read_Reg:	
+  1150  0071                     ?_NRF_Write_Reg:	
+  1151                           ; 1 bytes @ 0x1
+  1152                           
+  1153  0071                     ?_NRF_Read_Buf:	
+  1154                           ; 1 bytes @ 0x1
+  1155                           
+  1156  0071                     ?_NRF_Write_Buf:	
+  1157                           ; 1 bytes @ 0x1
+  1158                           
+  1159  0071                     NRF_Write_Reg@value:	
+  1160                           ; 1 bytes @ 0x1
+  1161                           
+  1162  0071                     NRF_Read_Buf@pBuf:	
+  1163                           ; 1 bytes @ 0x1
+  1164                           
+  1165  0071                     NRF_Write_Buf@pBuf:	
+  1166                           ; 1 bytes @ 0x1
+  1167                           
+  1168                           
+  1169                           ; 1 bytes @ 0x1
+  1170  0071                     	ds	1
+  1171  0072                     ??_NRF_Write_Reg:	
+  1172  0072                     NRF_Read_Reg@reg:	
+  1173                           ; 1 bytes @ 0x2
+  1174                           
+  1175  0072                     NRF_Read_Buf@len:	
+  1176                           ; 1 bytes @ 0x2
+  1177                           
+  1178  0072                     NRF_Write_Buf@len:	
+  1179                           ; 1 bytes @ 0x2
+  1180                           
+  1181  0072                     memcpy@n:	
+  1182                           ; 1 bytes @ 0x2
+  1183                           
+  1184                           
+  1185                           ; 2 bytes @ 0x2
+  1186  0072                     	ds	1
+  1187  0073                     ??_NRF_Read_Buf:	
+  1188  0073                     ??_NRF_Write_Buf:	
+  1189                           ; 1 bytes @ 0x3
+  1190                           
+  1191  0073                     NRF_Read_Reg@status:	
+  1192                           ; 1 bytes @ 0x3
+  1193                           
+  1194  0073                     NRF_Write_Reg@reg:	
+  1195                           ; 1 bytes @ 0x3
+  1196                           
+  1197                           
+  1198                           ; 1 bytes @ 0x3
+  1199  0073                     	ds	1
+  1200  0074                     ??_memcpy:	
+  1201  0074                     NRF_Write_Reg@status:	
+  1202                           ; 1 bytes @ 0x4
+  1203                           
+  1204                           
+  1205                           ; 1 bytes @ 0x4
+  1206  0074                     	ds	1
+  1207  0075                     ??_NRF_Tx_CheckACK:	
+  1208  0075                     NRF_Write_Buf@reg:	
+  1209                           ; 1 bytes @ 0x5
+  1210                           
+  1211  0075                     memcpy@s:	
+  1212                           ; 1 bytes @ 0x5
+  1213                           
+  1214                           
+  1215                           ; 2 bytes @ 0x5
+  1216  0075                     	ds	1
+  1217  0076                     NRF_Read_Buf@reg:	
+  1218  0076                     NRF_Write_Buf@i:	
+  1219                           ; 1 bytes @ 0x6
+  1220                           
+  1221  0076                     NRF_Tx_CheckACK@sta:	
+  1222                           ; 1 bytes @ 0x6
+  1223                           
+  1224                           
+  1225                           ; 1 bytes @ 0x6
+  1226  0076                     	ds	1
+  1227  0077                     ?_NRF_Tx_Set:	
+  1228  0077                     ?_NRF_Tx_Send:	
+  1229                           ; 1 bytes @ 0x7
+  1230                           
+  1231  0077                     NRF_Read_Buf@i:	
+  1232                           ; 1 bytes @ 0x7
+  1233                           
+  1234  0077                     NRF_Tx_Set@ack:	
+  1235                           ; 1 bytes @ 0x7
+  1236                           
+  1237  0077                     NRF_Tx_Send@len:	
+  1238                           ; 1 bytes @ 0x7
+  1239                           
+  1240  0077                     memcpy@tmp:	
+  1241                           ; 1 bytes @ 0x7
+  1242                           
+  1243                           
+  1244                           ; 1 bytes @ 0x7
+  1245  0077                     	ds	1
+  1246  0078                     ??_NRF_Check:	
+  1247  0078                     ??_NRF_Tx_Set:	
+  1248                           ; 1 bytes @ 0x8
+  1249                           
+  1250  0078                     ??_NRF_Tx_Send:	
+  1251                           ; 1 bytes @ 0x8
+  1252                           
+  1253  0078                     memcpy@d1:	
+  1254                           ; 1 bytes @ 0x8
+  1255                           
+  1256                           
+  1257                           ; 1 bytes @ 0x8
+  1258  0078                     	ds	1
+  1259  0079                     memcpy@d:	
+  1260                           
+  1261                           ; 1 bytes @ 0x9
+  1262  0079                     	ds	1
+  1263  007A                     NRF_Tx_Set@addr:	
+  1264  007A                     NRF_Tx_Send@txbuf:	
+  1265                           ; 1 bytes @ 0xA
+  1266                           
+  1267                           
+  1268                           ; 1 bytes @ 0xA
+  1269  007A                     	ds	1
+  1270  007B                     ??_WirelessPad:	
+  1271                           
+  1272                           ; 1 bytes @ 0xB
+  1273  007B                     	ds	1
+  1274  007C                     ??_main:	
+  1275                           
+  1276                           	psect	cstackBANK0
+  1277  004D                     __pcstackBANK0:	
+  1278                           ; 1 bytes @ 0xC
+  1279                           
+  1280  004D                     NRF_Check@tuf:	
+  1281                           
+  1282                           ; 5 bytes @ 0x0
+  1283  004D                     	ds	5
+  1284  0052                     NRF_Check@buf:	
+  1285                           
+  1286                           ; 5 bytes @ 0x5
+  1287  0052                     	ds	5
+  1288  0057                     NRF_Check@i:	
+  1289                           
+  1290                           ; 1 bytes @ 0xA
+  1291  0057                     	ds	1
+  1292                           
+  1293                           	psect	maintext
+  1294  021C                     __pmaintext:	
+  1295 ;;
+  1296 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+  1297 ;;
+  1298 ;; *************** function _main *****************
+  1299 ;; Defined at:
+  1300 ;;		line 101 in file "main.c"
+  1301 ;; Parameters:    Size  Location     Type
+  1302 ;;		None
+  1303 ;; Auto vars:     Size  Location     Type
+  1304 ;;		None
+  1305 ;; Return value:  Size  Location     Type
+  1306 ;;                  1    wreg      void 
+  1307 ;; Registers used:
+  1308 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+  1309 ;; Tracked objects:
+  1310 ;;		On entry : B1F/0
+  1311 ;;		On exit  : 0/0
+  1312 ;;		Unchanged: 0/0
+  1313 ;; Data sizes:     COMMON   BANK0   BANK1
+  1314 ;;      Params:         0       0       0
+  1315 ;;      Locals:         0       0       0
+  1316 ;;      Temps:          0       0       0
+  1317 ;;      Totals:         0       0       0
+  1318 ;;Total ram usage:        0 bytes
+  1319 ;; Hardware stack levels required when called:    6
+  1320 ;; This function calls:
+  1321 ;;		_Key_Init
+  1322 ;;		_LED_Init
+  1323 ;;		_PORT_Init
+  1324 ;;		_WirelessPad
+  1325 ;; This function is called by:
+  1326 ;;		Startup code after reset
+  1327 ;; This function uses a non-reentrant model
+  1328 ;;
+  1329                           
+  1330                           
+  1331                           ;psect for function _main
+  1332  021C                     _main:	
+  1333  021C                     l1818:	
+  1334                           ;incstack = 0
+  1335                           ; Regs used in _main: [wreg-fsr1h+status,2+status,0+pclath+cstack]
+  1336                           
+  1337                           
+  1338                           ;main.c: 103:     OSCCON = 0X28;
+  1339  021C  3028               	movlw	40
+  1340  021D  0021               	movlb	1	; select bank1
+  1341  021E  0099               	movwf	25	;volatile
+  1342  021F                     l1820:	
+  1343                           
+  1344                           ;main.c: 105:     PORT_Init();
+  1345  021F  3182  2263  3182   	fcall	_PORT_Init
+  1346  0222                     l1822:	
+  1347                           
+  1348                           ;main.c: 107:     LED_Init();
+  1349  0222  3182  2270  3182   	fcall	_LED_Init
+  1350  0225                     l1824:	
+  1351                           
+  1352                           ;main.c: 109:     Key_Init();
+  1353  0225  3182  2275  3182   	fcall	_Key_Init
+  1354  0228                     l1826:	
+  1355                           
+  1356                           ;main.c: 113:     WirelessPad();
+  1357  0228  3180  202C  3182   	fcall	_WirelessPad
+  1358  022B                     l365:	
+  1359                           ;main.c: 117:     while(1);
+  1360                           
+  1361  022B                     l366:	
+  1362  022B  2A2B               	goto	l365
+  1363  022C  2815               	ljmp	start
+  1364  022D                     __end_of_main:	
+  1365                           
+  1366                           	psect	text1
+  1367  002C                     __ptext1:	
+  1368 ;; *************** function _WirelessPad *****************
+  1369 ;; Defined at:
+  1370 ;;		line 120 in file "main.c"
+  1371 ;; Parameters:    Size  Location     Type
+  1372 ;;		None
+  1373 ;; Auto vars:     Size  Location     Type
+  1374 ;;		None
+  1375 ;; Return value:  Size  Location     Type
+  1376 ;;                  1    wreg      void 
+  1377 ;; Registers used:
+  1378 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+  1379 ;; Tracked objects:
+  1380 ;;		On entry : 0/0
+  1381 ;;		On exit  : 0/0
+  1382 ;;		Unchanged: 0/0
+  1383 ;; Data sizes:     COMMON   BANK0   BANK1
+  1384 ;;      Params:         0       0       0
+  1385 ;;      Locals:         0       0       0
+  1386 ;;      Temps:          1       0       0
+  1387 ;;      Totals:         1       0       0
+  1388 ;;Total ram usage:        1 bytes
+  1389 ;; Hardware stack levels used:    1
+  1390 ;; Hardware stack levels required when called:    5
+  1391 ;; This function calls:
+  1392 ;;		_NRF_Check
+  1393 ;;		_NRF_On
+  1394 ;;		_NRF_Port_Init
+  1395 ;;		_NRF_SPI_Init
+  1396 ;;		_NRF_Tx_Send
+  1397 ;;		_NRF_Tx_Set
+  1398 ;;		_memcpy
+  1399 ;; This function is called by:
+  1400 ;;		_main
+  1401 ;; This function uses a non-reentrant model
+  1402 ;;
+  1403                           
+  1404                           
+  1405                           ;psect for function _WirelessPad
+  1406  002C                     _WirelessPad:	
+  1407  002C                     l1634:	
+  1408                           ;incstack = 0
+  1409                           ; Regs used in _WirelessPad: [wreg-fsr1h+status,2+status,0+pclath+cstack]
+  1410                           
+  1411                           
+  1412                           ;main.c: 122:     NRF_On();
+  1413  002C  3182  227A  3180   	fcall	_NRF_On
+  1414                           
+  1415                           ;main.c: 123:     NRF_Port_Init();
+  1416  002F  3182  223B  3180   	fcall	_NRF_Port_Init
+  1417  0032                     l1636:	
+  1418                           
+  1419                           ;main.c: 124:     NRF_SPI_Init();
+  1420  0032  3182  2247  3180   	fcall	_NRF_SPI_Init
+  1421                           
+  1422                           ;main.c: 126:     _delay((unsigned long)((500)*(125000/4000.0)));
+  1423  0035  3015               	movlw	21
+  1424  0036  00FB               	movwf	??_WirelessPad
+  1425  0037  3049               	movlw	73
+  1426  0038                     u567:	
+  1427  0038  0B89               	decfsz	9,f
+  1428  0039  2838               	goto	u567
+  1429  003A  0BFB               	decfsz	??_WirelessPad,f
+  1430  003B  2838               	goto	u567
+  1431  003C  3200               	nop2
+  1432  003D                     l1638:	
+  1433                           
+  1434                           ;main.c: 128:     if(NRF_Check()) {
+  1435  003D  3180  2081  3180   	fcall	_NRF_Check
+  1436  0040  3A00               	xorlw	0
+  1437  0041  1903               	skipnz
+  1438  0042  2844               	goto	u461
+  1439  0043  2845               	goto	u460
+  1440  0044                     u461:	
+  1441  0044  285A               	goto	l1644
+  1442  0045                     u460:	
+  1443  0045                     l372:	
+  1444                           ;main.c: 129:         while(1) {
+  1445                           
+  1446                           
+  1447                           ;main.c: 130:             RC3 = 0;
+  1448  0045  0020               	movlb	0	; select bank0
+  1449  0046  118E               	bcf	14,3	;volatile
+  1450  0047                     l1640:	
+  1451                           
+  1452                           ;main.c: 131:             _delay((unsigned long)((100)*(125000/4000.0)));
+  1453  0047  3005               	movlw	5
+  1454  0048  00FB               	movwf	??_WirelessPad
+  1455  0049  300D               	movlw	13
+  1456  004A                     u577:	
+  1457  004A  0B89               	decfsz	9,f
+  1458  004B  284A               	goto	u577
+  1459  004C  0BFB               	decfsz	??_WirelessPad,f
+  1460  004D  284A               	goto	u577
+  1461  004E  3200               	nop2
+  1462  004F                     l1642:	
+  1463                           
+  1464                           ;main.c: 132:             RC3 = 1;
+  1465  004F  0020               	movlb	0	; select bank0
+  1466  0050  158E               	bsf	14,3	;volatile
+  1467                           
+  1468                           ;main.c: 133:             _delay((unsigned long)((100)*(125000/4000.0)));
+  1469  0051  3005               	movlw	5
+  1470  0052  00FB               	movwf	??_WirelessPad
+  1471  0053  300D               	movlw	13
+  1472  0054                     u587:	
+  1473  0054  0B89               	decfsz	9,f
+  1474  0055  2854               	goto	u587
+  1475  0056  0BFB               	decfsz	??_WirelessPad,f
+  1476  0057  2854               	goto	u587
+  1477  0058  3200               	nop2
+  1478  0059  2845               	goto	l372
+  1479  005A                     l1644:	
+  1480                           
+  1481                           ;main.c: 137:     memcpy(pad_aux_dat, pad_aux_ok, 2);
+  1482  005A  308B               	movlw	low (_pad_aux_ok| (0+32768))
+  1483  005B  00F0               	movwf	memcpy@s1
+  1484  005C  3082               	movlw	high (_pad_aux_ok| (0+32768))
+  1485  005D  00F1               	movwf	memcpy@s1+1
+  1486  005E  3002               	movlw	2
+  1487  005F  00F2               	movwf	memcpy@n
+  1488  0060  3000               	movlw	0
+  1489  0061  00F3               	movwf	memcpy@n+1
+  1490  0062  307C               	movlw	(low (_pad_aux_dat| 0))& (0+255)
+  1491  0063  3181  2120  3180   	fcall	_memcpy
+  1492  0066                     l1646:	
+  1493                           
+  1494                           ;main.c: 139:     NRF_Tx_Set(tx_addr, 0x00);
+  1495  0066  01F7               	clrf	NRF_Tx_Set@ack
+  1496  0067  302A               	movlw	(low (_tx_addr| 0))& (0+255)
+  1497  0068  3180  20D6  3180   	fcall	_NRF_Tx_Set
+  1498  006B                     l1648:	
+  1499                           
+  1500                           ;main.c: 143:         if(RA4 == 1) {
+  1501  006B  0020               	movlb	0	; select bank0
+  1502  006C  1E0C               	btfss	12,4	;volatile
+  1503  006D  286F               	goto	u471
+  1504  006E  2870               	goto	u470
+  1505  006F                     u471:	
+  1506  006F  287E               	goto	l376
+  1507  0070                     u470:	
+  1508  0070                     l1650:	
+  1509                           
+  1510                           ;main.c: 144:             RC3 = 0;
+  1511  0070  118E               	bcf	14,3	;volatile
+  1512  0071                     l1652:	
+  1513                           
+  1514                           ;main.c: 147:             NRF_Tx_Send(pad_aux_dat, 2);
+  1515  0071  3002               	movlw	2
+  1516  0072  00FB               	movwf	??_WirelessPad
+  1517  0073  087B               	movf	??_WirelessPad,w
+  1518  0074  00F7               	movwf	NRF_Tx_Send@len
+  1519  0075  307C               	movlw	(low (_pad_aux_dat| 0))& (0+255)
+  1520  0076  3181  21DE  3180   	fcall	_NRF_Tx_Send
+  1521  0079                     l1654:	
+  1522                           
+  1523                           ;main.c: 148:             _delay((unsigned long)((1)*(125000/4000.0)));
+  1524  0079  300A               	movlw	10
+  1525  007A                     u597:	
+  1526  007A  0B89               	decfsz	9,f
+  1527  007B  287A               	goto	u597
+  1528  007C  0000               	nop
+  1529                           
+  1530                           ;main.c: 149:         }else {
+  1531  007D  286B               	goto	l1648
+  1532  007E                     l376:	
+  1533                           
+  1534                           ;main.c: 150:             RC3 = 1;
+  1535  007E  158E               	bsf	14,3	;volatile
+  1536  007F  2879               	goto	l1654
+  1537  0080  0008               	return
+  1538  0081                     __end_of_WirelessPad:	
+  1539                           
+  1540                           	psect	text2
+  1541  0120                     __ptext2:	
+  1542 ;; *************** function _memcpy *****************
+  1543 ;; Defined at:
+  1544 ;;		line 4 in file "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\memcpy.c"
+  1545 ;; Parameters:    Size  Location     Type
+  1546 ;;  d1              1    wreg     PTR void 
+  1547 ;;		 -> pad_aux_dat(2), 
+  1548 ;;  s1              2    0[COMMON] PTR const void 
+  1549 ;;		 -> pad_aux_ok(2), 
+  1550 ;;  n               2    2[COMMON] unsigned int 
+  1551 ;; Auto vars:     Size  Location     Type
+  1552 ;;  d1              1    8[COMMON] PTR void 
+  1553 ;;		 -> pad_aux_dat(2), 
+  1554 ;;  s               2    5[COMMON] PTR const unsigned char 
+  1555 ;;		 -> pad_aux_ok(2), 
+  1556 ;;  d               1    9[COMMON] PTR unsigned char 
+  1557 ;;		 -> pad_aux_dat(2), 
+  1558 ;;  tmp             1    7[COMMON] unsigned char 
+  1559 ;; Return value:  Size  Location     Type
+  1560 ;;                  1    wreg      PTR void 
+  1561 ;; Registers used:
+  1562 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, pclath
+  1563 ;; Tracked objects:
+  1564 ;;		On entry : 0/0
+  1565 ;;		On exit  : 0/0
+  1566 ;;		Unchanged: 0/0
+  1567 ;; Data sizes:     COMMON   BANK0   BANK1
+  1568 ;;      Params:         4       0       0
+  1569 ;;      Locals:         5       0       0
+  1570 ;;      Temps:          1       0       0
+  1571 ;;      Totals:        10       0       0
+  1572 ;;Total ram usage:       10 bytes
+  1573 ;; Hardware stack levels used:    1
+  1574 ;; Hardware stack levels required when called:    1
+  1575 ;; This function calls:
+  1576 ;;		Nothing
+  1577 ;; This function is called by:
+  1578 ;;		_WirelessPad
+  1579 ;; This function uses a non-reentrant model
+  1580 ;;
+  1581                           
+  1582                           
+  1583                           ;psect for function _memcpy
+  1584  0120                     _memcpy:	
+  1585                           
+  1586                           ;incstack = 0
+  1587                           ; Regs used in _memcpy: [wreg-fsr1h+status,2+status,0+pclath]
+  1588                           ;memcpy@d1 stored from wreg
+  1589  0120  00F8               	movwf	memcpy@d1
+  1590  0121                     l1600:	
+  1591  0121  0871               	movf	memcpy@s1+1,w
+  1592  0122  00F6               	movwf	memcpy@s+1
+  1593  0123  0870               	movf	memcpy@s1,w
+  1594  0124  00F5               	movwf	memcpy@s
+  1595  0125  0878               	movf	memcpy@d1,w
+  1596  0126  00F4               	movwf	??_memcpy
+  1597  0127  0874               	movf	??_memcpy,w
+  1598  0128  00F9               	movwf	memcpy@d
+  1599  0129  2941               	goto	l1610
+  1600  012A                     l1602:	
+  1601  012A  0875               	movf	memcpy@s,w
+  1602  012B  0084               	movwf	4
+  1603  012C  0876               	movf	memcpy@s+1,w
+  1604  012D  0085               	movwf	5
+  1605  012E  0800               	movf	0,w	;code access
+  1606  012F  00F4               	movwf	??_memcpy
+  1607  0130  0874               	movf	??_memcpy,w
+  1608  0131  00F7               	movwf	memcpy@tmp
+  1609  0132                     l1604:	
+  1610  0132  3001               	movlw	1
+  1611  0133  07F5               	addwf	memcpy@s,f
+  1612  0134  3000               	movlw	0
+  1613  0135  3DF6               	addwfc	memcpy@s+1,f
+  1614  0136                     l1606:	
+  1615  0136  0877               	movf	memcpy@tmp,w
+  1616  0137  00F4               	movwf	??_memcpy
+  1617  0138  0879               	movf	memcpy@d,w
+  1618  0139  0086               	movwf	6
+  1619  013A  0187               	clrf	7
+  1620  013B  0874               	movf	??_memcpy,w
+  1621  013C  0081               	movwf	1
+  1622  013D                     l1608:	
+  1623  013D  3001               	movlw	1
+  1624  013E  00F4               	movwf	??_memcpy
+  1625  013F  0874               	movf	??_memcpy,w
+  1626  0140  07F9               	addwf	memcpy@d,f
+  1627  0141                     l1610:	
+  1628  0141  3001               	movlw	1
+  1629  0142  02F2               	subwf	memcpy@n,f
+  1630  0143  3000               	movlw	0
+  1631  0144  3BF3               	subwfb	memcpy@n+1,f
+  1632  0145  0A72               	incf	memcpy@n,w
+  1633  0146  1D03               	skipz
+  1634  0147  294C               	goto	u451
+  1635  0148  0A73               	incf	memcpy@n+1,w
+  1636  0149  1D03               	btfss	3,2
+  1637  014A  294C               	goto	u451
+  1638  014B  294D               	goto	u450
+  1639  014C                     u451:	
+  1640  014C  292A               	goto	l1602
+  1641  014D                     u450:	
+  1642  014D                     l986:	
+  1643  014D  0008               	return
+  1644  014E                     __end_of_memcpy:	
+  1645                           
+  1646                           	psect	text3
+  1647  00D6                     __ptext3:	
+  1648 ;; *************** function _NRF_Tx_Set *****************
+  1649 ;; Defined at:
+  1650 ;;		line 361 in file "../library/nrf24l01.c"
+  1651 ;; Parameters:    Size  Location     Type
+  1652 ;;  addr            1    wreg     PTR unsigned char 
+  1653 ;;		 -> tx_addr(5), 
+  1654 ;;  ack             1    7[COMMON] unsigned char 
+  1655 ;; Auto vars:     Size  Location     Type
+  1656 ;;  addr            1   10[COMMON] PTR unsigned char 
+  1657 ;;		 -> tx_addr(5), 
+  1658 ;; Return value:  Size  Location     Type
+  1659 ;;                  1    wreg      void 
+  1660 ;; Registers used:
+  1661 ;;		wreg, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+  1662 ;; Tracked objects:
+  1663 ;;		On entry : 0/0
+  1664 ;;		On exit  : 0/0
+  1665 ;;		Unchanged: 0/0
+  1666 ;; Data sizes:     COMMON   BANK0   BANK1
+  1667 ;;      Params:         1       0       0
+  1668 ;;      Locals:         1       0       0
+  1669 ;;      Temps:          2       0       0
+  1670 ;;      Totals:         4       0       0
+  1671 ;;Total ram usage:        4 bytes
+  1672 ;; Hardware stack levels used:    1
+  1673 ;; Hardware stack levels required when called:    3
+  1674 ;; This function calls:
+  1675 ;;		_NRF_Write_Buf
+  1676 ;;		_NRF_Write_Reg
+  1677 ;; This function is called by:
+  1678 ;;		_WirelessPad
+  1679 ;; This function uses a non-reentrant model
+  1680 ;;
+  1681                           
+  1682                           
+  1683                           ;psect for function _NRF_Tx_Set
+  1684  00D6                     _NRF_Tx_Set:	
+  1685                           
+  1686                           ;incstack = 0
+  1687                           ; Regs used in _NRF_Tx_Set: [wreg+fsr1l+fsr1h+status,2+status,0+pclath+cstack]
+  1688                           ;NRF_Tx_Set@addr stored from wreg
+  1689  00D6  00FA               	movwf	NRF_Tx_Set@addr
+  1690  00D7                     l1574:	
+  1691                           
+  1692                           ;../library/nrf24l01.c: 362:     RA0 = 0;
+  1693  00D7  0020               	movlb	0	; select bank0
+  1694  00D8  100C               	bcf	12,0	;volatile
+  1695  00D9                     l1576:	
+  1696                           
+  1697                           ;../library/nrf24l01.c: 363:     NRF_Write_Buf(0x20 + 0x10, addr, 5);
+  1698  00D9  087A               	movf	NRF_Tx_Set@addr,w
+  1699  00DA  00F8               	movwf	??_NRF_Tx_Set
+  1700  00DB  0878               	movf	??_NRF_Tx_Set,w
+  1701  00DC  00F1               	movwf	NRF_Write_Buf@pBuf
+  1702  00DD  3005               	movlw	5
+  1703  00DE  00F9               	movwf	??_NRF_Tx_Set+1
+  1704  00DF  0879               	movf	??_NRF_Tx_Set+1,w
+  1705  00E0  00F2               	movwf	NRF_Write_Buf@len
+  1706  00E1  3030               	movlw	48
+  1707  00E2  3181  219E  3180   	fcall	_NRF_Write_Buf
+  1708                           
+  1709                           ;../library/nrf24l01.c: 364:     NRF_Write_Buf(0x20 + 0x0A, addr, 5);
+  1710  00E5  087A               	movf	NRF_Tx_Set@addr,w
+  1711  00E6  00F8               	movwf	??_NRF_Tx_Set
+  1712  00E7  0878               	movf	??_NRF_Tx_Set,w
+  1713  00E8  00F1               	movwf	NRF_Write_Buf@pBuf
+  1714  00E9  3005               	movlw	5
+  1715  00EA  00F9               	movwf	??_NRF_Tx_Set+1
+  1716  00EB  0879               	movf	??_NRF_Tx_Set+1,w
+  1717  00EC  00F2               	movwf	NRF_Write_Buf@len
+  1718  00ED  302A               	movlw	42
+  1719  00EE  3181  219E  3180   	fcall	_NRF_Write_Buf
+  1720  00F1                     l1578:	
+  1721                           
+  1722                           ;../library/nrf24l01.c: 365:     NRF_Write_Reg(0x20 + 0x01, ack);
+  1723  00F1  0877               	movf	NRF_Tx_Set@ack,w
+  1724  00F2  00F8               	movwf	??_NRF_Tx_Set
+  1725  00F3  0878               	movf	??_NRF_Tx_Set,w
+  1726  00F4  00F1               	movwf	NRF_Write_Reg@value
+  1727  00F5  3021               	movlw	33
+  1728  00F6  3181  21F8  3180   	fcall	_NRF_Write_Reg
+  1729  00F9                     l1580:	
+  1730                           
+  1731                           ;../library/nrf24l01.c: 367:     NRF_Write_Reg(0x20 + 0x02, 0x01);
+  1732  00F9  01F1               	clrf	NRF_Write_Reg@value
+  1733  00FA  0AF1               	incf	NRF_Write_Reg@value,f
+  1734  00FB  3022               	movlw	34
+  1735  00FC  3181  21F8  3180   	fcall	_NRF_Write_Reg
+  1736  00FF                     l1582:	
+  1737                           
+  1738                           ;../library/nrf24l01.c: 368:     NRF_Write_Reg(0x20 + 0x04, 0x1a);
+  1739  00FF  301A               	movlw	26
+  1740  0100  00F8               	movwf	??_NRF_Tx_Set
+  1741  0101  0878               	movf	??_NRF_Tx_Set,w
+  1742  0102  00F1               	movwf	NRF_Write_Reg@value
+  1743  0103  3024               	movlw	36
+  1744  0104  3181  21F8  3180   	fcall	_NRF_Write_Reg
+  1745  0107                     l1584:	
+  1746                           
+  1747                           ;../library/nrf24l01.c: 369:     NRF_Write_Reg(0x20 + 0x05, 40);
+  1748  0107  3028               	movlw	40
+  1749  0108  00F8               	movwf	??_NRF_Tx_Set
+  1750  0109  0878               	movf	??_NRF_Tx_Set,w
+  1751  010A  00F1               	movwf	NRF_Write_Reg@value
+  1752  010B  3025               	movlw	37
+  1753  010C  3181  21F8  3180   	fcall	_NRF_Write_Reg
+  1754  010F                     l1586:	
+  1755                           
+  1756                           ;../library/nrf24l01.c: 370:     NRF_Write_Reg(0x20 + 0x06, 0x0f);
+  1757  010F  300F               	movlw	15
+  1758  0110  00F8               	movwf	??_NRF_Tx_Set
+  1759  0111  0878               	movf	??_NRF_Tx_Set,w
+  1760  0112  00F1               	movwf	NRF_Write_Reg@value
+  1761  0113  3026               	movlw	38
+  1762  0114  3181  21F8  3180   	fcall	_NRF_Write_Reg
+  1763  0117                     l1588:	
+  1764                           
+  1765                           ;../library/nrf24l01.c: 371:     NRF_Write_Reg(0x20 + 0x00, 0x0e);
+  1766  0117  300E               	movlw	14
+  1767  0118  00F8               	movwf	??_NRF_Tx_Set
+  1768  0119  0878               	movf	??_NRF_Tx_Set,w
+  1769  011A  00F1               	movwf	NRF_Write_Reg@value
+  1770  011B  3020               	movlw	32
+  1771  011C  3181  21F8  3180   	fcall	_NRF_Write_Reg
+  1772  011F                     l177:	
+  1773  011F  0008               	return
+  1774  0120                     __end_of_NRF_Tx_Set:	
+  1775                           
+  1776                           	psect	text4
+  1777  01DE                     __ptext4:	
+  1778 ;; *************** function _NRF_Tx_Send *****************
+  1779 ;; Defined at:
+  1780 ;;		line 374 in file "../library/nrf24l01.c"
+  1781 ;; Parameters:    Size  Location     Type
+  1782 ;;  txbuf           1    wreg     PTR unsigned char 
+  1783 ;;		 -> pad_aux_dat(2), 
+  1784 ;;  len             1    7[COMMON] unsigned char 
+  1785 ;; Auto vars:     Size  Location     Type
+  1786 ;;  txbuf           1   10[COMMON] PTR unsigned char 
+  1787 ;;		 -> pad_aux_dat(2), 
+  1788 ;; Return value:  Size  Location     Type
+  1789 ;;                  1    wreg      void 
+  1790 ;; Registers used:
+  1791 ;;		wreg, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+  1792 ;; Tracked objects:
+  1793 ;;		On entry : 0/0
+  1794 ;;		On exit  : 0/0
+  1795 ;;		Unchanged: 0/0
+  1796 ;; Data sizes:     COMMON   BANK0   BANK1
+  1797 ;;      Params:         1       0       0
+  1798 ;;      Locals:         1       0       0
+  1799 ;;      Temps:          2       0       0
+  1800 ;;      Totals:         4       0       0
+  1801 ;;Total ram usage:        4 bytes
+  1802 ;; Hardware stack levels used:    1
+  1803 ;; Hardware stack levels required when called:    4
+  1804 ;; This function calls:
+  1805 ;;		_NRF_Tx_CheckACK
+  1806 ;;		_NRF_Write_Buf
+  1807 ;; This function is called by:
+  1808 ;;		_WirelessPad
+  1809 ;; This function uses a non-reentrant model
+  1810 ;;
+  1811                           
+  1812                           
+  1813                           ;psect for function _NRF_Tx_Send
+  1814  01DE                     _NRF_Tx_Send:	
+  1815                           
+  1816                           ;incstack = 0
+  1817                           ; Regs used in _NRF_Tx_Send: [wreg+fsr1l+fsr1h+status,2+status,0+pclath+cstack]
+  1818                           ;NRF_Tx_Send@txbuf stored from wreg
+  1819  01DE  00FA               	movwf	NRF_Tx_Send@txbuf
+  1820  01DF                     l1590:	
+  1821                           
+  1822                           ;../library/nrf24l01.c: 375:     RA0 = 0;
+  1823  01DF  0020               	movlb	0	; select bank0
+  1824  01E0  100C               	bcf	12,0	;volatile
+  1825  01E1                     l1592:	
+  1826                           
+  1827                           ;../library/nrf24l01.c: 376:     NRF_Write_Buf(0xA0, txbuf, len);
+  1828  01E1  087A               	movf	NRF_Tx_Send@txbuf,w
+  1829  01E2  00F8               	movwf	??_NRF_Tx_Send
+  1830  01E3  0878               	movf	??_NRF_Tx_Send,w
+  1831  01E4  00F1               	movwf	NRF_Write_Buf@pBuf
+  1832  01E5  0877               	movf	NRF_Tx_Send@len,w
+  1833  01E6  00F9               	movwf	??_NRF_Tx_Send+1
+  1834  01E7  0879               	movf	??_NRF_Tx_Send+1,w
+  1835  01E8  00F2               	movwf	NRF_Write_Buf@len
+  1836  01E9  30A0               	movlw	160
+  1837  01EA  3181  219E  3181   	fcall	_NRF_Write_Buf
+  1838  01ED                     l1594:	
+  1839                           
+  1840                           ;../library/nrf24l01.c: 377:     RA0 = 1;
+  1841  01ED  0020               	movlb	0	; select bank0
+  1842  01EE  140C               	bsf	12,0	;volatile
+  1843  01EF                     l1596:	
+  1844  01EF                     l1598:	
+  1845                           ;../library/nrf24l01.c: 378:     _delay((unsigned long)((10)*(125000/4000000.0)));
+  1846                           ;../library/nrf24l01.c: 379:     while(NRF_Tx_CheckACK());
+  1847                           
+  1848  01EF  3181  21BF  3181   	fcall	_NRF_Tx_CheckACK
+  1849  01F2  3A00               	xorlw	0
+  1850  01F3  1D03               	skipz
+  1851  01F4  29F6               	goto	u441
+  1852  01F5  29F7               	goto	u440
+  1853  01F6                     u441:	
+  1854  01F6  29EF               	goto	l1598
+  1855  01F7                     u440:	
+  1856  01F7                     l183:	
+  1857  01F7  0008               	return
+  1858  01F8                     __end_of_NRF_Tx_Send:	
+  1859                           
+  1860                           	psect	text5
+  1861  01BF                     __ptext5:	
+  1862 ;; *************** function _NRF_Tx_CheckACK *****************
+  1863 ;; Defined at:
+  1864 ;;		line 382 in file "../library/nrf24l01.c"
+  1865 ;; Parameters:    Size  Location     Type
+  1866 ;;		None
+  1867 ;; Auto vars:     Size  Location     Type
+  1868 ;;  sta             1    6[COMMON] unsigned char 
+  1869 ;; Return value:  Size  Location     Type
+  1870 ;;                  1    wreg      unsigned char 
+  1871 ;; Registers used:
+  1872 ;;		wreg, status,2, status,0, pclath, cstack
+  1873 ;; Tracked objects:
+  1874 ;;		On entry : 0/0
+  1875 ;;		On exit  : 0/0
+  1876 ;;		Unchanged: 0/0
+  1877 ;; Data sizes:     COMMON   BANK0   BANK1
+  1878 ;;      Params:         0       0       0
+  1879 ;;      Locals:         1       0       0
+  1880 ;;      Temps:          1       0       0
+  1881 ;;      Totals:         2       0       0
+  1882 ;;Total ram usage:        2 bytes
+  1883 ;; Hardware stack levels used:    1
+  1884 ;; Hardware stack levels required when called:    3
+  1885 ;; This function calls:
+  1886 ;;		_NRF_Read_Reg
+  1887 ;;		_NRF_Write_Reg
+  1888 ;; This function is called by:
+  1889 ;;		_NRF_Tx_Send
+  1890 ;; This function uses a non-reentrant model
+  1891 ;;
+  1892                           
+  1893                           
+  1894                           ;psect for function _NRF_Tx_CheckACK
+  1895  01BF                     _NRF_Tx_CheckACK:	
+  1896  01BF                     l1510:	
+  1897                           ;incstack = 0
+  1898                           ; Regs used in _NRF_Tx_CheckACK: [wreg+status,2+status,0+pclath+cstack]
+  1899                           
+  1900  01BF                     l1512:	
+  1901                           
+  1902                           ;../library/nrf24l01.c: 385:  sta = NRF_Read_Reg(0x07);
+  1903  01BF  3007               	movlw	7
+  1904  01C0  3182  220A  3181   	fcall	_NRF_Read_Reg
+  1905  01C3  00F5               	movwf	??_NRF_Tx_CheckACK
+  1906  01C4  0875               	movf	??_NRF_Tx_CheckACK,w
+  1907  01C5  00F6               	movwf	NRF_Tx_CheckACK@sta
+  1908  01C6                     l1514:	
+  1909                           
+  1910                           ;../library/nrf24l01.c: 386:     if(sta & 0X10 || sta & 0X20) {
+  1911  01C6  1A76               	btfsc	NRF_Tx_CheckACK@sta,4
+  1912  01C7  29C9               	goto	u361
+  1913  01C8  29CA               	goto	u360
+  1914  01C9                     u361:	
+  1915  01C9  29CE               	goto	l1518
+  1916  01CA                     u360:	
+  1917  01CA                     l1516:	
+  1918  01CA  1EF6               	btfss	NRF_Tx_CheckACK@sta,5
+  1919  01CB  29CD               	goto	u371
+  1920  01CC  29CE               	goto	u370
+  1921  01CD                     u371:	
+  1922  01CD  29D6               	goto	l1520
+  1923  01CE                     u370:	
+  1924  01CE                     l1518:	
+  1925                           
+  1926                           ;../library/nrf24l01.c: 387:         NRF_Write_Reg(0x20 + 0x07, 0xff);
+  1927  01CE  30FF               	movlw	255
+  1928  01CF  00F5               	movwf	??_NRF_Tx_CheckACK
+  1929  01D0  0875               	movf	??_NRF_Tx_CheckACK,w
+  1930  01D1  00F1               	movwf	NRF_Write_Reg@value
+  1931  01D2  3027               	movlw	39
+  1932  01D3  3181  21F8  3181   	fcall	_NRF_Write_Reg
+  1933  01D6                     l1520:	
+  1934                           
+  1935                           ;../library/nrf24l01.c: 389:  if(sta & 0X20) {
+  1936  01D6  1EF6               	btfss	NRF_Tx_CheckACK@sta,5
+  1937  01D7  29D9               	goto	u381
+  1938  01D8  29DA               	goto	u380
+  1939  01D9                     u381:	
+  1940  01D9  29DC               	goto	l1526
+  1941  01DA                     u380:	
+  1942  01DA                     l1522:	
+  1943                           
+  1944                           ;../library/nrf24l01.c: 390:     return(0);
+  1945  01DA  3000               	movlw	0
+  1946  01DB  29DD               	goto	l190
+  1947  01DC                     l1526:	
+  1948                           
+  1949                           ;../library/nrf24l01.c: 392:  return(1);
+  1950  01DC  3001               	movlw	1
+  1951  01DD                     l190:	
+  1952  01DD  0008               	return
+  1953  01DE                     __end_of_NRF_Tx_CheckACK:	
+  1954                           
+  1955                           	psect	text6
+  1956  01F8                     __ptext6:	
+  1957 ;; *************** function _NRF_Write_Reg *****************
+  1958 ;; Defined at:
+  1959 ;;		line 103 in file "../library/nrf24l01.c"
+  1960 ;; Parameters:    Size  Location     Type
+  1961 ;;  reg             1    wreg     unsigned char 
+  1962 ;;  value           1    1[COMMON] unsigned char 
+  1963 ;; Auto vars:     Size  Location     Type
+  1964 ;;  reg             1    3[COMMON] unsigned char 
+  1965 ;;  status          1    4[COMMON] unsigned char 
+  1966 ;; Return value:  Size  Location     Type
+  1967 ;;                  1    wreg      unsigned char 
+  1968 ;; Registers used:
+  1969 ;;		wreg, status,2, status,0, pclath, cstack
+  1970 ;; Tracked objects:
+  1971 ;;		On entry : 0/0
+  1972 ;;		On exit  : 0/0
+  1973 ;;		Unchanged: 0/0
+  1974 ;; Data sizes:     COMMON   BANK0   BANK1
+  1975 ;;      Params:         1       0       0
+  1976 ;;      Locals:         2       0       0
+  1977 ;;      Temps:          1       0       0
+  1978 ;;      Totals:         4       0       0
+  1979 ;;Total ram usage:        4 bytes
+  1980 ;; Hardware stack levels used:    1
+  1981 ;; Hardware stack levels required when called:    2
+  1982 ;; This function calls:
+  1983 ;;		_NRF_SPI_RW
+  1984 ;; This function is called by:
+  1985 ;;		_NRF_Tx_Set
+  1986 ;;		_NRF_Tx_CheckACK
+  1987 ;;		_NRF_Power_off
+  1988 ;;		_NRF_TX_Mode
+  1989 ;;		_NRF_TxPacket
+  1990 ;;		_NRF_RX_Mode
+  1991 ;;		_NRF_RxPacket
+  1992 ;;		_NRF_Flush_TX
+  1993 ;;		_NRF_Flush_RX
+  1994 ;;		_NRF_Clear_IRQ
+  1995 ;;		_NRF_Rx_Set
+  1996 ;;		_NRF_Rx_Set_P0
+  1997 ;;		_NRF_Rx_Set_P1
+  1998 ;;		_NRF_Rx_Set_P3
+  1999 ;;		_NRF_Rx_Set_P4
+  2000 ;;		_NRF_Rx_Set_P5
+  2001 ;;		_NRF_Rx_Receive
+  2002 ;; This function uses a non-reentrant model
+  2003 ;;
+  2004                           
+  2005                           
+  2006                           ;psect for function _NRF_Write_Reg
+  2007  01F8                     _NRF_Write_Reg:	
+  2008                           
+  2009                           ;incstack = 0
+  2010                           ; Regs used in _NRF_Write_Reg: [wreg+status,2+status,0+pclath+cstack]
+  2011                           ;NRF_Write_Reg@reg stored from wreg
+  2012  01F8  00F3               	movwf	NRF_Write_Reg@reg
+  2013  01F9                     l1472:	
+  2014                           
+  2015                           ;../library/nrf24l01.c: 104:  unsigned char status;;../library/nrf24l01.c: 105:    RA2 =
+      +                           0;
+  2016  01F9  0020               	movlb	0	; select bank0
+  2017  01FA  110C               	bcf	12,2	;volatile
+  2018  01FB                     l1474:	
+  2019                           
+  2020                           ;../library/nrf24l01.c: 106:    status = NRF_SPI_RW(reg);
+  2021  01FB  0873               	movf	NRF_Write_Reg@reg,w
+  2022  01FC  3182  222D  3181   	fcall	_NRF_SPI_RW
+  2023  01FF  00F2               	movwf	??_NRF_Write_Reg
+  2024  0200  0872               	movf	??_NRF_Write_Reg,w
+  2025  0201  00F4               	movwf	NRF_Write_Reg@status
+  2026  0202                     l1476:	
+  2027                           
+  2028                           ;../library/nrf24l01.c: 107:    NRF_SPI_RW(value);
+  2029  0202  0871               	movf	NRF_Write_Reg@value,w
+  2030  0203  3182  222D  3181   	fcall	_NRF_SPI_RW
+  2031  0206                     l1478:	
+  2032                           
+  2033                           ;../library/nrf24l01.c: 108:    RA2 = 1;
+  2034  0206  0020               	movlb	0	; select bank0
+  2035  0207  150C               	bsf	12,2	;volatile
+  2036  0208                     l1480:	
+  2037                           
+  2038                           ;../library/nrf24l01.c: 109:    return(status);
+  2039  0208  0874               	movf	NRF_Write_Reg@status,w
+  2040  0209                     l106:	
+  2041  0209  0008               	return
+  2042  020A                     __end_of_NRF_Write_Reg:	
+  2043                           
+  2044                           	psect	text7
+  2045  020A                     __ptext7:	
+  2046 ;; *************** function _NRF_Read_Reg *****************
+  2047 ;; Defined at:
+  2048 ;;		line 87 in file "../library/nrf24l01.c"
+  2049 ;; Parameters:    Size  Location     Type
+  2050 ;;  reg             1    wreg     unsigned char 
+  2051 ;; Auto vars:     Size  Location     Type
+  2052 ;;  reg             1    2[COMMON] unsigned char 
+  2053 ;;  status          1    3[COMMON] unsigned char 
+  2054 ;; Return value:  Size  Location     Type
+  2055 ;;                  1    wreg      unsigned char 
+  2056 ;; Registers used:
+  2057 ;;		wreg, status,2, status,0, pclath, cstack
+  2058 ;; Tracked objects:
+  2059 ;;		On entry : 0/0
+  2060 ;;		On exit  : 0/0
+  2061 ;;		Unchanged: 0/0
+  2062 ;; Data sizes:     COMMON   BANK0   BANK1
+  2063 ;;      Params:         0       0       0
+  2064 ;;      Locals:         2       0       0
+  2065 ;;      Temps:          1       0       0
+  2066 ;;      Totals:         3       0       0
+  2067 ;;Total ram usage:        3 bytes
+  2068 ;; Hardware stack levels used:    1
+  2069 ;; Hardware stack levels required when called:    2
+  2070 ;; This function calls:
+  2071 ;;		_NRF_SPI_RW
+  2072 ;; This function is called by:
+  2073 ;;		_NRF_Tx_CheckACK
+  2074 ;;		_NRF_TxPacket
+  2075 ;;		_NRF_Read_RX_Pload
+  2076 ;;		_NRF_Get_Status
+  2077 ;; This function uses a non-reentrant model
+  2078 ;;
+  2079                           
+  2080                           
+  2081                           ;psect for function _NRF_Read_Reg
+  2082  020A                     _NRF_Read_Reg:	
+  2083                           
+  2084                           ;incstack = 0
+  2085                           ; Regs used in _NRF_Read_Reg: [wreg+status,2+status,0+pclath+cstack]
+  2086                           ;NRF_Read_Reg@reg stored from wreg
+  2087  020A  00F2               	movwf	NRF_Read_Reg@reg
+  2088  020B                     l1460:	
+  2089                           
+  2090                           ;../library/nrf24l01.c: 88:  unsigned char status;;../library/nrf24l01.c: 89:    RA2 = 0
+      +                          ;
+  2091  020B  0020               	movlb	0	; select bank0
+  2092  020C  110C               	bcf	12,2	;volatile
+  2093  020D                     l1462:	
+  2094                           
+  2095                           ;../library/nrf24l01.c: 90:    NRF_SPI_RW(reg);
+  2096  020D  0872               	movf	NRF_Read_Reg@reg,w
+  2097  020E  3182  222D  3182   	fcall	_NRF_SPI_RW
+  2098  0211                     l1464:	
+  2099                           
+  2100                           ;../library/nrf24l01.c: 91:    status = NRF_SPI_RW(0xFF);
+  2101  0211  30FF               	movlw	255
+  2102  0212  3182  222D  3182   	fcall	_NRF_SPI_RW
+  2103  0215  00F1               	movwf	??_NRF_Read_Reg
+  2104  0216  0871               	movf	??_NRF_Read_Reg,w
+  2105  0217  00F3               	movwf	NRF_Read_Reg@status
+  2106  0218                     l1466:	
+  2107                           
+  2108                           ;../library/nrf24l01.c: 92:    RA2 = 1;
+  2109  0218  0020               	movlb	0	; select bank0
+  2110  0219  150C               	bsf	12,2	;volatile
+  2111  021A                     l1468:	
+  2112                           
+  2113                           ;../library/nrf24l01.c: 93:    return(status);
+  2114  021A  0873               	movf	NRF_Read_Reg@status,w
+  2115  021B                     l103:	
+  2116  021B  0008               	return
+  2117  021C                     __end_of_NRF_Read_Reg:	
+  2118                           
+  2119                           	psect	text8
+  2120  0247                     __ptext8:	
+  2121 ;; *************** function _NRF_SPI_Init *****************
+  2122 ;; Defined at:
+  2123 ;;		line 70 in file "../library/nrf24l01.c"
+  2124 ;; Parameters:    Size  Location     Type
+  2125 ;;		None
+  2126 ;; Auto vars:     Size  Location     Type
+  2127 ;;		None
+  2128 ;; Return value:  Size  Location     Type
+  2129 ;;                  1    wreg      void 
+  2130 ;; Registers used:
+  2131 ;;		wreg, status,2
+  2132 ;; Tracked objects:
+  2133 ;;		On entry : 0/0
+  2134 ;;		On exit  : 0/0
+  2135 ;;		Unchanged: 0/0
+  2136 ;; Data sizes:     COMMON   BANK0   BANK1
+  2137 ;;      Params:         0       0       0
+  2138 ;;      Locals:         0       0       0
+  2139 ;;      Temps:          0       0       0
+  2140 ;;      Totals:         0       0       0
+  2141 ;;Total ram usage:        0 bytes
+  2142 ;; Hardware stack levels used:    1
+  2143 ;; Hardware stack levels required when called:    1
+  2144 ;; This function calls:
+  2145 ;;		Nothing
+  2146 ;; This function is called by:
+  2147 ;;		_WirelessPad
+  2148 ;; This function uses a non-reentrant model
+  2149 ;;
+  2150                           
+  2151                           
+  2152                           ;psect for function _NRF_SPI_Init
+  2153  0247                     _NRF_SPI_Init:	
+  2154  0247                     l1534:	
+  2155                           ;incstack = 0
+  2156                           ; Regs used in _NRF_SPI_Init: [wreg+status,2]
+  2157                           
+  2158                           
+  2159                           ;../library/nrf24l01.c: 71:     SSP1STAT = 0x00;
+  2160  0247  0024               	movlb	4	; select bank4
+  2161  0248  0194               	clrf	20	;volatile
+  2162  0249                     l1536:	
+  2163                           
+  2164                           ;../library/nrf24l01.c: 72:     SSP1STATbits.CKE = 1;
+  2165  0249  1714               	bsf	20,6	;volatile
+  2166                           
+  2167                           ;../library/nrf24l01.c: 74:     SSP1BUF = 0;
+  2168  024A  0191               	clrf	17	;volatile
+  2169  024B                     l1538:	
+  2170                           
+  2171                           ;../library/nrf24l01.c: 75:     SSP1IF = 0;
+  2172  024B  0020               	movlb	0	; select bank0
+  2173  024C  1191               	bcf	17,3	;volatile
+  2174  024D                     l1540:	
+  2175                           
+  2176                           ;../library/nrf24l01.c: 76:     SSP1CON1 = 0x20;
+  2177  024D  3020               	movlw	32
+  2178  024E  0024               	movlb	4	; select bank4
+  2179  024F  0095               	movwf	21	;volatile
+  2180  0250                     l94:	
+  2181  0250  0008               	return
+  2182  0251                     __end_of_NRF_SPI_Init:	
+  2183                           
+  2184                           	psect	text9
+  2185  023B                     __ptext9:	
+  2186 ;; *************** function _NRF_Port_Init *****************
+  2187 ;; Defined at:
+  2188 ;;		line 44 in file "../library/nrf24l01.c"
+  2189 ;; Parameters:    Size  Location     Type
+  2190 ;;		None
+  2191 ;; Auto vars:     Size  Location     Type
+  2192 ;;		None
+  2193 ;; Return value:  Size  Location     Type
+  2194 ;;                  1    wreg      void 
+  2195 ;; Registers used:
+  2196 ;;		None
+  2197 ;; Tracked objects:
+  2198 ;;		On entry : 0/0
+  2199 ;;		On exit  : 0/0
+  2200 ;;		Unchanged: 0/0
+  2201 ;; Data sizes:     COMMON   BANK0   BANK1
+  2202 ;;      Params:         0       0       0
+  2203 ;;      Locals:         0       0       0
+  2204 ;;      Temps:          0       0       0
+  2205 ;;      Totals:         0       0       0
+  2206 ;;Total ram usage:        0 bytes
+  2207 ;; Hardware stack levels used:    1
+  2208 ;; Hardware stack levels required when called:    1
+  2209 ;; This function calls:
+  2210 ;;		Nothing
+  2211 ;; This function is called by:
+  2212 ;;		_WirelessPad
+  2213 ;; This function uses a non-reentrant model
+  2214 ;;
+  2215                           
+  2216                           
+  2217                           ;psect for function _NRF_Port_Init
+  2218  023B                     _NRF_Port_Init:	
+  2219  023B                     l1530:	
+  2220                           ;incstack = 0
+  2221                           ; Regs used in _NRF_Port_Init: []
+  2222                           
+  2223                           
+  2224                           ;../library/nrf24l01.c: 45:     TRISC1 = 1;
+  2225  023B  0021               	movlb	1	; select bank1
+  2226  023C  148E               	bsf	14,1	;volatile
+  2227                           
+  2228                           ;../library/nrf24l01.c: 46:     TRISC2 = 0;
+  2229  023D  110E               	bcf	14,2	;volatile
+  2230                           
+  2231                           ;../library/nrf24l01.c: 47:     TRISC0 = 0;
+  2232  023E  100E               	bcf	14,0	;volatile
+  2233                           
+  2234                           ;../library/nrf24l01.c: 48:     TRISA2 = 0;
+  2235  023F  110C               	bcf	12,2	;volatile
+  2236                           
+  2237                           ;../library/nrf24l01.c: 49:     TRISA0 = 0;
+  2238  0240  100C               	bcf	12,0	;volatile
+  2239                           
+  2240                           ;../library/nrf24l01.c: 51:     TRISA4 = 1;
+  2241  0241  160C               	bsf	12,4	;volatile
+  2242                           
+  2243                           ;../library/nrf24l01.c: 52:     TRISA5 = 0;
+  2244  0242  128C               	bcf	12,5	;volatile
+  2245                           
+  2246                           ;../library/nrf24l01.c: 54:     RA0 = 0;
+  2247  0243  0020               	movlb	0	; select bank0
+  2248  0244  100C               	bcf	12,0	;volatile
+  2249                           
+  2250                           ;../library/nrf24l01.c: 55:     RA2 = 1;
+  2251  0245  150C               	bsf	12,2	;volatile
+  2252  0246                     l85:	
+  2253  0246  0008               	return
+  2254  0247                     __end_of_NRF_Port_Init:	
+  2255                           
+  2256                           	psect	text10
+  2257  027A                     __ptext10:	
+  2258 ;; *************** function _NRF_On *****************
+  2259 ;; Defined at:
+  2260 ;;		line 58 in file "../library/nrf24l01.c"
+  2261 ;; Parameters:    Size  Location     Type
+  2262 ;;		None
+  2263 ;; Auto vars:     Size  Location     Type
+  2264 ;;		None
+  2265 ;; Return value:  Size  Location     Type
+  2266 ;;                  1    wreg      void 
+  2267 ;; Registers used:
+  2268 ;;		None
+  2269 ;; Tracked objects:
+  2270 ;;		On entry : 0/0
+  2271 ;;		On exit  : 0/0
+  2272 ;;		Unchanged: 0/0
+  2273 ;; Data sizes:     COMMON   BANK0   BANK1
+  2274 ;;      Params:         0       0       0
+  2275 ;;      Locals:         0       0       0
+  2276 ;;      Temps:          0       0       0
+  2277 ;;      Totals:         0       0       0
+  2278 ;;Total ram usage:        0 bytes
+  2279 ;; Hardware stack levels used:    1
+  2280 ;; Hardware stack levels required when called:    1
+  2281 ;; This function calls:
+  2282 ;;		Nothing
+  2283 ;; This function is called by:
+  2284 ;;		_WirelessPad
+  2285 ;; This function uses a non-reentrant model
+  2286 ;;
+  2287                           
+  2288                           
+  2289                           ;psect for function _NRF_On
+  2290  027A                     _NRF_On:	
+  2291  027A                     l1532:	
+  2292                           ;incstack = 0
+  2293                           ; Regs used in _NRF_On: []
+  2294                           
+  2295                           
+  2296                           ;../library/nrf24l01.c: 59:     RA5 = 0;
+  2297  027A  0020               	movlb	0	; select bank0
+  2298  027B  128C               	bcf	12,5	;volatile
+  2299  027C                     l88:	
+  2300  027C  0008               	return
+  2301  027D                     __end_of_NRF_On:	
+  2302                           
+  2303                           	psect	text11
+  2304  0081                     __ptext11:	
+  2305 ;; *************** function _NRF_Check *****************
+  2306 ;; Defined at:
+  2307 ;;		line 158 in file "../library/nrf24l01.c"
+  2308 ;; Parameters:    Size  Location     Type
+  2309 ;;		None
+  2310 ;; Auto vars:     Size  Location     Type
+  2311 ;;  buf             5    5[BANK0 ] unsigned char [5]
+  2312 ;;  tuf             5    0[BANK0 ] unsigned char [5]
+  2313 ;;  i               1   10[BANK0 ] unsigned char 
+  2314 ;; Return value:  Size  Location     Type
+  2315 ;;                  1    wreg      unsigned char 
+  2316 ;; Registers used:
+  2317 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+  2318 ;; Tracked objects:
+  2319 ;;		On entry : 0/0
+  2320 ;;		On exit  : 0/0
+  2321 ;;		Unchanged: 0/0
+  2322 ;; Data sizes:     COMMON   BANK0   BANK1
+  2323 ;;      Params:         0       0       0
+  2324 ;;      Locals:         0      11       0
+  2325 ;;      Temps:          2       0       0
+  2326 ;;      Totals:         2      11       0
+  2327 ;;Total ram usage:       13 bytes
+  2328 ;; Hardware stack levels used:    1
+  2329 ;; Hardware stack levels required when called:    3
+  2330 ;; This function calls:
+  2331 ;;		_NRF_Read_Buf
+  2332 ;;		_NRF_Write_Buf
+  2333 ;; This function is called by:
+  2334 ;;		_WirelessPad
+  2335 ;; This function uses a non-reentrant model
+  2336 ;;
+  2337                           
+  2338                           
+  2339                           ;psect for function _NRF_Check
+  2340  0081                     _NRF_Check:	
+  2341  0081                     l1542:	
+  2342                           ;incstack = 0
+  2343                           ; Regs used in _NRF_Check: [wreg-fsr1h+status,2+status,0+pclath+cstack]
+  2344                           
+  2345                           
+  2346                           ;../library/nrf24l01.c: 159:     unsigned char tuf[5] = {0xE1, 0xE2, 0xE3, 0xE4, 0x05};
+  2347  0081  3020               	movlw	low NRF_Check@F2717
+  2348  0082  0086               	movwf	6
+  2349  0083  3000               	movlw	high NRF_Check@F2717
+  2350  0084  0087               	movwf	7
+  2351  0085  304D               	movlw	low NRF_Check@tuf
+  2352  0086  0084               	movwf	4
+  2353  0087  3000               	movlw	high NRF_Check@tuf
+  2354  0088  0085               	movwf	5
+  2355  0089  3005               	movlw	5
+  2356  008A  00F8               	movwf	??_NRF_Check
+  2357  008B                     u390:	
+  2358  008B  0016               	moviw fsr1++
+  2359  008C  001A               	movwi fsr0++
+  2360  008D  0BF8               	decfsz	??_NRF_Check,f
+  2361  008E  288B               	goto	u390
+  2362  008F                     l1544:	
+  2363                           
+  2364                           ;../library/nrf24l01.c: 160:  unsigned char buf[5] = {0, 0, 0, 0, 0};
+  2365  008F  3052               	movlw	low NRF_Check@buf
+  2366  0090  0086               	movwf	6
+  2367  0091  3000               	movlw	high NRF_Check@buf
+  2368  0092  0087               	movwf	7
+  2369  0093  3005               	movlw	5
+  2370  0094  00F8               	movwf	??_NRF_Check
+  2371  0095  3000               	movlw	0
+  2372  0096                     u400:	
+  2373  0096  001E               	movwi fsr1++
+  2374  0097  0BF8               	decfsz	??_NRF_Check,f
+  2375  0098  2896               	goto	u400
+  2376  0099                     l1546:	
+  2377                           
+  2378                           ;../library/nrf24l01.c: 161:  unsigned char i;;../library/nrf24l01.c: 162:     NRF_Write
+      +                          _Buf(0x20 + 0x10, tuf, 5);
+  2379  0099  304D               	movlw	(low (NRF_Check@tuf| 0))& (0+255)
+  2380  009A  00F8               	movwf	??_NRF_Check
+  2381  009B  0878               	movf	??_NRF_Check,w
+  2382  009C  00F1               	movwf	NRF_Write_Buf@pBuf
+  2383  009D  3005               	movlw	5
+  2384  009E  00F9               	movwf	??_NRF_Check+1
+  2385  009F  0879               	movf	??_NRF_Check+1,w
+  2386  00A0  00F2               	movwf	NRF_Write_Buf@len
+  2387  00A1  3030               	movlw	48
+  2388  00A2  3181  219E  3180   	fcall	_NRF_Write_Buf
+  2389  00A5                     l1548:	
+  2390                           
+  2391                           ;../library/nrf24l01.c: 163:  NRF_Read_Buf(0x10, buf, 5);
+  2392  00A5  3052               	movlw	(low (NRF_Check@buf| 0))& (0+255)
+  2393  00A6  00F8               	movwf	??_NRF_Check
+  2394  00A7  0878               	movf	??_NRF_Check,w
+  2395  00A8  00F1               	movwf	NRF_Read_Buf@pBuf
+  2396  00A9  3005               	movlw	5
+  2397  00AA  00F9               	movwf	??_NRF_Check+1
+  2398  00AB  0879               	movf	??_NRF_Check+1,w
+  2399  00AC  00F2               	movwf	NRF_Read_Buf@len
+  2400  00AD  3010               	movlw	16
+  2401  00AE  3181  217B  3180   	fcall	_NRF_Read_Buf
+  2402  00B1                     l1550:	
+  2403                           
+  2404                           ;../library/nrf24l01.c: 164:  for(i = 0; i < 5; i++) if(tuf[i] != buf[i]) break;
+  2405  00B1  0020               	movlb	0	; select bank0
+  2406  00B2  01D7               	clrf	NRF_Check@i
+  2407  00B3                     l1556:	
+  2408  00B3  0857               	movf	NRF_Check@i,w
+  2409  00B4  3E52               	addlw	(low (NRF_Check@buf| 0))& (0+255)
+  2410  00B5  0086               	movwf	6
+  2411  00B6  0187               	clrf	7
+  2412  00B7  0857               	movf	NRF_Check@i,w
+  2413  00B8  3E4D               	addlw	(low (NRF_Check@tuf| 0))& (0+255)
+  2414  00B9  0084               	movwf	4
+  2415  00BA  0185               	clrf	5
+  2416  00BB  0800               	movf	0,w
+  2417  00BC  0601               	xorwf	1,w
+  2418  00BD  1903               	skipnz
+  2419  00BE  28C0               	goto	u411
+  2420  00BF  28C1               	goto	u410
+  2421  00C0                     u411:	
+  2422  00C0  28C2               	goto	l1560
+  2423  00C1                     u410:	
+  2424  00C1  28CC               	goto	l1564
+  2425  00C2                     l1560:	
+  2426  00C2  3001               	movlw	1
+  2427  00C3  00F8               	movwf	??_NRF_Check
+  2428  00C4  0878               	movf	??_NRF_Check,w
+  2429  00C5  07D7               	addwf	NRF_Check@i,f
+  2430  00C6                     l1562:	
+  2431  00C6  3005               	movlw	5
+  2432  00C7  0257               	subwf	NRF_Check@i,w
+  2433  00C8  1C03               	skipc
+  2434  00C9  28CB               	goto	u421
+  2435  00CA  28CC               	goto	u420
+  2436  00CB                     u421:	
+  2437  00CB  28B3               	goto	l1556
+  2438  00CC                     u420:	
+  2439  00CC                     l1564:	
+  2440                           
+  2441                           ;../library/nrf24l01.c: 165:  if(i != 5) return 1;
+  2442  00CC  3005               	movlw	5
+  2443  00CD  0657               	xorwf	NRF_Check@i,w
+  2444  00CE  1903               	btfsc	3,2
+  2445  00CF  28D1               	goto	u431
+  2446  00D0  28D2               	goto	u430
+  2447  00D1                     u431:	
+  2448  00D1  28D4               	goto	l1570
+  2449  00D2                     u430:	
+  2450  00D2                     l1566:	
+  2451  00D2  3001               	movlw	1
+  2452  00D3  28D5               	goto	l132
+  2453  00D4                     l1570:	
+  2454                           
+  2455                           ;../library/nrf24l01.c: 166:  return 0;
+  2456  00D4  3000               	movlw	0
+  2457  00D5                     l132:	
+  2458  00D5  0008               	return
+  2459  00D6                     __end_of_NRF_Check:	
+  2460                           
+  2461                           	psect	text12
+  2462  019E                     __ptext12:	
+  2463 ;; *************** function _NRF_Write_Buf *****************
+  2464 ;; Defined at:
+  2465 ;;		line 138 in file "../library/nrf24l01.c"
+  2466 ;; Parameters:    Size  Location     Type
+  2467 ;;  reg             1    wreg     unsigned char 
+  2468 ;;  pBuf            1    1[COMMON] PTR unsigned char 
+  2469 ;;		 -> tx_addr(5), pad_aux_dat(2), RX_ADDRESS_P5(5), RX_ADDRESS_P4(5), 
+  2470 ;;		 -> RX_ADDRESS_P3(5), RX_ADDRESS_P2(5), RX_ADDRESS_P1(5), RX_ADDRESS_P0(5), 
+  2471 ;;		 -> NRF_Check@tuf(5), 
+  2472 ;;  len             1    2[COMMON] unsigned char 
+  2473 ;; Auto vars:     Size  Location     Type
+  2474 ;;  reg             1    5[COMMON] unsigned char 
+  2475 ;;  i               1    6[COMMON] unsigned char 
+  2476 ;;  status          1    0        unsigned char 
+  2477 ;; Return value:  Size  Location     Type
+  2478 ;;                  1    wreg      unsigned char 
+  2479 ;; Registers used:
+  2480 ;;		wreg, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+  2481 ;; Tracked objects:
+  2482 ;;		On entry : 0/0
+  2483 ;;		On exit  : 0/0
+  2484 ;;		Unchanged: 0/0
+  2485 ;; Data sizes:     COMMON   BANK0   BANK1
+  2486 ;;      Params:         2       0       0
+  2487 ;;      Locals:         3       0       0
+  2488 ;;      Temps:          1       0       0
+  2489 ;;      Totals:         6       0       0
+  2490 ;;Total ram usage:        6 bytes
+  2491 ;; Hardware stack levels used:    1
+  2492 ;; Hardware stack levels required when called:    2
+  2493 ;; This function calls:
+  2494 ;;		_NRF_SPI_RW
+  2495 ;; This function is called by:
+  2496 ;;		_NRF_Check
+  2497 ;;		_NRF_Tx_Set
+  2498 ;;		_NRF_Tx_Send
+  2499 ;;		_NRF_TX_Mode
+  2500 ;;		_NRF_RX_Mode
+  2501 ;;		_NRF_Rx_Set_P0
+  2502 ;;		_NRF_Rx_Set_P1
+  2503 ;;		_NRF_Rx_Set_P3
+  2504 ;;		_NRF_Rx_Set_P4
+  2505 ;;		_NRF_Rx_Set_P5
+  2506 ;; This function uses a non-reentrant model
+  2507 ;;
+  2508                           
+  2509                           
+  2510                           ;psect for function _NRF_Write_Buf
+  2511  019E                     _NRF_Write_Buf:	
+  2512                           
+  2513                           ;incstack = 0
+  2514                           ; Regs used in _NRF_Write_Buf: [wreg+fsr1l+fsr1h+status,2+status,0+pclath+cstack]
+  2515                           ;NRF_Write_Buf@reg stored from wreg
+  2516  019E  00F5               	movwf	NRF_Write_Buf@reg
+  2517  019F                     l1496:	
+  2518                           
+  2519                           ;../library/nrf24l01.c: 138: unsigned char NRF_Write_Buf(unsigned char reg, unsigned cha
+      +                          r *pBuf, unsigned char len);../library/nrf24l01.c: 139: {;../library/nrf24l01.c: 140:  u
+      +                          nsigned char status, i;;../library/nrf24l01.c: 141:    RA2 = 0;
+  2520  019F  0020               	movlb	0	; select bank0
+  2521  01A0  110C               	bcf	12,2	;volatile
+  2522  01A1                     l1498:	
+  2523  01A1  0875               	movf	NRF_Write_Buf@reg,w
+  2524  01A2  3182  222D  3181   	fcall	_NRF_SPI_RW
+  2525  01A5                     l1500:	
+  2526                           
+  2527                           ;../library/nrf24l01.c: 143:    for(i = 0; i < len; i++) {
+  2528  01A5  01F6               	clrf	NRF_Write_Buf@i
+  2529  01A6  29B6               	goto	l1508
+  2530  01A7                     l1502:	
+  2531                           
+  2532                           ;../library/nrf24l01.c: 144:      NRF_SPI_RW(*pBuf++);
+  2533  01A7  0871               	movf	NRF_Write_Buf@pBuf,w
+  2534  01A8  0086               	movwf	6
+  2535  01A9  0187               	clrf	7
+  2536  01AA  0801               	movf	1,w
+  2537  01AB  3182  222D  3181   	fcall	_NRF_SPI_RW
+  2538  01AE                     l1504:	
+  2539  01AE  3001               	movlw	1
+  2540  01AF  00F3               	movwf	??_NRF_Write_Buf
+  2541  01B0  0873               	movf	??_NRF_Write_Buf,w
+  2542  01B1  07F1               	addwf	NRF_Write_Buf@pBuf,f
+  2543  01B2                     l1506:	
+  2544                           
+  2545                           ;../library/nrf24l01.c: 145:  }
+  2546  01B2  3001               	movlw	1
+  2547  01B3  00F3               	movwf	??_NRF_Write_Buf
+  2548  01B4  0873               	movf	??_NRF_Write_Buf,w
+  2549  01B5  07F6               	addwf	NRF_Write_Buf@i,f
+  2550  01B6                     l1508:	
+  2551  01B6  0872               	movf	NRF_Write_Buf@len,w
+  2552  01B7  0276               	subwf	NRF_Write_Buf@i,w
+  2553  01B8  1C03               	skipc
+  2554  01B9  29BB               	goto	u351
+  2555  01BA  29BC               	goto	u350
+  2556  01BB                     u351:	
+  2557  01BB  29A7               	goto	l1502
+  2558  01BC                     u350:	
+  2559  01BC                     l117:	
+  2560                           
+  2561                           ;../library/nrf24l01.c: 146:    RA2 = 1;
+  2562  01BC  0020               	movlb	0	; select bank0
+  2563  01BD  150C               	bsf	12,2	;volatile
+  2564  01BE                     l118:	
+  2565                           ;../library/nrf24l01.c: 147:    return(status);;	Return value of _NRF_Write_Buf is never
+      +                           used
+  2566                           
+  2567  01BE  0008               	return
+  2568  01BF                     __end_of_NRF_Write_Buf:	
+  2569                           
+  2570                           	psect	text13
+  2571  017B                     __ptext13:	
+  2572 ;; *************** function _NRF_Read_Buf *****************
+  2573 ;; Defined at:
+  2574 ;;		line 119 in file "../library/nrf24l01.c"
+  2575 ;; Parameters:    Size  Location     Type
+  2576 ;;  reg             1    wreg     unsigned char 
+  2577 ;;  pBuf            1    1[COMMON] PTR unsigned char 
+  2578 ;;		 -> NRF_Check@buf(5), 
+  2579 ;;  len             1    2[COMMON] unsigned char 
+  2580 ;; Auto vars:     Size  Location     Type
+  2581 ;;  reg             1    6[COMMON] unsigned char 
+  2582 ;;  i               1    7[COMMON] unsigned char 
+  2583 ;;  status          1    0        unsigned char 
+  2584 ;; Return value:  Size  Location     Type
+  2585 ;;                  1    wreg      unsigned char 
+  2586 ;; Registers used:
+  2587 ;;		wreg, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+  2588 ;; Tracked objects:
+  2589 ;;		On entry : 0/0
+  2590 ;;		On exit  : 0/0
+  2591 ;;		Unchanged: 0/0
+  2592 ;; Data sizes:     COMMON   BANK0   BANK1
+  2593 ;;      Params:         2       0       0
+  2594 ;;      Locals:         3       0       0
+  2595 ;;      Temps:          2       0       0
+  2596 ;;      Totals:         7       0       0
+  2597 ;;Total ram usage:        7 bytes
+  2598 ;; Hardware stack levels used:    1
+  2599 ;; Hardware stack levels required when called:    2
+  2600 ;; This function calls:
+  2601 ;;		_NRF_SPI_RW
+  2602 ;; This function is called by:
+  2603 ;;		_NRF_Check
+  2604 ;;		_NRF_Read_RX_Pload
+  2605 ;; This function uses a non-reentrant model
+  2606 ;;
+  2607                           
+  2608                           
+  2609                           ;psect for function _NRF_Read_Buf
+  2610  017B                     _NRF_Read_Buf:	
+  2611                           
+  2612                           ;incstack = 0
+  2613                           ; Regs used in _NRF_Read_Buf: [wreg+fsr1l+fsr1h+status,2+status,0+pclath+cstack]
+  2614                           ;NRF_Read_Buf@reg stored from wreg
+  2615  017B  00F6               	movwf	NRF_Read_Buf@reg
+  2616  017C                     l1484:	
+  2617                           
+  2618                           ;../library/nrf24l01.c: 119: unsigned char NRF_Read_Buf(unsigned char reg, unsigned char
+      +                           *pBuf, unsigned char len);../library/nrf24l01.c: 120: {;../library/nrf24l01.c: 121:  un
+      +                          signed char status,i;;../library/nrf24l01.c: 122:    RA2 = 0;
+  2619  017C  0020               	movlb	0	; select bank0
+  2620  017D  110C               	bcf	12,2	;volatile
+  2621  017E                     l1486:	
+  2622  017E  0876               	movf	NRF_Read_Buf@reg,w
+  2623  017F  3182  222D  3181   	fcall	_NRF_SPI_RW
+  2624  0182                     l1488:	
+  2625                           
+  2626                           ;../library/nrf24l01.c: 124:    for(i = 0; i < len; i++)
+  2627  0182  01F7               	clrf	NRF_Read_Buf@i
+  2628  0183  2995               	goto	l1494
+  2629  0184                     l1490:	
+  2630                           
+  2631                           ;../library/nrf24l01.c: 125:  {;../library/nrf24l01.c: 126:      pBuf[i] = NRF_SPI_RW(0x
+      +                          FF);
+  2632  0184  30FF               	movlw	255
+  2633  0185  3182  222D  3181   	fcall	_NRF_SPI_RW
+  2634  0188  00F3               	movwf	??_NRF_Read_Buf
+  2635  0189  0877               	movf	NRF_Read_Buf@i,w
+  2636  018A  0771               	addwf	NRF_Read_Buf@pBuf,w
+  2637  018B  00F4               	movwf	??_NRF_Read_Buf+1
+  2638  018C  0874               	movf	??_NRF_Read_Buf+1,w
+  2639  018D  0086               	movwf	6
+  2640  018E  0187               	clrf	7
+  2641  018F  0873               	movf	??_NRF_Read_Buf,w
+  2642  0190  0081               	movwf	1
+  2643  0191                     l1492:	
+  2644                           
+  2645                           ;../library/nrf24l01.c: 127:    }
+  2646  0191  3001               	movlw	1
+  2647  0192  00F3               	movwf	??_NRF_Read_Buf
+  2648  0193  0873               	movf	??_NRF_Read_Buf,w
+  2649  0194  07F7               	addwf	NRF_Read_Buf@i,f
+  2650  0195                     l1494:	
+  2651  0195  0872               	movf	NRF_Read_Buf@len,w
+  2652  0196  0277               	subwf	NRF_Read_Buf@i,w
+  2653  0197  1C03               	skipc
+  2654  0198  299A               	goto	u341
+  2655  0199  299B               	goto	u340
+  2656  019A                     u341:	
+  2657  019A  2984               	goto	l1490
+  2658  019B                     u340:	
+  2659  019B                     l111:	
+  2660                           
+  2661                           ;../library/nrf24l01.c: 128:  RA2 = 1;
+  2662  019B  0020               	movlb	0	; select bank0
+  2663  019C  150C               	bsf	12,2	;volatile
+  2664  019D                     l112:	
+  2665                           ;../library/nrf24l01.c: 129:    return(status);;	Return value of _NRF_Read_Buf is never 
+      +                          used
+  2666                           
+  2667  019D  0008               	return
+  2668  019E                     __end_of_NRF_Read_Buf:	
+  2669                           
+  2670                           	psect	text14
+  2671  022D                     __ptext14:	
+  2672 ;; *************** function _NRF_SPI_RW *****************
+  2673 ;; Defined at:
+  2674 ;;		line 79 in file "../library/nrf24l01.c"
+  2675 ;; Parameters:    Size  Location     Type
+  2676 ;;  dat             1    wreg     unsigned char 
+  2677 ;; Auto vars:     Size  Location     Type
+  2678 ;;  dat             1    0[COMMON] unsigned char 
+  2679 ;; Return value:  Size  Location     Type
+  2680 ;;                  1    wreg      unsigned char 
+  2681 ;; Registers used:
+  2682 ;;		wreg
+  2683 ;; Tracked objects:
+  2684 ;;		On entry : 0/0
+  2685 ;;		On exit  : 0/0
+  2686 ;;		Unchanged: 0/0
+  2687 ;; Data sizes:     COMMON   BANK0   BANK1
+  2688 ;;      Params:         0       0       0
+  2689 ;;      Locals:         1       0       0
+  2690 ;;      Temps:          0       0       0
+  2691 ;;      Totals:         1       0       0
+  2692 ;;Total ram usage:        1 bytes
+  2693 ;; Hardware stack levels used:    1
+  2694 ;; Hardware stack levels required when called:    1
+  2695 ;; This function calls:
+  2696 ;;		Nothing
+  2697 ;; This function is called by:
+  2698 ;;		_NRF_Read_Reg
+  2699 ;;		_NRF_Write_Reg
+  2700 ;;		_NRF_Read_Buf
+  2701 ;;		_NRF_Write_Buf
+  2702 ;; This function uses a non-reentrant model
+  2703 ;;
+  2704                           
+  2705                           
+  2706                           ;psect for function _NRF_SPI_RW
+  2707  022D                     _NRF_SPI_RW:	
+  2708                           
+  2709                           ;incstack = 0
+  2710                           ; Regs used in _NRF_SPI_RW: [wreg]
+  2711                           ;NRF_SPI_RW@dat stored from wreg
+  2712  022D  00F0               	movwf	NRF_SPI_RW@dat
+  2713  022E                     l1452:	
+  2714                           
+  2715                           ;../library/nrf24l01.c: 80:     SSP1IF = 0;
+  2716  022E  0020               	movlb	0	; select bank0
+  2717  022F  1191               	bcf	17,3	;volatile
+  2718  0230                     l1454:	
+  2719                           
+  2720                           ;../library/nrf24l01.c: 81:     SSP1BUF = dat;
+  2721  0230  0870               	movf	NRF_SPI_RW@dat,w
+  2722  0231  0024               	movlb	4	; select bank4
+  2723  0232  0091               	movwf	17	;volatile
+  2724  0233                     l97:	
+  2725                           ;../library/nrf24l01.c: 82:     while(!SSP1IF);
+  2726                           
+  2727  0233  0020               	movlb	0	; select bank0
+  2728  0234  1D91               	btfss	17,3	;volatile
+  2729  0235  2A37               	goto	u331
+  2730  0236  2A38               	goto	u330
+  2731  0237                     u331:	
+  2732  0237  2A33               	goto	l97
+  2733  0238                     u330:	
+  2734  0238                     l1456:	
+  2735                           
+  2736                           ;../library/nrf24l01.c: 84:     return(SSP1BUF);
+  2737  0238  0024               	movlb	4	; select bank4
+  2738  0239  0811               	movf	17,w	;volatile
+  2739  023A                     l100:	
+  2740  023A  0008               	return
+  2741  023B                     __end_of_NRF_SPI_RW:	
+  2742                           
+  2743                           	psect	text15
+  2744  0263                     __ptext15:	
+  2745 ;; *************** function _PORT_Init *****************
+  2746 ;; Defined at:
+  2747 ;;		line 4 in file "../library/port.c"
+  2748 ;; Parameters:    Size  Location     Type
+  2749 ;;		None
+  2750 ;; Auto vars:     Size  Location     Type
+  2751 ;;		None
+  2752 ;; Return value:  Size  Location     Type
+  2753 ;;                  1    wreg      void 
+  2754 ;; Registers used:
+  2755 ;;		status,2, status,0, pclath, cstack
+  2756 ;; Tracked objects:
+  2757 ;;		On entry : 0/0
+  2758 ;;		On exit  : 0/0
+  2759 ;;		Unchanged: 0/0
+  2760 ;; Data sizes:     COMMON   BANK0   BANK1
+  2761 ;;      Params:         0       0       0
+  2762 ;;      Locals:         0       0       0
+  2763 ;;      Temps:          0       0       0
+  2764 ;;      Totals:         0       0       0
+  2765 ;;Total ram usage:        0 bytes
+  2766 ;; Hardware stack levels used:    1
+  2767 ;; Hardware stack levels required when called:    2
+  2768 ;; This function calls:
+  2769 ;;		_PORTA_Init
+  2770 ;;		_PORTC_Init
+  2771 ;; This function is called by:
+  2772 ;;		_main
+  2773 ;; This function uses a non-reentrant model
+  2774 ;;
+  2775                           
+  2776                           
+  2777                           ;psect for function _PORT_Init
+  2778  0263                     _PORT_Init:	
+  2779  0263                     l1180:	
+  2780                           ;incstack = 0
+  2781                           ; Regs used in _PORT_Init: [status,2+status,0+pclath+cstack]
+  2782                           
+  2783                           
+  2784                           ;../library/port.c: 5:     PORTA_Init();
+  2785  0263  3182  225A  3182   	fcall	_PORTA_Init
+  2786                           
+  2787                           ;../library/port.c: 6:     PORTC_Init();
+  2788  0266  3182  2251  3182   	fcall	_PORTC_Init
+  2789  0269                     l234:	
+  2790  0269  0008               	return
+  2791  026A                     __end_of_PORT_Init:	
+  2792                           
+  2793                           	psect	text16
+  2794  0251                     __ptext16:	
+  2795 ;; *************** function _PORTC_Init *****************
+  2796 ;; Defined at:
+  2797 ;;		line 16 in file "../library/port.c"
+  2798 ;; Parameters:    Size  Location     Type
+  2799 ;;		None
+  2800 ;; Auto vars:     Size  Location     Type
+  2801 ;;		None
+  2802 ;; Return value:  Size  Location     Type
+  2803 ;;                  1    wreg      void 
+  2804 ;; Registers used:
+  2805 ;;		status,2
+  2806 ;; Tracked objects:
+  2807 ;;		On entry : 0/0
+  2808 ;;		On exit  : 0/0
+  2809 ;;		Unchanged: 0/0
+  2810 ;; Data sizes:     COMMON   BANK0   BANK1
+  2811 ;;      Params:         0       0       0
+  2812 ;;      Locals:         0       0       0
+  2813 ;;      Temps:          0       0       0
+  2814 ;;      Totals:         0       0       0
+  2815 ;;Total ram usage:        0 bytes
+  2816 ;; Hardware stack levels used:    1
+  2817 ;; Hardware stack levels required when called:    1
+  2818 ;; This function calls:
+  2819 ;;		Nothing
+  2820 ;; This function is called by:
+  2821 ;;		_PORT_Init
+  2822 ;; This function uses a non-reentrant model
+  2823 ;;
+  2824                           
+  2825                           
+  2826                           ;psect for function _PORTC_Init
+  2827  0251                     _PORTC_Init:	
+  2828  0251                     l1144:	
+  2829                           ;incstack = 0
+  2830                           ; Regs used in _PORTC_Init: [status,2]
+  2831                           
+  2832                           
+  2833                           ;../library/port.c: 17:     PORTC = 0;
+  2834  0251  0020               	movlb	0	; select bank0
+  2835  0252  018E               	clrf	14	;volatile
+  2836                           
+  2837                           ;../library/port.c: 18:     LATC = 0;
+  2838  0253  0022               	movlb	2	; select bank2
+  2839  0254  018E               	clrf	14	;volatile
+  2840                           
+  2841                           ;../library/port.c: 19:     ANSELC = 0;
+  2842  0255  0023               	movlb	3	; select bank3
+  2843  0256  018E               	clrf	14	;volatile
+  2844                           
+  2845                           ;../library/port.c: 20:     TRISC = 0;
+  2846  0257  0021               	movlb	1	; select bank1
+  2847  0258  018E               	clrf	14	;volatile
+  2848  0259                     l240:	
+  2849  0259  0008               	return
+  2850  025A                     __end_of_PORTC_Init:	
+  2851                           
+  2852                           	psect	text17
+  2853  025A                     __ptext17:	
+  2854 ;; *************** function _PORTA_Init *****************
+  2855 ;; Defined at:
+  2856 ;;		line 9 in file "../library/port.c"
+  2857 ;; Parameters:    Size  Location     Type
+  2858 ;;		None
+  2859 ;; Auto vars:     Size  Location     Type
+  2860 ;;		None
+  2861 ;; Return value:  Size  Location     Type
+  2862 ;;                  1    wreg      void 
+  2863 ;; Registers used:
+  2864 ;;		status,2
+  2865 ;; Tracked objects:
+  2866 ;;		On entry : 0/0
+  2867 ;;		On exit  : 0/0
+  2868 ;;		Unchanged: 0/0
+  2869 ;; Data sizes:     COMMON   BANK0   BANK1
+  2870 ;;      Params:         0       0       0
+  2871 ;;      Locals:         0       0       0
+  2872 ;;      Temps:          0       0       0
+  2873 ;;      Totals:         0       0       0
+  2874 ;;Total ram usage:        0 bytes
+  2875 ;; Hardware stack levels used:    1
+  2876 ;; Hardware stack levels required when called:    1
+  2877 ;; This function calls:
+  2878 ;;		Nothing
+  2879 ;; This function is called by:
+  2880 ;;		_PORT_Init
+  2881 ;; This function uses a non-reentrant model
+  2882 ;;
+  2883                           
+  2884                           
+  2885                           ;psect for function _PORTA_Init
+  2886  025A                     _PORTA_Init:	
+  2887  025A                     l1142:	
+  2888                           ;incstack = 0
+  2889                           ; Regs used in _PORTA_Init: [status,2]
+  2890                           
+  2891                           
+  2892                           ;../library/port.c: 10:     PORTA = 0;
+  2893  025A  0020               	movlb	0	; select bank0
+  2894  025B  018C               	clrf	12	;volatile
+  2895                           
+  2896                           ;../library/port.c: 11:     LATA = 0;
+  2897  025C  0022               	movlb	2	; select bank2
+  2898  025D  018C               	clrf	12	;volatile
+  2899                           
+  2900                           ;../library/port.c: 12:     ANSELA = 0;
+  2901  025E  0023               	movlb	3	; select bank3
+  2902  025F  018C               	clrf	12	;volatile
+  2903                           
+  2904                           ;../library/port.c: 13:     TRISA = 0;
+  2905  0260  0021               	movlb	1	; select bank1
+  2906  0261  018C               	clrf	12	;volatile
+  2907  0262                     l237:	
+  2908  0262  0008               	return
+  2909  0263                     __end_of_PORTA_Init:	
+  2910                           
+  2911                           	psect	text18
+  2912  0270                     __ptext18:	
+  2913 ;; *************** function _LED_Init *****************
+  2914 ;; Defined at:
+  2915 ;;		line 51 in file "main.c"
+  2916 ;; Parameters:    Size  Location     Type
+  2917 ;;		None
+  2918 ;; Auto vars:     Size  Location     Type
+  2919 ;;		None
+  2920 ;; Return value:  Size  Location     Type
+  2921 ;;                  1    wreg      void 
+  2922 ;; Registers used:
+  2923 ;;		None
+  2924 ;; Tracked objects:
+  2925 ;;		On entry : 0/0
+  2926 ;;		On exit  : 0/0
+  2927 ;;		Unchanged: 0/0
+  2928 ;; Data sizes:     COMMON   BANK0   BANK1
+  2929 ;;      Params:         0       0       0
+  2930 ;;      Locals:         0       0       0
+  2931 ;;      Temps:          0       0       0
+  2932 ;;      Totals:         0       0       0
+  2933 ;;Total ram usage:        0 bytes
+  2934 ;; Hardware stack levels used:    1
+  2935 ;; Hardware stack levels required when called:    1
+  2936 ;; This function calls:
+  2937 ;;		Nothing
+  2938 ;; This function is called by:
+  2939 ;;		_main
+  2940 ;; This function uses a non-reentrant model
+  2941 ;;
+  2942                           
+  2943                           
+  2944                           ;psect for function _LED_Init
+  2945  0270                     _LED_Init:	
+  2946  0270                     l1184:	
+  2947                           ;incstack = 0
+  2948                           ; Regs used in _LED_Init: []
+  2949                           
+  2950                           
+  2951                           ;main.c: 52:     TRISC3 = 0;
+  2952  0270  0021               	movlb	1	; select bank1
+  2953  0271  118E               	bcf	14,3	;volatile
+  2954                           
+  2955                           ;main.c: 53:     RC3 = 1;
+  2956  0272  0020               	movlb	0	; select bank0
+  2957  0273  158E               	bsf	14,3	;volatile
+  2958  0274                     l344:	
+  2959  0274  0008               	return
+  2960  0275                     __end_of_LED_Init:	
+  2961                           
+  2962                           	psect	text19
+  2963  0275                     __ptext19:	
+  2964 ;; *************** function _Key_Init *****************
+  2965 ;; Defined at:
+  2966 ;;		line 65 in file "main.c"
+  2967 ;; Parameters:    Size  Location     Type
+  2968 ;;		None
+  2969 ;; Auto vars:     Size  Location     Type
+  2970 ;;		None
+  2971 ;; Return value:  Size  Location     Type
+  2972 ;;                  1    wreg      void 
+  2973 ;; Registers used:
+  2974 ;;		None
+  2975 ;; Tracked objects:
+  2976 ;;		On entry : 0/0
+  2977 ;;		On exit  : 0/0
+  2978 ;;		Unchanged: 0/0
+  2979 ;; Data sizes:     COMMON   BANK0   BANK1
+  2980 ;;      Params:         0       0       0
+  2981 ;;      Locals:         0       0       0
+  2982 ;;      Temps:          0       0       0
+  2983 ;;      Totals:         0       0       0
+  2984 ;;Total ram usage:        0 bytes
+  2985 ;; Hardware stack levels used:    1
+  2986 ;; Hardware stack levels required when called:    1
+  2987 ;; This function calls:
+  2988 ;;		Nothing
+  2989 ;; This function is called by:
+  2990 ;;		_main
+  2991 ;; This function uses a non-reentrant model
+  2992 ;;
+  2993                           
+  2994                           
+  2995                           ;psect for function _Key_Init
+  2996  0275                     _Key_Init:	
+  2997  0275                     l1186:	
+  2998                           ;incstack = 0
+  2999                           ; Regs used in _Key_Init: []
+  3000                           
+  3001                           
+  3002                           ;main.c: 67:     TRISA4 = 1;
+  3003  0275  0021               	movlb	1	; select bank1
+  3004  0276  160C               	bsf	12,4	;volatile
+  3005                           
+  3006                           ;main.c: 68:     RA4 = 0;
+  3007  0277  0020               	movlb	0	; select bank0
+  3008  0278  120C               	bcf	12,4	;volatile
+  3009  0279                     l353:	
+  3010  0279  0008               	return
+  3011  027A                     __end_of_Key_Init:	
+  3012                           
+  3013                           	psect	intentry
+  3014  0004                     __pintentry:	
+  3015 ;; *************** function _ISR *****************
+  3016 ;; Defined at:
+  3017 ;;		line 81 in file "main.c"
+  3018 ;; Parameters:    Size  Location     Type
+  3019 ;;		None
+  3020 ;; Auto vars:     Size  Location     Type
+  3021 ;;		None
+  3022 ;; Return value:  Size  Location     Type
+  3023 ;;                  1    wreg      void 
+  3024 ;; Registers used:
+  3025 ;;		None
+  3026 ;; Tracked objects:
+  3027 ;;		On entry : 0/0
+  3028 ;;		On exit  : 0/0
+  3029 ;;		Unchanged: 0/0
+  3030 ;; Data sizes:     COMMON   BANK0   BANK1
+  3031 ;;      Params:         0       0       0
+  3032 ;;      Locals:         0       0       0
+  3033 ;;      Temps:          0       0       0
+  3034 ;;      Totals:         0       0       0
+  3035 ;;Total ram usage:        0 bytes
+  3036 ;; Hardware stack levels used:    1
+  3037 ;; This function calls:
+  3038 ;;		Nothing
+  3039 ;; This function is called by:
+  3040 ;;		Interrupt level 1
+  3041 ;; This function uses a non-reentrant model
+  3042 ;;
+  3043                           
+  3044  0004                     _ISR:	
+  3045                           
+  3046                           ;incstack = 0
+  3047  0004  147E               	bsf	int$flags,0	;set compiler interrupt flag (level 1)
+  3048                           
+  3049                           ; Regs used in _ISR: []
+  3050  0005  3180               	pagesel	$
+  3051  0006                     i1l1436:	
+  3052                           
+  3053                           ;main.c: 83:     if(IOCIF && IOCAF4) {
+  3054  0006  1C0B               	btfss	11,0	;volatile
+  3055  0007  2809               	goto	u31_21
+  3056  0008  280A               	goto	u31_20
+  3057  0009                     u31_21:	
+  3058  0009  2813               	goto	i1l360
+  3059  000A                     u31_20:	
+  3060  000A                     i1l1438:	
+  3061  000A  0027               	movlb	7	; select bank7
+  3062  000B  1E13               	btfss	19,4	;volatile
+  3063  000C  280E               	goto	u32_21
+  3064  000D  280F               	goto	u32_20
+  3065  000E                     u32_21:	
+  3066  000E  2813               	goto	i1l360
+  3067  000F                     u32_20:	
+  3068  000F                     i1l1440:	
+  3069                           
+  3070                           ;main.c: 84:         IOCIE = 0;
+  3071  000F  118B               	bcf	11,3	;volatile
+  3072                           
+  3073                           ;main.c: 85:         IOCIF = 0;
+  3074  0010  100B               	bcf	11,0	;volatile
+  3075                           
+  3076                           ;main.c: 86:         IOCAF4 = 0;
+  3077  0011  1213               	bcf	19,4	;volatile
+  3078  0012                     i1l359:	
+  3079                           ;main.c: 89:         if(RA4 == 1) {
+  3080                           ;main.c: 93:         }
+  3081                           
+  3082                           
+  3083                           ;main.c: 95:         IOCIE = 1;
+  3084  0012  158B               	bsf	11,3	;volatile
+  3085  0013                     i1l360:	
+  3086  0013  107E               	bcf	int$flags,0	;clear compiler interrupt flag (level 1)
+  3087  0014  0009               	retfie
+  3088  0015                     __end_of_ISR:	
+  3089  007E                     btemp	set	126	;btemp
+  3090  007E                     int$flags	set	126
+  3091  007E                     wtemp0	set	126
+
+
+Data Sizes:
+    Strings     0
+    Constant    17
+    Data        45
+    BSS         7
+    Persistent  32
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14     12      14
+    BANK0            80     11      61
+    BANK1            32      0       0
+
+Pointer List with Targets:
+
+    memcpy@d1	PTR void  size(1) Largest target is 2
+		 -> pad_aux_dat(COMMON[2]), 
+
+    memcpy@d	PTR unsigned char  size(1) Largest target is 2
+		 -> pad_aux_dat(COMMON[2]), 
+
+    memcpy@s1	PTR const void  size(2) Largest target is 2
+		 -> pad_aux_ok(CODE[2]), 
+
+    memcpy@s	PTR const unsigned char  size(2) Largest target is 2
+		 -> pad_aux_ok(CODE[2]), 
+
+    sp__memcpy	PTR void  size(1) Largest target is 2
+		 -> pad_aux_dat(COMMON[2]), 
+
+    NRF_Tx_Send@txbuf	PTR unsigned char  size(1) Largest target is 2
+		 -> pad_aux_dat(COMMON[2]), 
+
+    NRF_Tx_Set@addr	PTR unsigned char  size(1) Largest target is 5
+		 -> tx_addr(BANK0[5]), 
+
+    NRF_Write_Buf@pBuf	PTR unsigned char  size(1) Largest target is 5
+		 -> tx_addr(BANK0[5]), pad_aux_dat(COMMON[2]), RX_ADDRESS_P5(BANK0[5]), RX_ADDRESS_P4(BANK0[5]), 
+		 -> RX_ADDRESS_P3(BANK0[5]), RX_ADDRESS_P2(BANK0[5]), RX_ADDRESS_P1(BANK0[5]), RX_ADDRESS_P0(BANK0[5]), 
+		 -> NRF_Check@tuf(BANK0[5]), 
+
+    NRF_Read_Buf@pBuf	PTR unsigned char  size(1) Largest target is 5
+		 -> NRF_Check@buf(BANK0[5]), 
+
+
+Critical Paths under _main in COMMON
+
+    _main->_WirelessPad
+    _WirelessPad->_NRF_Tx_Send
+    _WirelessPad->_NRF_Tx_Set
+    _NRF_Tx_Set->_NRF_Write_Buf
+    _NRF_Tx_Send->_NRF_Tx_CheckACK
+    _NRF_Tx_Send->_NRF_Write_Buf
+    _NRF_Tx_CheckACK->_NRF_Write_Reg
+    _NRF_Write_Reg->_NRF_SPI_RW
+    _NRF_Read_Reg->_NRF_SPI_RW
+    _NRF_Check->_NRF_Read_Buf
+    _NRF_Write_Buf->_NRF_SPI_RW
+    _NRF_Read_Buf->_NRF_SPI_RW
+
+Critical Paths under _ISR in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    _WirelessPad->_NRF_Check
+
+Critical Paths under _ISR in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _ISR in BANK1
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0   16421
+                           _Key_Init
+                           _LED_Init
+                          _PORT_Init
+                        _WirelessPad
+ ---------------------------------------------------------------------------------
+ (1) _WirelessPad                                          1     1      0   16421
+                                             11 COMMON     1     1      0
+                          _NRF_Check
+                             _NRF_On
+                      _NRF_Port_Init
+                       _NRF_SPI_Init
+                        _NRF_Tx_Send
+                         _NRF_Tx_Set
+                             _memcpy
+ ---------------------------------------------------------------------------------
+ (2) _memcpy                                              10     6      4     328
+                                              0 COMMON    10     6      4
+ ---------------------------------------------------------------------------------
+ (2) _NRF_Tx_Set                                           4     3      1    6236
+                                              7 COMMON     4     3      1
+                      _NRF_Write_Buf
+                      _NRF_Write_Reg
+ ---------------------------------------------------------------------------------
+ (2) _NRF_Tx_Send                                          4     3      1    6349
+                                              7 COMMON     4     3      1
+                    _NRF_Tx_CheckACK
+                      _NRF_Write_Buf
+ ---------------------------------------------------------------------------------
+ (3) _NRF_Tx_CheckACK                                      2     2      0    3340
+                                              5 COMMON     2     2      0
+                       _NRF_Read_Reg
+                      _NRF_Write_Reg
+ ---------------------------------------------------------------------------------
+ (3) _NRF_Write_Reg                                        4     3      1    3205
+                                              1 COMMON     4     3      1
+                         _NRF_SPI_RW
+ ---------------------------------------------------------------------------------
+ (4) _NRF_Read_Reg                                         3     3      0      67
+                                              1 COMMON     3     3      0
+                         _NRF_SPI_RW
+ ---------------------------------------------------------------------------------
+ (2) _NRF_SPI_Init                                         0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _NRF_Port_Init                                        0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _NRF_On                                               0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _NRF_Check                                           13    13      0    3508
+                                              8 COMMON     2     2      0
+                                              0 BANK0     11    11      0
+                       _NRF_Read_Buf
+                      _NRF_Write_Buf
+ ---------------------------------------------------------------------------------
+ (3) _NRF_Write_Buf                                        6     4      2    2856
+                                              1 COMMON     6     4      2
+                         _NRF_SPI_RW
+ ---------------------------------------------------------------------------------
+ (3) _NRF_Read_Buf                                         7     5      2     445
+                                              1 COMMON     7     5      2
+                         _NRF_SPI_RW
+ ---------------------------------------------------------------------------------
+ (4) _NRF_SPI_RW                                           1     1      0      22
+                                              0 COMMON     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _PORT_Init                                            0     0      0       0
+                         _PORTA_Init
+                         _PORTC_Init
+ ---------------------------------------------------------------------------------
+ (2) _PORTC_Init                                           0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _PORTA_Init                                           0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _LED_Init                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _Key_Init                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 4
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (6) _ISR                                                  0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 6
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _Key_Init
+   _LED_Init
+   _PORT_Init
+     _PORTA_Init
+     _PORTC_Init
+   _WirelessPad
+     _NRF_Check
+       _NRF_Read_Buf
+         _NRF_SPI_RW
+       _NRF_Write_Buf
+         _NRF_SPI_RW
+     _NRF_On
+     _NRF_Port_Init
+     _NRF_SPI_Init
+     _NRF_Tx_Send
+       _NRF_Tx_CheckACK
+         _NRF_Read_Reg
+           _NRF_SPI_RW
+         _NRF_Write_Reg
+           _NRF_SPI_RW
+       _NRF_Write_Buf
+         _NRF_SPI_RW
+     _NRF_Tx_Set
+       _NRF_Write_Buf
+         _NRF_SPI_RW
+       _NRF_Write_Reg
+         _NRF_SPI_RW
+     _memcpy
+
+ _ISR (ROOT)
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM              70      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITCOMMON            E      0       0       1        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+COMMON               E      C       E       2      100.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+BITSFR2              0      0       0       3        0.0%
+SFR2                 0      0       0       3        0.0%
+STACK                0      0       0       3        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+ABS                  0      0      4B       4        0.0%
+BITBANK0            50      0       0       5        0.0%
+BITSFR4              0      0       0       5        0.0%
+SFR4                 0      0       0       5        0.0%
+BANK0               50      B      3D       6       76.3%
+BITSFR5              0      0       0       6        0.0%
+SFR5                 0      0       0       6        0.0%
+BITBANK1            20      0       0       7        0.0%
+BITSFR6              0      0       0       7        0.0%
+SFR6                 0      0       0       7        0.0%
+BANK1               20      0       0       8        0.0%
+BITSFR7              0      0       0       8        0.0%
+SFR7                 0      0       0       8        0.0%
+BITSFR8              0      0       0       9        0.0%
+SFR8                 0      0       0       9        0.0%
+DATA                 0      0      4B       9        0.0%
+BITSFR9              0      0       0      10        0.0%
+SFR9                 0      0       0      10        0.0%
+BITSFR10             0      0       0      11        0.0%
+SFR10                0      0       0      11        0.0%
+BITSFR11             0      0       0      12        0.0%
+SFR11                0      0       0      12        0.0%
+BITSFR12             0      0       0      13        0.0%
+SFR12                0      0       0      13        0.0%
+BITSFR13             0      0       0      14        0.0%
+SFR13                0      0       0      14        0.0%
+BITSFR14             0      0       0      15        0.0%
+SFR14                0      0       0      15        0.0%
+BITSFR15             0      0       0      16        0.0%
+SFR15                0      0       0      16        0.0%
+BITSFR16             0      0       0      17        0.0%
+SFR16                0      0       0      17        0.0%
+BITSFR17             0      0       0      18        0.0%
+SFR17                0      0       0      18        0.0%
+BITSFR18             0      0       0      19        0.0%
+SFR18                0      0       0      19        0.0%
+BITSFR19             0      0       0      20        0.0%
+SFR19                0      0       0      20        0.0%
+BITSFR20             0      0       0      21        0.0%
+SFR20                0      0       0      21        0.0%
+BITSFR21             0      0       0      22        0.0%
+SFR21                0      0       0      22        0.0%
+BITSFR22             0      0       0      23        0.0%
+SFR22                0      0       0      23        0.0%
+BITSFR23             0      0       0      24        0.0%
+SFR23                0      0       0      24        0.0%
+BITSFR24             0      0       0      25        0.0%
+SFR24                0      0       0      25        0.0%
+BITSFR25             0      0       0      26        0.0%
+SFR25                0      0       0      26        0.0%
+BITSFR26             0      0       0      27        0.0%
+SFR26                0      0       0      27        0.0%
+BITSFR27             0      0       0      28        0.0%
+SFR27                0      0       0      28        0.0%
+BITSFR28             0      0       0      29        0.0%
+SFR28                0      0       0      29        0.0%
+BITSFR29             0      0       0      30        0.0%
+SFR29                0      0       0      30        0.0%
+BITSFR30             0      0       0      31        0.0%
+SFR30                0      0       0      31        0.0%
+BITSFR31             0      0       0      32        0.0%
+SFR31                0      0       0      32        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.10 build 88905656 
+Symbol Table                                                                                   Sun Sep 08 23:21:45 2019
+
+             __CFG_CP$OFF 0000                        l85 0246                        l94 0250  
+                      l88 027C                        l97 0233                        _RD 0CA8  
+                      _WR 0CA9            NRF_Check@F2717 0020            NRF_Check@F2719 0058  
+             __CFG_LVP$ON 0000                       l100 023A                       l111 019B  
+                     l103 021B                       l112 019D                       l106 0209  
+                     l132 00D5                       l117 01BC                       l118 01BE  
+                     l240 0259                       l234 0269                       l237 0262  
+                     l190 01DD                       l183 01F7                       l344 0274  
+                     l353 0279                       l177 011F                       l372 0045  
+                     l365 022B                       l366 022B                       l376 007E  
+                     l986 014D                       _RA0 0060                       _RA2 0062  
+                     _RC0 0070                       _RA4 0064                       _RA5 0065  
+                     _RC1 0071                       _RC2 0072                       _RC3 0073  
+                     u400 0096                       u330 0238                       u410 00C1  
+                     u331 0237                       u411 00C0                       u340 019B  
+                     u420 00CC                       u341 019A                       u421 00CB  
+                     u350 01BC                       u430 00D2                       u351 01BB  
+                     u431 00D1                       u360 01CA                       u440 01F7  
+                     u361 01C9                       u441 01F6                       u370 01CE  
+                     u450 014D              __CFG_CPD$OFF 0000                       u371 01CD  
+                     u451 014C                       u380 01DA                       u460 0045  
+                     _ISR 0004                       u381 01D9                       u461 0044  
+                     u390 008B                       u470 0070                       u471 006F  
+                     u567 0038                       u577 004A                       u587 0054  
+                     u597 007A              __CFG_BORV$LO 0000                       wreg 0009  
+            __CFG_IESO$ON 0000                _TX_ADDRESS 0025                      ?_ISR 0070  
+                    l1142 025A                      l1144 0251                      l1180 0263  
+                    l1500 01A5                      l1502 01A7                      l1510 01BF  
+                    l1184 0270                      l1504 01AE                      l1520 01D6  
+                    l1512 01BF                      l1600 0121                      l1186 0275  
+                    l1506 01B2                      l1530 023B                      l1522 01DA  
+                    l1514 01C6                      l1602 012A                      l1610 0141  
+                    l1452 022E                      l1508 01B6                      l1532 027A  
+                    l1540 024D                      l1460 020B                      l1516 01CA  
+                    l1604 0132                      l1454 0230                      l1550 00B1  
+                    l1542 0081                      l1534 0247                      l1462 020D  
+                    l1526 01DC                      l1518 01CE                      l1606 0136  
+                    l1456 0238                      l1560 00C2                      l1544 008F  
+                    l1536 0249                      l1464 0211                      l1480 0208  
+                    l1472 01F9                      l1608 013D                      l1640 0047  
+                    l1490 0184                      l1570 00D4                      l1562 00C6  
+                    l1546 0099                      l1538 024B                      l1466 0218  
+                    l1474 01FB                      l1650 0070                      l1642 004F  
+                    l1634 002C                      l1492 0191                      l1484 017C  
+                    l1564 00CC                      l1556 00B3                      l1548 00A5  
+                    l1468 021A                      l1476 0202                      l1580 00F9  
+                    l1652 0071                      l1644 005A                      l1636 0032  
+                    l1820 021F                      l1494 0195                      l1486 017E  
+                    l1566 00D2                      l1478 0206                      l1590 01DF  
+                    l1582 00FF                      l1574 00D7                      l1654 0079  
+                    l1646 0066                      l1638 003D                      l1822 0222  
+                    l1488 0182                      l1496 019F                      l1592 01E1  
+                    l1584 0107                      l1576 00D9                      l1648 006B  
+                    l1824 0225                      l1498 01A1                      l1594 01ED  
+                    l1586 010F                      l1578 00F1                      l1826 0228  
+                    l1818 021C                      l1596 01EF                      l1588 0117  
+                    l1598 01EF                      _LATA 010C                      _LATC 010E  
+                    _WREN 0CAA              __CFG_WRT$OFF 0000             __CFG_FCMEN$ON 0000  
+                    _main 021C                      fsr0h 0005                      fsr1h 0007  
+                    indf0 0000                      fsr0l 0004                      indf1 0001  
+                    fsr1l 0006                      btemp 007E             __CFG_BOREN$ON 0000  
+                    start 0015          NRF_Write_Buf@len 0072          NRF_Write_Buf@reg 0075  
+           __CFG_MCLRE$ON 0000          NRF_Write_Reg@reg 0073                     ??_ISR 0070  
+           __CFG_PLLEN$ON 0000          __end_of_LED_Init 0275               ?_NRF_SPI_RW 0070  
+            _tx_pad_chair 0287                     ?_main 0070        NRF_Tx_CheckACK@sta 0076  
+                   _EEADR 0191             __CFG_WDTE$OFF 0000                     _EEPGD 0CAF  
+                   _IOCIE 005B                     _IOCIF 0058              _tx_pad_potty 0283  
+                   i1l360 0013                     i1l359 0012                     u31_20 000A  
+                   u31_21 0009                     u32_20 000F                     u32_21 000E  
+        ?_NRF_Tx_CheckACK 0070                     _PORTA 000C                     _PORTC 000E  
+                   _TRISA 008C                     _TRISC 008E        __size_of_NRF_Check 0055  
+             ?_NRF_Tx_Set 0077               ?_PORTA_Init 0070               ?_PORTC_Init 0070  
+      __size_of_PORT_Init 0007                     status 0003                     wtemp0 007E  
+       NRF_Write_Buf@pBuf 0071           __initialization 0016              __end_of_main 022D  
+        __end_of_Key_Init 027A                    ??_main 007C             _RX_ADDRESS_P0 0048  
+           _RX_ADDRESS_P1 0043             _RX_ADDRESS_P2 003E             _RX_ADDRESS_P3 0039  
+           _RX_ADDRESS_P4 0034             _RX_ADDRESS_P5 002F                    _EEDATA 0193  
+                  _EECON2 0196                    _ANSELA 018C                    _ANSELC 018E  
+                  _IOCAF4 1C9C                    i1l1440 000F                    i1l1436 0006  
+                  i1l1438 000A                    _OSCCON 0099                    _NRF_On 027A  
+                  _SSP1IF 008B                    _TRISA0 0460                    _TRISA2 0462  
+                  _TRISC0 0470                    _TRISA4 0464                    _TRISC1 0471  
+                  _TRISA5 0465                    _TRISC2 0472                    _TRISC3 0473  
+     __size_of_NRF_SPI_RW 000E            __CFG_PWRTE$OFF 0000              ?_NRF_Tx_Send 0077  
+       __end_of_NRF_Check 00D6       __size_of_NRF_Tx_Set 004A       __size_of_PORTA_Init 0009  
+     __size_of_PORTC_Init 0009            __CFG_STVREN$ON 0000          __end_of_pad_mode 028E  
+       __end_of_PORT_Init 026A                    _memcpy 0120     __end_of_NRF_Port_Init 0247  
+ __end_of__initialization 0029                 ?_LED_Init 0070            __pcstackCOMMON 0070  
+            __pidataBANK0 014E     __end_of_NRF_Write_Buf 01BF     __end_of_NRF_Write_Reg 020A  
+      NRF_Write_Reg@value 0071             ??_WirelessPad 007B                __pbssBANK0 0058  
+               ?_Key_Init 0070                   ?_NRF_On 0070                ??_LED_Init 0070  
+              __pmaintext 021C             ?_NRF_SPI_Init 0070                __pintentry 0004  
+                 ?_memcpy 0070              ??_NRF_SPI_RW 0070              ??_NRF_Tx_Set 0078  
+            ??_PORTA_Init 0070              ??_PORTC_Init 0070             ?_NRF_Read_Buf 0071  
+           ?_NRF_Read_Reg 0070                   _SSP1BUF 0211                ??_Key_Init 0070  
+     __end_of_WirelessPad 0081           __size_of_NRF_On 0003                _pad_aux_ok 028B  
+              _pad_aux_on 027F        __end_of_NRF_SPI_RW 023B            ??_NRF_SPI_Init 0070  
+    __size_of_NRF_Tx_Send 001A        __end_of_NRF_Tx_Set 0120        __end_of_PORTA_Init 0263  
+      __end_of_PORTC_Init 025A            NRF_Tx_Set@addr 007A            NRF_Tx_Send@len 0077  
+         __size_of_memcpy 002E                   __ptext1 002C                   __ptext2 0120  
+                 __ptext3 00D6                   __ptext4 01DE                   __ptext5 01BF  
+                 __ptext6 01F8                   __ptext7 020A                   __ptext8 0247  
+                 __ptext9 023B              __size_of_ISR 0011            ??_NRF_Read_Buf 0073  
+          ??_NRF_Read_Reg 0071                   _tx_addr 002A      end_of_initialization 0029  
+__size_of_NRF_Tx_CheckACK 001F                   memcpy@d 0079                   memcpy@n 0072  
+                 memcpy@s 0075                   init_ram 026A                   initloop 026B  
+               _NRF_Check 0081             NRF_SPI_RW@dat 0070           NRF_Read_Buf@len 0072  
+         NRF_Read_Buf@reg 0076                 _PORT_Init 0263           NRF_Read_Reg@reg 0072  
+        __CFG_FOSC$INTOSC 0000               _WirelessPad 002C            NRF_Write_Buf@i 0076  
+              _tx_pad_bed 0281                _tx_pad_aux 0289                _tx_pad_nci 0285  
+          __end_of_NRF_On 027D         __size_of_LED_Init 0005                ?_NRF_Check 0070  
+          __end_of_memcpy 014E                ?_PORT_Init 0070       start_initialization 0016  
+             __end_of_ISR 0015      __end_of_NRF_SPI_Init 0251       NRF_Write_Reg@status 0074  
+                ??_NRF_On 0070         __size_of_Key_Init 0005         ??_NRF_Tx_CheckACK 0075  
+    __end_of_NRF_Read_Buf 019E      __end_of_NRF_Read_Reg 021C               __pdataBANK0 0020  
+                ??_memcpy 0074    __size_of_NRF_Port_Init 000C             NRF_Read_Buf@i 0077  
+             __pbssCOMMON 007C                 ___latbits 0000             __pcstackBANK0 004D  
+  __size_of_NRF_Write_Buf 0021    __size_of_NRF_Write_Reg 0012       __end_of_pad_aux_off 027F  
+        NRF_Tx_Send@txbuf 007A               ??_NRF_Check 0078               ??_PORT_Init 0070  
+              NRF_Check@i 0057             NRF_Tx_Set@ack 0077             _NRF_Port_Init 023B  
+                _LED_Init 0270             ??_NRF_Tx_Send 0078                  _SSP1CON1 0215  
+                _SSP1STAT 0214             _NRF_Write_Buf 019E             _NRF_Write_Reg 01F8  
+   __size_of_NRF_SPI_Init 000A              NRF_Check@buf 0052              NRF_Check@tuf 004D  
+            ?_WirelessPad 0070            ?_NRF_Port_Init 0070               _pad_aux_dat 007C  
+             _pad_aux_off 027D                  _Key_Init 0275     __size_of_NRF_Read_Buf 0023  
+   __size_of_NRF_Read_Reg 0012                 memcpy@tmp 0077              _NRF_SPI_Init 0247  
+          ?_NRF_Write_Buf 0071            ?_NRF_Write_Reg 0071       __end_of_NRF_Tx_Send 01F8  
+      __end_of_pad_aux_ok 028D        __end_of_pad_aux_on 0281                  __ptext10 027A  
+                __ptext11 0081                  __ptext12 019E                  __ptext13 017B  
+                __ptext14 022D                  __ptext15 0263                  __ptext16 0251  
+                __ptext17 025A                  __ptext18 0270                  __ptext19 0275  
+            _NRF_Read_Buf 017B              _NRF_Read_Reg 020A           _NRF_Tx_CheckACK 01BF  
+                _pad_mode 028D      __end_of_tx_pad_chair 0289             __size_of_main 0011  
+    __end_of_tx_pad_potty 0285                  int$flags 007E              _SSP1STATbits 0214  
+                memcpy@d1 0078                  memcpy@s1 0070           ??_NRF_Port_Init 0070  
+                intlevel1 0000         __CFG_CLKOUTEN$OFF 0000               _NRF_Tx_Send 01DE  
+         ??_NRF_Write_Buf 0073           ??_NRF_Write_Reg 0072                _NRF_SPI_RW 022D  
+           __pstringtext1 027D             __pstringtext2 027F             __pstringtext3 0281  
+           __pstringtext4 0283             __pstringtext5 0285             __pstringtext6 0287  
+           __pstringtext7 0289             __pstringtext8 028D             __pstringtext9 028B  
+      NRF_Read_Reg@status 0073   __end_of_NRF_Tx_CheckACK 01DE        __end_of_tx_pad_bed 0283  
+      __end_of_tx_pad_aux 028B        __end_of_tx_pad_nci 0287                _NRF_Tx_Set 00D6  
+              _PORTA_Init 025A                _PORTC_Init 0251          NRF_Read_Buf@pBuf 0071  
+    __size_of_WirelessPad 0055  

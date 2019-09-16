@@ -3921,7 +3921,7 @@ void PORTC_Init(void);
 # 2 "main.c" 2
 
 # 1 "../library\\nrf24l01.h" 1
-# 95 "../library\\nrf24l01.h"
+# 96 "../library\\nrf24l01.h"
 void NRF_Port_Init(void);
 
 void NRF_On(void);
@@ -3960,18 +3960,18 @@ void NRF_Tx_Set(unsigned char *addr, unsigned char ack);
 void NRF_Tx_Send(unsigned char *txbuf, unsigned char len);
 unsigned char NRF_Tx_CheckACK(void);
 
-void NRF_Rx_Set(unsigned char ack);
+void NRF_Rx_Set(unsigned char ack, unsigned char pipe);
 void NRF_Rx_Set_P0(unsigned char *addr, unsigned char len);
 void NRF_Rx_Set_P1(unsigned char *addr, unsigned char len);
 void NRF_Rx_Set_P3(unsigned char *addr, unsigned char len);
 void NRF_Rx_Set_P4(unsigned char *addr, unsigned char len);
 void NRF_Rx_Set_P5(unsigned char *addr, unsigned char len);
-void NRF_Rx_Receive();
+void NRF_Rx_Receive(void);
 # 3 "main.c" 2
 
 
 # 1 "./config.h" 1
-# 13 "./config.h"
+# 17 "./config.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -3990,7 +3990,7 @@ void NRF_Rx_Receive();
 #pragma config BORV = LO
 #pragma config LVP = ON
 # 5 "main.c" 2
-# 22 "main.c"
+# 21 "main.c"
 unsigned char const tx_pad_aux[2] = {0x66, 0x88};
 unsigned char const tx_pad_chair[2] = {0x68, 0x86};
 unsigned char const tx_pad_nci[2] = {0x86, 0x66};
@@ -4007,7 +4007,7 @@ unsigned char pad_aux_dat[2] = {0x00, 0x00};
 unsigned char const pad_mode = 0;
 
 unsigned char tx_addr[5] = {0x0F, 0x0E, 0x0D, 0x0C, 0x0B};
-# 46 "main.c"
+# 45 "main.c"
 void WirelessPad(void);
 void LED_Init(void);
 void LEDx(unsigned char num);
@@ -4107,7 +4107,6 @@ void WirelessPad() {
 
         if(RA4 == 1) {
             RC3 = 0;
-
 
             NRF_Tx_Send(pad_aux_dat, 2);
             _delay((unsigned long)((1)*(125000/4000.0)));

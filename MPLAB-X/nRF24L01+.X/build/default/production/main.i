@@ -3921,7 +3921,7 @@ void PORTC_Init(void);
 # 2 "main.c" 2
 
 # 1 "../library\\nrf24l01.h" 1
-# 95 "../library\\nrf24l01.h"
+# 96 "../library\\nrf24l01.h"
 void NRF_Port_Init(void);
 
 void NRF_On(void);
@@ -3966,12 +3966,15 @@ void NRF_Rx_Set_P1(unsigned char *addr, unsigned char len);
 void NRF_Rx_Set_P3(unsigned char *addr, unsigned char len);
 void NRF_Rx_Set_P4(unsigned char *addr, unsigned char len);
 void NRF_Rx_Set_P5(unsigned char *addr, unsigned char len);
-void NRF_Rx_Receive();
+void NRF_Rx_Receive(void);
 # 3 "main.c" 2
 
 
-# 1 "./config.h" 1
-# 13 "./config.h"
+
+
+
+
+
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -3989,8 +3992,7 @@ void NRF_Rx_Receive();
 #pragma config STVREN = ON
 #pragma config BORV = LO
 #pragma config LVP = ON
-# 5 "main.c" 2
-# 40 "main.c"
+# 66 "main.c"
 unsigned char const tx_pad_aux[2] = {0x66, 0x88};
 unsigned char const tx_pad_chair[2] = {0x68, 0x86};
 unsigned char const tx_pad_nci[2] = {0x86, 0x66};
@@ -4015,21 +4017,21 @@ void LED_Blues(unsigned char num);
 void LED_Red(unsigned char num) {
     while(num--) {
         RC4 = 1;;
-        _delay((unsigned long)((200)*(125000/4000.0)));
+        _delay((unsigned long)((200)*(_XTAL_FREQ/4000.0)));
         RC4 = 0;
-        _delay((unsigned long)((200)*(125000/4000.0)));
+        _delay((unsigned long)((200)*(_XTAL_FREQ/4000.0)));
     }
-    _delay((unsigned long)((1000)*(125000/4000.0)));
+    _delay((unsigned long)((1000)*(_XTAL_FREQ/4000.0)));
 }
 
 void LED_Blue(unsigned char num) {
     while(num--) {
         RC5 = 1;;
-        _delay((unsigned long)((200)*(125000/4000.0)));
+        _delay((unsigned long)((200)*(_XTAL_FREQ/4000.0)));
         RC5 = 0;
-        _delay((unsigned long)((200)*(125000/4000.0)));
+        _delay((unsigned long)((200)*(_XTAL_FREQ/4000.0)));
     }
-    _delay((unsigned long)((1000)*(125000/4000.0)));
+    _delay((unsigned long)((1000)*(_XTAL_FREQ/4000.0)));
 }
 
 void main() {
@@ -4052,14 +4054,14 @@ void main() {
 
 void NRF_IRQ_Init(void) {
     TRISA4 = 1;
-# 109 "main.c"
+# 135 "main.c"
 }
 
 
 
 
 void __attribute__((picinterrupt(("")))) ISR() {
-# 171 "main.c"
+# 197 "main.c"
 }
 
 
@@ -4073,7 +4075,7 @@ void WirelessPad() {
     NRF_Port_Init();
     NRF_SPI_Init();
 
-    _delay((unsigned long)((500)*(125000/4000.0)));
+    _delay((unsigned long)((500)*(_XTAL_FREQ/4000.0)));
 
     if(NRF_Check()) {
         while(1) {
@@ -4100,6 +4102,6 @@ void WirelessPad() {
         }else {
             TRISA5 = 1; RA5 = 0;
         }
-        _delay((unsigned long)((100)*(125000/4000.0)));
+        _delay((unsigned long)((100)*(_XTAL_FREQ/4000.0)));
     }
 }

@@ -33,29 +33,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "15 ../library\port.h
 [; ;../library\port.h: 15: void PORT_Init(void);
 [v _PORT_Init `(v ~T0 @X0 0 ef ]
-"46 main.c
-[; ;main.c: 46: void WirelessPad(void);
+"45 main.c
+[; ;main.c: 45: void WirelessPad(void);
 [v _WirelessPad `(v ~T0 @X0 0 ef ]
-"97 ../library\nrf24l01.h
-[; ;../library\nrf24l01.h: 97: void NRF_On(void);
+"98 ../library\nrf24l01.h
+[; ;../library\nrf24l01.h: 98: void NRF_On(void);
 [v _NRF_On `(v ~T0 @X0 0 ef ]
-"95
-[; ;../library\nrf24l01.h: 95: void NRF_Port_Init(void);
+"96
+[; ;../library\nrf24l01.h: 96: void NRF_Port_Init(void);
 [v _NRF_Port_Init `(v ~T0 @X0 0 ef ]
-"100
-[; ;../library\nrf24l01.h: 100: void NRF_SPI_Init(void);
+"101
+[; ;../library\nrf24l01.h: 101: void NRF_SPI_Init(void);
 [v _NRF_SPI_Init `(v ~T0 @X0 0 ef ]
-"109
-[; ;../library\nrf24l01.h: 109: char NRF_Check(void);
+"110
+[; ;../library\nrf24l01.h: 110: char NRF_Check(void);
 [v _NRF_Check `(uc ~T0 @X0 0 ef ]
 "27 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\string.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\string.h: 27: void *memcpy (void *restrict, const void *restrict, size_t);
 [v _memcpy `(*v ~T0 @X0 0 ef3`*v`*Cv`ui ]
-"129 ../library\nrf24l01.h
-[; ;../library\nrf24l01.h: 129: void NRF_Tx_Set(unsigned char *addr, unsigned char ack);
+"130 ../library\nrf24l01.h
+[; ;../library\nrf24l01.h: 130: void NRF_Tx_Set(unsigned char *addr, unsigned char ack);
 [v _NRF_Tx_Set `(v ~T0 @X0 0 ef2`*uc`uc ]
-"130
-[; ;../library\nrf24l01.h: 130: void NRF_Tx_Send(unsigned char *txbuf, unsigned char len);
+"131
+[; ;../library\nrf24l01.h: 131: void NRF_Tx_Send(unsigned char *txbuf, unsigned char len);
 [v _NRF_Tx_Send `(v ~T0 @X0 0 ef2`*uc`uc ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1823.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1823.h: 54: __asm("INDF0 equ 00h");
@@ -426,38 +426,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5620
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1823.h: 5620: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
-"13 ./config.h
+"17 ./config.h
 [p x FOSC = INTOSC ]
-"14
-[p x WDTE = OFF ]
-"15
-[p x PWRTE = OFF ]
-"16
-[p x MCLRE = ON ]
-"17
-[p x CP = OFF ]
 "18
-[p x CPD = OFF ]
+[p x WDTE = OFF ]
 "19
-[p x BOREN = ON ]
+[p x PWRTE = OFF ]
 "20
-[p x CLKOUTEN = OFF ]
+[p x MCLRE = ON ]
 "21
-[p x IESO = ON ]
+[p x CP = OFF ]
 "22
-[p x FCMEN = ON ]
+[p x CPD = OFF ]
+"23
+[p x BOREN = ON ]
+"24
+[p x CLKOUTEN = OFF ]
 "25
-[p x WRT = OFF ]
+[p x IESO = ON ]
 "26
-[p x PLLEN = ON ]
-"27
-[p x STVREN = ON ]
-"28
-[p x BORV = LO ]
+[p x FCMEN = ON ]
 "29
+[p x WRT = OFF ]
+"30
+[p x PLLEN = ON ]
+"31
+[p x STVREN = ON ]
+"32
+[p x BORV = LO ]
+"33
 [p x LVP = ON ]
-"22 main.c
-[; ;main.c: 22: unsigned char const tx_pad_aux[2] = {0x66, 0x88};
+"21 main.c
+[; ;main.c: 21: unsigned char const tx_pad_aux[2] = {0x66, 0x88};
 [v _tx_pad_aux `Cuc ~T0 @X0 -> 2 `i e ]
 [i _tx_pad_aux
 :U ..
@@ -465,8 +465,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 136 `i `uc
 ..
 ]
-"23
-[; ;main.c: 23: unsigned char const tx_pad_chair[2] = {0x68, 0x86};
+"22
+[; ;main.c: 22: unsigned char const tx_pad_chair[2] = {0x68, 0x86};
 [v _tx_pad_chair `Cuc ~T0 @X0 -> 2 `i e ]
 [i _tx_pad_chair
 :U ..
@@ -474,8 +474,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 134 `i `uc
 ..
 ]
-"24
-[; ;main.c: 24: unsigned char const tx_pad_nci[2] = {0x86, 0x66};
+"23
+[; ;main.c: 23: unsigned char const tx_pad_nci[2] = {0x86, 0x66};
 [v _tx_pad_nci `Cuc ~T0 @X0 -> 2 `i e ]
 [i _tx_pad_nci
 :U ..
@@ -483,8 +483,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 102 `i `uc
 ..
 ]
-"25
-[; ;main.c: 25: unsigned char const tx_pad_potty[2] = {0x88, 0x68};
+"24
+[; ;main.c: 24: unsigned char const tx_pad_potty[2] = {0x88, 0x68};
 [v _tx_pad_potty `Cuc ~T0 @X0 -> 2 `i e ]
 [i _tx_pad_potty
 :U ..
@@ -492,8 +492,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 104 `i `uc
 ..
 ]
-"26
-[; ;main.c: 26: unsigned char const tx_pad_bed[2] = {0x98, 0x58};
+"25
+[; ;main.c: 25: unsigned char const tx_pad_bed[2] = {0x98, 0x58};
 [v _tx_pad_bed `Cuc ~T0 @X0 -> 2 `i e ]
 [i _tx_pad_bed
 :U ..
@@ -501,8 +501,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 88 `i `uc
 ..
 ]
-"29
-[; ;main.c: 29: unsigned char const pad_aux_ok[2] = {0x01,0x01};
+"28
+[; ;main.c: 28: unsigned char const pad_aux_ok[2] = {0x01,0x01};
 [v _pad_aux_ok `Cuc ~T0 @X0 -> 2 `i e ]
 [i _pad_aux_ok
 :U ..
@@ -510,8 +510,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 1 `i `uc
 ..
 ]
-"30
-[; ;main.c: 30: unsigned char const pad_aux_on[2] = {0x02,0x02};
+"29
+[; ;main.c: 29: unsigned char const pad_aux_on[2] = {0x02,0x02};
 [v _pad_aux_on `Cuc ~T0 @X0 -> 2 `i e ]
 [i _pad_aux_on
 :U ..
@@ -519,8 +519,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 2 `i `uc
 ..
 ]
-"31
-[; ;main.c: 31: unsigned char const pad_aux_off[2] = {0x03,0x03};
+"30
+[; ;main.c: 30: unsigned char const pad_aux_off[2] = {0x03,0x03};
 [v _pad_aux_off `Cuc ~T0 @X0 -> 2 `i e ]
 [i _pad_aux_off
 :U ..
@@ -528,8 +528,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 3 `i `uc
 ..
 ]
-"33
-[; ;main.c: 33: unsigned char pad_aux_dat[2] = {0x00, 0x00};
+"32
+[; ;main.c: 32: unsigned char pad_aux_dat[2] = {0x00, 0x00};
 [v _pad_aux_dat `uc ~T0 @X0 -> 2 `i e ]
 [i _pad_aux_dat
 :U ..
@@ -537,14 +537,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"35
-[; ;main.c: 35: unsigned char const pad_mode = 0;
+"34
+[; ;main.c: 34: unsigned char const pad_mode = 0;
 [v _pad_mode `Cuc ~T0 @X0 1 e ]
 [i _pad_mode
 -> -> 0 `i `uc
 ]
-"37
-[; ;main.c: 37: unsigned char tx_addr[5] = {0x0F, 0x0E, 0x0D, 0x0C, 0x0B};
+"36
+[; ;main.c: 36: unsigned char tx_addr[5] = {0x0F, 0x0E, 0x0D, 0x0C, 0x0B};
 [v _tx_addr `uc ~T0 @X0 -> 5 `i e ]
 [i _tx_addr
 :U ..
@@ -555,239 +555,239 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 11 `i `uc
 ..
 ]
-"51
-[; ;main.c: 51: void LED_Init(void) {
+"50
+[; ;main.c: 50: void LED_Init(void) {
 [v _LED_Init `(v ~T0 @X0 1 ef ]
 {
 [e :U _LED_Init ]
 [f ]
-"52
-[; ;main.c: 52:     TRISC3 = 0;
+"51
+[; ;main.c: 51:     TRISC3 = 0;
 [e = _TRISC3 -> -> 0 `i `b ]
-"53
-[; ;main.c: 53:     RC3 = 1;
+"52
+[; ;main.c: 52:     RC3 = 1;
 [e = _RC3 -> -> 1 `i `b ]
-"54
-[; ;main.c: 54: }
+"53
+[; ;main.c: 53: }
 [e :UE 300 ]
 }
-"56
-[; ;main.c: 56: void LEDx(unsigned char num) {
+"55
+[; ;main.c: 55: void LEDx(unsigned char num) {
 [v _LEDx `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _LEDx ]
 [v _num `uc ~T0 @X0 1 r1 ]
 [f ]
-"57
-[; ;main.c: 57:     while(num--) {
+"56
+[; ;main.c: 56:     while(num--) {
 [e $U 302  ]
 [e :U 303 ]
 {
-"58
-[; ;main.c: 58:         RC3 = 0;
+"57
+[; ;main.c: 57:         RC3 = 0;
 [e = _RC3 -> -> 0 `i `b ]
+"58
+[; ;main.c: 58:         _delay((unsigned long)((200)*(125000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
 "59
-[; ;main.c: 59:         _delay((unsigned long)((200)*(125000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
-"60
-[; ;main.c: 60:         RC3 = 1;
+[; ;main.c: 59:         RC3 = 1;
 [e = _RC3 -> -> 1 `i `b ]
-"61
-[; ;main.c: 61:         _delay((unsigned long)((200)*(125000/4000.0)));
+"60
+[; ;main.c: 60:         _delay((unsigned long)((200)*(125000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
-"62
-[; ;main.c: 62:     }
+"61
+[; ;main.c: 61:     }
 }
 [e :U 302 ]
-"57
-[; ;main.c: 57:     while(num--) {
+"56
+[; ;main.c: 56:     while(num--) {
 [e $ != -> -- _num -> -> 1 `i `uc `i -> 0 `i 303  ]
 [e :U 304 ]
-"63
-[; ;main.c: 63: }
+"62
+[; ;main.c: 62: }
 [e :UE 301 ]
 }
-"65
-[; ;main.c: 65: void Key_Init(void) {
+"64
+[; ;main.c: 64: void Key_Init(void) {
 [v _Key_Init `(v ~T0 @X0 1 ef ]
 {
 [e :U _Key_Init ]
 [f ]
-"67
-[; ;main.c: 67:     TRISA4 = 1;
+"66
+[; ;main.c: 66:     TRISA4 = 1;
 [e = _TRISA4 -> -> 1 `i `b ]
-"68
-[; ;main.c: 68:     RA4 = 0;
+"67
+[; ;main.c: 67:     RA4 = 0;
 [e = _RA4 -> -> 0 `i `b ]
-"76
-[; ;main.c: 76: }
+"75
+[; ;main.c: 75: }
 [e :UE 305 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"81
-[; ;main.c: 81: void __attribute__((picinterrupt(("")))) ISR() {
+"80
+[; ;main.c: 80: void __attribute__((picinterrupt(("")))) ISR() {
 [v _ISR `(v ~T1 @X0 1 ef ]
 {
 [e :U _ISR ]
 [f ]
-"83
-[; ;main.c: 83:     if(IOCIF && IOCAF4) {
+"82
+[; ;main.c: 82:     if(IOCIF && IOCAF4) {
 [e $ ! && _IOCIF _IOCAF4 307  ]
 {
-"84
-[; ;main.c: 84:         IOCIE = 0;
+"83
+[; ;main.c: 83:         IOCIE = 0;
 [e = _IOCIE -> -> 0 `i `b ]
-"85
-[; ;main.c: 85:         IOCIF = 0;
+"84
+[; ;main.c: 84:         IOCIF = 0;
 [e = _IOCIF -> -> 0 `i `b ]
-"86
-[; ;main.c: 86:         IOCAF4 = 0;
+"85
+[; ;main.c: 85:         IOCAF4 = 0;
 [e = _IOCAF4 -> -> 0 `i `b ]
-"89
-[; ;main.c: 89:         if(RA4 == 1) {
+"88
+[; ;main.c: 88:         if(RA4 == 1) {
 [e $ ! == -> _RA4 `i -> 1 `i 308  ]
 {
-"93
-[; ;main.c: 93:         }
+"92
+[; ;main.c: 92:         }
 }
 [e :U 308 ]
-"95
-[; ;main.c: 95:         IOCIE = 1;
+"94
+[; ;main.c: 94:         IOCIE = 1;
 [e = _IOCIE -> -> 1 `i `b ]
-"96
-[; ;main.c: 96:     }
+"95
+[; ;main.c: 95:     }
 }
 [e :U 307 ]
-"99
-[; ;main.c: 99: }
+"98
+[; ;main.c: 98: }
 [e :UE 306 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"101
-[; ;main.c: 101: void main() {
+"100
+[; ;main.c: 100: void main() {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"103
-[; ;main.c: 103:     OSCCON = 0X28;
+"102
+[; ;main.c: 102:     OSCCON = 0X28;
 [e = _OSCCON -> -> 40 `i `uc ]
-"105
-[; ;main.c: 105:     PORT_Init();
+"104
+[; ;main.c: 104:     PORT_Init();
 [e ( _PORT_Init ..  ]
-"107
-[; ;main.c: 107:     LED_Init();
+"106
+[; ;main.c: 106:     LED_Init();
 [e ( _LED_Init ..  ]
-"109
-[; ;main.c: 109:     Key_Init();
+"108
+[; ;main.c: 108:     Key_Init();
 [e ( _Key_Init ..  ]
-"113
-[; ;main.c: 113:     WirelessPad();
+"112
+[; ;main.c: 112:     WirelessPad();
 [e ( _WirelessPad ..  ]
-"117
-[; ;main.c: 117:     while(1);
+"116
+[; ;main.c: 116:     while(1);
 [e :U 311 ]
 [e :U 310 ]
 [e $U 311  ]
 [e :U 312 ]
-"118
-[; ;main.c: 118: }
+"117
+[; ;main.c: 117: }
 [e :UE 309 ]
 }
-"120
-[; ;main.c: 120: void WirelessPad() {
+"119
+[; ;main.c: 119: void WirelessPad() {
 [v _WirelessPad `(v ~T0 @X0 1 ef ]
 {
 [e :U _WirelessPad ]
 [f ]
-"122
-[; ;main.c: 122:     NRF_On();
+"121
+[; ;main.c: 121:     NRF_On();
 [e ( _NRF_On ..  ]
-"123
-[; ;main.c: 123:     NRF_Port_Init();
+"122
+[; ;main.c: 122:     NRF_Port_Init();
 [e ( _NRF_Port_Init ..  ]
-"124
-[; ;main.c: 124:     NRF_SPI_Init();
+"123
+[; ;main.c: 123:     NRF_SPI_Init();
 [e ( _NRF_SPI_Init ..  ]
-"126
-[; ;main.c: 126:     _delay((unsigned long)((500)*(125000/4000.0)));
+"125
+[; ;main.c: 125:     _delay((unsigned long)((500)*(125000/4000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
-"128
-[; ;main.c: 128:     if(NRF_Check()) {
+"127
+[; ;main.c: 127:     if(NRF_Check()) {
 [e $ ! != -> ( _NRF_Check ..  `i -> 0 `i 314  ]
 {
-"129
-[; ;main.c: 129:         while(1) {
+"128
+[; ;main.c: 128:         while(1) {
 [e :U 316 ]
 {
-"130
-[; ;main.c: 130:             RC3 = 0;
+"129
+[; ;main.c: 129:             RC3 = 0;
 [e = _RC3 -> -> 0 `i `b ]
+"130
+[; ;main.c: 130:             _delay((unsigned long)((100)*(125000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
 "131
-[; ;main.c: 131:             _delay((unsigned long)((100)*(125000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
-"132
-[; ;main.c: 132:             RC3 = 1;
+[; ;main.c: 131:             RC3 = 1;
 [e = _RC3 -> -> 1 `i `b ]
-"133
-[; ;main.c: 133:             _delay((unsigned long)((100)*(125000/4000.0)));
+"132
+[; ;main.c: 132:             _delay((unsigned long)((100)*(125000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
-"134
-[; ;main.c: 134:         }
+"133
+[; ;main.c: 133:         }
 }
 [e :U 315 ]
 [e $U 316  ]
 [e :U 317 ]
-"135
-[; ;main.c: 135:     }
+"134
+[; ;main.c: 134:     }
 }
 [e :U 314 ]
-"137
-[; ;main.c: 137:     memcpy(pad_aux_dat, pad_aux_ok, 2);
+"136
+[; ;main.c: 136:     memcpy(pad_aux_dat, pad_aux_ok, 2);
 [e ( _memcpy (3 , , -> &U _pad_aux_dat `*v -> &U _pad_aux_ok `*Cv -> -> 2 `i `ui ]
-"139
-[; ;main.c: 139:     NRF_Tx_Set(tx_addr, 0x00);
+"138
+[; ;main.c: 138:     NRF_Tx_Set(tx_addr, 0x00);
 [e ( _NRF_Tx_Set (2 , &U _tx_addr -> -> 0 `i `uc ]
-"141
-[; ;main.c: 141:     while(1) {
+"140
+[; ;main.c: 140:     while(1) {
 [e :U 319 ]
 {
-"143
-[; ;main.c: 143:         if(RA4 == 1) {
+"142
+[; ;main.c: 142:         if(RA4 == 1) {
 [e $ ! == -> _RA4 `i -> 1 `i 321  ]
 {
-"144
-[; ;main.c: 144:             RC3 = 0;
+"143
+[; ;main.c: 143:             RC3 = 0;
 [e = _RC3 -> -> 0 `i `b ]
-"147
-[; ;main.c: 147:             NRF_Tx_Send(pad_aux_dat, 2);
+"145
+[; ;main.c: 145:             NRF_Tx_Send(pad_aux_dat, 2);
 [e ( _NRF_Tx_Send (2 , &U _pad_aux_dat -> -> 2 `i `uc ]
-"148
-[; ;main.c: 148:             _delay((unsigned long)((1)*(125000/4000.0)));
+"146
+[; ;main.c: 146:             _delay((unsigned long)((1)*(125000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
-"149
-[; ;main.c: 149:         }else {
+"147
+[; ;main.c: 147:         }else {
 }
 [e $U 322  ]
 [e :U 321 ]
 {
-"150
-[; ;main.c: 150:             RC3 = 1;
+"148
+[; ;main.c: 148:             RC3 = 1;
 [e = _RC3 -> -> 1 `i `b ]
-"151
-[; ;main.c: 151:             _delay((unsigned long)((1)*(125000/4000.0)));
+"149
+[; ;main.c: 149:             _delay((unsigned long)((1)*(125000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 125000 `l `d .4000.0 `ul ]
-"152
-[; ;main.c: 152:         }
+"150
+[; ;main.c: 150:         }
 }
 [e :U 322 ]
-"153
-[; ;main.c: 153:     }
+"151
+[; ;main.c: 151:     }
 }
 [e :U 318 ]
 [e $U 319  ]
 [e :U 320 ]
-"154
-[; ;main.c: 154: }
+"152
+[; ;main.c: 152: }
 [e :UE 313 ]
 }

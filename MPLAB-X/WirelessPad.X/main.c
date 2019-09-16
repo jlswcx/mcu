@@ -10,7 +10,6 @@
 #define     LED_ON          0               // 低电平 亮
 #define     LED_OFF         1               // 高电平 灭     
 
-
 /* NRF发送的5种数据类型 */
 #define     PAD_AUX         0    
 #define     PAD_CHAIR       1
@@ -142,7 +141,6 @@ void WirelessPad() {
 
         if(RA4 == 1) {
             LED_IO = LED_ON;
-            
             // 注意：如果设置了自动应答，则可能一直循环，自动重发
             NRF_Tx_Send(pad_aux_dat, 2);  
             __delay_ms(1);

@@ -34,7 +34,8 @@
 #define     _XTAL_FREQ_4M           4000000             // 4MHZ
 #define     _XTAL_FREQ_8M           8000000             // 8MHZ
 #define     _XTAL_FREQ_16M          16000000            // 16MHZ 
-    
+#define     _XTAL_FREQ_32M          32000000            // 32MHZ  
+
 #define     OSCCON_125K             0X28
 #define     OSCCON_250K             0X30
 #define     OSCCON_500K             0X38
@@ -43,8 +44,7 @@
 #define     OSCCON_4M               0X68
 #define     OSCCON_8M               0X70
 #define     OSCCON_16M              0X78
-
-#define     _XTAL_FREQ              _XTAL_FREQ_125K       // 当前工程使用频率定义
+#define     OSCCON_32M              0XF0
 
 // BYTE type definition
 #ifndef _BYTE_DEF_

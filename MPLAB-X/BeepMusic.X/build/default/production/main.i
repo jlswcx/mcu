@@ -7,52 +7,14 @@
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 1 "./config.h" 1
-
-
-
-
-
-#pragma config FOSC = INTOSC
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config CLKOUTEN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-
-
-#pragma config WRT = OFF
-#pragma config PLLEN = OFF
-#pragma config STVREN = OFF
-#pragma config BORV = LO
-#pragma config LVP = OFF
-
-
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
-# 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
-extern const char __xc8_OPTIM_SPEED;
-
-extern double __fpnormalize(double);
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\xc8debug.h" 1 3
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdlib.h" 1 3
+# 1 "../library\\macro.h" 1
+# 11 "../library\\macro.h"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdio.h" 1 3
 
 
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\musl_xc8.h" 1 3
-# 4 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdlib.h" 2 3
+# 4 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdio.h" 2 3
 
 
 
@@ -60,17 +22,157 @@ extern double __fpnormalize(double);
 
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\features.h" 1 3
-# 10 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdlib.h" 2 3
-# 21 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdlib.h" 3
+# 10 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdio.h" 2 3
+# 24 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long int wchar_t;
+
+
+
+
+
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
 # 122 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned size_t;
+# 137 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long ssize_t;
 # 168 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef __int24 int24_t;
 # 204 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef __uint24 uint24_t;
+# 246 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long off_t;
+# 399 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 24 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+int ungetc(int, FILE *);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+#pragma printf_check(printf) const
+#pragma printf_check(vprintf) const
+#pragma printf_check(sprintf) const
+#pragma printf_check(snprintf) const
+#pragma printf_check(vsprintf) const
+#pragma printf_check(vsnprintf) const
+
+int printf(const char *restrict, ...);
+int fprintf(FILE *restrict, const char *restrict, ...);
+int sprintf(char *restrict, const char *restrict, ...);
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+int scanf(const char *restrict, ...);
+int fscanf(FILE *restrict, const char *restrict, ...);
+int sscanf(const char *restrict, const char *restrict, ...);
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 11 "../library\\macro.h" 2
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdlib.h" 1 3
+# 21 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdlib.h" 3
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int wchar_t;
 # 21 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdlib.h" 2 3
 
 
@@ -124,20 +226,64 @@ uldiv_t uldiv (unsigned long, unsigned long);
 
 
 size_t __ctype_get_mb_cur_max(void);
-# 4 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\xc8debug.h" 2 3
+# 12 "../library\\macro.h" 2
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 411 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 25 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\string.h" 2 3
+
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
+# 65 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\string.h" 3
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 
 
-
-
-
-
-#pragma intrinsic(__builtin_software_breakpoint)
-extern void __builtin_software_breakpoint(void);
-# 23 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-
-
+void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 13 "../library\\macro.h" 2
 
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\pic.h" 1 3
@@ -150,6 +296,24 @@ extern void __builtin_software_breakpoint(void);
 
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
+# 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
+extern const char __xc8_OPTIM_SPEED;
+
+extern double __fpnormalize(double);
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\xc8debug.h" 1 3
+# 12 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\xc8debug.h" 3
+#pragma intrinsic(__builtin_software_breakpoint)
+extern void __builtin_software_breakpoint(void);
+# 23 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\pic.h" 1 3
+# 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
 # 4 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\htc.h" 2 3
 # 5 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\pic.h" 2 3
 
@@ -3738,212 +3902,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
-# 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 27 "./config.h" 2
-# 1 "main.c" 2
-
-
-# 1 "../library\\macro.h" 1
-# 11 "../library\\macro.h"
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdio.h" 1 3
-# 24 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 1 3
-
-
-
-
-
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 137 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long ssize_t;
-# 246 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long off_t;
-# 399 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 24 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-int ungetc(int, FILE *);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-#pragma printf_check(printf) const
-#pragma printf_check(vprintf) const
-#pragma printf_check(sprintf) const
-#pragma printf_check(snprintf) const
-#pragma printf_check(vsprintf) const
-#pragma printf_check(vsnprintf) const
-
-int printf(const char *restrict, ...);
-int fprintf(FILE *restrict, const char *restrict, ...);
-int sprintf(char *restrict, const char *restrict, ...);
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-int scanf(const char *restrict, ...);
-int fscanf(FILE *restrict, const char *restrict, ...);
-int sscanf(const char *restrict, const char *restrict, ...);
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 11 "../library\\macro.h" 2
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\string.h" 1 3
-# 25 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\string.h" 3
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 411 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct __locale_struct * locale_t;
-# 25 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\string.h" 2 3
-
-
-void *memcpy (void *restrict, const void *restrict, size_t);
-void *memmove (void *, const void *, size_t);
-void *memset (void *, int, size_t);
-int memcmp (const void *, const void *, size_t);
-void *memchr (const void *, int, size_t);
-
-char *strcpy (char *restrict, const char *restrict);
-char *strncpy (char *restrict, const char *restrict, size_t);
-
-char *strcat (char *restrict, const char *restrict);
-char *strncat (char *restrict, const char *restrict, size_t);
-
-int strcmp (const char *, const char *);
-int strncmp (const char *, const char *, size_t);
-
-int strcoll (const char *, const char *);
-size_t strxfrm (char *restrict, const char *restrict, size_t);
-
-char *strchr (const char *, int);
-char *strrchr (const char *, int);
-
-size_t strcspn (const char *, const char *);
-size_t strspn (const char *, const char *);
-char *strpbrk (const char *, const char *);
-char *strstr (const char *, const char *);
-char *strtok (char *restrict, const char *restrict);
-
-size_t strlen (const char *);
-
-char *strerror (int);
-# 65 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\string.h" 3
-char *strtok_r (char *restrict, const char *restrict, char **restrict);
-int strerror_r (int, char *, size_t);
-char *stpcpy(char *restrict, const char *restrict);
-char *stpncpy(char *restrict, const char *restrict, size_t);
-size_t strnlen (const char *, size_t);
-char *strdup (const char *);
-char *strndup (const char *, size_t);
-char *strsignal(int);
-char *strerror_l (int, locale_t);
-int strcoll_l (const char *, const char *, locale_t);
-size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
-
-
-
-
-void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 13 "../library\\macro.h" 2
-
-
+# 15 "../library\\macro.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\eeprom_routines.h" 1 3
 # 114 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\eeprom_routines.h" 3
@@ -3952,41 +3911,62 @@ extern unsigned char eeprom_read(unsigned char addr);
 # 16 "../library\\macro.h" 2
 # 52 "../library\\macro.h"
 typedef unsigned char BYTE;
-# 3 "main.c" 2
+# 1 "main.c" 2
 
 # 1 "../library\\port.h" 1
 # 15 "../library\\port.h"
 void PORT_Init(void);
 void PORTA_Init(void);
 void PORTC_Init(void);
-# 4 "main.c" 2
+# 2 "main.c" 2
+# 11 "main.c"
+#pragma config FOSC = INTOSC
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config CPD = OFF
+#pragma config BOREN = OFF
+#pragma config CLKOUTEN = OFF
+#pragma config IESO = OFF
+#pragma config FCMEN = OFF
 
 
+#pragma config WRT = OFF
+#pragma config PLLEN = OFF
+#pragma config STVREN = OFF
+#pragma config BORV = LO
+#pragma config LVP = OFF
+# 40 "main.c"
+unsigned int const note_ll[7] = {65, 73, 82, 87, 98, 110, 123};
+unsigned int const note_l[7] = {131, 147, 165, 174, 196, 220, 247};
+unsigned int const note_m[7] = {262, 294, 330, 349, 392, 440, 494};
+unsigned int const note_h[7] = {523, 587, 659, 698, 784, 880, 988};
+unsigned int const note_hh[7] = {1046, 1175, 1318, 1397, 1568, 1760, 1967};
 
 
+unsigned int const speed = 120;
 
-unsigned int const note_l[7] = {262, 294, 330, 349, 392, 440, 494};
-unsigned int const note_m[7] = {523, 587, 659, 698, 784, 880, 988};
-unsigned int const note_h[7] = {1046, 1175, 1318, 1397, 1568, 1760, 1967};
-
-
-unsigned char const qcxlsc[]={0,2,8, 5,2,8, 1,3,8, 2,3,8, 3,3,4, 5,2,4, 4,3,8, 3,3,8, 2,3,8, 1,3,8, 7,2,8, 7,2,4, 5,3,8, 5,3,4,1,3,4, 3,2,4, 2,3,8, 1,3,8, 7,2,8, 6,2,8, 6,2,8, 7,2,4, 5,2,8, 5,2,4, 0,2,8, 3,2,8, 4,2,4, 1,3,4, 7,2,4, 0,2,8, 5,2,8, 5,2,4, 2,3,8, 1,3,8, 2,3,8, 1,3,8, 1,3,4, 4,3,8, 3,3,8, 4,3,8, 3,3,8, 4,3,4, 3,3,8, 2,3,8, 2,3,4, 0,2,8, 5,2,8, 1,3,8, 2,3,8, 3,3,4, 5,2,4, 4,3,8, 3,3,8, 2,3,8, 1,3,8, 7,2,8, 7,2,4, 5,3,8, 5,3,4,1,3,4, 3,2,4, 2,3,8, 1,3,8, 7,2,8, 6,2,8, 7,2,8, 6,3,4, 5,3,8, 5,3,4, 0,2,8, 1,3,8, 6,3,4, 4,3,8, 3,3,8, 2,3,4, 3,3,8, 4,3,8, 5,3,4, 3,3,4, 1,3,4, 0,2,8, 6,2,8, 4,3,8, 3,3,8, 4,3,8, 3,3,8, 1,3,4, 7,2,8, 2,3,8, 1,3,4, 0,2,8, 3,3,8, 2,3,8, 1,3,8, 5,2,4, 5,2,4, 0,2,8, 3,3,8, 2,3,8, 1,3,8, 7,2,4, 7,2,4, 7,2,4, 0,2,8, 6,2,8, 6,2,8, 6,2,8, 6,2,8, 6,2,8, 6,2,8, 5,2,8, 4,2,8, 6,2,8, 6,2,8, 5,2,8, 5,2,4, 0,2,8, 3,3,8, 2,3,8, 1,3,8, 5,2,4, 5,2,4, 0,2,8, 3,3,8, 2,3,8, 1,3,8, 7,2,8, 1,3,16, 7,2,16, 7,2,4, 7,2,4, 0,2,8, 1,3,8, 1,3,8, 1,3,8, 1,3,8, 1,3,8, 1,3,8, 6,2,8, 1,3,8, 6,2,8, 6,3,8, 5,3,8, 5,3,4, 3,3,4, 4,3,4, 5,3,4, 5,3,4, 5,3,8, 7,2,8, 7,2,8, 2,3,8, 1,3,8, 1,3,8, 1,3,4, 0,2,4, 6,2,8, 5,3,8, 5,3,8, 3,3,8, 4,3,8, 3,3,8, 4,3,8, 3,3,8, 1,3,8, 3,3,8, 3,3,8, 2,3,8, 0,2,4, 3,3,4, 4,3,4, 6,3,8, 5,3,8, 5,3,4, 5,3,8, 7,2,8, 7,2,8, 2,3,8, 1,3,8, 1,3,8, 1,3,4, 0,2,4, 0,2,8, 4,3,8, 4,3,8, 3,3,8, 4,3,8, 3,3,8, 4,3,4, 0,2,8, 4,3,8, 4,3,8, 3,3,8, 4,3,8, 3,3,8, 4,3,8, 1,3,8, 1,3,8, 5,3,8, 5,3,4, 5,3,4, 5,3,4, 5,3,4, 5,3,4, 5,3,4, 0,2,8, 5,2,8, 1,3,8, 2,3,8, 3,3,4, 5,2,4, 4,3,8, 3,3,8, 2,3,8, 1,3,8, 7,2,8, 7,2,4, 5,3,8, 5,3,4, 5,3,4, 1,3,4, 3,2,4, 2,3,8, 1,3,8, 7,2,8, 6,2,8, 6,2,8, 7,2,4, 5,2,8, 5,2,4, 5,2,4, 4,2,4, 1,3,4, 7,2,4, 0,2,8, 5,2,8, 5,2,4, 2,3,8, 1,3,8, 2,3,8, 1,3,8, 1,3,4, 4,3,8, 3,3,8, 4,3,8, 3,3,8, 4,3,4, 3,3,8, 2,3,8, 2,3,4, 2,3,4, 0,2,8, 5,2,8, 1,3,8, 2,3,8, 3,3,4, 5,2,4, 4,3,8, 3,3,8, 2,3,8, 1,3,8, 7,2,8, 7,2,4, 5,3,8, 5,3,4, 5,3,4, 1,3,4, 3,2,4, 2,3,8, 1,3,8, 7,2,8, 6,2,8, 7,2,8, 6,3,4, 5,3,8, 5,3,4, 0,2,8, 1,3,8, 6,3,4, 4,3,8, 3,3,8, 2,3,4, 3,3,8, 4,3,8, 5,3,4, 3,3,4, 1,3,4, 0,2,8, 6,2,8, 4,3,8, 3,3,8, 4,3,8, 3,3,8, 1,3,4, 7,2,8, 2,3,8, 1,3,4, 1,3,4, 0,0,0};
-# 69 "main.c"
-unsigned char const bgddzwc[]={0,2,4, 0,2,8, 3,3,8, 3,3,8, 2,3,8, 2,3,8, 1,3,8, 1,3,4, 6,2,8, 6,2,8, 2,3,8, 3,3,8, 5,3,8, 5,3,16, 3,3,16, 3,3,4, 3,3,8, 3,3,8, 3,3,8, 2,3,8, 2,3,8, 1,3,8, 1,3,4, 6,2,8, 6,2,8, 2,3,8, 3,3,8, 7,3,8, 7,3,16, 5,3,16, 5,3,4, 5,3,8, 3,3,8, 3,3,8, 2,3,8, 2,3,8, 1,3,8, 1,3,4, 6,2,4, 2,3,4, 2,3,8, 3,3,8, 5,3,4, 7,3,8, 1,3,8, 1,3,4, 3,3,8, 2,3,8, 6,2,4, 6,2,8, 3,3,8, 3,3,8, 2,3,8, 2,3,8, 1,3,8, 1,3,4, 6,2,8, 6,2,8, 2,3,8, 3,3,8, 5,3,8, 5,3,16, 3,3,16, 3,3,4, 3,3,8, 3,3,8, 3,3,8, 2,3,8, 2,3,8, 1,3,8, 1,3,4, 6,2,8, 6,2,8, 2,3,8, 3,3,8, 7,3,8, 7,3,16, 5,3,16, 5,3,4, 5,3,8, 3,3,8, 3,3,8, 2,3,8, 3,3,8, 5,3,8,
-# 83 "main.c"
+float ds_temp = 0;
+# 171 "main.c"
+unsigned char const lzttdmg_speed = 72;
+unsigned char const lzttdmg[]={6,2,8, 6,2,8, 6,2,16, 1,3,16, 6,2,16, 1,3,16, 5,3,8, 1,3,8, 1,3,8, 1,3,16, 1,3,16, 3,3,8, 3,3,8, 3,3,16, 4,3,16, 3,3,16, 4,3,16, 3,3,8, 2,3,8, 2,3,8, 1,3,16, 7,2,16, 6,2,8, 6,2,8, 6,2,16, 1,3,16, 6,2,16, 1,3,16, 5,3,8, 1,3,8, 1,3,8, 1,3,16, 2,3,16, 3,3,16, 3,3,16, 3,3,8, 3,3,8, 2,3,16, 1,3,16, 7,2,4, 1,3,8, 2,3,8, 3,3,8, 3,3,8, 3,3,8, 1,4,8, 4,3,8, 4,3,8, 4,3,8, 1,4,8, 5,3,8, 5,3,8, 5,3,16, 4,3,16, 3,3,16, 4,3,16, 3,3,8, 2,3,8, 2,3,8, 1,3,16, 7,2,16, 6,2,8, 6,2,8, 6,2,16, 1,3,16, 6,2,16, 1,3,16, 5,3,8, 1,3,8, 1,3,8, 1,3,16, 1,3,16, 3,3,16, 3,3,16, 3,3,8, 3,3,8, 2,3,16, 1,3,16, 7,2,4, 0,3,4,0,3,4, 0,3,4, 0,3,8, 0,3,16, 5,3,16, 1,4,16, 7,3,16, 6,3,16, 7,3,16, 1,4,4, 1,4,8, 6,3,16, 7,3,16, 7,3,4, 7,3,8, 5,3,16, 5,3,16, 5,3,8, 5,3,16, 5,3,16, 5,3,4, 0,3,8, 0,3,16, 7,3,16, 7,3,16, 7,3,16, 6,3,16, 7,3,16, 1,4,4, 1,4,8, 7,3,16, 7,3,16, 7,3,4, 7,3,8, 5,3,16, 5,3,16, 0,3,8, 5,3,16, 5,3,16, 0,3,4, 0,3,8, 0,3,16, 1,4,16, 1,4,16, 7,3,16, 6,3,16, 7,3,16, 1,4,4, 1,4,8, 1,4,16, 2,4,16, 2,4,4, 2,4,8, 1,4,16, 3,4,16, 3,4,4, 3,4,8, 2,4,16, 7,3,16, 0,3,8, 7,3,16, 7,3,16, 1,4,16, 7,3,16, 6,3,16, 7,3,16, 1,4,8, 1,4,16, 1,4,16, 0,3,8, 7,3,16, 1,4,16, 0,3,8, 7,3,16, 1,4,16, 0,3,8, 5,3,16, 6,3,16, 0,3,8, 5,3,16, 6,3,16, 0,3,8, 5,3,16, 6,3,16, 0,3,8, 5,3,16, 5,3,16, 5,3,16, 4,3,16, 3,3,16, 2,3,16, 1,3,4, 1,4,4, 7,3,8, 7,3,16, 5,3,16, 5,3,16, 4,3,16, 3,3,16, 2,3,16,
+# 197 "main.c"
 0,0,0 };
+
 
 unsigned char tmr1_con, tmr1_h, tmr1_l;
 
 void Beep_Init() {
-    TRISA5 = 0;
-    LATA5 = 0;
+    TRISC3 = 0;
+    LATC3 = 0;
 }
 
-void TMR1_Init() {
 
-    TMR1H = 0;
-    TMR1L = 0;
+
+void TMR1_Init() {
+    TMR1H = tmr1_h;
+    TMR1L = tmr1_l;
 
     TMR1ON = 1;
     TMR1IE = 1 ;
@@ -3997,67 +3977,58 @@ void TMR1_Init() {
 
 void __attribute__((picinterrupt(("")))) isr(void) {
 
-
-
      if(TMR1IF == 1) {
-# 125 "main.c"
-        LATA5 = !LATA5;
+        LATC3 = !LATC3;
 
         TMR1H = tmr1_h;
         TMR1L = tmr1_l;
 
-
         TMR1IF = 0;
-
-
      }
 }
 
-void delay(unsigned char t)
-{
-
+void delay(unsigned char t) {
     if(t == 1) {
-        _delay((unsigned long)((100)*(125000/4000.0)));
+        _delay((unsigned long)((208)*(4000000/4000.0)));
     }else if(t == 2){
-        _delay((unsigned long)((200)*(125000/4000.0)));
+        _delay((unsigned long)((416)*(4000000/4000.0)));
     }else if(t == 3){
-        _delay((unsigned long)((300)*(125000/4000.0)));
+        _delay((unsigned long)((600)*(4000000/4000.0)));
     }else if(t == 4){
-        _delay((unsigned long)((400)*(125000/4000.0)));
+        _delay((unsigned long)((833)*(4000000/4000.0)));
     }else if(t == 5){
-        _delay((unsigned long)((500)*(125000/4000.0)));
+        _delay((unsigned long)((1000)*(4000000/4000.0)));
     }else if(t == 6){
-        _delay((unsigned long)((600)*(125000/4000.0)));
+        _delay((unsigned long)((1200)*(4000000/4000.0)));
     }
-
 
 
 }
 
-
 void main() {
 
-    OSCCON = 0X28;
+    OSCCON = 0X68;
 
     unsigned int i = 0;
+    unsigned int t = 0;
+    unsigned int n = 0;
 
     PORT_Init();
 
     Beep_Init();
-
-    TMR1_Init();
 
     while(1){
         unsigned int audio, tone, duration, tune;
         unsigned int T, M;
 
         audio = tone = duration = tune = T = M = 0;
-        unsigned char const *p = bgddzwc;
-
+        unsigned char const *p = lzttdmg;
 
         audio = p[i];
         tone = p[i + 1];
         duration = 16 / p[i + 2];
+
+        ds_temp = 1048.00 / (float)i;
 
         if(audio == 0 && tone == 0 && duration == 0) {
             i = 0;
@@ -4065,28 +4036,38 @@ void main() {
             i = i + 3;
 
             if(audio == 0) {
+                TMR1IE = 0;
                 GIE = 0;
-                delay(duration);
-                GIE = 1;
+                t = 0;
+                LATC3 = 0;
             }else {
                 audio = audio - 1;
 
                 if(tone == 1){
-                    audio = note_l[audio];
+                    audio = note_ll[audio];
                 }else if(tone == 2) {
-                    audio = note_m[audio];
+                    audio = note_l[audio];
                 }else if(tone == 3) {
+                    audio = note_m[audio];
+                }else if(tone == 4) {
                     audio = note_h[audio];
+                }else if(tone == 5) {
+                    audio = note_hh[audio];
                 }
 
                 T = T + 1000000 / audio / 2;
-                M = 0xFFFF - T * 4 / (4 * 1);
+                M = 0xFFFF - T * (4000000 / (1000000 * 4));
 
                 tmr1_h = M / 256;
                 tmr1_l = M % 256;
 
-                delay(duration);
+                if(!t) {
+                    TMR1_Init();
+                    t++;
+                }
             }
+
+            delay(duration);
         }
 
     };

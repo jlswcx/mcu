@@ -2,7 +2,6 @@
 <configurationDescriptor version="65">
   <logicalFolder name="root" displayName="root" projectFiles="true">
     <logicalFolder name="HeaderFiles" displayName="头文件" projectFiles="true">
-      <itemPath>../library/header.h</itemPath>
       <itemPath>../library/library.h</itemPath>
       <itemPath>../library/macro.h</itemPath>
       <itemPath>../library/nrf24l01.h</itemPath>

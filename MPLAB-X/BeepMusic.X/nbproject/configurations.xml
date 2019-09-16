@@ -2,7 +2,6 @@
 <configurationDescriptor version="65">
   <logicalFolder name="root" displayName="root" projectFiles="true">
     <logicalFolder name="HeaderFiles" displayName="头文件" projectFiles="true">
-      <itemPath>config.h</itemPath>
       <itemPath>../library/macro.h</itemPath>
       <itemPath>../library/port.h</itemPath>
     </logicalFolder>
@@ -27,7 +26,7 @@
         <targetDevice>PIC16F1823</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PICkit3PlatformTool</platformTool>
+        <platformTool>Simulator</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.10</languageToolchainVersion>
         <platform>3</platform>

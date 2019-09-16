@@ -1,6 +1,8 @@
 #include "nrf24l01.h"
 #include "macro.h"
 
+#define     _XTAL_FREQ        _XTAL_FREQ_125K       // 当前工程使用频率定义
+
 // NRF24L01 相关I/O设置
 
 #define     NRF_CE_DIR          TRISA0
@@ -48,8 +50,8 @@ void NRF_Port_Init(void) {
     NRF_CSN_DIR = 0;
     NRF_CE_DIR  = 0;
     
-    NRF_IRQ_DIR = 1;
-    NRF_EN_DIR = 0;  
+//    NRF_IRQ_DIR = 1;
+//    NRF_EN_DIR = 0;  
     
     NRF_CE  = 0;            // 待机
     NRF_CSN = 1;            // 片选
@@ -394,7 +396,7 @@ unsigned char NRF_Tx_CheckACK(void) {
 
 /*
  * 接收模式
- * NRF_Rx_Set 函数（启用接收数据通道）
+ * NRF_Rx_Set 函数（启用接收应答，启用接收数据通道）
  * 1、设置哪些通道自动应答，设置哪些通道被启用接收，
  * 2、如设置通道0-2为接收数据，则设置 ack 参数为 0x03
  *    然后调用 NRF_Rx_Set_P0(--2) 3个函数 
@@ -453,7 +455,7 @@ void NRF_Rx_Set_P5(unsigned char *addr, unsigned char buf_len) {
     NRF_Write_Reg(NRF_W_REGISTER + NRF_RX_PW_P5, buf_len);  
 }
 
-void NRF_Rx_Receive() {
+void NRF_Rx_Receive(void) {
     NRF_CE = 0;	  
     NRF_Write_Reg(NRF_W_REGISTER + NRF_CONFIG, 0x0f);                           // Set PWR_UP bit, enable CRC(2 bytes) & Prim:RX. RX_DR enabled..   
     NRF_CE = 1;                                                                 // CE为高,进入接收模式    

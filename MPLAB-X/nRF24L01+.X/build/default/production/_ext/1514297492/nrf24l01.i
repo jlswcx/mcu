@@ -8,7 +8,7 @@
 # 2 "<built-in>" 2
 # 1 "../library/nrf24l01.c" 2
 # 1 "../library/nrf24l01.h" 1
-# 95 "../library/nrf24l01.h"
+# 96 "../library/nrf24l01.h"
 void NRF_Port_Init(void);
 
 void NRF_On(void);
@@ -53,7 +53,7 @@ void NRF_Rx_Set_P1(unsigned char *addr, unsigned char len);
 void NRF_Rx_Set_P3(unsigned char *addr, unsigned char len);
 void NRF_Rx_Set_P4(unsigned char *addr, unsigned char len);
 void NRF_Rx_Set_P5(unsigned char *addr, unsigned char len);
-void NRF_Rx_Receive();
+void NRF_Rx_Receive(void);
 # 1 "../library/nrf24l01.c" 2
 
 # 1 "../library/macro.h" 1
@@ -3961,7 +3961,7 @@ extern unsigned char eeprom_read(unsigned char addr);
 # 52 "../library/macro.h"
 typedef unsigned char BYTE;
 # 2 "../library/nrf24l01.c" 2
-# 31 "../library/nrf24l01.c"
+# 33 "../library/nrf24l01.c"
 unsigned char TX_ADDRESS[5] = {0x0F, 0x0E, 0x0D, 0x0C, 0x0B};
 
 unsigned char RX_ADDRESS_P0[5] = {0x0F, 0x0E, 0x0D, 0x0C, 0x0B};
@@ -3982,8 +3982,8 @@ void NRF_Port_Init(void) {
     TRISA2 = 0;
     TRISA0 = 0;
 
-    TRISA4 = 1;
-    TRISA5 = 0;
+
+
 
     RA0 = 0;
     RA2 = 1;
@@ -4026,7 +4026,7 @@ unsigned char NRF_Read_Reg(unsigned char reg) {
    RA2 = 1;
    return(status);
 }
-# 103 "../library/nrf24l01.c"
+# 105 "../library/nrf24l01.c"
 unsigned char NRF_Write_Reg(unsigned char reg, unsigned char value) {
  unsigned char status;
    RA2 = 0;
@@ -4035,7 +4035,7 @@ unsigned char NRF_Write_Reg(unsigned char reg, unsigned char value) {
    RA2 = 1;
    return(status);
 }
-# 119 "../library/nrf24l01.c"
+# 121 "../library/nrf24l01.c"
 unsigned char NRF_Read_Buf(unsigned char reg, unsigned char *pBuf, unsigned char len)
 {
  unsigned char status,i;
@@ -4263,7 +4263,7 @@ unsigned char NRF_Clear_IRQ(void) {
 
     return IRQ_FLAG;
 }
-# 361 "../library/nrf24l01.c"
+# 363 "../library/nrf24l01.c"
 void NRF_Tx_Set(unsigned char *addr, unsigned char ack) {
     RA0 = 0;
     NRF_Write_Buf(0x20 + 0x10, addr, 5);
@@ -4297,7 +4297,7 @@ unsigned char NRF_Tx_CheckACK(void) {
  }
  return(1);
 }
-# 417 "../library/nrf24l01.c"
+# 419 "../library/nrf24l01.c"
 void NRF_Rx_Set(unsigned char ack, unsigned char pipe) {
     RA0 = 0;
     NRF_Write_Reg(0x20 + 0x01, ack);
@@ -4337,7 +4337,7 @@ void NRF_Rx_Set_P5(unsigned char *addr, unsigned char buf_len) {
     NRF_Write_Reg(0x20 + 0x16, buf_len);
 }
 
-void NRF_Rx_Receive() {
+void NRF_Rx_Receive(void) {
     RA0 = 0;
     NRF_Write_Reg(0x20 + 0x00, 0x0f);
     RA0 = 1;

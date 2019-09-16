@@ -79,6 +79,7 @@
 //#define TX_FULL     0X01        // FIFO寄存器满标志，1满  0有可用空间
 //******************************************************************************
 //
+#define     NRF_NO_ACK           0x00 
 #define     NRF_P0_ACK           0x01       // 通道0使能位
 #define     NRF_P1_ACK           0x02       // 通道1使能位
 #define     NRF_P2_ACK           0x04       // ...
@@ -136,7 +137,8 @@ void NRF_Rx_Set_P1(unsigned char *addr, unsigned char len);
 void NRF_Rx_Set_P3(unsigned char *addr, unsigned char len);
 void NRF_Rx_Set_P4(unsigned char *addr, unsigned char len);
 void NRF_Rx_Set_P5(unsigned char *addr, unsigned char len);
-void NRF_Rx_Receive();
+void NRF_Rx_Receive(void);
+
 
 #ifdef	__cplusplus
 }

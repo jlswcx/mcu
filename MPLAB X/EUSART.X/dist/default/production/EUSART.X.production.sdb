@@ -1,0 +1,134 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F1823 ]
+[d frameptr 6 ]
+"3 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/fosc.c
+[v _FOSC_Init FOSC_Init `(v  1 e 1 0 ]
+"5 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/ledx.c
+[v _LED_Init LED_Init `(v  1 e 1 0 ]
+"10
+[v _LEDx LEDx `(v  1 e 1 0 ]
+"4 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/port.c
+[v _PORT_Init PORT_Init `(v  1 e 1 0 ]
+"9
+[v _PORTA_Init PORTA_Init `(v  1 e 1 0 ]
+"16
+[v _PORTC_Init PORTC_Init `(v  1 e 1 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"35 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X\EUSART.X\main.c
+[v _EUSART_TX EUSART_TX `(v  1 e 1 0 ]
+"55
+[v _EUSART_Init EUSART_Init `(v  1 e 1 0 ]
+"75
+[v _isr isr `II(v  1 e 1 0 ]
+"99
+[v _main main `(v  1 e 1 0 ]
+"429 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1823.h
+[v _PORTA PORTA `VEuc  1 e 1 @12 ]
+"684
+[v _PORTC PORTC `VEuc  1 e 1 @14 ]
+"1491
+[v _TRISA TRISA `VEuc  1 e 1 @140 ]
+"1541
+[v _TRISC TRISC `VEuc  1 e 1 @142 ]
+"1949
+[v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
+"2285
+[v _LATA LATA `VEuc  1 e 1 @268 ]
+"2330
+[v _LATC LATC `VEuc  1 e 1 @270 ]
+"3115
+[v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
+"3162
+[v _ANSELC ANSELC `VEuc  1 e 1 @398 ]
+"3422
+[v _TXREG TXREG `VEuc  1 e 1 @410 ]
+"3458
+[v _SPBRGL SPBRGL `VEuc  1 e 1 @411 ]
+"3508
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @412 ]
+"5767
+[v _BRG16 BRG16 `VEb  1 e 0 @3323 ]
+"5770
+[v _BRGH BRGH `VEb  1 e 0 @3314 ]
+"6250
+[v _LATC3 LATC3 `VEb  1 e 0 @2163 ]
+"6418
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
+"6496
+[v _RCIF RCIF `VEb  1 e 0 @141 ]
+"6565
+[v _SPEN SPEN `VEb  1 e 0 @3311 ]
+"6685
+[v _SYNC SYNC `VEb  1 e 0 @3316 ]
+"6844
+[v _TRISC3 TRISC3 `VEb  1 e 0 @1139 ]
+"6853
+[v _TRMT TRMT `VEb  1 e 0 @3313 ]
+"6886
+[v _TXCKSEL TXCKSEL `VEb  1 e 0 @2282 ]
+"6889
+[v _TXEN TXEN `VEb  1 e 0 @3317 ]
+"6895
+[v _TXIF TXIF `VEb  1 e 0 @140 ]
+"99 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X\EUSART.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"127
+} 0
+"4 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/port.c
+[v _PORT_Init PORT_Init `(v  1 e 1 0 ]
+{
+"7
+} 0
+"16
+[v _PORTC_Init PORTC_Init `(v  1 e 1 0 ]
+{
+"21
+} 0
+"9
+[v _PORTA_Init PORTA_Init `(v  1 e 1 0 ]
+{
+"14
+} 0
+"10 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/ledx.c
+[v _LEDx LEDx `(v  1 e 1 0 ]
+{
+[v LEDx@num num `uc  1 a 1 wreg ]
+[v LEDx@num num `uc  1 a 1 wreg ]
+[v LEDx@num num `uc  1 a 1 1 ]
+"17
+} 0
+"5
+[v _LED_Init LED_Init `(v  1 e 1 0 ]
+{
+"8
+} 0
+"3 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/fosc.c
+[v _FOSC_Init FOSC_Init `(v  1 e 1 0 ]
+{
+"5
+} 0
+"55 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X\EUSART.X\main.c
+[v _EUSART_Init EUSART_Init `(v  1 e 1 0 ]
+{
+"73
+} 0
+"35
+[v _EUSART_TX EUSART_TX `(v  1 e 1 0 ]
+{
+"42
+} 0
+"75
+[v _isr isr `II(v  1 e 1 0 ]
+{
+"97
+} 0

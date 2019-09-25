@@ -1,0 +1,2239 @@
+
+
+Microchip MPLAB XC8 Assembler V2.10 build 88905656 
+                                                                                               Mon Sep 23 20:08:37 2019
+
+Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
+     1                           	processor	16F1823
+     2                           	opt	pw 120
+     3                           	opt	flic
+     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     5                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     6                           	psect	maintext,global,class=CODE,merge=1,split=1,delta=2
+     7                           	psect	text1,local,class=CODE,merge=1,delta=2
+     8                           	psect	text2,local,class=CODE,merge=1,inline,delta=2
+     9                           	psect	text3,local,class=CODE,merge=1,delta=2
+    10                           	psect	text4,local,class=CODE,merge=1,delta=2
+    11                           	psect	text5,local,class=CODE,merge=1,delta=2
+    12                           	psect	text6,local,class=CODE,merge=1,delta=2
+    13                           	dabs	1,0x7E,2
+    14  0000                     
+    15                           ; Version 2.10
+    16                           ; Generated 31/07/2019 GMT
+    17                           ; 
+    18                           ; Copyright © 2019, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    19                           ; All rights reserved.
+    20                           ; 
+    21                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    22                           ; 
+    23                           ; Redistribution and use in source and binary forms, with or without modification, are
+    24                           ; permitted provided that the following conditions are met:
+    25                           ; 
+    26                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    27                           ;        conditions and the following disclaimer.
+    28                           ; 
+    29                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    30                           ;        of conditions and the following disclaimer in the documentation and/or other
+    31                           ;        materials provided with the distribution.
+    32                           ; 
+    33                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    34                           ;        software without specific prior written permission.
+    35                           ; 
+    36                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    37                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    38                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    39                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    40                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    41                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    42                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    43                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    44                           ; 
+    45                           ; 
+    46                           ; Code-generator required, PIC16F1823 Definitions
+    47                           ; 
+    48                           ; SFR Addresses
+    49  0000                     	;# 
+    50  0001                     	;# 
+    51  0002                     	;# 
+    52  0003                     	;# 
+    53  0004                     	;# 
+    54  0005                     	;# 
+    55  0006                     	;# 
+    56  0007                     	;# 
+    57  0008                     	;# 
+    58  0009                     	;# 
+    59  000A                     	;# 
+    60  000B                     	;# 
+    61  000C                     	;# 
+    62  000E                     	;# 
+    63  0011                     	;# 
+    64  0012                     	;# 
+    65  0015                     	;# 
+    66  0016                     	;# 
+    67  0016                     	;# 
+    68  0017                     	;# 
+    69  0018                     	;# 
+    70  0019                     	;# 
+    71  001A                     	;# 
+    72  001B                     	;# 
+    73  001C                     	;# 
+    74  001E                     	;# 
+    75  001F                     	;# 
+    76  008C                     	;# 
+    77  008E                     	;# 
+    78  0091                     	;# 
+    79  0092                     	;# 
+    80  0095                     	;# 
+    81  0096                     	;# 
+    82  0097                     	;# 
+    83  0098                     	;# 
+    84  0099                     	;# 
+    85  009A                     	;# 
+    86  009B                     	;# 
+    87  009B                     	;# 
+    88  009C                     	;# 
+    89  009D                     	;# 
+    90  009E                     	;# 
+    91  010C                     	;# 
+    92  010E                     	;# 
+    93  0111                     	;# 
+    94  0112                     	;# 
+    95  0113                     	;# 
+    96  0114                     	;# 
+    97  0115                     	;# 
+    98  0116                     	;# 
+    99  0117                     	;# 
+   100  0118                     	;# 
+   101  0119                     	;# 
+   102  011A                     	;# 
+   103  011B                     	;# 
+   104  011D                     	;# 
+   105  011D                     	;# 
+   106  018C                     	;# 
+   107  018E                     	;# 
+   108  0191                     	;# 
+   109  0191                     	;# 
+   110  0192                     	;# 
+   111  0193                     	;# 
+   112  0193                     	;# 
+   113  0193                     	;# 
+   114  0194                     	;# 
+   115  0195                     	;# 
+   116  0196                     	;# 
+   117  0199                     	;# 
+   118  019A                     	;# 
+   119  019B                     	;# 
+   120  019B                     	;# 
+   121  019B                     	;# 
+   122  019B                     	;# 
+   123  019C                     	;# 
+   124  019C                     	;# 
+   125  019D                     	;# 
+   126  019E                     	;# 
+   127  019F                     	;# 
+   128  020C                     	;# 
+   129  020E                     	;# 
+   130  0211                     	;# 
+   131  0211                     	;# 
+   132  0212                     	;# 
+   133  0212                     	;# 
+   134  0213                     	;# 
+   135  0213                     	;# 
+   136  0214                     	;# 
+   137  0214                     	;# 
+   138  0215                     	;# 
+   139  0215                     	;# 
+   140  0215                     	;# 
+   141  0216                     	;# 
+   142  0216                     	;# 
+   143  0217                     	;# 
+   144  0217                     	;# 
+   145  0291                     	;# 
+   146  0291                     	;# 
+   147  0292                     	;# 
+   148  0293                     	;# 
+   149  0294                     	;# 
+   150  0295                     	;# 
+   151  0295                     	;# 
+   152  0296                     	;# 
+   153  0391                     	;# 
+   154  0392                     	;# 
+   155  0393                     	;# 
+   156  039A                     	;# 
+   157  039C                     	;# 
+   158  039D                     	;# 
+   159  039E                     	;# 
+   160  039F                     	;# 
+   161  0FE4                     	;# 
+   162  0FE5                     	;# 
+   163  0FE6                     	;# 
+   164  0FE7                     	;# 
+   165  0FE8                     	;# 
+   166  0FE9                     	;# 
+   167  0FEA                     	;# 
+   168  0FEB                     	;# 
+   169  0FED                     	;# 
+   170  0FEE                     	;# 
+   171  0FEF                     	;# 
+   172  0000                     	;# 
+   173  0001                     	;# 
+   174  0002                     	;# 
+   175  0003                     	;# 
+   176  0004                     	;# 
+   177  0005                     	;# 
+   178  0006                     	;# 
+   179  0007                     	;# 
+   180  0008                     	;# 
+   181  0009                     	;# 
+   182  000A                     	;# 
+   183  000B                     	;# 
+   184  000C                     	;# 
+   185  000E                     	;# 
+   186  0011                     	;# 
+   187  0012                     	;# 
+   188  0015                     	;# 
+   189  0016                     	;# 
+   190  0016                     	;# 
+   191  0017                     	;# 
+   192  0018                     	;# 
+   193  0019                     	;# 
+   194  001A                     	;# 
+   195  001B                     	;# 
+   196  001C                     	;# 
+   197  001E                     	;# 
+   198  001F                     	;# 
+   199  008C                     	;# 
+   200  008E                     	;# 
+   201  0091                     	;# 
+   202  0092                     	;# 
+   203  0095                     	;# 
+   204  0096                     	;# 
+   205  0097                     	;# 
+   206  0098                     	;# 
+   207  0099                     	;# 
+   208  009A                     	;# 
+   209  009B                     	;# 
+   210  009B                     	;# 
+   211  009C                     	;# 
+   212  009D                     	;# 
+   213  009E                     	;# 
+   214  010C                     	;# 
+   215  010E                     	;# 
+   216  0111                     	;# 
+   217  0112                     	;# 
+   218  0113                     	;# 
+   219  0114                     	;# 
+   220  0115                     	;# 
+   221  0116                     	;# 
+   222  0117                     	;# 
+   223  0118                     	;# 
+   224  0119                     	;# 
+   225  011A                     	;# 
+   226  011B                     	;# 
+   227  011D                     	;# 
+   228  011D                     	;# 
+   229  018C                     	;# 
+   230  018E                     	;# 
+   231  0191                     	;# 
+   232  0191                     	;# 
+   233  0192                     	;# 
+   234  0193                     	;# 
+   235  0193                     	;# 
+   236  0193                     	;# 
+   237  0194                     	;# 
+   238  0195                     	;# 
+   239  0196                     	;# 
+   240  0199                     	;# 
+   241  019A                     	;# 
+   242  019B                     	;# 
+   243  019B                     	;# 
+   244  019B                     	;# 
+   245  019B                     	;# 
+   246  019C                     	;# 
+   247  019C                     	;# 
+   248  019D                     	;# 
+   249  019E                     	;# 
+   250  019F                     	;# 
+   251  020C                     	;# 
+   252  020E                     	;# 
+   253  0211                     	;# 
+   254  0211                     	;# 
+   255  0212                     	;# 
+   256  0212                     	;# 
+   257  0213                     	;# 
+   258  0213                     	;# 
+   259  0214                     	;# 
+   260  0214                     	;# 
+   261  0215                     	;# 
+   262  0215                     	;# 
+   263  0215                     	;# 
+   264  0216                     	;# 
+   265  0216                     	;# 
+   266  0217                     	;# 
+   267  0217                     	;# 
+   268  0291                     	;# 
+   269  0291                     	;# 
+   270  0292                     	;# 
+   271  0293                     	;# 
+   272  0294                     	;# 
+   273  0295                     	;# 
+   274  0295                     	;# 
+   275  0296                     	;# 
+   276  0391                     	;# 
+   277  0392                     	;# 
+   278  0393                     	;# 
+   279  039A                     	;# 
+   280  039C                     	;# 
+   281  039D                     	;# 
+   282  039E                     	;# 
+   283  039F                     	;# 
+   284  0FE4                     	;# 
+   285  0FE5                     	;# 
+   286  0FE6                     	;# 
+   287  0FE7                     	;# 
+   288  0FE8                     	;# 
+   289  0FE9                     	;# 
+   290  0FEA                     	;# 
+   291  0FEB                     	;# 
+   292  0FED                     	;# 
+   293  0FEE                     	;# 
+   294  0FEF                     	;# 
+   295  0000                     	;# 
+   296  0001                     	;# 
+   297  0002                     	;# 
+   298  0003                     	;# 
+   299  0004                     	;# 
+   300  0005                     	;# 
+   301  0006                     	;# 
+   302  0007                     	;# 
+   303  0008                     	;# 
+   304  0009                     	;# 
+   305  000A                     	;# 
+   306  000B                     	;# 
+   307  000C                     	;# 
+   308  000E                     	;# 
+   309  0011                     	;# 
+   310  0012                     	;# 
+   311  0015                     	;# 
+   312  0016                     	;# 
+   313  0016                     	;# 
+   314  0017                     	;# 
+   315  0018                     	;# 
+   316  0019                     	;# 
+   317  001A                     	;# 
+   318  001B                     	;# 
+   319  001C                     	;# 
+   320  001E                     	;# 
+   321  001F                     	;# 
+   322  008C                     	;# 
+   323  008E                     	;# 
+   324  0091                     	;# 
+   325  0092                     	;# 
+   326  0095                     	;# 
+   327  0096                     	;# 
+   328  0097                     	;# 
+   329  0098                     	;# 
+   330  0099                     	;# 
+   331  009A                     	;# 
+   332  009B                     	;# 
+   333  009B                     	;# 
+   334  009C                     	;# 
+   335  009D                     	;# 
+   336  009E                     	;# 
+   337  010C                     	;# 
+   338  010E                     	;# 
+   339  0111                     	;# 
+   340  0112                     	;# 
+   341  0113                     	;# 
+   342  0114                     	;# 
+   343  0115                     	;# 
+   344  0116                     	;# 
+   345  0117                     	;# 
+   346  0118                     	;# 
+   347  0119                     	;# 
+   348  011A                     	;# 
+   349  011B                     	;# 
+   350  011D                     	;# 
+   351  011D                     	;# 
+   352  018C                     	;# 
+   353  018E                     	;# 
+   354  0191                     	;# 
+   355  0191                     	;# 
+   356  0192                     	;# 
+   357  0193                     	;# 
+   358  0193                     	;# 
+   359  0193                     	;# 
+   360  0194                     	;# 
+   361  0195                     	;# 
+   362  0196                     	;# 
+   363  0199                     	;# 
+   364  019A                     	;# 
+   365  019B                     	;# 
+   366  019B                     	;# 
+   367  019B                     	;# 
+   368  019B                     	;# 
+   369  019C                     	;# 
+   370  019C                     	;# 
+   371  019D                     	;# 
+   372  019E                     	;# 
+   373  019F                     	;# 
+   374  020C                     	;# 
+   375  020E                     	;# 
+   376  0211                     	;# 
+   377  0211                     	;# 
+   378  0212                     	;# 
+   379  0212                     	;# 
+   380  0213                     	;# 
+   381  0213                     	;# 
+   382  0214                     	;# 
+   383  0214                     	;# 
+   384  0215                     	;# 
+   385  0215                     	;# 
+   386  0215                     	;# 
+   387  0216                     	;# 
+   388  0216                     	;# 
+   389  0217                     	;# 
+   390  0217                     	;# 
+   391  0291                     	;# 
+   392  0291                     	;# 
+   393  0292                     	;# 
+   394  0293                     	;# 
+   395  0294                     	;# 
+   396  0295                     	;# 
+   397  0295                     	;# 
+   398  0296                     	;# 
+   399  0391                     	;# 
+   400  0392                     	;# 
+   401  0393                     	;# 
+   402  039A                     	;# 
+   403  039C                     	;# 
+   404  039D                     	;# 
+   405  039E                     	;# 
+   406  039F                     	;# 
+   407  0FE4                     	;# 
+   408  0FE5                     	;# 
+   409  0FE6                     	;# 
+   410  0FE7                     	;# 
+   411  0FE8                     	;# 
+   412  0FE9                     	;# 
+   413  0FEA                     	;# 
+   414  0FEB                     	;# 
+   415  0FED                     	;# 
+   416  0FEE                     	;# 
+   417  0FEF                     	;# 
+   418  0000                     	;# 
+   419  0001                     	;# 
+   420  0002                     	;# 
+   421  0003                     	;# 
+   422  0004                     	;# 
+   423  0005                     	;# 
+   424  0006                     	;# 
+   425  0007                     	;# 
+   426  0008                     	;# 
+   427  0009                     	;# 
+   428  000A                     	;# 
+   429  000B                     	;# 
+   430  000C                     	;# 
+   431  000E                     	;# 
+   432  0011                     	;# 
+   433  0012                     	;# 
+   434  0015                     	;# 
+   435  0016                     	;# 
+   436  0016                     	;# 
+   437  0017                     	;# 
+   438  0018                     	;# 
+   439  0019                     	;# 
+   440  001A                     	;# 
+   441  001B                     	;# 
+   442  001C                     	;# 
+   443  001E                     	;# 
+   444  001F                     	;# 
+   445  008C                     	;# 
+   446  008E                     	;# 
+   447  0091                     	;# 
+   448  0092                     	;# 
+   449  0095                     	;# 
+   450  0096                     	;# 
+   451  0097                     	;# 
+   452  0098                     	;# 
+   453  0099                     	;# 
+   454  009A                     	;# 
+   455  009B                     	;# 
+   456  009B                     	;# 
+   457  009C                     	;# 
+   458  009D                     	;# 
+   459  009E                     	;# 
+   460  010C                     	;# 
+   461  010E                     	;# 
+   462  0111                     	;# 
+   463  0112                     	;# 
+   464  0113                     	;# 
+   465  0114                     	;# 
+   466  0115                     	;# 
+   467  0116                     	;# 
+   468  0117                     	;# 
+   469  0118                     	;# 
+   470  0119                     	;# 
+   471  011A                     	;# 
+   472  011B                     	;# 
+   473  011D                     	;# 
+   474  011D                     	;# 
+   475  018C                     	;# 
+   476  018E                     	;# 
+   477  0191                     	;# 
+   478  0191                     	;# 
+   479  0192                     	;# 
+   480  0193                     	;# 
+   481  0193                     	;# 
+   482  0193                     	;# 
+   483  0194                     	;# 
+   484  0195                     	;# 
+   485  0196                     	;# 
+   486  0199                     	;# 
+   487  019A                     	;# 
+   488  019B                     	;# 
+   489  019B                     	;# 
+   490  019B                     	;# 
+   491  019B                     	;# 
+   492  019C                     	;# 
+   493  019C                     	;# 
+   494  019D                     	;# 
+   495  019E                     	;# 
+   496  019F                     	;# 
+   497  020C                     	;# 
+   498  020E                     	;# 
+   499  0211                     	;# 
+   500  0211                     	;# 
+   501  0212                     	;# 
+   502  0212                     	;# 
+   503  0213                     	;# 
+   504  0213                     	;# 
+   505  0214                     	;# 
+   506  0214                     	;# 
+   507  0215                     	;# 
+   508  0215                     	;# 
+   509  0215                     	;# 
+   510  0216                     	;# 
+   511  0216                     	;# 
+   512  0217                     	;# 
+   513  0217                     	;# 
+   514  0291                     	;# 
+   515  0291                     	;# 
+   516  0292                     	;# 
+   517  0293                     	;# 
+   518  0294                     	;# 
+   519  0295                     	;# 
+   520  0295                     	;# 
+   521  0296                     	;# 
+   522  0391                     	;# 
+   523  0392                     	;# 
+   524  0393                     	;# 
+   525  039A                     	;# 
+   526  039C                     	;# 
+   527  039D                     	;# 
+   528  039E                     	;# 
+   529  039F                     	;# 
+   530  0FE4                     	;# 
+   531  0FE5                     	;# 
+   532  0FE6                     	;# 
+   533  0FE7                     	;# 
+   534  0FE8                     	;# 
+   535  0FE9                     	;# 
+   536  0FEA                     	;# 
+   537  0FEB                     	;# 
+   538  0FED                     	;# 
+   539  0FEE                     	;# 
+   540  0FEF                     	;# 
+   541  0000                     	;# 
+   542  0001                     	;# 
+   543  0002                     	;# 
+   544  0003                     	;# 
+   545  0004                     	;# 
+   546  0005                     	;# 
+   547  0006                     	;# 
+   548  0007                     	;# 
+   549  0008                     	;# 
+   550  0009                     	;# 
+   551  000A                     	;# 
+   552  000B                     	;# 
+   553  000C                     	;# 
+   554  000E                     	;# 
+   555  0011                     	;# 
+   556  0012                     	;# 
+   557  0015                     	;# 
+   558  0016                     	;# 
+   559  0016                     	;# 
+   560  0017                     	;# 
+   561  0018                     	;# 
+   562  0019                     	;# 
+   563  001A                     	;# 
+   564  001B                     	;# 
+   565  001C                     	;# 
+   566  001E                     	;# 
+   567  001F                     	;# 
+   568  008C                     	;# 
+   569  008E                     	;# 
+   570  0091                     	;# 
+   571  0092                     	;# 
+   572  0095                     	;# 
+   573  0096                     	;# 
+   574  0097                     	;# 
+   575  0098                     	;# 
+   576  0099                     	;# 
+   577  009A                     	;# 
+   578  009B                     	;# 
+   579  009B                     	;# 
+   580  009C                     	;# 
+   581  009D                     	;# 
+   582  009E                     	;# 
+   583  010C                     	;# 
+   584  010E                     	;# 
+   585  0111                     	;# 
+   586  0112                     	;# 
+   587  0113                     	;# 
+   588  0114                     	;# 
+   589  0115                     	;# 
+   590  0116                     	;# 
+   591  0117                     	;# 
+   592  0118                     	;# 
+   593  0119                     	;# 
+   594  011A                     	;# 
+   595  011B                     	;# 
+   596  011D                     	;# 
+   597  011D                     	;# 
+   598  018C                     	;# 
+   599  018E                     	;# 
+   600  0191                     	;# 
+   601  0191                     	;# 
+   602  0192                     	;# 
+   603  0193                     	;# 
+   604  0193                     	;# 
+   605  0193                     	;# 
+   606  0194                     	;# 
+   607  0195                     	;# 
+   608  0196                     	;# 
+   609  0199                     	;# 
+   610  019A                     	;# 
+   611  019B                     	;# 
+   612  019B                     	;# 
+   613  019B                     	;# 
+   614  019B                     	;# 
+   615  019C                     	;# 
+   616  019C                     	;# 
+   617  019D                     	;# 
+   618  019E                     	;# 
+   619  019F                     	;# 
+   620  020C                     	;# 
+   621  020E                     	;# 
+   622  0211                     	;# 
+   623  0211                     	;# 
+   624  0212                     	;# 
+   625  0212                     	;# 
+   626  0213                     	;# 
+   627  0213                     	;# 
+   628  0214                     	;# 
+   629  0214                     	;# 
+   630  0215                     	;# 
+   631  0215                     	;# 
+   632  0215                     	;# 
+   633  0216                     	;# 
+   634  0216                     	;# 
+   635  0217                     	;# 
+   636  0217                     	;# 
+   637  0291                     	;# 
+   638  0291                     	;# 
+   639  0292                     	;# 
+   640  0293                     	;# 
+   641  0294                     	;# 
+   642  0295                     	;# 
+   643  0295                     	;# 
+   644  0296                     	;# 
+   645  0391                     	;# 
+   646  0392                     	;# 
+   647  0393                     	;# 
+   648  039A                     	;# 
+   649  039C                     	;# 
+   650  039D                     	;# 
+   651  039E                     	;# 
+   652  039F                     	;# 
+   653  0FE4                     	;# 
+   654  0FE5                     	;# 
+   655  0FE6                     	;# 
+   656  0FE7                     	;# 
+   657  0FE8                     	;# 
+   658  0FE9                     	;# 
+   659  0FEA                     	;# 
+   660  0FEB                     	;# 
+   661  0FED                     	;# 
+   662  0FEE                     	;# 
+   663  0FEF                     	;# 
+   664  000E                     _PORTC	set	14
+   665  000C                     _PORTA	set	12
+   666  0063                     _RA3	set	99
+   667  008E                     _TRISC	set	142
+   668  008C                     _TRISA	set	140
+   669  0099                     _OSCCON	set	153
+   670  0095                     _OPTION_REGbits	set	149
+   671  0463                     _TRISA3	set	1123
+   672  0473                     _TRISC3	set	1139
+   673  0475                     _TRISC5	set	1141
+   674  0464                     _TRISA4	set	1124
+   675  0465                     _TRISA5	set	1125
+   676  0472                     _TRISC2	set	1138
+   677  0471                     _TRISC1	set	1137
+   678  0470                     _TRISC0	set	1136
+   679  0462                     _TRISA2	set	1122
+   680  0461                     _TRISA1	set	1121
+   681  0460                     _TRISA0	set	1120
+   682  010E                     _LATC	set	270
+   683  010C                     _LATA	set	268
+   684  0873                     _LATC3	set	2163
+   685  0875                     _LATC5	set	2165
+   686  0864                     _LATA4	set	2148
+   687  0865                     _LATA5	set	2149
+   688  0872                     _LATC2	set	2162
+   689  0871                     _LATC1	set	2161
+   690  0870                     _LATC0	set	2160
+   691  0862                     _LATA2	set	2146
+   692  0861                     _LATA1	set	2145
+   693  0860                     _LATA0	set	2144
+   694  018E                     _ANSELC	set	398
+   695  018C                     _ANSELA	set	396
+   696  1065                     _WPUA5	set	4197
+   697                           
+   698                           ; #config settings
+   699  0000                     
+   700                           	psect	cinit
+   701  07FE                     start_initialization:	
+   702  07FE                     __initialization:	
+   703  07FE                     end_of_initialization:	
+   704                           ;End of C runtime variable initialization code
+   705                           
+   706  07FE                     __end_of__initialization:	
+   707  07FE  0020               	movlb	0
+   708  07FF  2DE9               	ljmp	_main	;jump to C main() function
+   709                           
+   710                           	psect	cstackCOMMON
+   711  0070                     __pcstackCOMMON:	
+   712  0070                     ?_FOSC_Init:	
+   713  0070                     ??_FOSC_Init:	
+   714                           ; 1 bytes @ 0x0
+   715                           
+   716  0070                     ?_PORT_Init:	
+   717                           ; 1 bytes @ 0x0
+   718                           
+   719  0070                     ??_PORT_Init:	
+   720                           ; 1 bytes @ 0x0
+   721                           
+   722  0070                     ?_PORTA_Init:	
+   723                           ; 1 bytes @ 0x0
+   724                           
+   725  0070                     ??_PORTA_Init:	
+   726                           ; 1 bytes @ 0x0
+   727                           
+   728  0070                     ?_PORTC_Init:	
+   729                           ; 1 bytes @ 0x0
+   730                           
+   731  0070                     ??_PORTC_Init:	
+   732                           ; 1 bytes @ 0x0
+   733                           
+   734  0070                     ?_main:	
+   735                           ; 1 bytes @ 0x0
+   736                           
+   737  0070                     ?_display_place:	
+   738                           ; 1 bytes @ 0x0
+   739                           
+   740  0070                     ??_display_place:	
+   741                           ; 1 bytes @ 0x0
+   742                           
+   743                           
+   744                           ; 1 bytes @ 0x0
+   745  0070                     	ds	2
+   746  0072                     display_place@num:	
+   747                           
+   748                           ; 1 bytes @ 0x2
+   749  0072                     	ds	1
+   750  0073                     ?_display_2seg_hc:	
+   751  0073                     display_2seg_hc@dp:	
+   752                           ; 1 bytes @ 0x3
+   753                           
+   754                           
+   755                           ; 1 bytes @ 0x3
+   756  0073                     	ds	1
+   757  0074                     display_2seg_hc@seg:	
+   758                           
+   759                           ; 1 bytes @ 0x4
+   760  0074                     	ds	1
+   761  0075                     ??_display_2seg_hc:	
+   762                           
+   763                           ; 1 bytes @ 0x5
+   764  0075                     	ds	2
+   765  0077                     display_2seg_hc@num:	
+   766                           
+   767                           ; 1 bytes @ 0x7
+   768  0077                     	ds	1
+   769  0078                     ??_main:	
+   770                           
+   771                           ; 1 bytes @ 0x8
+   772  0078                     	ds	1
+   773                           
+   774                           	psect	maintext
+   775  05E9                     __pmaintext:	
+   776 ;;
+   777 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   778 ;;
+   779 ;; *************** function _main *****************
+   780 ;; Defined at:
+   781 ;;		line 7 in file "main.c"
+   782 ;; Parameters:    Size  Location     Type
+   783 ;;		None
+   784 ;; Auto vars:     Size  Location     Type
+   785 ;;		None
+   786 ;; Return value:  Size  Location     Type
+   787 ;;                  1    wreg      void 
+   788 ;; Registers used:
+   789 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   790 ;; Tracked objects:
+   791 ;;		On entry : B1F/0
+   792 ;;		On exit  : 0/0
+   793 ;;		Unchanged: 0/0
+   794 ;; Data sizes:     COMMON   BANK0   BANK1
+   795 ;;      Params:         0       0       0
+   796 ;;      Locals:         0       0       0
+   797 ;;      Temps:          1       0       0
+   798 ;;      Totals:         1       0       0
+   799 ;;Total ram usage:        1 bytes
+   800 ;; Hardware stack levels required when called:    2
+   801 ;; This function calls:
+   802 ;;		_FOSC_Init
+   803 ;;		_PORT_Init
+   804 ;;		_display_2seg_hc
+   805 ;; This function is called by:
+   806 ;;		Startup code after reset
+   807 ;; This function uses a non-reentrant model
+   808 ;;
+   809                           
+   810                           
+   811                           ;psect for function _main
+   812  05E9                     _main:	
+   813  05E9                     l916:	
+   814                           ;incstack = 0
+   815                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   816                           
+   817                           
+   818                           ;main.c: 9:     FOSC_Init();
+   819  05E9  3185  25CC  3185   	fcall	_FOSC_Init
+   820  05EC                     l918:	
+   821                           
+   822                           ;main.c: 11:     PORT_Init();
+   823  05EC  3185  25D0  3185   	fcall	_PORT_Init
+   824  05EF                     l920:	
+   825                           
+   826                           ;main.c: 13:     WPUA5 = 0;
+   827  05EF  0024               	movlb	4	; select bank4
+   828  05F0  128C               	bcf	12,5	;volatile
+   829  05F1                     l922:	
+   830                           
+   831                           ;main.c: 14:     OPTION_REGbits.nWPUEN = 1;
+   832  05F1  0021               	movlb	1	; select bank1
+   833  05F2  1795               	bsf	21,7	;volatile
+   834  05F3                     l924:	
+   835                           
+   836                           ;main.c: 24:         display_2seg_hc(6, 0, 3);
+   837  05F3  01F3               	clrf	display_2seg_hc@dp
+   838  05F4  3003               	movlw	3
+   839  05F5  00F8               	movwf	??_main
+   840  05F6  0878               	movf	??_main,w
+   841  05F7  00F4               	movwf	display_2seg_hc@seg
+   842  05F8  3006               	movlw	6
+   843  05F9  3185  25FE  3185   	fcall	_display_2seg_hc
+   844  05FC  2DF3               	goto	l924
+   845  05FD  2801               	ljmp	start
+   846  05FE                     __end_of_main:	
+   847                           
+   848                           	psect	text1
+   849  05FE                     __ptext1:	
+   850 ;; *************** function _display_2seg_hc *****************
+   851 ;; Defined at:
+   852 ;;		line 154 in file "../library/ledtube.c"
+   853 ;; Parameters:    Size  Location     Type
+   854 ;;  num             1    wreg     unsigned char 
+   855 ;;  dp              1    3[COMMON] unsigned char 
+   856 ;;  seg             1    4[COMMON] unsigned char 
+   857 ;; Auto vars:     Size  Location     Type
+   858 ;;  num             1    7[COMMON] unsigned char 
+   859 ;; Return value:  Size  Location     Type
+   860 ;;                  1    wreg      void 
+   861 ;; Registers used:
+   862 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   863 ;; Tracked objects:
+   864 ;;		On entry : 0/0
+   865 ;;		On exit  : 0/0
+   866 ;;		Unchanged: 0/0
+   867 ;; Data sizes:     COMMON   BANK0   BANK1
+   868 ;;      Params:         2       0       0
+   869 ;;      Locals:         1       0       0
+   870 ;;      Temps:          2       0       0
+   871 ;;      Totals:         5       0       0
+   872 ;;Total ram usage:        5 bytes
+   873 ;; Hardware stack levels used:    1
+   874 ;; Hardware stack levels required when called:    1
+   875 ;; This function calls:
+   876 ;;		_display_place
+   877 ;; This function is called by:
+   878 ;;		_main
+   879 ;; This function uses a non-reentrant model
+   880 ;;
+   881                           
+   882                           
+   883                           ;psect for function _display_2seg_hc
+   884  05FE                     _display_2seg_hc:	
+   885                           
+   886                           ;incstack = 0
+   887                           ; Regs used in _display_2seg_hc: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   888                           ;display_2seg_hc@num stored from wreg
+   889  05FE  00F7               	movwf	display_2seg_hc@num
+   890  05FF                     l898:	
+   891  05FF                     l902:	
+   892                           ;../library/ledtube.c: 157:     switch(seg) {
+   893                           
+   894                           
+   895                           ;../library/ledtube.c: 162:     display_place(num);
+   896  05FF  0877               	movf	display_2seg_hc@num,w
+   897  0600  3186  264C  3185   	fcall	_display_place
+   898  0603                     l904:	
+   899                           
+   900                           ;../library/ledtube.c: 165:     if(dp) {
+   901  0603  0873               	movf	display_2seg_hc@dp,w
+   902  0604  1903               	btfsc	3,2
+   903  0605  2E07               	goto	u511
+   904  0606  2E08               	goto	u510
+   905  0607                     u511:	
+   906  0607  2E0D               	goto	l131
+   907  0608                     u510:	
+   908  0608                     l906:	
+   909                           
+   910                           ;../library/ledtube.c: 166:         TRISA4 = 0;
+   911  0608  0021               	movlb	1	; select bank1
+   912  0609  120C               	bcf	12,4	;volatile
+   913                           
+   914                           ;../library/ledtube.c: 167:         LATA4 = 0;
+   915  060A  0022               	movlb	2	; select bank2
+   916  060B  120C               	bcf	12,4	;volatile
+   917                           
+   918                           ;../library/ledtube.c: 168:     }else {
+   919  060C  2E35               	goto	l910
+   920  060D                     l131:	
+   921                           
+   922                           ;../library/ledtube.c: 169:         TRISA4 = 1;
+   923  060D  0021               	movlb	1	; select bank1
+   924  060E  160C               	bsf	12,4	;volatile
+   925                           
+   926                           ;../library/ledtube.c: 170:         LATA4 = 0;
+   927  060F  0022               	movlb	2	; select bank2
+   928  0610  120C               	bcf	12,4	;volatile
+   929  0611  2E35               	goto	l910
+   930  0612                     l134:	
+   931                           ;../library/ledtube.c: 175:         case 4:
+   932                           
+   933                           
+   934                           ;../library/ledtube.c: 176:                 TRISC5 = TRISC3 = 0;
+   935  0612  0021               	movlb	1	; select bank1
+   936  0613  118E               	bcf	14,3	;volatile
+   937  0614  128E               	bcf	14,5	;volatile
+   938                           
+   939                           ;../library/ledtube.c: 177:                 LATC5 = LATC3 = 1;
+   940  0615  0022               	movlb	2	; select bank2
+   941  0616  158E               	bsf	14,3	;volatile
+   942  0617  198E               	btfsc	14,3	;volatile
+   943  0618  2E1A               	goto	u521
+   944  0619  2E1D               	goto	u520
+   945  061A                     u521:	
+   946  061A  0022               	movlb	2	; select bank2
+   947  061B  168E               	bsf	14,5	;volatile
+   948  061C  2E1F               	goto	u534
+   949  061D                     u520:	
+   950  061D  0022               	movlb	2	; select bank2
+   951  061E  128E               	bcf	14,5	;volatile
+   952  061F                     u534:	
+   953                           
+   954                           ;../library/ledtube.c: 178:                 break;
+   955  061F  2E4B               	goto	l139
+   956  0620                     l136:	
+   957                           ;../library/ledtube.c: 179:         case 3:
+   958                           
+   959                           
+   960                           ;../library/ledtube.c: 180:                 TRISC5 = TRISC3 = 0;
+   961  0620  0021               	movlb	1	; select bank1
+   962  0621  118E               	bcf	14,3	;volatile
+   963  0622  128E               	bcf	14,5	;volatile
+   964                           
+   965                           ;../library/ledtube.c: 181:                 LATC5 = 0;
+   966  0623  0022               	movlb	2	; select bank2
+   967  0624  128E               	bcf	14,5	;volatile
+   968                           
+   969                           ;../library/ledtube.c: 182:                 LATC3 = 1;
+   970  0625  158E               	bsf	14,3	;volatile
+   971                           
+   972                           ;../library/ledtube.c: 183:                 break;
+   973  0626  2E4B               	goto	l139
+   974  0627                     l137:	
+   975                           ;../library/ledtube.c: 184:         case 2:
+   976                           
+   977                           
+   978                           ;../library/ledtube.c: 185:                 TRISC5 = TRISC3 = 0;
+   979  0627  0021               	movlb	1	; select bank1
+   980  0628  118E               	bcf	14,3	;volatile
+   981  0629  128E               	bcf	14,5	;volatile
+   982                           
+   983                           ;../library/ledtube.c: 186:                 LATC5 = 1;
+   984  062A  0022               	movlb	2	; select bank2
+   985  062B  168E               	bsf	14,5	;volatile
+   986                           
+   987                           ;../library/ledtube.c: 187:                 LATC3 = 0;
+   988  062C  118E               	bcf	14,3	;volatile
+   989                           
+   990                           ;../library/ledtube.c: 188:                 break;
+   991  062D  2E4B               	goto	l139
+   992  062E                     l138:	
+   993                           ;../library/ledtube.c: 189:         case 1:
+   994                           
+   995                           
+   996                           ;../library/ledtube.c: 190:                 TRISC5 = TRISC3 = 0;
+   997  062E  0021               	movlb	1	; select bank1
+   998  062F  118E               	bcf	14,3	;volatile
+   999  0630  128E               	bcf	14,5	;volatile
+  1000                           
+  1001                           ;../library/ledtube.c: 191:                 LATC5 = LATC3 = 0;
+  1002  0631  0022               	movlb	2	; select bank2
+  1003  0632  118E               	bcf	14,3	;volatile
+  1004  0633  128E               	bcf	14,5	;volatile
+  1005                           
+  1006                           ;../library/ledtube.c: 192:                 break;
+  1007  0634  2E4B               	goto	l139
+  1008  0635                     l910:	
+  1009  0635  0874               	movf	display_2seg_hc@seg,w
+  1010  0636  00F5               	movwf	??_display_2seg_hc
+  1011  0637  01F6               	clrf	??_display_2seg_hc+1
+  1012                           
+  1013                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+  1014                           ; Switch size 1, requested type "simple"
+  1015                           ; Number of cases is 1, Range of values is 0 to 0
+  1016                           ; switch strategies available:
+  1017                           ; Name         Instructions Cycles
+  1018                           ; simple_byte            4     3 (average)
+  1019                           ; direct_byte            8     6 (fixed)
+  1020                           ; jumptable            260     6 (fixed)
+  1021                           ;	Chosen strategy is simple_byte
+  1022  0638  0876               	movf	??_display_2seg_hc+1,w
+  1023  0639  3A00               	xorlw	0	; case 0
+  1024  063A  1903               	skipnz
+  1025  063B  2E3D               	goto	l966
+  1026  063C  2E4B               	goto	l139
+  1027  063D                     l966:	
+  1028                           
+  1029                           ; Switch size 1, requested type "simple"
+  1030                           ; Number of cases is 4, Range of values is 1 to 4
+  1031                           ; switch strategies available:
+  1032                           ; Name         Instructions Cycles
+  1033                           ; simple_byte           13     7 (average)
+  1034                           ; direct_byte           17     9 (fixed)
+  1035                           ; jumptable            263     9 (fixed)
+  1036                           ;	Chosen strategy is simple_byte
+  1037  063D  0875               	movf	??_display_2seg_hc,w
+  1038  063E  3A01               	xorlw	1	; case 1
+  1039  063F  1903               	skipnz
+  1040  0640  2E2E               	goto	l138
+  1041  0641  3A03               	xorlw	3	; case 2
+  1042  0642  1903               	skipnz
+  1043  0643  2E27               	goto	l137
+  1044  0644  3A01               	xorlw	1	; case 3
+  1045  0645  1903               	skipnz
+  1046  0646  2E20               	goto	l136
+  1047  0647  3A07               	xorlw	7	; case 4
+  1048  0648  1903               	skipnz
+  1049  0649  2E12               	goto	l134
+  1050  064A  2E4B               	goto	l139
+  1051  064B                     l139:	
+  1052  064B  0008               	return
+  1053  064C                     __end_of_display_2seg_hc:	
+  1054                           
+  1055                           	psect	text2
+  1056  064C                     __ptext2:	
+  1057 ;; *************** function _display_place *****************
+  1058 ;; Defined at:
+  1059 ;;		line 43 in file "../library/ledtube.c"
+  1060 ;; Parameters:    Size  Location     Type
+  1061 ;;  num             1    wreg     unsigned char 
+  1062 ;; Auto vars:     Size  Location     Type
+  1063 ;;  num             1    2[COMMON] unsigned char 
+  1064 ;; Return value:  Size  Location     Type
+  1065 ;;                  1    wreg      void 
+  1066 ;; Registers used:
+  1067 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+  1068 ;; Tracked objects:
+  1069 ;;		On entry : 0/0
+  1070 ;;		On exit  : 0/0
+  1071 ;;		Unchanged: 0/0
+  1072 ;; Data sizes:     COMMON   BANK0   BANK1
+  1073 ;;      Params:         0       0       0
+  1074 ;;      Locals:         1       0       0
+  1075 ;;      Temps:          2       0       0
+  1076 ;;      Totals:         3       0       0
+  1077 ;;Total ram usage:        3 bytes
+  1078 ;; Hardware stack levels used:    1
+  1079 ;; This function calls:
+  1080 ;;		Nothing
+  1081 ;; This function is called by:
+  1082 ;;		_display_2seg_hc
+  1083 ;;		_display_2seg
+  1084 ;;		_display_4seg
+  1085 ;; This function uses a non-reentrant model
+  1086 ;;
+  1087                           
+  1088                           
+  1089                           ;psect for function _display_place
+  1090  064C                     _display_place:	
+  1091                           
+  1092                           ;incstack = 0
+  1093                           ; Regs used in _display_place: [wreg-fsr0h+status,2+status,0]
+  1094                           ;display_place@num stored from wreg
+  1095  064C  00F2               	movwf	display_place@num
+  1096  064D                     l768:	
+  1097                           
+  1098                           ;../library/ledtube.c: 46:     switch(num) {
+  1099  064D  2FD2               	goto	l772
+  1100  064E                     l100:	
+  1101                           ;../library/ledtube.c: 47:         case 0:
+  1102                           
+  1103                           
+  1104                           ;../library/ledtube.c: 48:                 TRISA0 = TRISA1 = TRISA2 = TRISC0 = TRISC1 = 
+      +                          TRISC2 = 0;
+  1105  064E  0021               	movlb	1	; select bank1
+  1106  064F  110E               	bcf	14,2	;volatile
+  1107  0650  108E               	bcf	14,1	;volatile
+  1108  0651  100E               	bcf	14,0	;volatile
+  1109  0652  110C               	bcf	12,2	;volatile
+  1110  0653  108C               	bcf	12,1	;volatile
+  1111  0654  100C               	bcf	12,0	;volatile
+  1112                           
+  1113                           ;../library/ledtube.c: 49:                 LATA0 = LATA1 = LATA2 = LATC0 = LATC1 = LATC2
+      +                           = 0;
+  1114  0655  0022               	movlb	2	; select bank2
+  1115  0656  110E               	bcf	14,2	;volatile
+  1116  0657  108E               	bcf	14,1	;volatile
+  1117  0658  100E               	bcf	14,0	;volatile
+  1118  0659  110C               	bcf	12,2	;volatile
+  1119  065A  108C               	bcf	12,1	;volatile
+  1120  065B  100C               	bcf	12,0	;volatile
+  1121                           
+  1122                           ;../library/ledtube.c: 50:                 TRISA5 = TRISA4 = 1;
+  1123  065C  0021               	movlb	1	; select bank1
+  1124  065D  160C               	bsf	12,4	;volatile
+  1125  065E  1A0C               	btfsc	12,4	;volatile
+  1126  065F  2E61               	goto	u11
+  1127  0660  2E64               	goto	u10
+  1128  0661                     u11:	
+  1129  0661  0021               	movlb	1	; select bank1
+  1130  0662  168C               	bsf	12,5	;volatile
+  1131  0663  2E66               	goto	u24
+  1132  0664                     u10:	
+  1133  0664  0021               	movlb	1	; select bank1
+  1134  0665  128C               	bcf	12,5	;volatile
+  1135  0666                     u24:	
+  1136                           
+  1137                           ;../library/ledtube.c: 51:                 LATA5 = LATA4 = 0;
+  1138  0666  0022               	movlb	2	; select bank2
+  1139  0667  120C               	bcf	12,4	;volatile
+  1140  0668  128C               	bcf	12,5	;volatile
+  1141                           
+  1142                           ;../library/ledtube.c: 52:                 break;
+  1143  0669  2FFD               	goto	l113
+  1144  066A                     l102:	
+  1145                           ;../library/ledtube.c: 53:         case 1:
+  1146                           
+  1147                           
+  1148                           ;../library/ledtube.c: 54:                 TRISA1 = TRISA2 = 0;
+  1149  066A  0021               	movlb	1	; select bank1
+  1150  066B  110C               	bcf	12,2	;volatile
+  1151  066C  108C               	bcf	12,1	;volatile
+  1152                           
+  1153                           ;../library/ledtube.c: 55:                 LATA1 = LATA2 = 0;
+  1154  066D  0022               	movlb	2	; select bank2
+  1155  066E  110C               	bcf	12,2	;volatile
+  1156  066F  108C               	bcf	12,1	;volatile
+  1157                           
+  1158                           ;../library/ledtube.c: 56:                 TRISA0 = TRISC0 = TRISC1 = TRISC2 = TRISA5 = 
+      +                          TRISA4 = 1;
+  1159  0670  0021               	movlb	1	; select bank1
+  1160  0671  160C               	bsf	12,4	;volatile
+  1161  0672  1A0C               	btfsc	12,4	;volatile
+  1162  0673  2E75               	goto	u31
+  1163  0674  2E78               	goto	u30
+  1164  0675                     u31:	
+  1165  0675  0021               	movlb	1	; select bank1
+  1166  0676  168C               	bsf	12,5	;volatile
+  1167  0677  2E7A               	goto	u44
+  1168  0678                     u30:	
+  1169  0678  0021               	movlb	1	; select bank1
+  1170  0679  128C               	bcf	12,5	;volatile
+  1171  067A                     u44:	
+  1172  067A  1A8C               	btfsc	12,5	;volatile
+  1173  067B  2E7D               	goto	u41
+  1174  067C  2E80               	goto	u40
+  1175  067D                     u41:	
+  1176  067D  0021               	movlb	1	; select bank1
+  1177  067E  150E               	bsf	14,2	;volatile
+  1178  067F  2E82               	goto	u54
+  1179  0680                     u40:	
+  1180  0680  0021               	movlb	1	; select bank1
+  1181  0681  110E               	bcf	14,2	;volatile
+  1182  0682                     u54:	
+  1183  0682  190E               	btfsc	14,2	;volatile
+  1184  0683  2E85               	goto	u51
+  1185  0684  2E88               	goto	u50
+  1186  0685                     u51:	
+  1187  0685  0021               	movlb	1	; select bank1
+  1188  0686  148E               	bsf	14,1	;volatile
+  1189  0687  2E8A               	goto	u64
+  1190  0688                     u50:	
+  1191  0688  0021               	movlb	1	; select bank1
+  1192  0689  108E               	bcf	14,1	;volatile
+  1193  068A                     u64:	
+  1194  068A  188E               	btfsc	14,1	;volatile
+  1195  068B  2E8D               	goto	u61
+  1196  068C  2E90               	goto	u60
+  1197  068D                     u61:	
+  1198  068D  0021               	movlb	1	; select bank1
+  1199  068E  140E               	bsf	14,0	;volatile
+  1200  068F  2E92               	goto	u74
+  1201  0690                     u60:	
+  1202  0690  0021               	movlb	1	; select bank1
+  1203  0691  100E               	bcf	14,0	;volatile
+  1204  0692                     u74:	
+  1205  0692  180E               	btfsc	14,0	;volatile
+  1206  0693  2E95               	goto	u71
+  1207  0694  2E98               	goto	u70
+  1208  0695                     u71:	
+  1209  0695  0021               	movlb	1	; select bank1
+  1210  0696  140C               	bsf	12,0	;volatile
+  1211  0697  2E9A               	goto	u84
+  1212  0698                     u70:	
+  1213  0698  0021               	movlb	1	; select bank1
+  1214  0699  100C               	bcf	12,0	;volatile
+  1215  069A                     u84:	
+  1216                           
+  1217                           ;../library/ledtube.c: 57:                 LATA0 = LATC0 = LATC1 = LATC2 = LATA5 = LATA4
+      +                           = 0;
+  1218  069A  0022               	movlb	2	; select bank2
+  1219  069B  120C               	bcf	12,4	;volatile
+  1220  069C  128C               	bcf	12,5	;volatile
+  1221  069D  110E               	bcf	14,2	;volatile
+  1222  069E  108E               	bcf	14,1	;volatile
+  1223  069F  100E               	bcf	14,0	;volatile
+  1224  06A0  100C               	bcf	12,0	;volatile
+  1225                           
+  1226                           ;../library/ledtube.c: 58:                 break;
+  1227  06A1  2FFD               	goto	l113
+  1228  06A2                     l103:	
+  1229                           ;../library/ledtube.c: 59:         case 2:
+  1230                           
+  1231                           
+  1232                           ;../library/ledtube.c: 60:                 TRISA0 = TRISA1 = TRISA5 = TRISC1 = TRISC0 = 
+      +                          0;
+  1233  06A2  0021               	movlb	1	; select bank1
+  1234  06A3  100E               	bcf	14,0	;volatile
+  1235  06A4  108E               	bcf	14,1	;volatile
+  1236  06A5  128C               	bcf	12,5	;volatile
+  1237  06A6  108C               	bcf	12,1	;volatile
+  1238  06A7  100C               	bcf	12,0	;volatile
+  1239                           
+  1240                           ;../library/ledtube.c: 61:                 LATA0 = LATA1 = LATA5 = LATC1 = LATC0 = 0;
+  1241  06A8  0022               	movlb	2	; select bank2
+  1242  06A9  100E               	bcf	14,0	;volatile
+  1243  06AA  108E               	bcf	14,1	;volatile
+  1244  06AB  128C               	bcf	12,5	;volatile
+  1245  06AC  108C               	bcf	12,1	;volatile
+  1246  06AD  100C               	bcf	12,0	;volatile
+  1247                           
+  1248                           ;../library/ledtube.c: 62:                 TRISA2 = TRISC2 = TRISA4 = 1;
+  1249  06AE  0021               	movlb	1	; select bank1
+  1250  06AF  160C               	bsf	12,4	;volatile
+  1251  06B0  1A0C               	btfsc	12,4	;volatile
+  1252  06B1  2EB3               	goto	u91
+  1253  06B2  2EB6               	goto	u90
+  1254  06B3                     u91:	
+  1255  06B3  0021               	movlb	1	; select bank1
+  1256  06B4  150E               	bsf	14,2	;volatile
+  1257  06B5  2EB8               	goto	u104
+  1258  06B6                     u90:	
+  1259  06B6  0021               	movlb	1	; select bank1
+  1260  06B7  110E               	bcf	14,2	;volatile
+  1261  06B8                     u104:	
+  1262  06B8  190E               	btfsc	14,2	;volatile
+  1263  06B9  2EBB               	goto	u101
+  1264  06BA  2EBE               	goto	u100
+  1265  06BB                     u101:	
+  1266  06BB  0021               	movlb	1	; select bank1
+  1267  06BC  150C               	bsf	12,2	;volatile
+  1268  06BD  2EC0               	goto	u114
+  1269  06BE                     u100:	
+  1270  06BE  0021               	movlb	1	; select bank1
+  1271  06BF  110C               	bcf	12,2	;volatile
+  1272  06C0                     u114:	
+  1273                           
+  1274                           ;../library/ledtube.c: 63:                 LATA2 = LATC2 = LATA4 = 0;
+  1275  06C0  0022               	movlb	2	; select bank2
+  1276  06C1  120C               	bcf	12,4	;volatile
+  1277  06C2  110E               	bcf	14,2	;volatile
+  1278  06C3  110C               	bcf	12,2	;volatile
+  1279                           
+  1280                           ;../library/ledtube.c: 64:                 break;
+  1281  06C4  2FFD               	goto	l113
+  1282  06C5                     l104:	
+  1283                           ;../library/ledtube.c: 65:         case 3:
+  1284                           
+  1285                           
+  1286                           ;../library/ledtube.c: 66:                 TRISA0 = TRISA1 = TRISA2 = TRISC0 = TRISA5 = 
+      +                          0;
+  1287  06C5  0021               	movlb	1	; select bank1
+  1288  06C6  128C               	bcf	12,5	;volatile
+  1289  06C7  100E               	bcf	14,0	;volatile
+  1290  06C8  110C               	bcf	12,2	;volatile
+  1291  06C9  108C               	bcf	12,1	;volatile
+  1292  06CA  100C               	bcf	12,0	;volatile
+  1293                           
+  1294                           ;../library/ledtube.c: 67:                 LATA0 = LATA1 = LATA2 = LATC0 = LATA5 = 0;
+  1295  06CB  0022               	movlb	2	; select bank2
+  1296  06CC  128C               	bcf	12,5	;volatile
+  1297  06CD  100E               	bcf	14,0	;volatile
+  1298  06CE  110C               	bcf	12,2	;volatile
+  1299  06CF  108C               	bcf	12,1	;volatile
+  1300  06D0  100C               	bcf	12,0	;volatile
+  1301                           
+  1302                           ;../library/ledtube.c: 68:                 TRISC1 = TRISC2 = TRISA4 = 1;
+  1303  06D1  0021               	movlb	1	; select bank1
+  1304  06D2  160C               	bsf	12,4	;volatile
+  1305  06D3  1A0C               	btfsc	12,4	;volatile
+  1306  06D4  2ED6               	goto	u121
+  1307  06D5  2ED9               	goto	u120
+  1308  06D6                     u121:	
+  1309  06D6  0021               	movlb	1	; select bank1
+  1310  06D7  150E               	bsf	14,2	;volatile
+  1311  06D8  2EDB               	goto	u134
+  1312  06D9                     u120:	
+  1313  06D9  0021               	movlb	1	; select bank1
+  1314  06DA  110E               	bcf	14,2	;volatile
+  1315  06DB                     u134:	
+  1316  06DB  190E               	btfsc	14,2	;volatile
+  1317  06DC  2EDE               	goto	u131
+  1318  06DD  2EE1               	goto	u130
+  1319  06DE                     u131:	
+  1320  06DE  0021               	movlb	1	; select bank1
+  1321  06DF  148E               	bsf	14,1	;volatile
+  1322  06E0  2EE3               	goto	u144
+  1323  06E1                     u130:	
+  1324  06E1  0021               	movlb	1	; select bank1
+  1325  06E2  108E               	bcf	14,1	;volatile
+  1326  06E3                     u144:	
+  1327                           
+  1328                           ;../library/ledtube.c: 69:                 LATC1 = LATC2 = LATA4 = 0;
+  1329  06E3  0022               	movlb	2	; select bank2
+  1330  06E4  120C               	bcf	12,4	;volatile
+  1331  06E5  110E               	bcf	14,2	;volatile
+  1332  06E6  108E               	bcf	14,1	;volatile
+  1333                           
+  1334                           ;../library/ledtube.c: 70:                 break;
+  1335  06E7  2FFD               	goto	l113
+  1336  06E8                     l105:	
+  1337                           ;../library/ledtube.c: 71:         case 4:
+  1338                           
+  1339                           
+  1340                           ;../library/ledtube.c: 72:                 TRISA1 = TRISA2 = TRISC2 = TRISA5 = 0;
+  1341  06E8  0021               	movlb	1	; select bank1
+  1342  06E9  128C               	bcf	12,5	;volatile
+  1343  06EA  110E               	bcf	14,2	;volatile
+  1344  06EB  110C               	bcf	12,2	;volatile
+  1345  06EC  108C               	bcf	12,1	;volatile
+  1346                           
+  1347                           ;../library/ledtube.c: 73:                 LATA1 = LATA2 = LATC2 = LATA5 = 0;
+  1348  06ED  0022               	movlb	2	; select bank2
+  1349  06EE  128C               	bcf	12,5	;volatile
+  1350  06EF  110E               	bcf	14,2	;volatile
+  1351  06F0  110C               	bcf	12,2	;volatile
+  1352  06F1  108C               	bcf	12,1	;volatile
+  1353                           
+  1354                           ;../library/ledtube.c: 74:                 TRISA0 = TRISC0 = TRISC1 = TRISA4 = 1;
+  1355  06F2  0021               	movlb	1	; select bank1
+  1356  06F3  160C               	bsf	12,4	;volatile
+  1357  06F4  1A0C               	btfsc	12,4	;volatile
+  1358  06F5  2EF7               	goto	u151
+  1359  06F6  2EFA               	goto	u150
+  1360  06F7                     u151:	
+  1361  06F7  0021               	movlb	1	; select bank1
+  1362  06F8  148E               	bsf	14,1	;volatile
+  1363  06F9  2EFC               	goto	u164
+  1364  06FA                     u150:	
+  1365  06FA  0021               	movlb	1	; select bank1
+  1366  06FB  108E               	bcf	14,1	;volatile
+  1367  06FC                     u164:	
+  1368  06FC  188E               	btfsc	14,1	;volatile
+  1369  06FD  2EFF               	goto	u161
+  1370  06FE  2F02               	goto	u160
+  1371  06FF                     u161:	
+  1372  06FF  0021               	movlb	1	; select bank1
+  1373  0700  140E               	bsf	14,0	;volatile
+  1374  0701  2F04               	goto	u174
+  1375  0702                     u160:	
+  1376  0702  0021               	movlb	1	; select bank1
+  1377  0703  100E               	bcf	14,0	;volatile
+  1378  0704                     u174:	
+  1379  0704  180E               	btfsc	14,0	;volatile
+  1380  0705  2F07               	goto	u171
+  1381  0706  2F0A               	goto	u170
+  1382  0707                     u171:	
+  1383  0707  0021               	movlb	1	; select bank1
+  1384  0708  140C               	bsf	12,0	;volatile
+  1385  0709  2F0C               	goto	u184
+  1386  070A                     u170:	
+  1387  070A  0021               	movlb	1	; select bank1
+  1388  070B  100C               	bcf	12,0	;volatile
+  1389  070C                     u184:	
+  1390                           
+  1391                           ;../library/ledtube.c: 75:                 LATA0 = LATC0 = LATC1 = LATA4 = 0;
+  1392  070C  0022               	movlb	2	; select bank2
+  1393  070D  120C               	bcf	12,4	;volatile
+  1394  070E  108E               	bcf	14,1	;volatile
+  1395  070F  100E               	bcf	14,0	;volatile
+  1396  0710  100C               	bcf	12,0	;volatile
+  1397                           
+  1398                           ;../library/ledtube.c: 76:                 break;
+  1399  0711  2FFD               	goto	l113
+  1400  0712                     l106:	
+  1401                           ;../library/ledtube.c: 77:         case 5:
+  1402                           
+  1403                           
+  1404                           ;../library/ledtube.c: 78:                 TRISA0 = TRISA2 = TRISC0 = TRISC2 = TRISA5 = 
+      +                          0;
+  1405  0712  0021               	movlb	1	; select bank1
+  1406  0713  128C               	bcf	12,5	;volatile
+  1407  0714  110E               	bcf	14,2	;volatile
+  1408  0715  100E               	bcf	14,0	;volatile
+  1409  0716  110C               	bcf	12,2	;volatile
+  1410  0717  100C               	bcf	12,0	;volatile
+  1411                           
+  1412                           ;../library/ledtube.c: 79:                 LATA0 = LATA2 = LATC0 = LATC2 = LATA5 = 0;
+  1413  0718  0022               	movlb	2	; select bank2
+  1414  0719  128C               	bcf	12,5	;volatile
+  1415  071A  110E               	bcf	14,2	;volatile
+  1416  071B  100E               	bcf	14,0	;volatile
+  1417  071C  110C               	bcf	12,2	;volatile
+  1418  071D  100C               	bcf	12,0	;volatile
+  1419                           
+  1420                           ;../library/ledtube.c: 80:                 TRISA1 = TRISC1 = TRISA4 = 1;
+  1421  071E  0021               	movlb	1	; select bank1
+  1422  071F  160C               	bsf	12,4	;volatile
+  1423  0720  1A0C               	btfsc	12,4	;volatile
+  1424  0721  2F23               	goto	u191
+  1425  0722  2F26               	goto	u190
+  1426  0723                     u191:	
+  1427  0723  0021               	movlb	1	; select bank1
+  1428  0724  148E               	bsf	14,1	;volatile
+  1429  0725  2F28               	goto	u204
+  1430  0726                     u190:	
+  1431  0726  0021               	movlb	1	; select bank1
+  1432  0727  108E               	bcf	14,1	;volatile
+  1433  0728                     u204:	
+  1434  0728  188E               	btfsc	14,1	;volatile
+  1435  0729  2F2B               	goto	u201
+  1436  072A  2F2E               	goto	u200
+  1437  072B                     u201:	
+  1438  072B  0021               	movlb	1	; select bank1
+  1439  072C  148C               	bsf	12,1	;volatile
+  1440  072D  2F30               	goto	u214
+  1441  072E                     u200:	
+  1442  072E  0021               	movlb	1	; select bank1
+  1443  072F  108C               	bcf	12,1	;volatile
+  1444  0730                     u214:	
+  1445                           
+  1446                           ;../library/ledtube.c: 81:                 LATA1 = LATC1 = LATA4 = 0;
+  1447  0730  0022               	movlb	2	; select bank2
+  1448  0731  120C               	bcf	12,4	;volatile
+  1449  0732  108E               	bcf	14,1	;volatile
+  1450  0733  108C               	bcf	12,1	;volatile
+  1451                           
+  1452                           ;../library/ledtube.c: 82:                 break;
+  1453  0734  2FFD               	goto	l113
+  1454  0735                     l107:	
+  1455                           ;../library/ledtube.c: 83:         case 6:
+  1456                           
+  1457                           
+  1458                           ;../library/ledtube.c: 84:                 TRISA0 = TRISA2 = TRISC0 = TRISC1 = TRISC2 = 
+      +                          TRISA5 = 0;
+  1459  0735  0021               	movlb	1	; select bank1
+  1460  0736  128C               	bcf	12,5	;volatile
+  1461  0737  110E               	bcf	14,2	;volatile
+  1462  0738  108E               	bcf	14,1	;volatile
+  1463  0739  100E               	bcf	14,0	;volatile
+  1464  073A  110C               	bcf	12,2	;volatile
+  1465  073B  100C               	bcf	12,0	;volatile
+  1466                           
+  1467                           ;../library/ledtube.c: 85:                 LATA0 = LATA2 = LATC0 = LATC1 = LATC2 = LATA5
+      +                           = 0;
+  1468  073C  0022               	movlb	2	; select bank2
+  1469  073D  128C               	bcf	12,5	;volatile
+  1470  073E  110E               	bcf	14,2	;volatile
+  1471  073F  108E               	bcf	14,1	;volatile
+  1472  0740  100E               	bcf	14,0	;volatile
+  1473  0741  110C               	bcf	12,2	;volatile
+  1474  0742  100C               	bcf	12,0	;volatile
+  1475                           
+  1476                           ;../library/ledtube.c: 86:                 TRISA1 = TRISA4 = 1;
+  1477  0743  0021               	movlb	1	; select bank1
+  1478  0744  160C               	bsf	12,4	;volatile
+  1479  0745  1A0C               	btfsc	12,4	;volatile
+  1480  0746  2F48               	goto	u221
+  1481  0747  2F4B               	goto	u220
+  1482  0748                     u221:	
+  1483  0748  0021               	movlb	1	; select bank1
+  1484  0749  148C               	bsf	12,1	;volatile
+  1485  074A  2F4D               	goto	u234
+  1486  074B                     u220:	
+  1487  074B  0021               	movlb	1	; select bank1
+  1488  074C  108C               	bcf	12,1	;volatile
+  1489  074D                     u234:	
+  1490                           
+  1491                           ;../library/ledtube.c: 87:                 LATA1 = LATA4 = 0;
+  1492  074D  0022               	movlb	2	; select bank2
+  1493  074E  120C               	bcf	12,4	;volatile
+  1494  074F  108C               	bcf	12,1	;volatile
+  1495                           
+  1496                           ;../library/ledtube.c: 88:                 break;
+  1497  0750  2FFD               	goto	l113
+  1498  0751                     l108:	
+  1499                           ;../library/ledtube.c: 89:         case 7:
+  1500                           
+  1501                           
+  1502                           ;../library/ledtube.c: 90:                 TRISA0 = TRISA1 = TRISA2 = 0;
+  1503  0751  0021               	movlb	1	; select bank1
+  1504  0752  110C               	bcf	12,2	;volatile
+  1505  0753  108C               	bcf	12,1	;volatile
+  1506  0754  100C               	bcf	12,0	;volatile
+  1507                           
+  1508                           ;../library/ledtube.c: 91:                 LATA0 = LATA1 = LATA2 = 0;
+  1509  0755  0022               	movlb	2	; select bank2
+  1510  0756  110C               	bcf	12,2	;volatile
+  1511  0757  108C               	bcf	12,1	;volatile
+  1512  0758  100C               	bcf	12,0	;volatile
+  1513                           
+  1514                           ;../library/ledtube.c: 92:                 TRISC0 = TRISC1 = TRISC2 = TRISA5 = TRISA4 = 
+      +                          1;
+  1515  0759  0021               	movlb	1	; select bank1
+  1516  075A  160C               	bsf	12,4	;volatile
+  1517  075B  1A0C               	btfsc	12,4	;volatile
+  1518  075C  2F5E               	goto	u241
+  1519  075D  2F61               	goto	u240
+  1520  075E                     u241:	
+  1521  075E  0021               	movlb	1	; select bank1
+  1522  075F  168C               	bsf	12,5	;volatile
+  1523  0760  2F63               	goto	u254
+  1524  0761                     u240:	
+  1525  0761  0021               	movlb	1	; select bank1
+  1526  0762  128C               	bcf	12,5	;volatile
+  1527  0763                     u254:	
+  1528  0763  1A8C               	btfsc	12,5	;volatile
+  1529  0764  2F66               	goto	u251
+  1530  0765  2F69               	goto	u250
+  1531  0766                     u251:	
+  1532  0766  0021               	movlb	1	; select bank1
+  1533  0767  150E               	bsf	14,2	;volatile
+  1534  0768  2F6B               	goto	u264
+  1535  0769                     u250:	
+  1536  0769  0021               	movlb	1	; select bank1
+  1537  076A  110E               	bcf	14,2	;volatile
+  1538  076B                     u264:	
+  1539  076B  190E               	btfsc	14,2	;volatile
+  1540  076C  2F6E               	goto	u261
+  1541  076D  2F71               	goto	u260
+  1542  076E                     u261:	
+  1543  076E  0021               	movlb	1	; select bank1
+  1544  076F  148E               	bsf	14,1	;volatile
+  1545  0770  2F73               	goto	u274
+  1546  0771                     u260:	
+  1547  0771  0021               	movlb	1	; select bank1
+  1548  0772  108E               	bcf	14,1	;volatile
+  1549  0773                     u274:	
+  1550  0773  188E               	btfsc	14,1	;volatile
+  1551  0774  2F76               	goto	u271
+  1552  0775  2F79               	goto	u270
+  1553  0776                     u271:	
+  1554  0776  0021               	movlb	1	; select bank1
+  1555  0777  140E               	bsf	14,0	;volatile
+  1556  0778  2F7B               	goto	u284
+  1557  0779                     u270:	
+  1558  0779  0021               	movlb	1	; select bank1
+  1559  077A  100E               	bcf	14,0	;volatile
+  1560  077B                     u284:	
+  1561                           
+  1562                           ;../library/ledtube.c: 93:                 LATC0 = LATC1 = LATC2 = LATA5 = LATA4 = 0;
+  1563  077B  0022               	movlb	2	; select bank2
+  1564  077C  120C               	bcf	12,4	;volatile
+  1565  077D  128C               	bcf	12,5	;volatile
+  1566  077E  110E               	bcf	14,2	;volatile
+  1567  077F  108E               	bcf	14,1	;volatile
+  1568  0780  100E               	bcf	14,0	;volatile
+  1569                           
+  1570                           ;../library/ledtube.c: 94:                 break;
+  1571  0781  2FFD               	goto	l113
+  1572  0782                     l109:	
+  1573                           ;../library/ledtube.c: 95:         case 8:
+  1574                           
+  1575                           
+  1576                           ;../library/ledtube.c: 96:                 TRISA0 = TRISA1 = TRISA2 = TRISC0 = TRISC1 = 
+      +                          TRISC2 = TRISA5 = 0;
+  1577  0782  0021               	movlb	1	; select bank1
+  1578  0783  128C               	bcf	12,5	;volatile
+  1579  0784  110E               	bcf	14,2	;volatile
+  1580  0785  108E               	bcf	14,1	;volatile
+  1581  0786  100E               	bcf	14,0	;volatile
+  1582  0787  110C               	bcf	12,2	;volatile
+  1583  0788  108C               	bcf	12,1	;volatile
+  1584  0789  100C               	bcf	12,0	;volatile
+  1585                           
+  1586                           ;../library/ledtube.c: 97:                 LATA0 = LATA1 = LATA2 = LATC0 = LATC1 = LATC2
+      +                           = LATA5 = 0;
+  1587  078A  0022               	movlb	2	; select bank2
+  1588  078B  128C               	bcf	12,5	;volatile
+  1589  078C  110E               	bcf	14,2	;volatile
+  1590  078D  108E               	bcf	14,1	;volatile
+  1591  078E  100E               	bcf	14,0	;volatile
+  1592  078F  110C               	bcf	12,2	;volatile
+  1593  0790  108C               	bcf	12,1	;volatile
+  1594  0791  100C               	bcf	12,0	;volatile
+  1595                           
+  1596                           ;../library/ledtube.c: 98:                 break;
+  1597  0792  2FFD               	goto	l113
+  1598  0793                     l110:	
+  1599                           ;../library/ledtube.c: 99:         case 9:
+  1600                           
+  1601                           
+  1602                           ;../library/ledtube.c: 100:                 TRISA0 = TRISA1 = TRISA2 = TRISC0 = TRISC2 =
+      +                           TRISA5 = 0;
+  1603  0793  0021               	movlb	1	; select bank1
+  1604  0794  128C               	bcf	12,5	;volatile
+  1605  0795  110E               	bcf	14,2	;volatile
+  1606  0796  100E               	bcf	14,0	;volatile
+  1607  0797  110C               	bcf	12,2	;volatile
+  1608  0798  108C               	bcf	12,1	;volatile
+  1609  0799  100C               	bcf	12,0	;volatile
+  1610                           
+  1611                           ;../library/ledtube.c: 101:                 LATA0 = LATA1 = LATA2 = LATC0 = LATC2 = LATA
+      +                          5 = 0;
+  1612  079A  0022               	movlb	2	; select bank2
+  1613  079B  128C               	bcf	12,5	;volatile
+  1614  079C  110E               	bcf	14,2	;volatile
+  1615  079D  100E               	bcf	14,0	;volatile
+  1616  079E  110C               	bcf	12,2	;volatile
+  1617  079F  108C               	bcf	12,1	;volatile
+  1618  07A0  100C               	bcf	12,0	;volatile
+  1619                           
+  1620                           ;../library/ledtube.c: 102:                 TRISC1 = TRISA4 = 1;
+  1621  07A1  0021               	movlb	1	; select bank1
+  1622  07A2  160C               	bsf	12,4	;volatile
+  1623  07A3  1A0C               	btfsc	12,4	;volatile
+  1624  07A4  2FA6               	goto	u291
+  1625  07A5  2FA9               	goto	u290
+  1626  07A6                     u291:	
+  1627  07A6  0021               	movlb	1	; select bank1
+  1628  07A7  148E               	bsf	14,1	;volatile
+  1629  07A8  2FAB               	goto	u304
+  1630  07A9                     u290:	
+  1631  07A9  0021               	movlb	1	; select bank1
+  1632  07AA  108E               	bcf	14,1	;volatile
+  1633  07AB                     u304:	
+  1634                           
+  1635                           ;../library/ledtube.c: 103:                 LATC1 = LATA4 = 0;
+  1636  07AB  0022               	movlb	2	; select bank2
+  1637  07AC  120C               	bcf	12,4	;volatile
+  1638  07AD  108E               	bcf	14,1	;volatile
+  1639                           
+  1640                           ;../library/ledtube.c: 104:                 break;
+  1641  07AE  2FFD               	goto	l113
+  1642  07AF                     l112:	
+  1643                           ;../library/ledtube.c: 106:         case 'E':
+  1644                           
+  1645                           
+  1646                           ;../library/ledtube.c: 107:                 TRISA0 = TRISC0 = TRISC1 = TRISC2 = TRISA5 =
+      +                           0;
+  1647  07AF  0021               	movlb	1	; select bank1
+  1648  07B0  128C               	bcf	12,5	;volatile
+  1649  07B1  110E               	bcf	14,2	;volatile
+  1650  07B2  108E               	bcf	14,1	;volatile
+  1651  07B3  100E               	bcf	14,0	;volatile
+  1652  07B4  100C               	bcf	12,0	;volatile
+  1653                           
+  1654                           ;../library/ledtube.c: 108:                 LATA0 = LATC0 = LATC1 = LATC2 = LATA5 = 0;
+  1655  07B5  0022               	movlb	2	; select bank2
+  1656  07B6  128C               	bcf	12,5	;volatile
+  1657  07B7  110E               	bcf	14,2	;volatile
+  1658  07B8  108E               	bcf	14,1	;volatile
+  1659  07B9  100E               	bcf	14,0	;volatile
+  1660  07BA  100C               	bcf	12,0	;volatile
+  1661                           
+  1662                           ;../library/ledtube.c: 109:                 TRISA1 = TRISA2 = TRISA4 = 1;
+  1663  07BB  0021               	movlb	1	; select bank1
+  1664  07BC  160C               	bsf	12,4	;volatile
+  1665  07BD  1A0C               	btfsc	12,4	;volatile
+  1666  07BE  2FC0               	goto	u311
+  1667  07BF  2FC3               	goto	u310
+  1668  07C0                     u311:	
+  1669  07C0  0021               	movlb	1	; select bank1
+  1670  07C1  150C               	bsf	12,2	;volatile
+  1671  07C2  2FC5               	goto	u324
+  1672  07C3                     u310:	
+  1673  07C3  0021               	movlb	1	; select bank1
+  1674  07C4  110C               	bcf	12,2	;volatile
+  1675  07C5                     u324:	
+  1676  07C5  190C               	btfsc	12,2	;volatile
+  1677  07C6  2FC8               	goto	u321
+  1678  07C7  2FCB               	goto	u320
+  1679  07C8                     u321:	
+  1680  07C8  0021               	movlb	1	; select bank1
+  1681  07C9  148C               	bsf	12,1	;volatile
+  1682  07CA  2FCD               	goto	u334
+  1683  07CB                     u320:	
+  1684  07CB  0021               	movlb	1	; select bank1
+  1685  07CC  108C               	bcf	12,1	;volatile
+  1686  07CD                     u334:	
+  1687                           
+  1688                           ;../library/ledtube.c: 110:                 LATA1 = LATA2 = LATA4 = 0;
+  1689  07CD  0022               	movlb	2	; select bank2
+  1690  07CE  120C               	bcf	12,4	;volatile
+  1691  07CF  110C               	bcf	12,2	;volatile
+  1692  07D0  108C               	bcf	12,1	;volatile
+  1693                           
+  1694                           ;../library/ledtube.c: 111:                 break;
+  1695  07D1  2FFD               	goto	l113
+  1696  07D2                     l772:	
+  1697  07D2  0872               	movf	display_place@num,w
+  1698  07D3  00F0               	movwf	??_display_place
+  1699  07D4  01F1               	clrf	??_display_place+1
+  1700                           
+  1701                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+  1702                           ; Switch size 1, requested type "simple"
+  1703                           ; Number of cases is 1, Range of values is 0 to 0
+  1704                           ; switch strategies available:
+  1705                           ; Name         Instructions Cycles
+  1706                           ; simple_byte            4     3 (average)
+  1707                           ; direct_byte            8     6 (fixed)
+  1708                           ; jumptable            260     6 (fixed)
+  1709                           ;	Chosen strategy is simple_byte
+  1710  07D5  0871               	movf	??_display_place+1,w
+  1711  07D6  3A00               	xorlw	0	; case 0
+  1712  07D7  1903               	skipnz
+  1713  07D8  2FDA               	goto	l968
+  1714  07D9  2FAF               	goto	l112
+  1715  07DA                     l968:	
+  1716                           
+  1717                           ; Switch size 1, requested type "simple"
+  1718                           ; Number of cases is 11, Range of values is 0 to 69
+  1719                           ; switch strategies available:
+  1720                           ; Name         Instructions Cycles
+  1721                           ; simple_byte           34    18 (average)
+  1722                           ; direct_byte          146     6 (fixed)
+  1723                           ; jumptable            260     6 (fixed)
+  1724                           ;	Chosen strategy is simple_byte
+  1725  07DA  0870               	movf	??_display_place,w
+  1726  07DB  3A00               	xorlw	0	; case 0
+  1727  07DC  1903               	skipnz
+  1728  07DD  2E4E               	goto	l100
+  1729  07DE  3A01               	xorlw	1	; case 1
+  1730  07DF  1903               	skipnz
+  1731  07E0  2E6A               	goto	l102
+  1732  07E1  3A03               	xorlw	3	; case 2
+  1733  07E2  1903               	skipnz
+  1734  07E3  2EA2               	goto	l103
+  1735  07E4  3A01               	xorlw	1	; case 3
+  1736  07E5  1903               	skipnz
+  1737  07E6  2EC5               	goto	l104
+  1738  07E7  3A07               	xorlw	7	; case 4
+  1739  07E8  1903               	skipnz
+  1740  07E9  2EE8               	goto	l105
+  1741  07EA  3A01               	xorlw	1	; case 5
+  1742  07EB  1903               	skipnz
+  1743  07EC  2F12               	goto	l106
+  1744  07ED  3A03               	xorlw	3	; case 6
+  1745  07EE  1903               	skipnz
+  1746  07EF  2F35               	goto	l107
+  1747  07F0  3A01               	xorlw	1	; case 7
+  1748  07F1  1903               	skipnz
+  1749  07F2  2F51               	goto	l108
+  1750  07F3  3A0F               	xorlw	15	; case 8
+  1751  07F4  1903               	skipnz
+  1752  07F5  2F82               	goto	l109
+  1753  07F6  3A01               	xorlw	1	; case 9
+  1754  07F7  1903               	skipnz
+  1755  07F8  2F93               	goto	l110
+  1756  07F9  3A4C               	xorlw	76	; case 69
+  1757  07FA  1903               	skipnz
+  1758  07FB  2FAF               	goto	l112
+  1759  07FC  2FAF               	goto	l112
+  1760  07FD                     l113:	
+  1761  07FD  0008               	return
+  1762  07FE                     __end_of_display_place:	
+  1763                           
+  1764                           	psect	text3
+  1765  05D0                     __ptext3:	
+  1766 ;; *************** function _PORT_Init *****************
+  1767 ;; Defined at:
+  1768 ;;		line 4 in file "../library/port.c"
+  1769 ;; Parameters:    Size  Location     Type
+  1770 ;;		None
+  1771 ;; Auto vars:     Size  Location     Type
+  1772 ;;		None
+  1773 ;; Return value:  Size  Location     Type
+  1774 ;;                  1    wreg      void 
+  1775 ;; Registers used:
+  1776 ;;		status,2, status,0, pclath, cstack
+  1777 ;; Tracked objects:
+  1778 ;;		On entry : 0/0
+  1779 ;;		On exit  : 0/0
+  1780 ;;		Unchanged: 0/0
+  1781 ;; Data sizes:     COMMON   BANK0   BANK1
+  1782 ;;      Params:         0       0       0
+  1783 ;;      Locals:         0       0       0
+  1784 ;;      Temps:          0       0       0
+  1785 ;;      Totals:         0       0       0
+  1786 ;;Total ram usage:        0 bytes
+  1787 ;; Hardware stack levels used:    1
+  1788 ;; Hardware stack levels required when called:    1
+  1789 ;; This function calls:
+  1790 ;;		_PORTA_Init
+  1791 ;;		_PORTC_Init
+  1792 ;; This function is called by:
+  1793 ;;		_main
+  1794 ;; This function uses a non-reentrant model
+  1795 ;;
+  1796                           
+  1797                           
+  1798                           ;psect for function _PORT_Init
+  1799  05D0                     _PORT_Init:	
+  1800  05D0                     l780:	
+  1801                           ;incstack = 0
+  1802                           ; Regs used in _PORT_Init: [status,2+status,0+pclath+cstack]
+  1803                           
+  1804                           
+  1805                           ;../library/port.c: 5:     PORTA_Init();
+  1806  05D0  3185  25D7  3185   	fcall	_PORTA_Init
+  1807                           
+  1808                           ;../library/port.c: 6:     PORTC_Init();
+  1809  05D3  3185  25E0  3185   	fcall	_PORTC_Init
+  1810  05D6                     l46:	
+  1811  05D6  0008               	return
+  1812  05D7                     __end_of_PORT_Init:	
+  1813                           
+  1814                           	psect	text4
+  1815  05E0                     __ptext4:	
+  1816 ;; *************** function _PORTC_Init *****************
+  1817 ;; Defined at:
+  1818 ;;		line 16 in file "../library/port.c"
+  1819 ;; Parameters:    Size  Location     Type
+  1820 ;;		None
+  1821 ;; Auto vars:     Size  Location     Type
+  1822 ;;		None
+  1823 ;; Return value:  Size  Location     Type
+  1824 ;;                  1    wreg      void 
+  1825 ;; Registers used:
+  1826 ;;		status,2
+  1827 ;; Tracked objects:
+  1828 ;;		On entry : 0/0
+  1829 ;;		On exit  : 0/0
+  1830 ;;		Unchanged: 0/0
+  1831 ;; Data sizes:     COMMON   BANK0   BANK1
+  1832 ;;      Params:         0       0       0
+  1833 ;;      Locals:         0       0       0
+  1834 ;;      Temps:          0       0       0
+  1835 ;;      Totals:         0       0       0
+  1836 ;;Total ram usage:        0 bytes
+  1837 ;; Hardware stack levels used:    1
+  1838 ;; This function calls:
+  1839 ;;		Nothing
+  1840 ;; This function is called by:
+  1841 ;;		_PORT_Init
+  1842 ;; This function uses a non-reentrant model
+  1843 ;;
+  1844                           
+  1845                           
+  1846                           ;psect for function _PORTC_Init
+  1847  05E0                     _PORTC_Init:	
+  1848  05E0                     l766:	
+  1849                           ;incstack = 0
+  1850                           ; Regs used in _PORTC_Init: [status,2]
+  1851                           
+  1852                           
+  1853                           ;../library/port.c: 17:     PORTC = 0;
+  1854  05E0  0020               	movlb	0	; select bank0
+  1855  05E1  018E               	clrf	14	;volatile
+  1856                           
+  1857                           ;../library/port.c: 18:     LATC = 0;
+  1858  05E2  0022               	movlb	2	; select bank2
+  1859  05E3  018E               	clrf	14	;volatile
+  1860                           
+  1861                           ;../library/port.c: 19:     ANSELC = 0;
+  1862  05E4  0023               	movlb	3	; select bank3
+  1863  05E5  018E               	clrf	14	;volatile
+  1864                           
+  1865                           ;../library/port.c: 20:     TRISC = 0;
+  1866  05E6  0021               	movlb	1	; select bank1
+  1867  05E7  018E               	clrf	14	;volatile
+  1868  05E8                     l52:	
+  1869  05E8  0008               	return
+  1870  05E9                     __end_of_PORTC_Init:	
+  1871                           
+  1872                           	psect	text5
+  1873  05D7                     __ptext5:	
+  1874 ;; *************** function _PORTA_Init *****************
+  1875 ;; Defined at:
+  1876 ;;		line 9 in file "../library/port.c"
+  1877 ;; Parameters:    Size  Location     Type
+  1878 ;;		None
+  1879 ;; Auto vars:     Size  Location     Type
+  1880 ;;		None
+  1881 ;; Return value:  Size  Location     Type
+  1882 ;;                  1    wreg      void 
+  1883 ;; Registers used:
+  1884 ;;		status,2
+  1885 ;; Tracked objects:
+  1886 ;;		On entry : 0/0
+  1887 ;;		On exit  : 0/0
+  1888 ;;		Unchanged: 0/0
+  1889 ;; Data sizes:     COMMON   BANK0   BANK1
+  1890 ;;      Params:         0       0       0
+  1891 ;;      Locals:         0       0       0
+  1892 ;;      Temps:          0       0       0
+  1893 ;;      Totals:         0       0       0
+  1894 ;;Total ram usage:        0 bytes
+  1895 ;; Hardware stack levels used:    1
+  1896 ;; This function calls:
+  1897 ;;		Nothing
+  1898 ;; This function is called by:
+  1899 ;;		_PORT_Init
+  1900 ;; This function uses a non-reentrant model
+  1901 ;;
+  1902                           
+  1903                           
+  1904                           ;psect for function _PORTA_Init
+  1905  05D7                     _PORTA_Init:	
+  1906  05D7                     l764:	
+  1907                           ;incstack = 0
+  1908                           ; Regs used in _PORTA_Init: [status,2]
+  1909                           
+  1910                           
+  1911                           ;../library/port.c: 10:     PORTA = 0;
+  1912  05D7  0020               	movlb	0	; select bank0
+  1913  05D8  018C               	clrf	12	;volatile
+  1914                           
+  1915                           ;../library/port.c: 11:     LATA = 0;
+  1916  05D9  0022               	movlb	2	; select bank2
+  1917  05DA  018C               	clrf	12	;volatile
+  1918                           
+  1919                           ;../library/port.c: 12:     ANSELA = 0;
+  1920  05DB  0023               	movlb	3	; select bank3
+  1921  05DC  018C               	clrf	12	;volatile
+  1922                           
+  1923                           ;../library/port.c: 13:     TRISA = 0;
+  1924  05DD  0021               	movlb	1	; select bank1
+  1925  05DE  018C               	clrf	12	;volatile
+  1926  05DF                     l49:	
+  1927  05DF  0008               	return
+  1928  05E0                     __end_of_PORTA_Init:	
+  1929                           
+  1930                           	psect	text6
+  1931  05CC                     __ptext6:	
+  1932 ;; *************** function _FOSC_Init *****************
+  1933 ;; Defined at:
+  1934 ;;		line 3 in file "../library/fosc.c"
+  1935 ;; Parameters:    Size  Location     Type
+  1936 ;;		None
+  1937 ;; Auto vars:     Size  Location     Type
+  1938 ;;		None
+  1939 ;; Return value:  Size  Location     Type
+  1940 ;;                  1    wreg      void 
+  1941 ;; Registers used:
+  1942 ;;		wreg
+  1943 ;; Tracked objects:
+  1944 ;;		On entry : 0/0
+  1945 ;;		On exit  : 0/0
+  1946 ;;		Unchanged: 0/0
+  1947 ;; Data sizes:     COMMON   BANK0   BANK1
+  1948 ;;      Params:         0       0       0
+  1949 ;;      Locals:         0       0       0
+  1950 ;;      Temps:          0       0       0
+  1951 ;;      Totals:         0       0       0
+  1952 ;;Total ram usage:        0 bytes
+  1953 ;; Hardware stack levels used:    1
+  1954 ;; This function calls:
+  1955 ;;		Nothing
+  1956 ;; This function is called by:
+  1957 ;;		_main
+  1958 ;; This function uses a non-reentrant model
+  1959 ;;
+  1960                           
+  1961                           
+  1962                           ;psect for function _FOSC_Init
+  1963  05CC                     _FOSC_Init:	
+  1964  05CC                     l778:	
+  1965                           ;incstack = 0
+  1966                           ; Regs used in _FOSC_Init: [wreg]
+  1967                           
+  1968                           
+  1969                           ;../library/fosc.c: 4:     OSCCON = 0X68;
+  1970  05CC  3068               	movlw	104
+  1971  05CD  0021               	movlb	1	; select bank1
+  1972  05CE  0099               	movwf	25	;volatile
+  1973  05CF                     l23:	
+  1974  05CF  0008               	return
+  1975  05D0                     __end_of_FOSC_Init:	
+  1976  007E                     btemp	set	126	;btemp
+  1977  007E                     wtemp0	set	126
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  32
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14      9       9
+    BANK0            80      0       0
+    BANK1            32      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    _main->_display_2seg_hc
+    _display_2seg_hc->_display_place
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 1     1      0     233
+                                              8 COMMON     1     1      0
+                          _FOSC_Init
+                          _PORT_Init
+                    _display_2seg_hc
+ ---------------------------------------------------------------------------------
+ (1) _display_2seg_hc                                      5     3      2     233
+                                              3 COMMON     5     3      2
+                      _display_place
+ ---------------------------------------------------------------------------------
+ (2) _display_place                                        3     3      0      15
+                                              0 COMMON     3     3      0
+ ---------------------------------------------------------------------------------
+ (1) _PORT_Init                                            0     0      0       0
+                         _PORTA_Init
+                         _PORTC_Init
+ ---------------------------------------------------------------------------------
+ (2) _PORTC_Init                                           0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _PORTA_Init                                           0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _FOSC_Init                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _FOSC_Init
+   _PORT_Init
+     _PORTA_Init
+     _PORTC_Init
+   _display_2seg_hc
+     _display_place
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM              70      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITCOMMON            E      0       0       1        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+COMMON               E      9       9       2       64.3%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+BITSFR2              0      0       0       3        0.0%
+SFR2                 0      0       0       3        0.0%
+STACK                0      0       0       3        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+ABS                  0      0       0       4        0.0%
+BITBANK0            50      0       0       5        0.0%
+BITSFR4              0      0       0       5        0.0%
+SFR4                 0      0       0       5        0.0%
+BANK0               50      0       0       6        0.0%
+BITSFR5              0      0       0       6        0.0%
+SFR5                 0      0       0       6        0.0%
+BITBANK1            20      0       0       7        0.0%
+BITSFR6              0      0       0       7        0.0%
+SFR6                 0      0       0       7        0.0%
+BANK1               20      0       0       8        0.0%
+BITSFR7              0      0       0       8        0.0%
+SFR7                 0      0       0       8        0.0%
+BITSFR8              0      0       0       9        0.0%
+SFR8                 0      0       0       9        0.0%
+DATA                 0      0       0       9        0.0%
+BITSFR9              0      0       0      10        0.0%
+SFR9                 0      0       0      10        0.0%
+BITSFR10             0      0       0      11        0.0%
+SFR10                0      0       0      11        0.0%
+BITSFR11             0      0       0      12        0.0%
+SFR11                0      0       0      12        0.0%
+BITSFR12             0      0       0      13        0.0%
+SFR12                0      0       0      13        0.0%
+BITSFR13             0      0       0      14        0.0%
+SFR13                0      0       0      14        0.0%
+BITSFR14             0      0       0      15        0.0%
+SFR14                0      0       0      15        0.0%
+BITSFR15             0      0       0      16        0.0%
+SFR15                0      0       0      16        0.0%
+BITSFR16             0      0       0      17        0.0%
+SFR16                0      0       0      17        0.0%
+BITSFR17             0      0       0      18        0.0%
+SFR17                0      0       0      18        0.0%
+BITSFR18             0      0       0      19        0.0%
+SFR18                0      0       0      19        0.0%
+BITSFR19             0      0       0      20        0.0%
+SFR19                0      0       0      20        0.0%
+BITSFR20             0      0       0      21        0.0%
+SFR20                0      0       0      21        0.0%
+BITSFR21             0      0       0      22        0.0%
+SFR21                0      0       0      22        0.0%
+BITSFR22             0      0       0      23        0.0%
+SFR22                0      0       0      23        0.0%
+BITSFR23             0      0       0      24        0.0%
+SFR23                0      0       0      24        0.0%
+BITSFR24             0      0       0      25        0.0%
+SFR24                0      0       0      25        0.0%
+BITSFR25             0      0       0      26        0.0%
+SFR25                0      0       0      26        0.0%
+BITSFR26             0      0       0      27        0.0%
+SFR26                0      0       0      27        0.0%
+BITSFR27             0      0       0      28        0.0%
+SFR27                0      0       0      28        0.0%
+BITSFR28             0      0       0      29        0.0%
+SFR28                0      0       0      29        0.0%
+BITSFR29             0      0       0      30        0.0%
+SFR29                0      0       0      30        0.0%
+BITSFR30             0      0       0      31        0.0%
+SFR30                0      0       0      31        0.0%
+BITSFR31             0      0       0      32        0.0%
+SFR31                0      0       0      32        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.10 build 88905656 
+Symbol Table                                                                                   Mon Sep 23 20:08:37 2019
+
+             __CFG_CP$OFF 0000                        l23 05CF                        l52 05E8  
+                      l46 05D6                        l49 05DF                        u10 0664  
+                      u11 0661                        u30 0678                        u31 0675  
+                      u40 0680                        u24 0666                        u41 067D  
+                      u50 0688                        u51 0685                        u60 0690  
+                      u44 067A                        u61 068D                        u70 0698  
+                      u54 0682                        u71 0695                        u64 068A  
+                      u90 06B6                        u74 0692                        u91 06B3  
+                      u84 069A                       l100 064E                       l110 0793  
+                     l102 066A                       l103 06A2                       l112 07AF  
+                     l104 06C5                       l105 06E8                       l113 07FD  
+                     l106 0712                       l107 0735                       l131 060D  
+                     l108 0751                       l109 0782                       l134 0612  
+                     l136 0620                       l137 0627                       l138 062E  
+                     l139 064B                       l910 0635                       l902 05FF  
+                     l904 0603                       l920 05EF                       l906 0608  
+                     l922 05F1                       l764 05D7                       l780 05D0  
+                     l772 07D2                       l924 05F3                       l916 05E9  
+                     l766 05E0                       l918 05EC                       l768 064D  
+                     l778 05CC                       l966 063D                       l968 07DA  
+                     l898 05FF                       _RA3 0063                       u100 06BE  
+                     u101 06BB                       u200 072E                       u120 06D9  
+                     u104 06B8                       u201 072B                       u121 06D6  
+                     u130 06E1                       u114 06C0                       u131 06DE  
+                     u220 074B                       u204 0728                       u221 0748  
+                     u310 07C3                       u214 0730                       u150 06FA  
+                     u134 06DB                       u311 07C0                       u151 06F7  
+                     u320 07CB                       u304 07AB                       u240 0761  
+                     u160 0702                       u144 06E3                       u321 07C8  
+                     u241 075E                       u161 06FF                       u250 0769  
+                     u234 074D                       u170 070A                       u251 0766  
+                     u171 0707                       u324 07C5                       u260 0771  
+                     u164 06FC                       u261 076E                       u334 07CD  
+                     u270 0779                       u254 0763                       u190 0726  
+                     u174 0704                       u510 0608                       u271 0776  
+                     u191 0723                       u511 0607                       u264 076B  
+                     u184 070C                       u520 061D                       u521 061A  
+                     u290 07A9                       u274 0773              __CFG_CPD$OFF 0000  
+                     u291 07A6                       u284 077B                       u534 061F  
+            __CFG_BORV$LO 0000              __CFG_LVP$OFF 0000                      _LATA 010C  
+                    _LATC 010E            ?_display_place 0070              __CFG_WRT$OFF 0000  
+                    _main 05E9                      btemp 007E        __size_of_FOSC_Init 0004  
+                    start 0001             __CFG_IESO$OFF 0000                     ?_main 0070  
+           __CFG_WDTE$OFF 0000                     _LATA0 0860                     _LATA1 0861  
+                   _LATA2 0862                     _LATC0 0870                     _LATA4 0864  
+                   _LATC1 0871                     _LATA5 0865                     _LATC2 0872  
+                   _LATC3 0873                     _LATC5 0875                     _PORTA 000C  
+                   _PORTC 000E                     _TRISA 008C                     _TRISC 008E  
+                   _WPUA5 1065               ?_PORTA_Init 0070            __CFG_FCMEN$OFF 0000  
+             ?_PORTC_Init 0070        __size_of_PORT_Init 0007            __CFG_BOREN$OFF 0000  
+                   status 0003                     wtemp0 007E          ?_display_2seg_hc 0073  
+          __CFG_MCLRE$OFF 0000           __initialization 07FE              __end_of_main 05FE  
+                  ??_main 0078            __CFG_PLLEN$OFF 0000         __end_of_FOSC_Init 05D0  
+         ??_display_place 0070                    _ANSELA 018C                    _ANSELC 018E  
+                  _OSCCON 0099                    _TRISA0 0460                    _TRISA1 0461  
+                  _TRISA2 0462                    _TRISA3 0463                    _TRISC0 0470  
+                  _TRISA4 0464                    _TRISC1 0471                    _TRISA5 0465  
+                  _TRISC2 0472                    _TRISC3 0473                    _TRISC5 0475  
+          __CFG_PWRTE$OFF 0000       __size_of_PORTA_Init 0009       __size_of_PORTC_Init 0009  
+       __end_of_PORT_Init 05D7   __end_of__initialization 07FE            __pcstackCOMMON 0070  
+       display_2seg_hc@dp 0073            _OPTION_REGbits 0095                __pmaintext 05E9  
+            ??_PORTA_Init 0070              ??_PORTC_Init 0070        __end_of_PORTA_Init 05E0  
+      __end_of_PORTC_Init 05E9           __CFG_STVREN$OFF 0000                   __ptext1 05FE  
+                 __ptext2 064C                   __ptext3 05D0                   __ptext4 05E0  
+                 __ptext5 05D7                   __ptext6 05CC                 _FOSC_Init 05CC  
+    end_of_initialization 07FE  __size_of_display_2seg_hc 004E                 _PORT_Init 05D0  
+        __CFG_FOSC$INTOSC 0000                ?_FOSC_Init 0070     __end_of_display_place 07FE  
+              ?_PORT_Init 0070       start_initialization 07FE        display_2seg_hc@seg 0074  
+      display_2seg_hc@num 0077         ??_display_2seg_hc 0075                 ___latbits 0000  
+             ??_FOSC_Init 0070               ??_PORT_Init 0070             __size_of_main 0015  
+         _display_2seg_hc 05FE          display_place@num 0072    __size_of_display_place 01B2  
+       __CFG_CLKOUTEN$OFF 0000                _PORTA_Init 05D7                _PORTC_Init 05E0  
+           _display_place 064C   __end_of_display_2seg_hc 064C  

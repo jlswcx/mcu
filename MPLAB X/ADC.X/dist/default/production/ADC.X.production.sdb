@@ -1,0 +1,225 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F1823 ]
+[d frameptr 6 ]
+"14 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/adc.c
+[v _ADC_Read ADC_Read `(ui  1 e 2 0 ]
+"19 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/ds18b20.c
+[v _DS_Rest DS_Rest `(v  1 e 1 0 ]
+"36
+[v _DS_Write DS_Write `(v  1 e 1 0 ]
+"52
+[v _DS_Read DS_Read `(uc  1 e 1 0 ]
+"3 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/fosc.c
+[v _FOSC_Init FOSC_Init `(v  1 e 1 0 ]
+"43 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/ledtube.c
+[v _display_place display_place `T(v  1 e 1 0 ]
+"154
+[v _display_2seg_hc display_2seg_hc `(v  1 e 1 0 ]
+"4 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/port.c
+[v _PORT_Init PORT_Init `(v  1 e 1 0 ]
+"9
+[v _PORTA_Init PORTA_Init `(v  1 e 1 0 ]
+"16
+[v _PORTC_Init PORTC_Init `(v  1 e 1 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"13 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X\ADC.X\main.c
+[v _ISR ISR `II(v  1 e 1 0 ]
+"42
+[v _TIME0_Init TIME0_Init `(v  1 e 1 0 ]
+"54
+[v _main main `(v  1 e 1 0 ]
+"429 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1823.h
+[v _PORTA PORTA `VEuc  1 e 1 @12 ]
+"684
+[v _PORTC PORTC `VEuc  1 e 1 @14 ]
+"1058
+[v _TMR0 TMR0 `VEuc  1 e 1 @21 ]
+"1491
+[v _TRISA TRISA `VEuc  1 e 1 @140 ]
+"1541
+[v _TRISC TRISC `VEuc  1 e 1 @142 ]
+"1698
+[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @149 ]
+"1949
+[v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
+"2083
+[v _ADRES ADRES `VEus  1 e 2 @155 ]
+"2090
+[v _ADRESL ADRESL `VEuc  1 e 1 @155 ]
+"2110
+[v _ADRESH ADRESH `VEuc  1 e 1 @156 ]
+"2130
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @157 ]
+"2219
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @158 ]
+"2285
+[v _LATA LATA `VEuc  1 e 1 @268 ]
+"2330
+[v _LATC LATC `VEuc  1 e 1 @270 ]
+"3115
+[v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
+"3162
+[v _ANSELC ANSELC `VEuc  1 e 1 @398 ]
+"5692
+[v _ADON ADON `VEb  1 e 0 @1256 ]
+"5728
+[v _ANSA0 ANSA0 `VEb  1 e 0 @3168 ]
+"6127
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"6130
+[v _GO GO `VEb  1 e 0 @1257 ]
+"6229
+[v _LATA1 LATA1 `VEb  1 e 0 @2145 ]
+"6232
+[v _LATA2 LATA2 `VEb  1 e 0 @2146 ]
+"6235
+[v _LATA4 LATA4 `VEb  1 e 0 @2148 ]
+"6238
+[v _LATA5 LATA5 `VEb  1 e 0 @2149 ]
+"6241
+[v _LATC0 LATC0 `VEb  1 e 0 @2160 ]
+"6244
+[v _LATC1 LATC1 `VEb  1 e 0 @2161 ]
+"6247
+[v _LATC2 LATC2 `VEb  1 e 0 @2162 ]
+"6250
+[v _LATC3 LATC3 `VEb  1 e 0 @2163 ]
+"6253
+[v _LATC4 LATC4 `VEb  1 e 0 @2164 ]
+"6256
+[v _LATC5 LATC5 `VEb  1 e 0 @2165 ]
+"6418
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
+"6775
+[v _TMR0IE TMR0IE `VEb  1 e 0 @93 ]
+"6778
+[v _TMR0IF TMR0IF `VEb  1 e 0 @90 ]
+"6817
+[v _TRISA0 TRISA0 `VEb  1 e 0 @1120 ]
+"6820
+[v _TRISA1 TRISA1 `VEb  1 e 0 @1121 ]
+"6823
+[v _TRISA2 TRISA2 `VEb  1 e 0 @1122 ]
+"6829
+[v _TRISA4 TRISA4 `VEb  1 e 0 @1124 ]
+"6832
+[v _TRISA5 TRISA5 `VEb  1 e 0 @1125 ]
+"6835
+[v _TRISC0 TRISC0 `VEb  1 e 0 @1136 ]
+"6838
+[v _TRISC1 TRISC1 `VEb  1 e 0 @1137 ]
+"6841
+[v _TRISC2 TRISC2 `VEb  1 e 0 @1138 ]
+"6844
+[v _TRISC3 TRISC3 `VEb  1 e 0 @1139 ]
+"6847
+[v _TRISC4 TRISC4 `VEb  1 e 0 @1140 ]
+"6850
+[v _TRISC5 TRISC5 `VEb  1 e 0 @1141 ]
+"11 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X\ADC.X\main.c
+[v _ds ds `[4]uc  1 e 4 0 ]
+"54
+[v _main main `(v  1 e 1 0 ]
+{
+"66
+[v main@t t `ui  1 a 2 18 ]
+"65
+[v main@i i `ui  1 a 2 16 ]
+"95
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwmod@counter counter `uc  1 a 1 13 ]
+"5
+[v ___lwmod@divisor divisor `ui  1 p 2 8 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 10 ]
+"25
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 5 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 7 ]
+"5
+[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
+"30
+} 0
+"42 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X\ADC.X\main.c
+[v _TIME0_Init TIME0_Init `(v  1 e 1 0 ]
+{
+"52
+} 0
+"4 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/port.c
+[v _PORT_Init PORT_Init `(v  1 e 1 0 ]
+{
+"7
+} 0
+"16
+[v _PORTC_Init PORTC_Init `(v  1 e 1 0 ]
+{
+"21
+} 0
+"9
+[v _PORTA_Init PORTA_Init `(v  1 e 1 0 ]
+{
+"14
+} 0
+"3 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/fosc.c
+[v _FOSC_Init FOSC_Init `(v  1 e 1 0 ]
+{
+"5
+} 0
+"14 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/adc.c
+[v _ADC_Read ADC_Read `(ui  1 e 2 0 ]
+{
+"15
+[v ADC_Read@value value `ui  1 a 2 4 ]
+"23
+} 0
+"13 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X\ADC.X\main.c
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"15
+[v ISR@i i `uc  1 s 1 i ]
+"40
+} 0
+"154 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/ledtube.c
+[v _display_2seg_hc display_2seg_hc `(v  1 e 1 0 ]
+{
+[v display_2seg_hc@num num `uc  1 a 1 wreg ]
+[v display_2seg_hc@num num `uc  1 a 1 wreg ]
+[v display_2seg_hc@dp dp `uc  1 p 1 3 ]
+[v display_2seg_hc@seg seg `uc  1 p 1 4 ]
+[v display_2seg_hc@num num `uc  1 a 1 7 ]
+"206
+} 0
+"43
+[v _display_place display_place `T(v  1 e 1 0 ]
+{
+[v display_place@num num `uc  1 a 1 wreg ]
+[v display_place@num num `uc  1 a 1 wreg ]
+[v display_place@num num `uc  1 a 1 2 ]
+"113
+} 0

@@ -1,0 +1,433 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F1823 ]
+[d frameptr 6 ]
+"5 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/eusart.c
+[v _EUSART_Tx EUSART_Tx `(v  1 e 1 0 ]
+"27
+[v _EUSART_Init EUSART_Init `(v  1 e 1 0 ]
+"47
+[v _EUSART_Send EUSART_Send `(v  1 e 1 0 ]
+"3 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/fosc.c
+[v _FOSC_Init FOSC_Init `(v  1 e 1 0 ]
+"5 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/ledx.c
+[v _LED_Init LED_Init `(v  1 e 1 0 ]
+"10
+[v _LEDx LEDx `(v  1 e 1 0 ]
+"44 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/nrf24l01.c
+[v _NRF_Port_Init NRF_Port_Init `(v  1 e 1 0 ]
+"58
+[v _NRF_On NRF_On `(v  1 e 1 0 ]
+"70
+[v _NRF_SPI_Init NRF_SPI_Init `(v  1 e 1 0 ]
+"79
+[v _NRF_SPI_RW NRF_SPI_RW `(uc  1 e 1 0 ]
+"87
+[v _NRF_Read_Reg NRF_Read_Reg `(uc  1 e 1 0 ]
+"103
+[v _NRF_Write_Reg NRF_Write_Reg `(uc  1 e 1 0 ]
+"119
+[v _NRF_Read_Buf NRF_Read_Buf `(uc  1 e 1 0 ]
+"138
+[v _NRF_Write_Buf NRF_Write_Buf `(uc  1 e 1 0 ]
+"158
+[v _NRF_Check NRF_Check `(uc  1 e 1 0 ]
+"171
+[v _NRF_TX_Mode NRF_TX_Mode `(v  1 e 1 0 ]
+"264
+[v _NRF_RxPacket NRF_RxPacket `(uc  1 e 1 0 ]
+"284
+[v _NRF_Get_Current_Pipenum NRF_Get_Current_Pipenum `(uc  1 e 1 0 ]
+"293
+[v _NRF_Read_RX_Pload NRF_Read_RX_Pload `(uc  1 e 1 0 ]
+"304
+[v _NRF_Get_Status NRF_Get_Status `(uc  1 e 1 0 ]
+"318
+[v _NRF_Flush_RX NRF_Flush_RX `(v  1 e 1 0 ]
+"322
+[v _NRF_Clear_IRQ NRF_Clear_IRQ `(uc  1 e 1 0 ]
+"382
+[v _NRF_Tx_CheckACK NRF_Tx_CheckACK `(uc  1 e 1 0 ]
+"417
+[v _NRF_Rx_Set NRF_Rx_Set `(v  1 e 1 0 ]
+"426
+[v _NRF_Rx_Set_P0 NRF_Rx_Set_P0 `(v  1 e 1 0 ]
+"456
+[v _NRF_Rx_Receive NRF_Rx_Receive `(v  1 e 1 0 ]
+"4 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/port.c
+[v _PORT_Init PORT_Init `(v  1 e 1 0 ]
+"9
+[v _PORTA_Init PORTA_Init `(v  1 e 1 0 ]
+"16
+[v _PORTC_Init PORTC_Init `(v  1 e 1 0 ]
+"46 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/spi.c
+[v _SPI_Port_Init SPI_Port_Init `(v  1 e 1 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"87 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X\WirelessPad_RX.X\main.c
+[v _BEEP_Init BEEP_Init `(v  1 e 1 0 ]
+"101
+[v _ADC_Init ADC_Init `(v  1 e 1 0 ]
+"107
+[v _ADC_Read ADC_Read `(ui  1 e 2 0 ]
+"141
+[v _ISR ISR `II(v  1 e 1 0 ]
+"157
+[v _main main `(v  1 e 1 0 ]
+"180
+[v _WirelessPad WirelessPad `(v  1 e 1 0 ]
+"33 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/nrf24l01.c
+[v _RX_ADDRESS_P0 RX_ADDRESS_P0 `[5]uc  1 e 5 0 ]
+"34
+[v _RX_ADDRESS_P1 RX_ADDRESS_P1 `[5]uc  1 e 5 0 ]
+"35
+[v _RX_ADDRESS_P2 RX_ADDRESS_P2 `[5]uc  1 e 5 0 ]
+"36
+[v _RX_ADDRESS_P3 RX_ADDRESS_P3 `[5]uc  1 e 5 0 ]
+"37
+[v _RX_ADDRESS_P4 RX_ADDRESS_P4 `[5]uc  1 e 5 0 ]
+"38
+[v _RX_ADDRESS_P5 RX_ADDRESS_P5 `[5]uc  1 e 5 0 ]
+"429 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1823.h
+[v _PORTA PORTA `VEuc  1 e 1 @12 ]
+"684
+[v _PORTC PORTC `VEuc  1 e 1 @14 ]
+"1491
+[v _TRISA TRISA `VEuc  1 e 1 @140 ]
+"1541
+[v _TRISC TRISC `VEuc  1 e 1 @142 ]
+"1949
+[v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
+"2130
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @157 ]
+"2219
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @158 ]
+"2285
+[v _LATA LATA `VEuc  1 e 1 @268 ]
+"2330
+[v _LATC LATC `VEuc  1 e 1 @270 ]
+"2679
+[v _FVRCON FVRCON `VEuc  1 e 1 @279 ]
+"3115
+[v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
+"3162
+[v _ANSELC ANSELC `VEuc  1 e 1 @398 ]
+"3422
+[v _TXREG TXREG `VEuc  1 e 1 @410 ]
+"3458
+[v _SPBRGL SPBRGL `VEuc  1 e 1 @411 ]
+"3508
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @412 ]
+"3833
+[v _SSP1BUF SSP1BUF `VEuc  1 e 1 @529 ]
+"3947
+[v _SSP1STAT SSP1STAT `VEuc  1 e 1 @532 ]
+[s S44 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"3969
+[u S53 . 1 `S44 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES53  1 e 1 @532 ]
+"4069
+[v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @533 ]
+"5767
+[v _BRG16 BRG16 `VEb  1 e 0 @3323 ]
+"5770
+[v _BRGH BRGH `VEb  1 e 0 @3314 ]
+"6166
+[v _IOCAF4 IOCAF4 `VEb  1 e 0 @7324 ]
+"6208
+[v _IOCIE IOCIE `VEb  1 e 0 @91 ]
+"6211
+[v _IOCIF IOCIF `VEb  1 e 0 @88 ]
+"6250
+[v _LATC3 LATC3 `VEb  1 e 0 @2163 ]
+"6418
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
+"6451
+[v _RA0 RA0 `VEb  1 e 0 @96 ]
+"6457
+[v _RA2 RA2 `VEb  1 e 0 @98 ]
+"6463
+[v _RA4 RA4 `VEb  1 e 0 @100 ]
+"6466
+[v _RA5 RA5 `VEb  1 e 0 @101 ]
+"6478
+[v _RC3 RC3 `VEb  1 e 0 @115 ]
+"6565
+[v _SPEN SPEN `VEb  1 e 0 @3311 ]
+"6637
+[v _SSP1IF SSP1IF `VEb  1 e 0 @139 ]
+"6685
+[v _SYNC SYNC `VEb  1 e 0 @3316 ]
+"6817
+[v _TRISA0 TRISA0 `VEb  1 e 0 @1120 ]
+"6823
+[v _TRISA2 TRISA2 `VEb  1 e 0 @1122 ]
+"6835
+[v _TRISC0 TRISC0 `VEb  1 e 0 @1136 ]
+"6838
+[v _TRISC1 TRISC1 `VEb  1 e 0 @1137 ]
+"6841
+[v _TRISC2 TRISC2 `VEb  1 e 0 @1138 ]
+"6844
+[v _TRISC3 TRISC3 `VEb  1 e 0 @1139 ]
+"6853
+[v _TRMT TRMT `VEb  1 e 0 @3313 ]
+"6886
+[v _TXCKSEL TXCKSEL `VEb  1 e 0 @2282 ]
+"6889
+[v _TXEN TXEN `VEb  1 e 0 @3317 ]
+"68 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X\WirelessPad_RX.X\main.c
+[v _rx_addr_0 rx_addr_0 `[5]uc  1 e 5 0 ]
+"157
+[v _main main `(v  1 e 1 0 ]
+{
+"178
+} 0
+"180
+[v _WirelessPad WirelessPad `(v  1 e 1 0 ]
+{
+"183
+[v WirelessPad@rxbuf rxbuf `[2]uc  1 a 2 17 ]
+"243
+} 0
+"70 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/nrf24l01.c
+[v _NRF_SPI_Init NRF_SPI_Init `(v  1 e 1 0 ]
+{
+"77
+} 0
+"426
+[v _NRF_Rx_Set_P0 NRF_Rx_Set_P0 `(v  1 e 1 0 ]
+{
+[v NRF_Rx_Set_P0@addr addr `*.4uc  1 a 1 wreg ]
+[v NRF_Rx_Set_P0@addr addr `*.4uc  1 a 1 wreg ]
+[v NRF_Rx_Set_P0@buf_len buf_len `uc  1 p 1 7 ]
+[v NRF_Rx_Set_P0@addr addr `*.4uc  1 a 1 10 ]
+"430
+} 0
+"417
+[v _NRF_Rx_Set NRF_Rx_Set `(v  1 e 1 0 ]
+{
+[v NRF_Rx_Set@ack ack `uc  1 a 1 wreg ]
+[v NRF_Rx_Set@ack ack `uc  1 a 1 wreg ]
+[v NRF_Rx_Set@pipe pipe `uc  1 p 1 5 ]
+[v NRF_Rx_Set@ack ack `uc  1 a 1 7 ]
+"424
+} 0
+"456
+[v _NRF_Rx_Receive NRF_Rx_Receive `(v  1 e 1 0 ]
+{
+"461
+} 0
+"264
+[v _NRF_RxPacket NRF_RxPacket `(uc  1 e 1 0 ]
+{
+[v NRF_RxPacket@rxbuf rxbuf `*.4uc  1 a 1 wreg ]
+"266
+[v NRF_RxPacket@status status `uc  1 a 1 1 ]
+"264
+[v NRF_RxPacket@rxbuf rxbuf `*.4uc  1 a 1 wreg ]
+[v NRF_RxPacket@rxbuf rxbuf `*.4uc  1 a 1 0 ]
+"278
+} 0
+"293
+[v _NRF_Read_RX_Pload NRF_Read_RX_Pload `(uc  1 e 1 0 ]
+{
+[v NRF_Read_RX_Pload@pBuf pBuf `*.4uc  1 a 1 wreg ]
+"294
+[v NRF_Read_RX_Pload@pipe pipe `uc  1 a 1 12 ]
+[v NRF_Read_RX_Pload@width width `uc  1 a 1 10 ]
+"293
+[v NRF_Read_RX_Pload@pBuf pBuf `*.4uc  1 a 1 wreg ]
+"295
+[v NRF_Read_RX_Pload@pBuf pBuf `*.4uc  1 a 1 11 ]
+"299
+} 0
+"284
+[v _NRF_Get_Current_Pipenum NRF_Get_Current_Pipenum `(uc  1 e 1 0 ]
+{
+"286
+} 0
+"304
+[v _NRF_Get_Status NRF_Get_Status `(uc  1 e 1 0 ]
+{
+"306
+} 0
+"87
+[v _NRF_Read_Reg NRF_Read_Reg `(uc  1 e 1 0 ]
+{
+[v NRF_Read_Reg@reg reg `uc  1 a 1 wreg ]
+"88
+[v NRF_Read_Reg@status status `uc  1 a 1 3 ]
+"87
+[v NRF_Read_Reg@reg reg `uc  1 a 1 wreg ]
+"89
+[v NRF_Read_Reg@reg reg `uc  1 a 1 2 ]
+"94
+} 0
+"318
+[v _NRF_Flush_RX NRF_Flush_RX `(v  1 e 1 0 ]
+{
+"320
+} 0
+"44
+[v _NRF_Port_Init NRF_Port_Init `(v  1 e 1 0 ]
+{
+"56
+} 0
+"58
+[v _NRF_On NRF_On `(v  1 e 1 0 ]
+{
+"60
+} 0
+"322
+[v _NRF_Clear_IRQ NRF_Clear_IRQ `(uc  1 e 1 0 ]
+{
+"326
+[v NRF_Clear_IRQ@temp temp `uc  1 a 1 8 ]
+"345
+} 0
+"103
+[v _NRF_Write_Reg NRF_Write_Reg `(uc  1 e 1 0 ]
+{
+[v NRF_Write_Reg@reg reg `uc  1 a 1 wreg ]
+"104
+[v NRF_Write_Reg@status status `uc  1 a 1 4 ]
+"103
+[v NRF_Write_Reg@reg reg `uc  1 a 1 wreg ]
+[v NRF_Write_Reg@value value `uc  1 p 1 1 ]
+"105
+[v NRF_Write_Reg@reg reg `uc  1 a 1 3 ]
+"110
+} 0
+"158
+[v _NRF_Check NRF_Check `(uc  1 e 1 0 ]
+{
+"160
+[v NRF_Check@buf buf `[5]uc  1 a 5 5 ]
+"159
+[v NRF_Check@tuf tuf `[5]uc  1 a 5 0 ]
+"161
+[v NRF_Check@i i `uc  1 a 1 10 ]
+"158
+[v NRF_Check@F2228 F2228 `[5]uc  1 s 5 F2228 ]
+"167
+} 0
+"138
+[v _NRF_Write_Buf NRF_Write_Buf `(uc  1 e 1 0 ]
+{
+[v NRF_Write_Buf@reg reg `uc  1 a 1 wreg ]
+"140
+[v NRF_Write_Buf@i i `uc  1 a 1 6 ]
+"138
+[v NRF_Write_Buf@reg reg `uc  1 a 1 wreg ]
+[v NRF_Write_Buf@pBuf pBuf `*.4uc  1 p 1 1 ]
+[v NRF_Write_Buf@len len `uc  1 p 1 2 ]
+"141
+[v NRF_Write_Buf@reg reg `uc  1 a 1 5 ]
+"148
+} 0
+"119
+[v _NRF_Read_Buf NRF_Read_Buf `(uc  1 e 1 0 ]
+{
+[v NRF_Read_Buf@reg reg `uc  1 a 1 wreg ]
+"121
+[v NRF_Read_Buf@i i `uc  1 a 1 7 ]
+"119
+[v NRF_Read_Buf@reg reg `uc  1 a 1 wreg ]
+[v NRF_Read_Buf@pBuf pBuf `*.4uc  1 p 1 1 ]
+[v NRF_Read_Buf@len len `uc  1 p 1 2 ]
+"122
+[v NRF_Read_Buf@reg reg `uc  1 a 1 6 ]
+"130
+} 0
+"79
+[v _NRF_SPI_RW NRF_SPI_RW `(uc  1 e 1 0 ]
+{
+[v NRF_SPI_RW@dat dat `uc  1 a 1 wreg ]
+[v NRF_SPI_RW@dat dat `uc  1 a 1 wreg ]
+[v NRF_SPI_RW@dat dat `uc  1 a 1 0 ]
+"85
+} 0
+"10 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/ledx.c
+[v _LEDx LEDx `(v  1 e 1 0 ]
+{
+[v LEDx@num num `uc  1 a 1 wreg ]
+[v LEDx@num num `uc  1 a 1 wreg ]
+[v LEDx@num num `uc  1 a 1 1 ]
+"17
+} 0
+"47 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/eusart.c
+[v _EUSART_Send EUSART_Send `(v  1 e 1 0 ]
+{
+[v EUSART_Send@dat dat `uc  1 a 1 wreg ]
+[v EUSART_Send@dat dat `uc  1 a 1 wreg ]
+[v EUSART_Send@dat dat `uc  1 a 1 0 ]
+"50
+} 0
+"4 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/port.c
+[v _PORT_Init PORT_Init `(v  1 e 1 0 ]
+{
+"7
+} 0
+"16
+[v _PORTC_Init PORTC_Init `(v  1 e 1 0 ]
+{
+"21
+} 0
+"9
+[v _PORTA_Init PORTA_Init `(v  1 e 1 0 ]
+{
+"14
+} 0
+"5 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/ledx.c
+[v _LED_Init LED_Init `(v  1 e 1 0 ]
+{
+"8
+} 0
+"3 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/fosc.c
+[v _FOSC_Init FOSC_Init `(v  1 e 1 0 ]
+{
+"5
+} 0
+"27 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X/library/eusart.c
+[v _EUSART_Init EUSART_Init `(v  1 e 1 0 ]
+{
+"45
+} 0
+"5
+[v _EUSART_Tx EUSART_Tx `(v  1 e 1 0 ]
+{
+"13
+} 0
+"87 C:\Users\WANGE\Documents\GitHub\MCU\MPLAB X\WirelessPad_RX.X\main.c
+[v _BEEP_Init BEEP_Init `(v  1 e 1 0 ]
+{
+"90
+} 0
+"101
+[v _ADC_Init ADC_Init `(v  1 e 1 0 ]
+{
+"105
+} 0
+"141
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"155
+} 0
